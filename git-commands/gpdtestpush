@@ -6,6 +6,6 @@ for rmt in "${rmts[@]}"
 do
 	echo "[INFO] checking if 'main' and '${rmt}/main' are in sync ..."
 	git push --dry-run ${rmt} main
-	echo "---"
+	echo ""
 done
 

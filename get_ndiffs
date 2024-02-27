@@ -1,33 +1,38 @@
 #! /usr/bin/env bash
-# last change 20240213 (en)
+# last change 20240227 (en)
 
 MJSTFN=/home/gregor.redelonghi/majstaf_en
-NMTS=${MJSTFN}/metsys_en
-NBIN=${MJSTFN}/en_git/src_en_metsys/majbin_en
-NDOT=${MJSTFN}/en_git/src_en_metsys/dotfiles_en
-GMTS=${MJSTFN}/en_git/src_en_metsys/metsys_en
-NBRC=${MJSTFN}/en_git/src_en_metsys/majrcs_en
+GNDOT=${MJSTFN}/engit/dotfiles_en
+GNBIN=${MJSTFN}/engit/majbin_en
+GNRCS=${MJSTFN}/engit/majrcs_en
+GNMTS=${MJSTFN}/engit/metsys_en
 
-cd ${MJSTFN}/majrcs_en
-echo "[INFO] diffs: majrcs_en ..."
-for FFF in $(find $NBRC/ -type f); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null
-echo "---"
-cd $HOME
-#---
-cd ${MJSTFN}/majbin_en
-echo "[INFO] diffs: majbin_en ..."
-for FFF in $(find $NBIN/ -type f | grep -v '\.dat'); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null
-echo "---"
-cd $HOME
-#---
-cd $HOME
+NDOT=${MJSTFN}/dotfiles_en
+NBIN=${MJSTFN}/majbin_en
+NRCS=${MJSTFN}/majrcs_en
+NMTS=${MJSTFN}/metsys_en
+
+cd ${GNDOT}
 echo "[INFO] diffs: dotfiles_en ..."
-for FFF in $(find $NDOT/ -type f -iname ".*"); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null;
+for FFF in $(find .* -type f -iname ".*"); do diff -q ${FFF} ${HOME}/${FFF}; done 2>/dev/null;
+# for FFF in $(find $NDOT/ -type f -iname ".*"); do diff -q ${FFF} ${NDOT}/${FFF}; done 2>/dev/null;
 echo "---"
 # ---
-cd ${NMTS}
+cd ${GNBIN}
+echo "[INFO] diffs: majbin_en ..."
+for FFF in $(find * -type f | grep -v '\.dat' 2>/dev/null); do diff -q ${FFF} ${NBIN}/${FFF} | grep -vi 'common'; done 2>/dev/null
+echo "---"
+cd $HOME
+#---
+cd ${GNRCS}
+echo "[INFO] diffs: majrcs_en ..."
+for FFF in $(find * -type f 2>/dev/null); do diff -q ${FFF} ${NRCS}/${FFF} | grep -vi 'common'; done 2>/dev/null
+echo "---"
+cd $HOME
+#---
+cd ${GNMTS}
 echo "[INFO] diffs: metsys_en ..."
-diff -qr ${NMTS} ${GMTS} | grep -iv common
+for FFF in $(find * -type f 2>/dev/null); do diff -q ${FFF} ${NMTS}/${FFF} | grep -vi 'common'; done 2>/dev/null
 echo "---"
 cd $HOME
 
