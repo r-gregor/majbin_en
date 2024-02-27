@@ -4,7 +4,7 @@ rmts=( $(git remote) )
 
 for rmt in "${rmts[@]}"
 do
-	echo "[INFO] git push-ing to: '${rmt}/main' ..."
+	echo "[INFO] git push to: $(git remote get-url ${rmt}) ..."
 	git push ${rmt} main
 	echo "---"
 done

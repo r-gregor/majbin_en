@@ -7,7 +7,7 @@ cd ~/majstaf_en/engit/
 for DDD in $(find * -maxdepth 0 -type d); do
 	echo ""
 	echo "*** git testpush in ${DDD} ... ***"
-	cd $DDD && ~/.local/bin/gpdtestpush && cd ..
+	cd $DDD &>/dev/null && ~/.local/bin/gpdtestpush && cd ..
 # echo -e "\n---"
 done
 
