@@ -1,0 +1,94 @@
+#! /usr/bin/env python3
+### (PYTHON3 !!)
+
+### CHANGELOG:
+### -----------------------------------------------------------------------------
+### 20170220 ---
+### added test if URL ends with '/' -- remove (no need to watch for URL ending
+### when entering the URL
+### -----------------------------------------------------------------------------
+
+
+# importing python modules:
+import smtplib
+import os
+import argparse
+import sys
+import datetime as dt
+
+
+# timestamp
+def tms():
+    return dt.datetime.now().strftime('%Y%m%d_%H%M%S')
+
+
+# import local email settings:
+import send_config_en as scn
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+# DO NOT! clear the screen: (updated 20171204)
+# os.system('clear')
+
+# START
+print("[ {} ] Started: {}".format(tms(), sys.argv[0]))
+
+
+# argnum check:
+gArgnum = len(sys.argv)
+if gArgnum != 2:
+    print("[ {} ] There should be exactly 1(one) argument: URL".format(tms()))
+
+# Parsing argument: url:
+parser = argparse.ArgumentParser()
+parser.add_argument('url', help = "Exactly 1(one) argument: URL")
+args = parser.parse_args()
+
+gUrl = args.url
+
+if gUrl.endswith('/'):
+    print("[ {} ] Stripping ending / ...".format(tms()))
+    gUrl = gUrl.rstrip('/')
+
+print("[ {} ] URL = {}".format(tms(), gUrl))
+
+g3w, gFjl = gUrl.rsplit('/', 1)
+
+# print("g3w = ", g3w)
+# print("gFjl = ", gFjl)
+
+if ('.' in gFjl):
+	gName, gExt = gFjl.rsplit('.')
+else:
+	gName = gFjl
+
+# print("gName = ", gName)
+
+gTjtjl = str(gName.replace('-', ' '))
+gSbj = gTjtjl.capitalize()
+gBdyf = gSbj + ":\n" + str(gUrl)
+
+print("[ {} ] Subject: {}".format(tms(), gSbj))
+
+# Composing a email message: header + body ...
+gMsgf = MIMEMultipart()
+gMsgf['From'] = scn.gFrom
+gMsgf['To'] = ', '.join(scn.gTo)
+# gMsgf['To'] = scn.gTo
+
+gMsgf['Subject'] = str(gSbj)
+
+gMsgf.attach(MIMEText(gBdyf, 'plain'))
+
+# send email:
+print("[ {} ] SENDING MAIL ...".format(tms()))
+
+server = smtplib.SMTP(scn.gSmtp, scn.gPort)
+server.starttls()
+server.login(scn.gUnm, scn.gPsswd)
+gTxt = gMsgf.as_string()
+server.sendmail(scn.gFrom, scn.gTo, gTxt)
+server.quit()
+print("[ {} ] DONE!\n".format(tms()))
+

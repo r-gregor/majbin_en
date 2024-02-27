@@ -1,0 +1,52 @@
+### oneliner to read a list of webpages links from a file and inserts them to single text file:
+
+###  EN-proxy ...
+prx_ip=10.91.8.21
+export http_proxy=http://${prx_ip}:80/
+
+
+# Initialising global variables ...
+gr_seznam="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
+gr_dest="$PWD"
+
+gr_d_filename="default-filename"
+
+### FILENAME - MUST CREATE!! ###
+
+# date in num-frmt: yyyymmdd ...
+gr_dejt=$(date +%Y%m%d)
+
+
+echo "Enter filename [no spaces, only hypens or underscores] :"
+read gr_ANS
+
+# filename to add html-dumps to ...
+if [ -z ${gr_ANS} ]; then 
+	
+	gr_filename=${gr_d_filename}-multyf_${gr_dejt}.txt
+else
+	gr_imef=$(echo "${gr_ANS}" | tr ' ' '-') 
+	gr_filename=${gr_imef}-multif_${gr_dejt}.txt
+fi
+
+# destination ...
+gr_goto="${PWD}"
+echo "Destination: ${gr_goto}/${gr_filename}"
+
+# If OK pres any key, else ctrl-c ...
+read -p "Continue ?"
+cd $gr_goto
+touch ${gr_filename}
+
+echo "filename: ${gr_filename}" >> ${gr_filename}
+
+for FFF in $(cat ${gr_seznam}); do echo "inserting $FFF into ${gr_filename}"; done
+for FFF in $(cat ${gr_seznam}); do echo -e "$FFF\n" >> ${gr_filename}; lynx -dump -width=110 $FFF >> ${gr_filename}; echo -e "\n\n\n---" >> ${gr_filename}; done
+
+
+
+
+echo
+echo 'DONE!'
+echo
+

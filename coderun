@@ -1,0 +1,13 @@
+#! /bin/bash
+
+if [ $# -eq 1 ]; then
+    unixpath=$1
+else
+    unixpath=$(realpath $PWD)
+fi
+
+cmmd="cygstart /c/Users/gregor.redelonghi/majstaf/myprogs/VSCode*/Code.exe"
+
+winpath=$(cygpath -w ${unixpath})
+
+$cmmd ${winpath}

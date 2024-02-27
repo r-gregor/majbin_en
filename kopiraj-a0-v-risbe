@@ -1,0 +1,37 @@
+#! /bin/bash
+
+### Name:	Scriptname ...
+### Author:	Author ... 
+### Date:	2013-05-24 
+### Decription:
+### 
+### 
+### 
+ 
+
+gr_SRC="/c/Users/gregor.redelonghi/2020"
+gr_FJL_A="A-0_Org-shema-gradbiscnega-platoja_tipski.pdf"
+gr_PTH="${gr_SRC}/${gr_FJL_A}"
+gr_DST=$PWD
+gr_NNC="${gr_DST}/${gr_FJL_A}"
+
+echo "Source = ${gr_PTH}"
+echo "Destination = ${gr_DST}"
+read -p "Continue?"
+
+if [ -e ${gr_NNC} ]; then
+	echo "There already is ${gr_NNC}, so no need to copy. Exiting!"
+	exit 0
+fi
+
+
+if [ -e ${gr_PTH} ]; then
+	echo -e "\nThe file: ${gr_PTH} exists! It's safe to continue ..."
+else
+	echo -e "\nThere is no such file as: ${gr_PTH}. Exiting!"
+	exit 1
+fi
+
+echo -e "\nCopying ..."
+cp -vvv ${gr_PTH} ${gr_DST}/
+echo "... Done."

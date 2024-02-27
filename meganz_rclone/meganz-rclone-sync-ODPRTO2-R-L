@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+### Name:	megamz-rclone-ODPRTO2-R-L.sh
+### Author:	RgregoR
+### Date:	20201111
+### Decription:
+### rclone sync gRemote to gLocal
+### 
+### 
+
+gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf/MEGA/ODPRTO")
+gRemote="meganz:ODPRTO"
+
+function update() {
+    gFrom=$1
+    gTo=$2
+    echo "Syncing remote ${gFrom} to local ${gTo}"
+    /usr/local/bin/rclone -v sync ${gFrom} ${gTo}
+
+    # dry-run
+    # /usr/local/bin/rclone -v -n sync ${gFrom} ${gTo}
+    
+    if [ $? == 0 ]; then
+        echo "Done."
+    else
+        echo "Something went wrong!"
+        exit 1
+    fi
+}
+
+update ${gRemote} ${gLocal}
+

@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+HISTFILE=~/.bash_history
+set -o history
+
+gPth="$HOME/majstaf_en/seznami_en/history-en.dat_$(date +'%Y%m%d-%H%M%S')"
+history >> ${gPth}
+
+echo "Sccesfully added commands from HISTORY to ${gPth}"
+
+# hstl is aliased to `history > /home/gregor.redelonghi/majstaf_en/seznami_en/history-en.dat_20240130-112933'

@@ -1,0 +1,33 @@
+#! /usr/bin/env bash
+# last change 20240213 (en)
+
+MJSTFN=/home/gregor.redelonghi/majstaf_en
+NMTS=${MJSTFN}/metsys_en
+NBIN=${MJSTFN}/en_git/src_en_metsys/majbin_en
+NDOT=${MJSTFN}/en_git/src_en_metsys/dotfiles_en
+GMTS=${MJSTFN}/en_git/src_en_metsys/metsys_en
+NBRC=${MJSTFN}/en_git/src_en_metsys/majrcs_en
+
+cd ${MJSTFN}/majrcs_en
+echo "[INFO] diffs: majrcs_en ..."
+for FFF in $(find $NBRC/ -type f); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null
+echo "---"
+cd $HOME
+#---
+cd ${MJSTFN}/majbin_en
+echo "[INFO] diffs: majbin_en ..."
+for FFF in $(find $NBIN/ -type f | grep -v '\.dat'); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null
+echo "---"
+cd $HOME
+#---
+cd $HOME
+echo "[INFO] diffs: dotfiles_en ..."
+for FFF in $(find $NDOT/ -type f -iname ".*"); do diff -q $FFF $(echo $FFF | cut -d'/' -f8-); done 2>/dev/null;
+echo "---"
+# ---
+cd ${NMTS}
+echo "[INFO] diffs: metsys_en ..."
+diff -qr ${NMTS} ${GMTS} | grep -iv common
+echo "---"
+cd $HOME
+

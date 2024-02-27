@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+git_nvol='/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/en_git/en_nvol --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+
+echo "[INFO] Test (dry run) push-ing to GITHUB ..."
+${git_nvol} push en-github-nvol master
+echo "---"
+
+echo "[INFO] Test (dry run) push-ing to GITLAB ..."
+${git_nvol} push en-gitlab-nvol master
+echo "---"
+

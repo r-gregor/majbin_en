@@ -1,0 +1,65 @@
+#! /bin/bash
+
+### Name:	Scriptname ...
+### Author:	Author ... 
+### Date:	2013-05-24 
+### Decription:
+### 
+### UPDATE 20171208:
+### --progress replaced with --info=misc2,stats1,progress2 
+###
+### UPDATE 20180315
+### --progress replaced with --info=misc2,stats2
+### addet dT2-dT1 calculation of used seconds
+###
+
+if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
+		gCurrYr=$CURRENT_YEAR_ENV
+	else
+		gCurrYr=$(date +%Y)
+fi
+
+gUsrSpcp="/c/Users/gregor.redelonghi"
+gHnd="/h"
+
+function tms() {
+    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
+}
+
+# crtn=100
+crtn=3
+
+function crtc() {
+    for ((i=1; i<=$1; i++)); do
+        echo -n "-"
+    done
+    echo
+}
+
+
+(tms; echo "Started: $0")
+
+dT1=$(date +"%s")
+
+# STARO:
+# gCmd="rsync -ruv --chmod=a+rwx,g+rwx,o+rwx"
+# gCmd='rsync -rltDv --progress --modify-window=2'  		# RUN backup options
+# gCmd='rsync -rltD --info=misc2,stats2 --modify-window=2'  		# RUN backup options
+# UPDATED 20180411: --info=name0,stats2,progress0; gFilt='\grep "files\|total"'
+
+# ZAMENJANO 20201209
+# gCmd='rsync -rltD --info=name0,stats2,progress0 --modify-window=2'           # RUN backup ptions
+# gFilt='/usr/bin/grep "created\|deleted\|transferred"'
+# ${gCmd} --delete /c/Users/gregor.redelonghi/${gCurrYr}/ /h/${gCurrYr}-danes/ | eval ${gFilt} | while read line; do (tms; echo $line) | tee -a ${gBkpLog}; done
+
+(tms; echo "syncing ...  ")
+gCmd='rsync -rltDv'
+# grep -v '^[[:space:]]*$' -- dont print emty lines or those with only spaces
+${gCmd} --delete ${gUsrSpcp}/${gCurrYr}/ ${gHnd}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[ $(date +%Y%m%d_%H%M%S) ] rsync: &/"; done
+
+dT2=$(date +"%s")
+# tms; crtc $(($crtn-20))
+tms; crtc $crtn
+tms; echo -e "Done in $((dT2-dT1)) seconds!"
+crtc $crtn
+

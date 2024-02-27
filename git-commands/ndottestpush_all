@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+git_ndot='/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/en_git/en_metsys --work-tree=/home/gregor.redelonghi/majstaf_en/en_git/src_en_metsys'
+
+echo "[INFO] Test (dry run) push-ing to GITHUB ..."
+${git_ndot} push --dry-run en-github-metsys master
+echo "---"
+
+echo "[INFO] Test (dry run) push-ing to GITLAB ..."
+${git_ndot} push --dry-run en-gitlab-metsys master
+echo "---"
+

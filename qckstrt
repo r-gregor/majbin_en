@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office14'
+gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office16'
+
+if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
+	CURRYR=$CURRENT_YEAR_ENV
+else
+	CURRYR=$(date +%Y)
+fi
+
+### startup programs
+
+# change 20240201
+echo "Starting OneCommander (explorer) ..."
+# cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
+cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
+
+# echo "Starting Google Chrome ..."
+# cygstart /c/Users/gregor.redelonghi/AppData/Local/Google/Chrome/Application/chrome.exe
+
+# echo "Starting FireFox (portable) ..."
+# cygstart /c/Users/gregor.redelonghi/majstaf/myprogs/FireFox_63.0.1/FirefoxPortable.exe
+
+# echo "Starting Dropbox ..."
+# cygstart /c/Users/gregor.redelonghi/AppData/Roaming/Dropbox/bin/Dropbox.exe
+
+echo "Starting MS OutLook ..."
+cygstart "${gr_OFPOT}/OUTLOOK.EXE"
+
+# echo "Starting zze on Mintty ..."
+# mintty -p 200,100 -s 210,60 -e /bin/bash /home/gregor.redelonghi/majstaf/coding/zze/zze.sh &
+# zze is staring in nex sequence in .tmux_1_conf ...
+
+# 
+# echo "Starting tmux on Mintty ..."
+# mintty -p 200,100 -s 210,60 -e /usr/bin/tmux -f ~/.tmux_2_conf attach &
+
+# 20230525: added Super Launcher
+echo "Starting Super Launcher ..."
+cygstart "$(cygpath -w "/c/Users/Public/below average/Super Launcher/SuperLauncher.exe")"
+
+echo "All startup instances started successfuly."
+
+exit
+

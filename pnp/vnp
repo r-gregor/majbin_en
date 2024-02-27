@@ -1,0 +1,146 @@
+#! /bin/bash
+
+### ------------------------------------------------------------------------
+### name:       vnp.sh
+### author:     RgregoR, 2021
+### date:       december 2021
+### last chng:  20210413
+###
+### ------------------------------------------------------------------------
+### Description:
+### script that creates directory structure acording to scheme below for
+### organising the project:
+### 
+### c:\osn_dir
+###   +-- VN_naziv
+###       +-- podloge
+###       +-- podatki
+###       +-- nacrt
+###           +-- naziv_VN_teksti
+###           +-- naziv_VN_risbe
+###
+### It pools the basic input data from an external file "seznam.txt"
+### as comma separated list of data: trasa,dn,naziv,faza
+### 
+### CHANGE: 20211222
+### pools data from argument: vnp "trasa,dn,naziv,faza" and adds month and year
+### in format: "N-12345_98765_MM-YYYY_naziv_faza",
+### adds dastestamp "NN-YYYY" to sub-dirnames: naziv_VN_MM-YYYY_{risbe,texti}
+###
+### CHANGE 20210413
+### remove naziv_VN_ in front of teksti, risbe
+### 
+### c:\osn_dir
+###   +-- VN_naziv
+###       +-- podloge
+###       +-- podatki
+###       +-- nacrt
+###           +-- teksti
+###           +-- risbe
+###
+### ------------------------------------------------------------------------
+
+# setting static variables
+# test
+# osn_dir="$PWD"
+
+CURR_YEAR=$(date +%Y)
+osn_dir="/c/Users/gregor.redelonghi/${CURR_YEAR}/_${CURR_YEAR}_1_PROJEKTI" 
+
+# timestamp
+function tms() {
+    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
+}
+
+tms; echo "Starting $0 ..."
+
+FRAZA=$1
+mesec=$(date +%m)
+leto=$(date +%Y)
+
+clear
+trasa="$(echo ${FRAZA} | awk -F "," '{print $1}')"
+dn="$(echo ${FRAZA} | awk -F "," '{print $2}')"
+naziv="$(echo ${FRAZA} | awk -F "," '{print $3}')"
+faza="VN"
+
+msclt=${mesec}-${leto}
+celotna_ozn="${faza}_${trasa}_${msclt}_${naziv}"
+delna_ozn="${naziv}_${faza}_${msclt}"
+
+echo "Celotna ozn=${osn_dir}/${celotna_ozn}"
+echo "Delna ozn  =${delna_ozn}"
+echo	
+read -p "Proceed? Press any key, or ctrl+c to quit!"
+
+##########################################################################
+
+### # passing an entry to a log file
+
+
+gr_logf=$HOME/majstaf_en/logging_en/projekt.log
+
+(tms; echo "Starting $0") >> ${gr_logf} ##### start logging_en 
+
+### clear
+
+echo
+cat <<"EOF"
+##########################################################
+# Script that that creates directory structure for       #
+# organising the project                                 #
+# -----------------------------------------------------  #
+# logging in: [$HOME/majstaf_en/logging_en/projekt.log]  #
+##########################################################
+EOF
+
+echo
+
+# Display the scheme of directory structure:
+echo
+echo "Data from external file will create directory structure as follows:"
+printf "%87s\n" | tr " " "-"
+echo "${osn_dir}"
+echo "+-- ${celotna_ozn}"
+echo "    +-- podloge"
+echo "    +-- podatki"
+echo "    +-- nacrt"
+echo "        +-- risbe"
+echo "        +-- teksti"
+printf "%87s\n" | tr " " "-"
+echo
+
+# Test if a directori already exists!
+if [ -e "${osn_dir}/${celotna_ozn}" ]; then
+    (tms; echo "Directory [${osn_dir}/${celotna_ozn}] ... EXISTS!") | tee -a ${gr_logf} # append to log
+        (tms; echo "... LEAVING! ...") >> ${gr_logf} # append to log
+        (tms; echo "Exiting $0") >> ${gr_logf} #stop logging_en
+        (tms; echo "--------------------------------------------------------------------------------") >> ${gr_logf}
+    echo
+    read -p "Press any key to EXIT!"
+    
+    exit 1
+
+fi
+
+read -p "Press any key to continue or ctrl+c to terminate!"
+
+echo
+printf "%87s\n" | tr " " "-"
+echo "Creating directory structure ... "
+(tms; echo "Creating directory structure:") >> ${gr_logf} # append to log
+(tms; echo "${osn_dir}/${celotna_ozn}") >> ${gr_logf} # append to log
+mkdir -pv ${osn_dir}/${celotna_ozn}/podloge
+mkdir -pv ${osn_dir}/${celotna_ozn}/podatki
+mkdir -pv ${osn_dir}/${celotna_ozn}/nacrt/{risbe,teksti}
+
+printf "%87s\n" | tr " " "-"
+echo "Displaying the directory structure ..."
+tree ${osn_dir}/${celotna_ozn}
+printf "%87s\n" | tr " " "-"
+(tms; echo "SUCCESS!!") | tee -a ${gr_logf} # append to log
+(tms; echo "Exiting $0") >> ${gr_logf} # stop logging_en
+(tms; echo "--------------------------------------------------------------------------------") >> ${gr_logf}
+
+
+

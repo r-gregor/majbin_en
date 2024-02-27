@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+if [ $# -eq 1 ]; then
+	path=$(realpath $1)
+else
+	path=$(realpath "*")
+fi
+
+if [[ ${path} != *"majstaf_en/coding2"* ]]; then
+	read -p "[INFO] NOT in ~/majstaf_en/coding2/... !! Continue? "
+fi
+
+echo "[INFO] searching for win-executables in ${path} ..."
+for FFF in $(find ${path} -type f); do file $FFF | /usr/bin/grep 'PE32'; done | cut -d':' -f1
+

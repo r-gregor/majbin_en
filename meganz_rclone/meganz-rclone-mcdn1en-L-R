@@ -1,0 +1,40 @@
+#! /usr/bin/env bash
+
+### Name:	megamz-rclone-mcdn1en-L-R.sh
+### Author:	RgregoR
+### Date:	20201111
+### Decription:
+### rclone copy gLocal(en) to gRemote(en)
+### 
+### 
+
+gLocalMN=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf/MEGA/ODPRTO/MCDN_en")
+gRemoteMN="meganz:ODPRTO/MCDN_en"
+
+gLocalJV=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf/MEGA/ODPRTO/home_username_majstaf_java_en")
+gRemoteJV="meganz:ODPRTO/home_username_majstaf_java_en"
+
+gLocalMT=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf/MEGA/ODPRTO/METSYS_skupno/en")
+gRemoteMT="meganz:ODPRTO/METSYS_skupno/en"
+
+function update() {
+    gFrom=$1
+    gTo=$2
+    echo "Updating local ${gFrom} to remote ${gTo}"
+    /usr/local/bin/rclone -v --skip-links copy ${gFrom} ${gTo}
+
+    # dry-run
+    # /usr/local/bin/rclone -v -n --skip-links copy ${gFrom} ${gTo}
+    
+    if [ $? == 0 ]; then
+        echo "Done."
+    else
+        echo "Something went wrong!"
+        exit 1
+    fi
+}
+
+update ${gLocalMN} ${gRemoteMN}
+update ${gLocalJV} ${gRemoteJV}
+update ${gLocalMT} ${gRemoteMT}
+

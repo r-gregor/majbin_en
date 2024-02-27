@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+gr_FF="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
+
+gr_PTH=file://$(cygpath -w $PWD | sed 's:\\:/:g')
+
+if [ $# -eq 1 ]; then
+    gr_FJL=$1
+    cygstart ${gr_FF} ${gr_PTH}/${gr_FJL}
+elif  [ $# -eq 0 ]; then
+    cygstart ${gr_FF}
+else
+    echo "To many parameters!"
+    exit
+fi
