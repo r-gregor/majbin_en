@@ -6,7 +6,7 @@ CURRDIR=$PWD
 cd ${HOME}/majstaf_en/coding2/testing
 for DDD in $(ls -d *); do
 	echo "*** git testpush in ${DDD} ... ***"
-	cd $DDD &>/dev/null && ${HOME}/.local/bin/ ghgltestpush_en && cd ..
+	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgltestpush_en && cd ..
 done
 
 cd ${CURRDIR}
