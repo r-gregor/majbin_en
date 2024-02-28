@@ -1,10 +1,12 @@
 #! /usr/bin/env bash
+# testing_gtghtestpush_en
+# last change: 20240228_ed
 
 CURRDIR=$PWD
 cd ${HOME}/majstaf_en/coding2/testing
 for DDD in $(ls -d *); do
 	echo "*** git testpush in ${DDD} ... ***"
-	cd $DDD &>/dev/null && ${HOME}/.local/bin/gpdtestpush && cd ..
+	cd $DDD &>/dev/null && ${HOME}/.local/bin/ ghgltestpush_en && cd ..
 done
 
 cd ${CURRDIR}

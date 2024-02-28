@@ -15,7 +15,6 @@ NMTS=${MJSTFN}/metsys_en
 cd ${GNDOT}
 echo "[INFO] diffs: dotfiles_en ..."
 for FFF in $(find .* -type f -iname ".*"); do diff -q ${FFF} ${HOME}/${FFF}; done 2>/dev/null;
-# for FFF in $(find $NDOT/ -type f -iname ".*"); do diff -q ${FFF} ${NDOT}/${FFF}; done 2>/dev/null;
 echo "---"
 # ---
 cd ${GNBIN}

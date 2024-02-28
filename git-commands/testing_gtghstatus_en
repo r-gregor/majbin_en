@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# last change: 20240216 (en)
+# testing_gtghstatus_en
+# last change: 20240228_en
 
 for DDD in $(ls -1 ~/majstaf_en/coding2/testing/); do
 	echo "[INFO] Testing git status on ${DDD} ..."

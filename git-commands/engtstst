@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# filename: engtstst.sh
-# last edit: 20240227_en
+# filename: engtstst
+# last edit: 20240228_en
 
 CURRDIR=$PWD
 cd ~/majstaf_en/engit/
