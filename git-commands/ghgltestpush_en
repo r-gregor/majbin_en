@@ -4,10 +4,36 @@
 
 rmts=( $(git remote) )
 
+COLOR_RED="\e[1;92m"
+COLOR_RESET="\e[0m"
+
 for rmt in "${rmts[@]}"
 do
-	echo "[INFO] git testpush in: $(git remote get-url ${rmt}) ..."
-	git push --dry-run ${rmt} main
-	echo ""
+	echo -n "[INFO] git testpush in: $(git remote get-url ${rmt}) ..."
+	/usr/bin/git push --dry-run ${rmt} main &> status
+	grep 'main' status > /dev/null
+	if [[ $? -eq 0 ]]; then
+		printf " ${COLOR_RED} NEED TO PUSH!!\n"
+		cat status
+		rm status > /dev/null
+		printf "${COLOR_RESET}"
+	else
+		echo " nothig to push!"
+		rm status > /dev/null
+	fi
 done
 
+
+############################################
+
+# export PS1='\u@cygwin-en \w \$> '
+# export PS1='$(printf "\n%s\n")\$> \u@cygwin-en [${PWD}]\n\$> '
+# export PS1='$(printf "%s\n")\$> \[\033[01;32m\]\u@cygwin-en \[\033[01;34m\][${PWD}]\[\033[00m\] \n\$> '
+# export PS1='$(printf "%s")\[\033[01;33m\]\u\[\033[01;31m\]@\[\033[01;33m\]cygwin-en \[\033[01;36m\]\w\[\033[0m\] \$> '
+# export PS1='$(printf "%s")\[\e[01;33m\]\u\[\e[01;31m\]@\[\e[01;33m\]cygwin-en \[\e[01;36m\]\w\[\e[0m\] \$> '
+# export PS1='$(printf "%s")\[\e[02;01;34m\]\u\[\e[022;01;34m\]@\[\e[02;01;34m\]cygwin-en \[\e[022;01;34m\]\w\[\e[0m\] \$> '
+# export PS1='$(printf "%s")\[\e[02;01;38;5;75m\]\u\[\e[022;01;34m\]@\[\e[02;01;38;5;75m\]cygwin-en \[\e[022;01;34m\]\w\[\e[0m\] \$> '
+# export PS1='$(printf "%s")\[\e[01;38;5;75m\]\u\[\e[01;38;5;36m\]@\[\e[01;38;5;75m\]cygwin-en \[\e[01;38;5;36m\]\w\[\e[0m\]\n\$> '
+# new PS1 with git branch notation
+# export PS1='$(printf "%s")\[\e[01;38;5;75m\]\u\[\e[01;38;5;36m\]@\[\e[01;38;5;75m\]cygwin-en \[\e[01;38;5;36m\]\w\n$(parse_git_branch)\[\e[0m\]\$> '
+# export export PS1=$'\n\[\e[01;38;5;75m\][\h] \w\n$(parse_git_branch)\[\e[1;31m\]\u21AA \[\e[0m\] '

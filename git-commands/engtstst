@@ -2,21 +2,42 @@
 # filename: engtstst
 # last edit: 20240228_en
 
+COLOR_SET="\e[1;92m"
+COLOR_RESET="\e[0m"
 CURRDIR=$PWD
+
+
+function get_status() {
+	cmd=$1
+	OUTPUT=$(${cmd} status)
+
+	echo $OUTPUT | grep -i "git push\|untracked" > /dev/null
+
+	if [[ $? -ne 0 ]]; then
+		echo -n "[INFO] checking git status in ${DDD} ..."
+		echo " nothing to commit"
+	else
+		printf "${COLOR_SET}"
+		echo -n "[INFO] checking git status in ${DDD} ..."
+		printf " NEED TO ADD and/or COMMIT!!\n"
+		printf "${COLOR_RESET}"
+		${cmd} status
+	fi
+}
+
 cd ~/majstaf_en/engit/
 for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
-	echo "[INFO] checking git status in ${DDD} ..."
-	cd $DDD
-	/usr/bin/git status
+	cd $DDD &> /dev/null
+
+	get_status "/usr/bin/git"
+
 	cd ..
-	echo -e "\n---"
+	echo "---"
 done
+
+# volpejpers
+get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+echo "---"
+
 cd ${CURRDIR}
-
-
-VLPEN="~/majstaf_en/engit/vlpprs_en"
-echo "[INFO] checking git status in ${VLPEN} ..."
-NVOL='/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
-${NVOL} status
-echo -e "\n---"
 
