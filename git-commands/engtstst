@@ -36,6 +36,7 @@ for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
 done
 
 # volpejpers
+DDD="vlpprs_en"
 get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
 echo "---"
 
