@@ -1,37 +1,22 @@
 #! /usr/bin/env bash
-# last change 20240227 (en)
+# last change 20240229 (en)
 
-MJSTFN=/home/gregor.redelonghi/majstaf_en
-GNDOT=${MJSTFN}/engit/dotfiles_en
-GNBIN=${MJSTFN}/engit/majbin_en
-GNRCS=${MJSTFN}/engit/majrcs_en
-GNMTS=${MJSTFN}/engit/metsys_en
+CURRDIR=$PWD
+MJSTFN=${HOME}/majstaf_en
+MJSTFN_G=${MJSTFN}/engit
 
-NDOT=${MJSTFN}/dotfiles_en
-NBIN=${MJSTFN}/majbin_en
-NRCS=${MJSTFN}/majrcs_en
-NMTS=${MJSTFN}/metsys_en
+cd ${MJSTFN_G}/dotfiles_en
+	echo "[INFO] diffs: dotfiles_en ..."
+for FFF in $(ls -1A); do diff -qr $FFF ${HOME}/${FFF} 2>/dev/null | grep -iv 'only'; done
+echo "---"
 
-cd ${GNDOT}
-echo "[INFO] diffs: dotfiles_en ..."
-for FFF in $(find .* -type f -iname ".*"); do diff -q ${FFF} ${HOME}/${FFF}; done 2>/dev/null;
-echo "---"
-# ---
-cd ${GNBIN}
-echo "[INFO] diffs: majbin_en ..."
-for FFF in $(find * -type f | grep -v '\.dat' 2>/dev/null); do diff -q ${FFF} ${NBIN}/${FFF} | grep -vi 'common'; done 2>/dev/null
-echo "---"
-cd $HOME
-#---
-cd ${GNRCS}
-echo "[INFO] diffs: majrcs_en ..."
-for FFF in $(find * -type f 2>/dev/null); do diff -q ${FFF} ${NRCS}/${FFF} | grep -vi 'common'; done 2>/dev/null
-echo "---"
-cd $HOME
-#---
-cd ${GNMTS}
-echo "[INFO] diffs: metsys_en ..."
-for FFF in $(find * -type f 2>/dev/null); do diff -q ${FFF} ${NMTS}/${FFF} | grep -vi 'common'; done 2>/dev/null
-echo "---"
-cd $HOME
+for checkeddir in majbin_en majrcs_en metsys_en; do
+	cd ${MJSTFN_G}/${checkeddir}
+	echo "[INFO] diffs: ${checkeddir} ..."
+	for FFF in $(ls -1); do diff -qr $FFF ${MJSTFN}/${checkeddir}/${FFF} | grep -iv 'only'; done
+	echo "---"
+	cd $HOME
+done
+
+cd ${CURRDIR}
 
