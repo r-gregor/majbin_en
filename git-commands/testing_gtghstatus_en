@@ -11,7 +11,7 @@ function get_status() {
 	cmd=$1
 	OUTPUT=$(${cmd} status)
 
-	echo $OUTPUT | grep -i "git push\|untracked\|modifiedi\|deleted" > /dev/null
+	echo $OUTPUT | grep -i "git push\|untracked\|modifiedi\|deleted" &> /dev/null
 
 	if [[ $? -ne 0 ]]; then
 		echo -n "[INFO] checking git status in ${DDD} ..."

@@ -4,16 +4,17 @@
 
 rmts=( $(git remote) )
 
-COLOR_RED="\e[1;92m"
+COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 
 for rmt in "${rmts[@]}"
 do
 	echo -n "[INFO] git testpush in: $(git remote get-url ${rmt}) ..."
-	OUTPUT="/usr/bin/git push --dry-run ${rmt} main"
-	echo $OUTPUT | grep 'main' > /dev/null
+	OUTPUT=$(/usr/bin/git push --dry-run ${rmt} main)
+	echo $OUTPUT | grep 'main' &> /dev/null
 	if [[ $? -ne 0 ]]; then
-		printf " ${COLOR_RED} NEED TO PUSH!!\n"
+		printf "${COLOR_SET}"
+		echo "NEED TO PUSH!!\n"
 		printf "${COLOR_RESET}"
 		/usr/bin/git push --dry-run ${rmt} main
 	else
