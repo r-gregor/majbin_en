@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+# ghgltestpush_en
+# last change: 20240228_en
+
+rmts=( $(git remote) )
+
+for rmt in "${rmts[@]}"
+do
+	echo "[INFO] git testpush in: $(git remote get-url ${rmt}) ..."
+	git push --dry-run ${rmt} main
+	echo ""
+done
+

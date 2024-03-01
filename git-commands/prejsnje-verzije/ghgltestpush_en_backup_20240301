@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # ghgltestpush_en
-# last change: 202400301_en
+# last change: 20240228_en
 
 rmts=( $(git remote) )
 
@@ -10,14 +10,16 @@ COLOR_RESET="\e[0m"
 for rmt in "${rmts[@]}"
 do
 	echo -n "[INFO] git testpush in: $(git remote get-url ${rmt}) ..."
-	OUTPUT="/usr/bin/git push --dry-run ${rmt} main"
-	echo $OUTPUT | grep 'main' > /dev/null
-	if [[ $? -ne 0 ]]; then
+	/usr/bin/git push --dry-run ${rmt} main &> status
+	grep 'main' status > /dev/null
+	if [[ $? -eq 0 ]]; then
 		printf " ${COLOR_RED} NEED TO PUSH!!\n"
+		cat status
+		rm status > /dev/null
 		printf "${COLOR_RESET}"
-		/usr/bin/git push --dry-run ${rmt} main
 	else
 		echo " nothig to push!"
+		rm status > /dev/null
 	fi
 done
 

@@ -2,11 +2,17 @@
 # testing_gtghtestpush_en
 # last change: 20240228_ed
 
+COLOR_SET="\e[1;94m"
+COLOR_RESET="\e[0m"
+
 CURRDIR=$PWD
 cd ${HOME}/majstaf_en/coding2/testing
 for DDD in $(ls -d *); do
+	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
+	printf "${COLOR_RESET}"
 	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgltestpush_en && cd ..
+	echo ""
 done
 
 cd ${CURRDIR}

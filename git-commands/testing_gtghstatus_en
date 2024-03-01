@@ -1,12 +1,37 @@
 #! /usr/bin/env bash
 # testing_gtghstatus_en
-# last change: 20240228_en
+# last change: 20240301_en
 
-for DDD in $(ls -1 ~/majstaf_en/coding2/testing/); do
-	echo "[INFO] Testing git status on ${DDD} ..."
-	cd $DDD
-	/usr/bin/git status
-	cd ${HOME}
-	echo -e "---\n"
+COLOR_SET="\e[1;92m"
+COLOR_RESET="\e[0m"
+CURRDIR=$PWD
+
+
+function get_status() {
+	cmd=$1
+	OUTPUT=$(${cmd} status)
+
+	echo $OUTPUT | grep -i "git push\|untracked\|modifiedi\|deleted" > /dev/null
+
+	if [[ $? -ne 0 ]]; then
+		echo -n "[INFO] checking git status in ${DDD} ..."
+		echo " nothing to commit"
+	else
+		printf "${COLOR_SET}"
+		echo -n "[INFO] checking git status in ${DDD} ..."
+		printf " NEED TO ADD and/or COMMIT!!\n"
+		printf "${COLOR_RESET}"
+		${cmd} status
+	fi
+}
+
+cd ~/majstaf_en/coding2/testing
+for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
+	cd $DDD &> /dev/null
+
+	get_status "/usr/bin/git"
+
+	cd ..
+	echo "---"
 done
 

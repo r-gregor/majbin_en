@@ -2,11 +2,16 @@
 # filename: engttestpush
 # last edit: 20240228_en
 
+COLOR_SET="\e[1;94m"
+COLOR_RESET="\e[0m"
+
 CURRDIR=$PWD
 cd ~/majstaf_en/engit/
 for DDD in $(find * -maxdepth 0 -type d); do
 	echo ""
+	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
+	printf "${COLOR_RESET}"
 	cd $DDD &>/dev/null && ~/.local/bin/ghgltestpush_en && cd ..
 # echo -e "\n---"
 done
