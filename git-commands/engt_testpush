@@ -12,7 +12,7 @@ for DDD in $(find * -maxdepth 0 -type d); do
 	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
 	printf "${COLOR_RESET}"
-	cd $DDD &>/dev/null && ~/.local/bin/ghgltestpush_en && cd ..
+	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_en && cd ..
 # echo -e "\n---"
 done
 

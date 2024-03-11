@@ -11,7 +11,7 @@ for DDD in $(ls -d *); do
 	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
 	printf "${COLOR_RESET}"
-	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgltestpush_en && cd ..
+	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgl_testpush_en && cd ..
 	echo ""
 done
 
