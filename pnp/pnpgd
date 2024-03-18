@@ -68,7 +68,7 @@ read -p "Proceed? Press any key, or ctrl+c to quit!"
 
 ### # passing an entry to a log file
 
-gr_logf=$HOME/majstaf_en/logging_en_en/projekt.log
+gr_logf=$HOME/majstaf_en/logging_en/projekt.log
 
 (tms; echo "Starting $0") >> ${gr_logf} ##### start logging_en 
 
