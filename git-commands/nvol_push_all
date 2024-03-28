@@ -1,0 +1,18 @@
+# nvol_testpush_all
+#! /usr/bin/env bash
+
+export NVOLGITDIR="${HOME}/majstaf_en/engit/vlpprs_en"
+export NVOLWORKDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
+git_nvol="/usr/bin/git --git-dir=${NVOLGITDIR} --work-tree=${NVOLWORKDIR}"
+
+ghnvol="git@github.com:r-gregor/vlpprs_en.git"
+glnvol="git@gitlab.com:r-gregor/vlpprs_en.git"
+
+echo "[INFO] Push to ${ghnvol} ..."
+${git_nvol} push ${ghnvol} main
+echo "---"
+
+echo "[INFO] Push to ${glnvol} ..."
+${git_nvol} push ${glnvol} main
+echo "---"
+
