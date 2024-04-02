@@ -9,7 +9,7 @@
 
 # path to .SCRTS
 # gCurdir="$HOME/majstaf/majbin_en/send_mail_scrts/"
-gScrts="$HOME/.SCRTS"
+gScrts="$HOME/.SCRTS_en"
 
 # path to temp backup files
 gTempd="$HOME/.tmp"
@@ -42,7 +42,7 @@ echo "done"
 gTms; echo "Checking for 'number' in password ..."
 
 function getNum() {
-	num=$(grep 'PSSWD_SCRTS' ${gScrts} | grep -oE "[[:digit:]]{1,2}")
+	num=$(grep 'PSSWD_SCRTS' ${gScrts} | grep -oE "[[:digit:]]{3}")
 	echo $num
 }
 
@@ -68,6 +68,6 @@ gTms; read -p "Continue?"
 
 # ACTION
 gTms; echo "Replacing old psswd in send_config_en.*: "
-sed -i "s/gr.${gOldn}/gr.${gNewn}/g" ${gScrts}
+sed -i "s/${gOldn}/${gNewn}/g" ${gScrts}
 grep ${gNewn} ${gScrts}
 
