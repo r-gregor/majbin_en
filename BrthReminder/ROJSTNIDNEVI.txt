@@ -47,3 +47,4 @@ Matic Redelonghi,28.08.1975
 Manca Gorišek,28.09.1971
 Pika Gorišek,08.10.2009
 Florjan Bevc,16.11.1979
+Danes Današnji,13.04.2000
