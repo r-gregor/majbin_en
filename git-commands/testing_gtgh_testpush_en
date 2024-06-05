@@ -6,8 +6,8 @@
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
 DEST=${HOME}/majstaf_en/coding2/testing
-STTS=${TMP}/status2
-RPRT=${TMP}/report
+STTS=${TMP}/testing_status
+RPRT=${TMP}/testing_report
 > ${STTS}
 > ${RPRT}
 
