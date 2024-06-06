@@ -6,25 +6,25 @@
 # COLOR_SET="\e[1;34m"
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
-DEST=${HOME}/majstaf_en/engit
-STTS=${TMP}/engit_status
-RPRT=${TMP}/engit_report
-> ${STTS}
-> ${RPRT}
+EDEST=${HOME}/majstaf_en/engit
+ESTTS=${TMP}/engit_status
+ERPRT=${TMP}/engit_report
+> ${ESTTS}
+> ${ERPRT}
 
 CURRDIR=$PWD
-cd ${DEST}
+cd ${EDEST}
 for DDD in $(find * -maxdepth 0 -type d); do
 	echo ""
 	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
 	printf "${COLOR_RESET}"
-	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_en | tee -a ${STTS}
-	grep -i 'pull' ${STTS} > /dev/null
+	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_en | tee -a ${ESTTS}
+	grep -i 'pull' ${ESTTS} > /dev/null
 	if [[ $? -eq 0 ]]; then
-		echo -e "[INFO] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE!\n" >> ${RPRT}
+		echo -e "[INFO] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE!\n" >> ${ERPRT}
 	fi
-	> ${STTS}
+	> ${ESTTS}
 	cd ..
 done
 
@@ -32,12 +32,12 @@ echo ""
 printf "${COLOR_SET}"
 echo "*** REPORT ***"
 printf "${COLOR_RESET}"
-if [ -s ${RPRT} ]; then
-	cat ${RPRT}
+if [ -s ${ERPRT} ]; then
+	cat ${ERPRT}
 else
 	echo "[INFO] Nothing to push!"
 fi
-rm ${RPRT} ${STTS} 2>/dev/null
+rm ${ERPRT} ${ESTTS} 2>/dev/null
 
 cd ${CURRDIR}
 
