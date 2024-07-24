@@ -7,7 +7,7 @@
 # done
 
 if [ -d .git ] || [ -f HEAD ]; then
-	git log --name-status
+	/usr/bin/git log --name-status
 else
 	echo "NOT a git repository!!"
 	exit
