@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+# engt_run_all
+# last change: 20240821_en
+
+engt_status
+engt_testpush
+
+
+
+

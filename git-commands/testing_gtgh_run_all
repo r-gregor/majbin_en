@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+# testing_gtgh_run_all
+# last change: 20240821_en
+
+testing_gtgh_status_en
+testing_gtgh_testpush_en
+
+
+

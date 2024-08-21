@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# last change: 20240821_en
+
 
 # for myopt in raw numstat shortstat dirstat summary name-only name-status check; do
 # 	echo -e "*** git log --${myopt} ***"
