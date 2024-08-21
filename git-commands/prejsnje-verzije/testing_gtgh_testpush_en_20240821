@@ -34,7 +34,7 @@ printf "${COLOR_RESET}"
 if [ -s ${TRPRT} ]; then
 	cat ${TRPRT}
 else
-	echo "[INFO] No action required"
+	echo "[INFO] Nothing to push!"
 fi
 rm ${TRPRT} ${TSTTS} 2>/dev/null
 
