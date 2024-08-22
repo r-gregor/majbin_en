@@ -5,7 +5,7 @@ cmd="/usr/bin/git commit"
 if [ $# -eq 1 ]; then
 	if [ $1 == "-a" ]; then
 		echo "/usr/bin/git commit -a"
-		$cmd -a
+		$cmd --dry-run -a
 	else
 		msg=$1
 	fi
