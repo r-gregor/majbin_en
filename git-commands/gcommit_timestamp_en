@@ -1,7 +1,14 @@
 #! /usr/bin/env bash
 
+cmd="/usr/bin/git commit"
+
 if [ $# -eq 1 ]; then
-	msg=$1
+	if [ $1 == "-a" ]; then
+		echo "/usr/bin/git commit -a"
+		$cmd -a
+	else
+		msg=$1
+	fi
 else
 	msg="update"
 fi
@@ -11,5 +18,5 @@ desc="$msg ${tmpstmp}"
 
 # /usr/bin/git commit --dry-run -m "$desc"
 echo "/usr/bin/git commit -m \"$desc\""
-/usr/bin/git commit -m "$desc"
+$cmd --dry-run -m "$desc"
 
