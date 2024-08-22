@@ -7,6 +7,7 @@ if [ $# -eq 1 ]; then
 		echo "/usr/bin/git commit -a"
 		read -p "OK?"
 		$cmd -a
+		exit
 	else
 		msg=$1
 	fi
