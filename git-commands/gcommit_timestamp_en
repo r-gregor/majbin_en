@@ -5,7 +5,8 @@ cmd="/usr/bin/git commit"
 if [ $# -eq 1 ]; then
 	if [ $1 == "-a" ]; then
 		echo "/usr/bin/git commit -a"
-		$cmd --dry-run -a
+		read -p "OK?"
+		$cmd -a
 	else
 		msg=$1
 	fi
@@ -18,5 +19,6 @@ desc="$msg ${tmpstmp}"
 
 # /usr/bin/git commit --dry-run -m "$desc"
 echo "/usr/bin/git commit -m \"$desc\""
+read -p "OK?"
 $cmd --dry-run -m "$desc"
 
