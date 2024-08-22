@@ -9,5 +9,7 @@ fi
 tmpstmp=$(date +"%Y%m%d_%H%M")_en
 desc="$msg ${tmpstmp}"
 
-/usr/bin/git commit --dry-run -m "$desc"
+# /usr/bin/git commit --dry-run -m "$desc"
+echo "/usr/bin/git commit -m \"$desc\""
+/usr/bin/git commit -m "$desc"
 
