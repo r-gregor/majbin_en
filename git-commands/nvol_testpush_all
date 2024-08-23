@@ -1,19 +1,21 @@
 #! /usr/bin/env bash
 # nvol_testpush_all
-# last change: 20240821_en
+# last change: 20240823
 
-export NVOLGITDIR="${HOME}/majstaf_en/engit/vlpprs_en"
-export NVOLWORKDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
-git_nvol="/usr/bin/git --git-dir=${NVOLGITDIR} --work-tree=${NVOLWORKDIR}"
+HST="en"
 
-ghnvol="git@github.com:r-gregor/vlpprs_en.git"
-glnvol="git@gitlab.com:r-gregor/vlpprs_en.git"
+export VOLGITDIR="${HOME}/majstaf_${HST}/${HST}git/vlpprs_${HST}"
+export VOLWORKDIR="/c/Users/gregor.redelonghi/majstaf_${HST}/${HST}_staf/majvolpejprs"
+vol_cmd="/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKDIR}"
 
-echo "[INFO] Testpush to ${ghnvol} ..."
-${git_nvol} push --dry-run ${ghnvol} main
+ghvol="git@github.com:r-gregor/vlpprs_${HST}.git"
+glvol="git@gitlab.com:r-gregor/vlpprs_${HST}.git"
+
+echo "[INFO] Testpush to ${ghvol} ..."
+${vol_cmd} push --dry-run ${ghvol} main
 echo "---"
 
-echo "[INFO] Testpush to ${glnvol} ..."
-${git_nvol} push --dry-run ${glnvol} main
+echo "[INFO] Testpush to ${glvol} ..."
+${vol_cmd} push --dry-run ${glvol} main
 echo "---"
 

@@ -1,9 +1,11 @@
 #! /usr/bin/env bash
 # testing_gtgh_run_all
-# last change: 20240821_en
+# last change: 20240823
 
-testing_gtgh_status_en
-testing_gtgh_testpush_en
+HST="en"
+
+testing_gtgh_status_${HST}
+testing_gtgh_testpush_${HST}
 
 
 

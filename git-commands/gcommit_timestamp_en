@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# gcommit_timestamp_en
+# last change: 20240823
 
 cmd="/usr/bin/git commit"
 
@@ -18,7 +20,6 @@ fi
 tmpstmp=$(date +"%Y%m%d_%H%M")_en
 desc="$msg ${tmpstmp}"
 
-# /usr/bin/git commit --dry-run -m "$desc"
 echo "/usr/bin/git commit -m \"$desc\""
 read -p "OK?"
 $cmd -m "$desc"

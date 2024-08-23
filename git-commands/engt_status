@@ -2,7 +2,7 @@
 # filename: engtstst
 # last edit: 20240821_en
 
-
+HST="en"
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 CURRDIR=$PWD
@@ -29,8 +29,8 @@ function get_status() {
 	fi
 }
 
-cd ~/majstaf_en/engit/
-for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
+cd ~/majstaf_${HST}/${HST}git/
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd $DDD &> /dev/null
 
 	get_status "/usr/bin/git"
@@ -38,7 +38,7 @@ for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
 done
 
 # volpejpers
-DDD="vlpprs_en"
+DDD="vlpprs_${HST}"
 get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
 
 echo ""

@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # ghglpush_en
-# last change: 20240821_en
+# last change: 20240823
 
 rmts=( $(git remote) )
 

@@ -1,30 +1,31 @@
 #! /usr/bin/env bash
-# filename: engt_testpush
-# last edit: 20240530_en
+# engt_testpush
+# last edit: 20240823
 
 # COLOR_SET="\e[1;94m"
 # COLOR_SET="\e[1;34m"
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
-EDEST=${HOME}/majstaf_en/engit
-ESTTS=${TMP}/engit_status
-ERPRT=${TMP}/engit_report
-> ${ESTTS}
-> ${ERPRT}
+HST="en"
+DEST=${HOME}/majstaf_${HST}/${HST}git
+STTS=${TMP}/${HST}git_status
+RPRT=${TMP}/${HST}git_report
+> ${STTS}
+> ${RPRT}
 
 CURRDIR=$PWD
-cd ${EDEST}
+cd ${DEST}
 for DDD in $(find * -maxdepth 0 -type d); do
 	echo ""
 	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
 	printf "${COLOR_RESET}"
-	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_en | tee -a ${ESTTS}
-	grep -i 'pull' ${ESTTS} > /dev/null
+	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_${HST} | tee -a ${STTS}
+	grep -i 'pull' ${STTS} > /dev/null
 	if [[ $? -eq 0 ]]; then
-		echo -e "[INFO] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE\n" >> ${ERPRT}
+		echo -e "[INFO] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE\n" >> ${RPRT}
 	fi
-	> ${ESTTS}
+	> ${STTS}
 	cd ..
 done
 
@@ -32,12 +33,12 @@ echo ""
 printf "${COLOR_SET}"
 echo "*** REPORT ***"
 printf "${COLOR_RESET}"
-if [ -s ${ERPRT} ]; then
-	cat ${ERPRT}
+if [ -s ${RPRT} ]; then
+	cat ${RPRT}
 else
 	echo "[INFO] No action required"
 fi
-rm ${ERPRT} ${ESTTS} 2>/dev/null
+rm ${RPRT} ${STTS} 2>/dev/null
 
 cd ${CURRDIR}
 
