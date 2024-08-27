@@ -1,12 +1,13 @@
 #! /usr/bin/env bash
 # testing_gtgh_testpush_en
-# last change: 20240821_en
+# last change: 20240827
 
+HST="en"
 
 # COLOR_SET="\e[1;94m"
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
-TDEST=${HOME}/majstaf_en/coding2/testing
+TDEST=${HOME}/majstaf_${HST}/coding2/testing
 TSTTS=${TMP}/testing_status
 TRPRT=${TMP}/testing_report
 > ${TSTTS}
@@ -19,7 +20,7 @@ for DDD in $(ls -d *); do
 	printf "${COLOR_SET}"
 	echo "*** git testpush in ${DDD} ... ***"
 	printf "${COLOR_RESET}"
-	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgl_testpush_en | tee -a ${TSTTS}
+	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgl_testpush_${HST} | tee -a ${TSTTS}
 	grep -i 'pull' ${TSTTS} > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e "[INFO] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE!\n" >> ${TRPRT}

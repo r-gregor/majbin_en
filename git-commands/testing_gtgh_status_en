@@ -1,7 +1,9 @@
 #! /usr/bin/env bash
 # testing_gtghstatus_en
-# last change: 20240821_en
+# last change: 20240827
 
+HST="en"
+TSTDST=${HOME}/majstaf_${HST}/coding2/testing
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 CURRDIR=$PWD
@@ -27,8 +29,8 @@ function get_status() {
 	fi
 }
 
-cd ~/majstaf_en/coding2/testing
-for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
+cd ${TSTDST}
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd $DDD &> /dev/null
 
 	get_status "/usr/bin/git"
