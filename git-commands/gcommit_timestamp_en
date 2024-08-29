@@ -2,7 +2,7 @@
 # gcommit_timestamp_en
 # last change: 20240827
 
-iHST="en"
+HST="en"
 cmd="/usr/bin/git commit"
 
 if [ $# -eq 1 ]; then
