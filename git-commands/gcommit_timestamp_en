@@ -21,7 +21,7 @@ fi
 tmpstmp=$(date +"%Y%m%d_%H%M")_${HST}
 desc="$msg ${tmpstmp}"
 
-echo "/usr/bin/git commit -m \"$desc\""
+echo -n "/usr/bin/git commit -m \"$desc\" ... "
 read -p "OK?"
 $cmd -m "$desc"
 
