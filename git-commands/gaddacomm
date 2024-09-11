@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+# gaddacomm
+# last change: 20240911
+
+gcmd="/usr/bin/git add ."
+gcmt="${HOME}/.local/bin/gcommit_timestamp_en"
+
+# /usr/bin/git add . && /home/gregor.redelonghi/.local/bin/gcommit_timestamp_en
+echo "${gcmd} && ${gcmt}"
+${gcmd} && ${gcmt}
