@@ -6,5 +6,5 @@ gcmd="/usr/bin/git add ."
 gcmt="${HOME}/.local/bin/gcommit_timestamp_en"
 
 # /usr/bin/git add . && /home/gregor.redelonghi/.local/bin/gcommit_timestamp_en
-echo "${gcmd} && ${gcmt}"
-${gcmd} && ${gcmt}
+echo "${gcmd}" && ${gcmd}
+echo "${gcmt}" && ${gcmt}
