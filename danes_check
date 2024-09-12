@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 dest="${HOME}/_NERAZPOREJENO/__DANES__"
-mcmd="${HOME}/.local/bin/check_for_emptyd"
+mcmd="${HOME}/.local/bin/check4emptyd"
 
 COLOR_RED="\e[1;31m"
 COLOR_RESET="\e[0m"
