@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+### Name: /home/gregor.redelonghi/majstaf_en/majbin_en/crq
+
+/c/Users/gregor.redelonghi/.cargo/bin/cargo run --quiet
+
