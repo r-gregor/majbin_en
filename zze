@@ -52,12 +52,12 @@ cat << PRINT-on-SCREEN
  -------------------------------------------------------------------------------------------
  oc - OneCommander (new file explorer)            epp - Explorer++ (new file explorer)
  -------------------------------------------------------------------------------------------
- ed - ris.jhl - elektronska dovolilnica (EE)                                               
+ ure - ris.jhl - elektronska dovolilnica (EE)                                               
  -------------------------------------------------------------------------------------------
- S  - Sistem                                      w   - Explorer (${CURRYR})                
- L  - ZAKLENI!                                    mcm - MultiCommander                      
- U  - zaustavitev zunanje naprave (USB)           tgd (t-gremdomov - reboot)                
- Z  - odjava / ponovni zagon / ZAUSTAVITEV        vgd (v-gremdomov - shutdown)              
+ S   - Sistem                                     w   - Explorer (${CURRYR})                
+ L   - ZAKLENI!                                   mcm - MultiCommander                      
+ U   - zaustavitev zunanje naprave (USB)          tgd (t-gremdomov - reboot)                
+ Z   - odjava / ponovni zagon / ZAUSTAVITEV       vgd (v-gremdomov - shutdown)              
  ===========================================================================================
  0  - IZHOD
 ============================================================================================
@@ -182,7 +182,7 @@ cygstart "${gr_MSE}" www.google.com
 cygstart /c/WINDOWS/system32/ssmypics.scr /s
 ;;
 
-"ed"| "ED")
+"ure"| "URE")
 gr_GO1="https://ris.jhl.si/"
 # gr_GO1="http://jhl-oracle-ris/prod/kadris-4.7/index.jsp?p_kateri=ris_dovolilnica"
 cygstart "$gr_MSE" ${gr_GO1}
