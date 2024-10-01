@@ -1,0 +1,33 @@
+#!/bin/bash
+
+clear
+
+choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf --reverse)
+
+case "${choice}" in
+
+	"1 - Odjavi $USERNAME")
+		echo shutdown -l -t 05
+	;;
+
+	"2 - Ponovni zagon")
+	echo shutdown -r -t 05
+	;;
+
+	"3 - Zaustavitev sistema")
+		echo shutdown -s -t 05
+	;;
+
+	"4 - Izhod")
+		clear
+		exit 0
+	;;
+
+	*)
+		echo "NOT IN THE LIST!"
+		read -p "Press any key to EXIT!"
+		clear
+		exit 1
+	;;
+esac
+
