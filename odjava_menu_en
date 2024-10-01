@@ -2,7 +2,7 @@
 
 clear
 
-choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf --reverse)
+choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf --reverse --prompt="logout/poweroff >")
 
 case "${choice}" in
 
