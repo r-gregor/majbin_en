@@ -2,20 +2,20 @@
 
 clear
 
-choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf --reverse --prompt="logout/poweroff >")
+choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf +c --reverse --prompt="logout/poweroff >")
 
 case "${choice}" in
 
 	"1 - Odjavi $USERNAME")
-		echo shutdown -l -t 05
+		cygstart shutdown /l
 	;;
 
 	"2 - Ponovni zagon")
-	echo shutdown -r -t 05
+		shutdown -r now
 	;;
 
 	"3 - Zaustavitev sistema")
-		echo shutdown -s -t 05
+		shutdown -s now
 	;;
 
 	"4 - Izhod")
