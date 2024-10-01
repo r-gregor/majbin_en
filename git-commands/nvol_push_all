@@ -12,10 +12,10 @@ ghvol="git@github.com:r-gregor/vlpprs_${HST}.git"
 glvol="git@gitlab.com:r-gregor/vlpprs_${HST}.git"
 
 echo "[INFO] Push to ${ghvol} ..."
-${vol_cmd} push ${ghvol} main
+${git_nvol} push ${ghvol} main
 echo "---"
 
 echo "[INFO] Push to ${glvol} ..."
-${vol_cmd} push ${glvol} main
+${git_nvol} push ${glvol} main
 echo "---"
 
