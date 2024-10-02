@@ -12,6 +12,8 @@ if [ ! -d $CURDIR ]; then
 	exit
 fi
 
+read -p "All '*.txt' files will be converted from unix to dos line endings! Continue?"
+
 nifs() {
 	IFS=$'\n'
 }
