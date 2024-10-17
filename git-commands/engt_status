@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# filename: engtstst
-# last edit: 20240821_en
+# filename: engt_status
+# last edit: 20241017_en
 
 HST="en"
 COLOR_SET="\e[1;92m"
@@ -29,6 +29,9 @@ function get_status() {
 	fi
 }
 
+echo "========================================"
+echo "[INFO] running engt_status ..."
+echo "========================================"
 cd ~/majstaf_${HST}/${HST}git/
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd $DDD &> /dev/null
@@ -41,16 +44,18 @@ done
 DDD="vlpprs_${HST}"
 get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
 
-echo ""
+
 printf "${COLOR_SET}"
-echo "*** REPORT ***"
-printf "${COLOR_RESET}"
 if [ -s ${TRPRT} ]; then
-	cat ${TRPRT}
+	while read LINE; do
+		echo "[REPORT] ${LINE}"
+	done < ${TRPRT}
 else
-	echo "[INFO] No action required"
+	echo "[REPORT] No action required"
 fi
+printf "${COLOR_RESET}"
 
 rm ${TRPRT} 2>/dev/null
 cd ${CURRDIR}
 
+echo ""
