@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # filename: engt_status
-# last edit: 20241017_en
+# last edit: 20241021
 
 HST="en"
 COLOR_SET="\e[1;92m"
@@ -22,7 +22,7 @@ function get_status() {
 	else
 		echo "---"
 		printf "${COLOR_SET}"
-		printf "[INFO] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT!!\n" | tee -a ${TRPRT}
+		printf "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT!!\n" | tee -a ${TRPRT}
 		printf "${COLOR_RESET}"
 		${cmd} status
 		echo "---"
@@ -48,10 +48,10 @@ get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpp
 printf "${COLOR_SET}"
 if [ -s ${TRPRT} ]; then
 	while read LINE; do
-		echo "[REPORT] ${LINE}"
+		echo "*** ${LINE} ***"
 	done < ${TRPRT}
 else
-	echo "[REPORT] No action required"
+	echo "*** [REPORT] No action required ***"
 fi
 printf "${COLOR_RESET}"
 
