@@ -26,7 +26,7 @@ for DDD in $(find * -maxdepth 0 -type d); do
 	cd $DDD &>/dev/null && ~/.local/bin/ghgl_testpush_${HST} | tee -a ${STTS}
 	grep -i 'pull' ${STTS} > /dev/null
 	if [[ $? -eq 0 ]]; then
-		echo -e "[REPORT] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE\n" >> ${RPRT}
+		echo -e "[REPORT] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE" >> ${RPRT}
 	fi
 	> ${STTS}
 	cd ..
