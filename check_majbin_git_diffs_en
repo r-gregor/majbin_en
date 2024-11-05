@@ -3,7 +3,15 @@
 majbin_src=~/majstaf_en/majbin_en
 majbin_dst=~/majstaf_en/engit/majbin_en
 
-fjls=$(diff -q ${majbin_src}/ ${majbin_dst}/ | grep -iv common |grep -iv .git | cut -d' ' -f3- | sed 's/: //' | fzf -m --reverse)
+# fjls=($(diff -q ${majbin_src}/ ${majbin_dst}/ | grep -iv "common\|differ\|backup" | grep -iv '\.git' | grep -iv '\.txt' | cut -d' ' -f3- | sed 's/: //' | fzf -m --reverse))
+check=($(diff -q ${majbin_src}/ ${majbin_dst}/ | grep -iv "common\|differ\|backup" | grep -iv '\.git' | grep -iv '\.txt' | cut -d' ' -f3- | sed 's/: //'))
+
+if [ "x${check[0]}" == "x" ]; then
+	echo "No files found"
+	exit
+fi
+
+fjls=$(for FFF in $(echo ${check[@]}); do echo $FFF; done | fzf -m --reverse)
 
 
 if [ "x${fjls[0]}" == "x" ]; then
