@@ -1,7 +1,17 @@
 #! /usr/bin/env bash
 
-majbin_src=~/majstaf_en/majbin_en
-majbin_dst=~/majstaf_en/engit/majbin_en
+if [ $# -eq 2 ]; then
+	majbin_src=$1
+	majbin_dst=$2
+else
+	majbin_src=~/majstaf_en/majbin_en
+	majbin_dst=~/majstaf_en/engit/majbin_en
+fi
+
+if [ ! -d ${majbin_src} ] || [ ! -d ${majbin_dst} ]; then
+	echo "[ERROR] No such directories found"
+	exit
+fi
 
 # fjls=($(diff -q ${majbin_src}/ ${majbin_dst}/ | grep -iv "common\|differ\|backup" | grep -iv '\.git' | grep -iv '\.txt' | cut -d' ' -f3- | sed 's/: //' | fzf -m --reverse))
 check=($(diff -q ${majbin_src}/ ${majbin_dst}/ | grep -iv "common\|differ\|backup" | grep -iv '\.git' | grep -iv '\.txt' | cut -d' ' -f3- | sed 's/: //'))
