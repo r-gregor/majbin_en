@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-names={720:"HD", 1080:"FHD", 2160:"UHD/4K", 4320:"8K"}
+names={720:"HD", 1080:"FHD", 1440:"QHD", 2160:"UHD/4K", 4320:"8K"}
 
 print(f'\nFactor  Horisontal Vertical   Name')
 print(f'-----------------------------------')
