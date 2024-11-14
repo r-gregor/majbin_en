@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+yes | gadd_gcmt_en && ghgl_push_en
+
