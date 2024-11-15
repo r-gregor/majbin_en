@@ -9,11 +9,21 @@ fi
 inputf=$1
 
 source_path=$(realpath $(dirname ${inputf}))
+dest_path="${HOME}/.local/bin"
 name=$(basename ${inputf})
 
 renamed=$(echo ${name} | tr '_' '-')
 # echo "renamed: ${renamed}"
 
-echo "Renaming ${name} to ${renamed}"
+fname_full=$(basename ${renamed})
+fname=${fname_full%%.*}
+ext=${fname_full##*.}
+
+
+# echo "Renaming ${name} to ${renamed}"
+read -p  "${name} will be renamed to ${renamed} and soft-linked. Proceed?"
 # echo "mv -vvv ${source_path}/${name} ${source_path}/${renamed}"
 mv -vvv ${source_path}/${name} ${source_path}/${renamed}
+
+echo "Soft-linking $(realpath ${source_path}/${fname_full}) to ${dest_path}/${fname}"
+ln -sv $(realpath ${source_path}/${fname_full}) ${dest_path}/${fname}
