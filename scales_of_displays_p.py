@@ -3,7 +3,7 @@
 
 names={720:"HD", 1080:"FHD", 1440:"QHD", 2160:"UHD/4K", 4320:"8K"}
 
-print(f'\nFactor  Horisontal Vertical   Name')
+print(f'\nFactor  Horizontal Vertical   Name')
 print(f'-----------------------------------')
 for N1 in [1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0]:
 	# N1 = 1 + N/10.0
