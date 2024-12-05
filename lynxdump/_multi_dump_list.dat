@@ -1,9 +1,5 @@
-https://hackaday.com/2015/08/28/firmware-factory-bit-fields-vs-shift-and-mask/
-https://developerhelp.microchip.com/xwiki/bin/view/software-tools/c-programming/bit-fields/
-https://www.youtube.com/watch?v=Ew2QnDeTCCE
-https://www.reddit.com/r/C_Programming/comments/146tbnp/why_is_using_bitfields_in_high_performance/?rdt=53755
-https://mark-story.com/posts/view/bitfields-are-a-trap
-https://users.cs.cf.ac.uk/dave/C/node13.html
-https://www.playembedded.org/blog/registers-and-bit-masks/
-https://forums.swift.org/t/bit-fields/72456/6
-https://www.clivemaxfield.com/coolbeans/masking-and-the-c-c-bitwise-operators/
+https://www.includehelp.com/c/working-with-hexadecimal-values-in-c-programming-language.aspx
+https://www.includehelp.com/c-programs/input-hexadecimal-value-in-c.aspx
+https://www.quora.com/How-do-I-convert-ascii-hexadecimal-code-to-letters-in-C-language
+https://c-for-dummies.com/blog/?p=2252
+
