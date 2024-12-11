@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+	echo -e "Usage: $0 <file_name>\n\n"
+	exit
+else
+	fname=$1
+	usr=en
+fi
+
+curdir="$(basename $PWD)"
+destidir="$(echo $PWD | sed "s:majstaf_en:majstaf_en/${usr}git:")"
+echo $destidir
+
+read -p "cp -i ./${fname} ${destidir}/${fname} ?"
+cp -v ./${fname} ${destidir}/${fname}
+
