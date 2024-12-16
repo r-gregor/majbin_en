@@ -9,9 +9,9 @@ else
 fi
 
 curdir="$(basename $PWD)"
-destidir="$(echo $PWD | sed "s:majstaf_en:majstaf_en/${usr}git:")"
-echo $destidir
+# destdir="$(echo $PWD | sed "s:majstaf_en:majstaf_en/${usr}git:")"
+destdir="$(echo $PWD | sed "s:majstaf_${usr}/\(.*\):majstaf_${usr}/${usr}git/\1:" | sed "s:\.config:majstaf_${usr}/${usr}git/dotfiles_${usr}/.config:")"
 
-read -p "cp -i ./${fname} ${destidir}/${fname} ?"
-cp -v ./${fname} ${destidir}/${fname}
+read -p "cp -i ./${fname} ${destdir}/${fname} ?"
+cp -v ./${fname} ${destdir}/${fname}
 
