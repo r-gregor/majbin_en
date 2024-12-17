@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+# 20241216
 
 yes | gadd_gcmt_en && ghgl_push_en
 
