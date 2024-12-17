@@ -4,8 +4,8 @@
 
 HST="en"
 
-${HST}gt_status_new
-${HST}gt_testpush_new
+${HST}gt_status
+${HST}gt_testpush
 
 
 
