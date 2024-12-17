@@ -1,0 +1,61 @@
+#! /usr/bin/env bash
+# filename: engt_status
+# last edit: 20241021
+
+HST="en"
+COLOR_SET="\e[1;92m"
+COLOR_RESET="\e[0m"
+CURRDIR=$PWD
+TRPRT=${TMP}/testing_report
+> ${TRPRT}
+
+
+function get_status() {
+	cmd=$1
+	OUTPUT=$(${cmd} status)
+
+	echo $OUTPUT | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
+
+	if [[ $? -ne 0 ]]; then
+		echo -n "[INFO] checking git status in ${DDD} ..."
+		echo " no action required"
+	else
+		echo "---"
+		printf "${COLOR_SET}"
+		printf "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT!!\n" | tee -a ${TRPRT}
+		printf "${COLOR_RESET}"
+		${cmd} status
+		echo "---"
+	fi
+}
+
+echo "========================================"
+echo "[INFO] running engt_status ..."
+echo "========================================"
+cd ~/majstaf_${HST}/${HST}git/
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
+	cd $DDD &> /dev/null
+
+	get_status "/usr/bin/git"
+	cd ..
+done
+
+# volpejpers
+DDD="vlpprs_${HST}"
+get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+
+
+printf "${COLOR_SET}"
+if [ -s ${TRPRT} ]; then
+	while read LINE; do
+		echo "*** ${LINE} ***"
+	done < ${TRPRT}
+else
+	echo "*** [REPORT] No action required ***"
+fi
+printf "${COLOR_RESET}"
+
+rm ${TRPRT} 2>/dev/null
+cd ${CURRDIR}
+
+echo ""

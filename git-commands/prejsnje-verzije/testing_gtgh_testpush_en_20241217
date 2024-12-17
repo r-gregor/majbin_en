@@ -1,0 +1,48 @@
+#! /usr/bin/env bash
+# testing_gtgh_testpush_en
+# last change: 20241021
+
+HST="en"
+
+# COLOR_SET="\e[1;94m"
+COLOR_SET="\e[1;38;5;75m"
+COLOR_RESET="\e[0m"
+TDEST=${HOME}/majstaf_${HST}/coding2/testing
+TSTTS=${TMP}/testing_status
+TRPRT=${TMP}/testing_report
+> ${TSTTS}
+> ${TRPRT}
+
+CURRDIR=$PWD
+cd ${TDEST}
+
+echo "==========================================="
+echo "[INFO] running testing_gtgh_testpush_en ..."
+echo "==========================================="
+for DDD in $(ls -d *); do
+	printf "${COLOR_SET}"
+	echo "***    git testpush in: ${DDD} ..."
+	printf "${COLOR_RESET}"
+	cd $DDD &>/dev/null && ${HOME}/.local/bin/ghgl_testpush_${HST} | tee -a ${TSTTS}
+	grep -i 'pull' ${TSTTS} > /dev/null
+	if [[ $? -eq 0 ]]; then
+		echo -e "[REPORT] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE!\n" >> ${TRPRT}
+	fi
+	> ${TSTTS}
+	cd ..
+done
+
+printf "${COLOR_SET}"
+if [ -s ${TRPRT} ]; then
+	while read LINE; do
+		echo "*** ${LINE} ***"
+	done < ${TRPRT}
+else
+	echo "*** [REPORT] No action required ***"
+fi
+printf "${COLOR_RESET}"
+rm ${TRPRT} ${TSTTS} 2>/dev/null
+
+cd ${CURRDIR}
+
+echo ""
