@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 # testing_gtghstatus_en
-# last change: 20241216
+# 20241216: store output of commands into array instead of external filea
+# 20241218: read output of cmd directly into array, no more need to run cmd twice
+#           c-style for loop
+# last edit: 20241218
 
 HST="en"
 TSTDST=${HOME}/majstaf_${HST}/coding2/testing
@@ -10,12 +13,14 @@ CURRDIR=$PWD
 
 unset msg
 unset report
+unset output
 report=()
 
 function get_status() {
 	cmd=$1
-	output=$(echo -n $(${cmd} status))
-	echo $output | grep -i "git push\|untracked\|modifiedi\|deleted" > /dev/null
+	output=()
+	readarray -t -O ${#output[@]} output < <(${cmd} status)
+	echo ${output[@]} | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
 		echo -n "[INFO] checking git status in ${DDD} ..."
@@ -23,12 +28,15 @@ function get_status() {
 	else
 		echo "---"
 		printf "${COLOR_SET}"
-		# printf "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT\n" | tee -a ${TRPRT}
 		msg=$(echo -e "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT\n")
 		echo -e "$msg"
 		printf "${COLOR_RESET}"
 		readarray -t -O "${#report[@]}" report < <(echo -e "$msg")
-		${cmd} status
+
+		for (( i=0; i<${#output[@]}; i++ )); do
+			echo -e ">\t${output[$i]}"
+		done
+
 		echo "---"
 	fi
 }
@@ -46,7 +54,7 @@ done
 
 printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
-	for j in $(seq 0 $((${#report[@]} - 1))); do
+	for (( j=0; j<${#report[@]}; j++ )); do
 		echo "*** ${report[$j]} ***"
 	done
 else
