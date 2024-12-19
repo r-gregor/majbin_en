@@ -3,7 +3,7 @@
 # 20241216: store output of cmd into array instead of external file
 # 20241218: read output of cmd directly into array, no more need to run cmd twice
 #           c-style for loop
-# last edit: 20241218
+# last change: 20241218
 
 HST="en"
 COLOR_SET="\e[1;92m"
@@ -72,3 +72,4 @@ printf "${COLOR_RESET}"
 cd ${CURRDIR}
 
 echo ""
+

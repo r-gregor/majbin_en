@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # filename: engt_status
 # 20241216: store output of cmd into array instead of external file
-# last edit: 20241216
+# last change: 20241216
 
 HST="en"
 COLOR_SET="\e[1;92m"
@@ -11,7 +11,6 @@ CURRDIR=$PWD
 unset msg
 unset report
 report=()
-
 
 get_status() {
 	cmd=$1
@@ -48,9 +47,7 @@ done
 DDD="vlpprs_${HST}"
 NVOL_GDIR="/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en"
 NVOL_WDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
-# get_status '/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
 get_status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
-
 
 printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
@@ -65,3 +62,4 @@ printf "${COLOR_RESET}"
 cd ${CURRDIR}
 
 echo ""
+

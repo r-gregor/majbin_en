@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
-# testing_gtghstatus_en
+# filename: testing_gtghstatus_en
 # 20241216: store output of commands into array instead of external filea
 # 20241218: read output of cmd directly into array, no more need to run cmd twice
 #           c-style for loop
-# last edit: 20241218
+# last change: 20241218
 
 HST="en"
 TSTDST=${HOME}/majstaf_${HST}/coding2/testing
@@ -65,3 +65,4 @@ printf "${COLOR_RESET}"
 cd ${CURRDIR}
 
 echo ""
+

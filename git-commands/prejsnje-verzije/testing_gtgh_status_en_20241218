@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
-# testing_gtghstatus_en
+# filename: testing_gtghstatus_en
 # 20241216: store output of commands into array instead of external file
 # last change: 20241216
-
-
 
 HST="en"
 TSTDST=${HOME}/majstaf_${HST}/coding2/testing
@@ -59,3 +57,4 @@ printf "${COLOR_RESET}"
 cd ${CURRDIR}
 
 echo ""
+
