@@ -16,7 +16,8 @@ import sys
 import time
 import datetime as dt
 
-CURRENT_YEAR = str(dt.datetime.now().year)
+# CURRENT_YEAR = str(dt.datetime.now().year)
+CURRENT_YEAR = "2025"
 
 # timestamp
 def tms():

@@ -13,11 +13,17 @@
 ### addet dT2-dT1 calculation of used seconds
 ###
 
+export CURRENT_YEAR_ENV=2025
+
 if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
 		gCurrYr=$CURRENT_YEAR_ENV
 	else
 		gCurrYr=$(date +%Y)
 fi
+
+# test
+# echo "current year: $gCurrYr"
+# read -p "continue?"
 
 gUsrSpcp="/c/Users/gregor.redelonghi"
 gHnd="/h"
@@ -29,7 +35,7 @@ function tms() {
 # crtn=100
 crtn=3
 
-function crtc() {
+crtc() {
     for ((i=1; i<=$1; i++)); do
         echo -n "-"
     done
