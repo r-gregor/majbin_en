@@ -1,6 +1,6 @@
-https://medium.com/factualopinions/process-substitution-in-bash-739096a2f66d
-https://medium.com/@joewalnes/handy-bash-feature-process-substitution-8eb6dce68133
-https://www.unix.com/shell-programming-and-scripting/93407-difference-between-command-substitution-process-substitution.html
-https://stackoverflow.com/questions/51293767/what-is-the-difference-between-using-process-substitution-vs-a-pipe
-https://unix.stackexchange.com/questions/17107/process-substitution-and-pipe
-https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash
+https://www.baeldung.com/linux/exec-command-in-shell-script
+https://linuxhandbook.com/exec-command-shell-scripts/
+https://phoenixnap.com/kb/linux-exec
+https://serverfault.com/questions/368054/run-an-interactive-bash-subshell-with-initial-commands-without-returning-to-the
+https://stackoverflow.com/questions/34284238/what-is-different-between-running-a-program-directly-and-calling-exec-in-script
+https://unix.stackexchange.com/questions/286378/why-do-some-linux-shell-scripts-use-exec-to-run-commands
