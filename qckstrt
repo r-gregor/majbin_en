@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office14'
-gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office16'
+# gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office16'
+gr_OFPOT='/c/Program Files/Microsoft Office/root/Office16'
 
 if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
 	CURRYR=$CURRENT_YEAR_ENV
