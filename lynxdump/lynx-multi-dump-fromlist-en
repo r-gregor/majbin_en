@@ -1,14 +1,26 @@
-### oneliner to read a list of webpages links from a file and inserts them to single text file:
+#! /usr/bin/env bash
 
 ###  EN-proxy ...
 prx_ip=10.91.8.21
 export http_proxy=http://${prx_ip}:80/
 
+dumplist="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
+
+if [ $# -eq 1 ]; then
+	gr_seznam=$1
+	if [ ! -f $gr_seznam]; then
+		gr_seznam=${dumplist}
+		echo "No such file. Destination: ${dumplist}"
+	fi
+else
+	gr_seznam=${dumplist}
+fi
+
+
 
 # Initialising global variables ...
-gr_seznam="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
+# gr_seznam="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
 gr_dest="$PWD"
-
 gr_d_filename="default-filename"
 
 ### FILENAME - MUST CREATE!! ###
