@@ -22,7 +22,8 @@
 #  version V2: 20190325: added left/right pointing double qmarks, Em dash and elipsis
 #  version V3: 20190710: added box chars
 #  version V4: 20191007: removed backtick replacement: '-e "s/$(printf "\u0060")/\$\(/g" \'
-#
+#  version v5: 20250212: added command v2
+# ==============================================================================================
 
 FJL=$1
 
@@ -38,5 +39,16 @@ sed -i -e "s/[$(printf "\u201c")$(printf "\u201d")]/\"/g" \
     -e "s/$(printf "\u2502")/\|/g" \
     -e "s/$(printf "\u2013")/-/g" \
     -e "s/$(printf "\u2014")/-/g" $FJL
-    
+
+# ommand v2
+sed -i -e "s/┌/+/g" \
+-e "s/•/*/g" \
+-e "s/┬/+/g" \
+-e "s/┼/+/g" \
+-e "s/┐/+/g" \
+-e "s/┤/+/g" \
+-e "s/┘/+/g" \
+-e "s/┴/+/g" $FJL
+
 echo -e "\n$FJL ... REPAIRED!"
+
