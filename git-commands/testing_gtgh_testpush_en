@@ -49,6 +49,7 @@ if [ ${#report[@]} -gt 0 ]; then
 		echo "*** ${report[$j]} ***"
 	done
 else
+	echo
 	echo "*** [REPORT] No action required ***"
 fi
 printf "${COLOR_RESET}"
