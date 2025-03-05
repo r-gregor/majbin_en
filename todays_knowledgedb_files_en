@@ -1,19 +1,19 @@
 #! /usr/bin/env bash
-# V2
+# 20250304_d  v2
+# 20250305_en v3
 
 unset list
 list=()
 
 DANES=$(date +"%Y%m%d")
 ZDAJ=$(date +"%H")
-# URA=8
 SRC=${KNOWLEDGEBASE:-/home/gregor.redelonghi/majstaf_en/engit/knowledgedb}
 
 if [ $# -eq 1 ]; then
 	URA=$1
 	DEJT=${DANES}
 	if [ $((${ZDAJ} - ${URA})) -le 0  ]; then
-		echo "[ERROR]Out of time range!"
+		echo "[ERROR] Out of time range"
 		exit
 	fi
 elif [ $# -eq 2 ]; then
@@ -27,7 +27,7 @@ elif [ $# -eq 2 ]; then
 		ZDAJ=24
 	fi
 	if [ $((${ZDAJ} - ${URA})) -lt 0  ]; then
-		echo "[ERROR] Out of time range!"
+		echo "[ERROR] Out of time range"
 		exit
 	fi
 else
@@ -47,10 +47,6 @@ if [ ${#list[@]} -le 0 ]; then
 	exit
 fi
 
-# for (( i=0; i<${#list[@]}; i++)); do
-# 	echo "${list[$i]}"
-# done | fzf -m --reverse | xargs -ro vim -pM
-
 fjls=$(for (( i=0; i<${#list[@]}; i++)); do
 	echo "${list[$i]}"
 done | fzf -m --reverse)
@@ -61,3 +57,4 @@ if [ "x${fjls[0]}" == "x" ]; then
 fi
 
 for FJL in $(echo ${fjls[@]}); do echo $FJL; done | xargs -ro vim -pM
+
