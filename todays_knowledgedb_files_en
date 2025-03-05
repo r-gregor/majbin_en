@@ -32,6 +32,7 @@ elif [ $# -eq 2 ]; then
 	fi
 else
 	URA=8
+	DEJT=${DANES}
 fi
 
 echo -e "\nGetting today's entries:"
