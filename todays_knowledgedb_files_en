@@ -5,42 +5,51 @@
 unset list
 list=()
 
-DANES=$(date +"%Y%m%d")
-ZDAJ=$(date +"%H")
-SRC=${KNOWLEDGEBASE:-/home/gregor.redelonghi/majstaf_en/engit/knowledgedb}
+TODAY=$(date +"%Y%m%d")
+NOW=$(date +"%H")
+SRCDIR=${KNOWLEDGEBASE:-/home/gregor.redelonghi/majstaf_en/engit/knowledgedb}
 
 if [ $# -eq 1 ]; then
-	URA=$1
-	DEJT=${DANES}
-	if [ $((${ZDAJ} - ${URA})) -le 0  ]; then
+	HR=$1
+	DEJT=${TODAY}
+	if [ $((${NOW} - ${HR})) -le 0  ]; then
 		echo "[ERROR] Out of time range"
 		exit
 	fi
 elif [ $# -eq 2 ]; then
 	DEJT=$1
-	URA=$2
-	if [ $((${DEJT} - ${DANES})) -gt 0 ]; then
+	HR=$2
+	if [ $((${DEJT} - ${TODAY})) -gt 0 ]; then
 		echo "[ERROR] Wrong date"
 		exit
 	fi
-	if [ $((${DANES} - ${DEJT})) -gt 0 ]; then
-		ZDAJ=24
+	if [ $((${TODAY} - ${DEJT})) -gt 0 ]; then
+		NOW=24
 	fi
-	if [ $((${ZDAJ} - ${URA})) -lt 0  ]; then
+	if [ $((${NOW} - ${HR})) -lt 0  ]; then
 		echo "[ERROR] Out of time range"
 		exit
 	fi
 else
-	URA=8
-	DEJT=${DANES}
+	HR=8
+	DEJT=${TODAY}
+fi
+
+if [ $HR -lt 10 ]; then
+	HR="0${HR}"
 fi
 
 echo -e "\nGetting today's entries:"
-echo -e "\tin \"${SRC}\""
-echo -e "\tafter: ${URA}:00:00 on ${DEJT}\n"
-read -p "Continue?"
+echo -e "\tin \"${SRCDIR}\""
+echo -e "\tafter: ${HR}:00:00 on ${DEJT}\n"
 
-readarray -t -O "${#list[@]}" list < <(find ${SRC} -newermt "${DEJT} ${URA}:00:00" -type f | grep -v '\.git')
+read -p "Continue? [y/Y], or <enter> to confirm ... " ans
+
+if [ ! $ans == "Y" ] && [ ! $ans == "y" ]; then
+	exit
+fi
+
+readarray -t -O "${#list[@]}" list < <(find ${SRCDIR} -newermt "${DEJT} ${HR}:00:00" -type f | grep -v '\.git')
 
 if [ ${#list[@]} -le 0 ]; then
 	echo "[INFO] No files found"
