@@ -1,0 +1,12 @@
+ ll ./prejsnje-verzije/
+ ls -1 *new
+ for FFF in $(ls -1 *new); do echo "mv -v ${FFF//_new/} ${FFF//new/20241217}"; done
+ for FFF in $(ls -1 *new); do echo "mv -v ${FFF//_new/} prejsnje-verzije/${FFF//new/20241217}"; done
+ for FFF in $(ls -1 *new); do mv -v ${FFF//_new/} prejsnje-verzije/${FFF//new/20241217}; done
+ for FFF in $(ls -1 *new); do echo "mv -v $FFF ${FFF//_new/}"; done
+ for FFF in $(ls -1 *new); do mv -v $FFF ${FFF//_new/}; done
+ find * -maxdepth 0 -type f | xargs -ro vim -p
+ find * -maxdepth 0 -type f | xargs -I{} cp -iv {} ~/majstaf_en/engit/majbin_en/git-commands/
+ find * -maxdepth 0 -type f | xargs -I{} cp -fv {} ~/majstaf_en/engit/majbin_en/git-commands/
+ cp -fv ~/majstaf_en/majbin_en/git-commands/prejsnje-verzije/* ~/_EGT/majbin_en/git-commands/prejsnje-verzije/
+ history > majstaf_en/majbin_en/git-commands/commands_en_20241217

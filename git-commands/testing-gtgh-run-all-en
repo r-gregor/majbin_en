@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+# filename: testing-gtgh-run-all-en
+# last change: 20250401
+
+HST="en"
+
+testing-gtgh-status-${HST}
+testing-gtgh-testpush-${HST}
+
+
+

@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+### Name:	drpbx-rclone-ODPRTO1-L-R.sh
+### Author:	RgregoR
+### Date:	20201111
+### Decription:
+### rclone copy gLocal to gRemote
+### 
+### 
+
+gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO")
+gRemote="dropbox:ODPRTO"
+
+function update() {
+    gFrom=$1
+    gTo=$2
+    echo "Syncing local ${gFrom} to remote ${gTo}"
+    /usr/local/bin/rclone -v sync ${gFrom} ${gTo} --exclude /MCDN/majbin_d
+
+    # dry-run
+    # /usr/local/bin/rclone -v -n sync ${gFrom} ${gTo}
+    
+    if [ $? == 0 ]; then
+        echo "Done."
+    else
+        echo "Something went wrong!"
+        exit 1
+    fi
+}
+
+update ${gLocal} ${gRemote}
+
