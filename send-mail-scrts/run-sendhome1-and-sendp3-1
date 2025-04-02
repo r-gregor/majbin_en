@@ -15,7 +15,7 @@ function tms() {
 
 tms; echo "Starting $0 ..." 
 
-gPth="$HOME/majstaf/majbin_en/send_mail"
+gPth="$HOME/majstaf/majbin/send_mail"
 
 sendsc1=${gPth}/sendhome1list
 sendsc2=${gPth}/sendp3-1-lnk-en

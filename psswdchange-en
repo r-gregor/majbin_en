@@ -8,7 +8,7 @@
 ### UPDATE 20230523: conf data in ~/.SCRTS file
 
 # path to .SCRTS
-# gCurdir="$HOME/majstaf/majbin_en/send_mail_scrts/"
+# gCurdir="$HOME/majstaf/majbin/send_mail_scrts/"
 gScrts="$HOME/.SCRTS_en"
 
 # path to temp backup files
