@@ -35,7 +35,7 @@ function tms() {
 tms; echo "Starting $0 ..."
 
 # starting the for loop:
-for FRAZA in $(cat $HOME/majstaf_en/majbin_en/pnp/seznam.pnp); do
+for FRAZA in $(cat $HOME/majstaf/majbin/pnp/seznam.pnp); do
 	# clear
 	echo
 	trasa="$(echo ${FRAZA} | awk -F "," '{print $1}')"
@@ -57,7 +57,7 @@ for FRAZA in $(cat $HOME/majstaf_en/majbin_en/pnp/seznam.pnp); do
 	### # passing an entry to a log file
 
 
-	gr_logf=$HOME/majstaf_en/logging_en/projekt.log
+	gr_logf=$HOME/majstaf/logging_en/projekt.log
 	echo "[ $(date +%Y%m%d-%H:%M:%S) ] Starting $0" >> ${gr_logf} ##### start logging_en 
 	### 
 
@@ -69,7 +69,7 @@ cat <<"EOF"
 # Script that that creates directory structure for       #
 # organising the project                                 #
 # -----------------------------------------------------  #
-# logging in: [$HOME/majstaf_en/logging_en/projekt.log]  #
+# logging in: [$HOME/majstaf/logging_en/projekt.log]  #
 ##########################################################
 EOF
 

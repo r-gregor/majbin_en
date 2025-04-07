@@ -6,8 +6,8 @@ else
 	path=$(realpath "*")
 fi
 
-if [[ ${path} != *"majstaf_en/coding2"* ]]; then
-	read -p "[INFO] NOT in ~/majstaf_en/coding2/... !! Continue? "
+if [[ ${path} != *"majstaf/coding2"* ]]; then
+	read -p "[INFO] NOT in ~/majstaf/coding2/... !! Continue? "
 fi
 
 echo "[INFO] searching for lnx-executables in ${path} ..."

@@ -7,7 +7,7 @@ list=()
 
 TODAY=$(date +"%Y%m%d")
 NOW=$(date +"%H")
-SRCDIR=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf_en/engit/knowledgedb}
+SRCDIR=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}
 
 if [ $# -eq 1 ]; then
 	HR=$1

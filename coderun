@@ -6,7 +6,7 @@ else
     unixpath=$(realpath $PWD)
 fi
 
-cmmd="cygstart /c/Users/gregor.redelonghi/majstaf/myprogs/VSCode*/Code.exe"
+cmmd="cygstart /c/Users/gregor.redelonghi/majstaf_en/myprogs/VSCode*/Code.exe"
 
 winpath=$(cygpath -w ${unixpath})
 

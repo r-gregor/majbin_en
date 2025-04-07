@@ -21,7 +21,7 @@ cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneComm
 # cygstart /c/Users/gregor.redelonghi/AppData/Local/Google/Chrome/Application/chrome.exe
 
 # echo "Starting FireFox (portable) ..."
-# cygstart /c/Users/gregor.redelonghi/majstaf/myprogs/FireFox_63.0.1/FirefoxPortable.exe
+# cygstart /c/Users/gregor.redelonghi/majstaf_en/myprogs/FireFox_63.0.1/FirefoxPortable.exe
 
 # echo "Starting Dropbox ..."
 # cygstart /c/Users/gregor.redelonghi/AppData/Roaming/Dropbox/bin/Dropbox.exe
@@ -30,7 +30,7 @@ echo "Starting MS OutLook ..."
 cygstart "${gr_OFPOT}/OUTLOOK.EXE"
 
 # echo "Starting zze on Mintty ..."
-# mintty -p 200,100 -s 210,60 -e /bin/bash /home/gregor.redelonghi/majstaf/coding/zze/zze.sh &
+# mintty -p 200,100 -s 210,60 -e /bin/bash /home/gregor.redelonghi/majstaf/coding2/zze/zze.sh &
 # zze is staring in nex sequence in .tmux_1_conf ...
 
 # 

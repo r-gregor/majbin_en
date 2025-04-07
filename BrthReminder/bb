@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
-~/majstaf_en/majbin_en/BrthReminder/BrthReminder_c.exe "$@"
+~/majstaf/majbin/BrthReminder/BrthReminder_c.exe "$@"
 
 

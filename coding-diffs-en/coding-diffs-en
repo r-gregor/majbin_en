@@ -4,8 +4,8 @@
 # ---
 
 
-local_base="${HOME}/majstaf/coding"
-remote_base="/c/Users/gregor.redelonghi/majstaf/drpbx-en/ODPRTO/MCDN_d/coding"
+local_base="${HOME}/majstaf/coding2"
+remote_base="/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/MCDN_d/coding"
 
 
 if [ $# -ne 2 ]; then

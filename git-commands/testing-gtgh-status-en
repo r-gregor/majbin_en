@@ -6,7 +6,8 @@
 # last change: 20241218
 
 HST="en"
-TSTDST=${HOME}/majstaf_${HST}/coding2/testing
+# TSTDST=${HOME}/majstaf_${HST}/coding2/testing
+TSTDST=${HOME}/majstaf/coding2/testing
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 CURRDIR=$PWD

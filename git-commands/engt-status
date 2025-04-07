@@ -44,7 +44,7 @@ get-status() {
 echo "========================================"
 echo "[INFO] running engt-status ..."
 echo "========================================"
-cd ~/majstaf_${HST}/${HST}git/
+cd ~/majstaf/${HST}git/
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd $DDD &> /dev/null
 
@@ -54,7 +54,7 @@ done
 
 # volpejpers
 DDD="vlpprs_${HST}"
-NVOL_GDIR="/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en"
+NVOL_GDIR="/home/gregor.redelonghi/majstaf/engit/vlpprs_en"
 NVOL_WDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
 get-status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
 

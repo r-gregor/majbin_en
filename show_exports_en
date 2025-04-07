@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-grep export ~/majstaf_en/majrcs_en/bashrc_gredelonghi_en
-

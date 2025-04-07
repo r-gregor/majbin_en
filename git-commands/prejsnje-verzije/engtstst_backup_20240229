@@ -3,7 +3,7 @@
 # last edit: 20240228_en
 
 CURRDIR=$PWD
-cd ~/majstaf_en/engit/
+cd ~/majstaf/engit/
 for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
 	echo "[INFO] checking git status in ${DDD} ..."
 	cd $DDD
@@ -14,9 +14,9 @@ done
 cd ${CURRDIR}
 
 
-VLPEN="~/majstaf_en/engit/vlpprs_en"
+VLPEN="~/majstaf/engit/vlpprs_en"
 echo "[INFO] checking git status in ${VLPEN} ..."
-NVOL='/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf_en/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+NVOL='/usr/bin/git --git-dir=/home/gregor.redelonghi/majstaf/engit/vlpprs_en --work-tree=/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
 ${NVOL} status
 echo -e "\n---"
 

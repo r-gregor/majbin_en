@@ -3,7 +3,7 @@
 DANES=$(date +"%Y%m%d")
 ZDAJ=$(date +"%H")
 URA=12
-SRC=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf_en/engit/knowledgedb}
+SRC=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}
 
 if [ $# -eq 1 ]; then
 	if [ $((${ZDAJ} - $1)) -le 0  ]; then

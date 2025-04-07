@@ -1,17 +1,17 @@
 #! /usr/bin/env bash
 # 20241106 -- en
 
-src_path=${HOME}/majstaf_en
-dst_path=${HOME}/majstaf_en/engit
+src_path=${HOME}/majstaf
+dst_path=${HOME}/majstaf/engit
 
 if [ $# -eq 1 ]; then
-	src=$1
-	dst=$1
+	src=${1}
+	dst=${1}_en
 elif [ $# -eq 2 ]; then
 	src=$1
 	dst=$2
 else
-	src="majbin_en"
+	src="majbin"
 	dst="majbin_en"
 fi
 
@@ -19,17 +19,17 @@ export majfjls_src=${src_path}/${src}
 export majfjls_dst=${dst_path}/${dst}
 
 # test
-# echo "majfjls_src: ${majfjls_src}"
-# echo "majfjls_dst: ${majfjls_dst}"
-# read -p "Continue?"
+echo "majfjls_src: ${majfjls_src}"
+echo "majfjls_dst: ${majfjls_dst}"
+read -p "Continue?"
 
 if [ ! -d ${majfjls_src} ] || [ ! -d ${majfjls_dst} ]; then
 	echo "[ERROR] No such directories found"
 	exit
 fi
 
-short_src=$(echo ${majfjls_src} | sed "s:${HOME}/majstaf_en:...:")
-short_dst=$(echo ${majfjls_dst} | sed "s:${HOME}/majstaf_en:...:")
+short_src=$(echo ${majfjls_src} | sed "s:${HOME}/majstaf:...:")
+short_dst=$(echo ${majfjls_dst} | sed "s:${HOME}/majstaf:...:")
 
 echo "[INFO] Checking diffs in \"${short_src}\" and \"${short_dst}\""
 
@@ -55,8 +55,8 @@ if [ "x${fjls[0]}" == "x" ]; then
 	exit
 fi
 
-SRC=$(echo ${majfjls_src} | sed "s/\/home\/gregor.redelonghi\/majstaf_en\///")
-DST=$(echo ${majfjls_dst} | sed "s/\/home\/gregor.redelonghi\/majstaf_en\///")
+SRC=$(echo ${majfjls_src} | sed "s/\/home\/gregor.redelonghi\/majstaf\///")
+DST=$(echo ${majfjls_dst} | sed "s/\/home\/gregor.redelonghi\/majstaf\///")
 
 echo -e "Files to be copied from [${SRC}] to [${DST}]:"
 i=0

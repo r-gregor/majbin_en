@@ -8,7 +8,7 @@
 ### N-days is an intiger argumet to script. If none supplied: error message and exit
 ### 
  
-gWinPth="/c/Users/gregor.redelonghi/majstaf/drpbx-en/ODPRTO"	#EN
+gWinPth="/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO"	#EN
 gPtn="${gWinPth}/_PYTHON"
 gTxt="${gWinPth}/_TXT"
 gJava="${gWinPth}/_JAVA"

@@ -9,7 +9,8 @@
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
 HST="en"
-DEST=${HOME}/majstaf_${HST}/${HST}git
+# DEST=${HOME}/majstaf_${HST}/${HST}git
+DEST=${HOME}/majstaf/${HST}git
 unset output
 unset report
 

@@ -5,7 +5,7 @@
 # COLOR_SET="\e[1;94m"
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
-TDEST=${HOME}/majstaf_en/coding2/testing
+TDEST=${HOME}/majstaf/coding2/testing
 TSTTS=${TMP}/testing_status
 TRPRT=${TMP}/testing_report
 > ${TSTTS}

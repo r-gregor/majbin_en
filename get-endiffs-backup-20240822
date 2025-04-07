@@ -3,7 +3,7 @@
 # last change 20240229 (en)
 
 CURRDIR=$PWD
-MJSTFN=${HOME}/majstaf_en
+MJSTFN=${HOME}/majstaf
 MJSTFN_G=${MJSTFN}/engit
 
 cd ${MJSTFN_G}/dotfiles_en

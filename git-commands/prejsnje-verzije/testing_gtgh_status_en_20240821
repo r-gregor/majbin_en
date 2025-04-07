@@ -25,7 +25,7 @@ function get_status() {
 	fi
 }
 
-cd ~/majstaf_en/coding2/testing
+cd ~/majstaf/coding2/testing
 for DDD in $(find * -maxdepth 0 -type d | grep -v 'vlpprs_en'); do
 	cd $DDD &> /dev/null
 

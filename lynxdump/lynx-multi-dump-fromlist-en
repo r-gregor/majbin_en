@@ -4,7 +4,7 @@
 prx_ip=10.91.8.21
 export http_proxy=http://${prx_ip}:80/
 
-dumplist="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
+dumplist="$HOME/majstaf/majbin/lynxdump/_multi_dump_list.dat"
 
 if [ $# -eq 1 ]; then
 	gr_seznam=$1
@@ -19,7 +19,7 @@ fi
 
 
 # Initialising global variables ...
-# gr_seznam="$HOME/majstaf_en/majbin_en/lynxdump/_multi_dump_list.dat"
+# gr_seznam="$HOME/majstaf/majbin/lynxdump/_multi_dump_list.dat"
 gr_dest="$PWD"
 gr_d_filename="default-filename"
 

@@ -13,7 +13,7 @@
 
 
 # NOVO 2017-03-21
-gConfPth="$HOME/majstaf/majbin_en/send_mail_scrts"
+gConfPth="$HOME/majstaf/majbin/send-mail-scrts"
 source "${gConfPth}/send_config_en.conf"
 
 # NOVO 20171123
@@ -29,7 +29,7 @@ tms; echo "Starting $0 ..."
 # check if there is one and only on argument:
 # putting argument into variable
 gTmStmp="$(date +%Y%m%d-%H%M%S)"
-gCmdPth='/c/Users/gregor.redelonghi/majstaf/majprogs/sendEmail-v156_noTLS'	# path to command = sendEmail
+gCmdPth='/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/sendEmail-v156_noTLS'	# path to command = sendEmail
 sendEmail-v156_noTLS
 gr_xu=${gUnm}						# username for SMTP server
 gr_xp=${gPsswd}						# password for SMTP server

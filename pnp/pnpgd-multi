@@ -46,7 +46,7 @@ function msg() {
 	# Script that that creates directory structure for       #
 	# organising the project                                 #
 	# -----------------------------------------------------  #
-	# logging in: [$HOME/majstaf_en/logging_en/projekt.log]  #
+	# logging in: [$HOME/majstaf/logging_en/projekt.log]  #
 	##########################################################
 EOF
 } # end msg()
@@ -71,7 +71,7 @@ function createDirStructure() {
 
 	### # passing an entry to a log file
 
-	gr_logf=$HOME/majstaf_en/logging_en_en/projekt.log
+	gr_logf=$HOME/majstaf/logging_en_en/projekt.log
 	(tms; echo "Starting $0") >> ${gr_logf} ##### start logging_en 
 
 	echo
@@ -137,6 +137,6 @@ function createDirStructure() {
 tms; echo "Starting $0 ..." 
 
 # starting the for loop:
-for FRAZA in $(cat $HOME/majstaf_en/majbin_en/pnp/seznam.pnp); do
+for FRAZA in $(cat $HOME/majstaf/majbin/pnp/seznam.pnp); do
 	createDirStructure
 done

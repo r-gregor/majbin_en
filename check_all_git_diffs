@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
- for NAME in majbin metsys majrcs; do check_git_diffs_en ${NAME}_en; done
-

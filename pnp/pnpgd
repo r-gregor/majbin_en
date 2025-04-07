@@ -68,7 +68,7 @@ read -p "Proceed? Press any key, or ctrl+c to quit!"
 
 ### # passing an entry to a log file
 
-gr_logf=$HOME/majstaf_en/logging_en/projekt.log
+gr_logf=$HOME/majstaf/logging_en/projekt.log
 
 (tms; echo "Starting $0") >> ${gr_logf} ##### start logging_en 
 
@@ -78,7 +78,7 @@ cat <<"EOF"
 # Script that that creates directory structure for       #
 # organising the project                                 #
 # -----------------------------------------------------  #
-# logging in: [$HOME/majstaf_en/logging_en/projekt.log]  #
+# logging in: [$HOME/majstaf/logging_en/projekt.log]  #
 ##########################################################
 EOF
 
