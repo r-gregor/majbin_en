@@ -3,7 +3,8 @@
 # 20241216: store output of cmd into array instead of external file
 # 20241218: read output of cmd directly into array, no more need to run cmd twice
 #           c-style for loop
-# last change: 20241218
+# 20250415: update to directories and filenames changes
+# last change: 20250415
 
 HST="en"
 COLOR_SET="\e[1;92m"
@@ -45,7 +46,9 @@ echo "========================================"
 echo "[INFO] running engt-status ..."
 echo "========================================"
 cd ~/majstaf/${HST}git/
-for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
+# for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs"); do
+
 	cd $DDD &> /dev/null
 
 	get-status "/usr/bin/git"

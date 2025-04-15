@@ -2,14 +2,15 @@
 # filename: engt-testpush
 # 20241216: store output of cmd into array instead of external file
 # 20241218: c-style for loop
-# last change: 20241218
+# 20250415: update to directories and filenames changes
+# last change: 20250415
 
 # COLOR_SET="\e[1;94m"
 # COLOR_SET="\e[1;34m"
 COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
 HST="en"
-# DEST=${HOME}/majstaf_${HST}/${HST}git
+# DEST=${HOME}/majstaf/${HST}git
 DEST=${HOME}/majstaf/${HST}git
 unset output
 unset report
