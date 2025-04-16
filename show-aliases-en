@@ -1,14 +1,38 @@
 #! /usr/bin/env bash
 
+# if [ $# -gt 0 ]; then
+# 	cmd='cat ${HOME}/majstaf/majrcs/aliases-gredelonghi-en | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //" | grep "$1"'
+# else
+# 	cmd='cat ${HOME}/majstaf/majrcs/aliases-gredelonghi-en | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //"'
+# fi
+# 
+# while read LINE; do
+# 	alias_name=$(echo $LINE | cut -d'=' -f1)
+# 	alias_value=$(echo $LINE | cut -d'=' -f2-)
+# 	printf "%-15s%s\n" "$alias_name" "$alias_value"
+# # done < <(cat ~/majstaf/majrcs/aliases-gredelonghi-en | \grep '^alias' | sed -e '/^#/d' -e '/^$/d' | sed 's/^alias //')
+# done < <(eval "${cmd}")
+
+##########################################################################
+PTH="${HOME}/majstaf/majrcs/aliases-gredelonghi-en"
+
 if [ $# -gt 0 ]; then
-	cmd='cat ${HOME}/majstaf/majrcs/aliases-gredelonghi-en | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //" | grep "$1"'
+	pattern="$1"
+	shift
+	params="$@"
+	echo $params
+	for param in $params; do
+		pattern="$pattern\|$param"
+	done
+
+	cmd='cat ${PTH} | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //" | grep "${pattern}"'
 else
-	cmd='cat ${HOME}/majstaf/majrcs/aliases-gredelonghi-en | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //"'
+	cmd='cat ${PTH} | \grep "^alias" | sed -e "/^#/d" -e "/^$/d" | sed "s/^alias //"'
 fi
 
 while read LINE; do
 	alias_name=$(echo $LINE | cut -d'=' -f1)
 	alias_value=$(echo $LINE | cut -d'=' -f2-)
 	printf "%-15s%s\n" "$alias_name" "$alias_value"
-# done < <(cat ~/majstaf/majrcs/aliases-gredelonghi-en | \grep '^alias' | sed -e '/^#/d' -e '/^$/d' | sed 's/^alias //')
 done < <(eval "${cmd}")
+
