@@ -90,5 +90,3 @@ else
 	exit
 fi
 
-echo "TEST"
-
