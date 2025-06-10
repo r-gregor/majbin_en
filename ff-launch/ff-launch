@@ -8,7 +8,7 @@ SRC="$(dirname $(realpath ${BASH_SOURCE[0]}))/sites.txt"
 
 
 readarray -t URLS < <(cat ${SRC})
-selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done | fzf --reverse)
+selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done | fzf -e --reverse)
 
 if [ "x${selection}" == "x" ]; then
 	echo "[ERROR] nothing selected"

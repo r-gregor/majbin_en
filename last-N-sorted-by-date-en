@@ -7,7 +7,7 @@
 ###
 
 CMD1=${HOME}/.local/bin/sort-files-by-end-date
-CMD2=${HOME}/.local/bin/rsort-by-tmstmp_c
+CMD2=${HOME}/.local/bin/rsort-by-tmstmp-c
 # DRPBO=/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO
 DRPBO=/home/gregor.redelonghi/majstaf/engit/knowledgedb
 DEST1="C_and_Cpp,PYTHON,JAVA,CS_and_other_PL,GIT,VIM,ZIG,LINUX_SYSTEM,TXT,GO"
