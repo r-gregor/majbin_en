@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+SRC="/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI"
+DST="mega_gren:ENERGETIKA/_2025_1_PROJEKTI"
+
+read -p "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
+
+rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+

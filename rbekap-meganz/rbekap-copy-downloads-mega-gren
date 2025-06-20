@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+SRC="/c/Users/gregor.redelonghi/Downloads"
+DST="mega_gren:ENERGETIKA/Downloads"
+
+read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+
+rclone copy --update $(cygpath -w "${SRC}") ${DST} --progress
+
