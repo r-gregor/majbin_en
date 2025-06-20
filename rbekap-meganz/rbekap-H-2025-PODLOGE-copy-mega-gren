@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+SRC="/h/2025/_2025_podloge"
+DST="mega_gren:ENERGETIKA/h_2025_podloge"
+
+read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+
+rclone copy --update $(cygpath -w "${SRC}") ${DST} --progress
