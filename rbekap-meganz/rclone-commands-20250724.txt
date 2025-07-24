@@ -1,0 +1,231 @@
+rclone config
+rclone remote
+rclone help
+rclone help |less
+rclone listremotes
+rclone help |less
+rclone lsd
+rclone ls meganz
+rclone ls meganz:
+rclone help |less
+rclone ncdu mrganz
+rclone listremotes
+rclone ncdu mrganz:
+rclone help |less
+rclone ls --help
+rclone ls meganz:
+rclone listremotes
+rclone ls dropbox:
+rclone config
+rclone lsd mega_en:
+rclone copy Tehnicne-zahteve_2025 mega_en:ENERGETIKA
+rclone copy Tehnicne-zahteve_2025 mega_en:ENERGETIKA/Tehnicne-zahteve_2025
+rclone config
+rclone copy Tehnicne-zahteve_2025 mega_gren:ENERGETIKA/Tehnicne-zahteve_2025
+rclone copy _2025_1_PROJEKTI mega_gren:ENERGETIKA/_2025_1_PROJEKTI
+rclone sync --progress _2025_1_PROJEKTI mega_gren:ENERGETIKA/_2025_1_PROJEKTI
+rclone copy /c/Users/gregor.redelonghi/Downloads mega_gren:ENERGETIKA/Downloads
+rclone copy $(cygpath -w "/c/Users/gregor.redelonghi/Downloads") mega_gren:ENERGETIKA/Downloads
+rclone lsd mega_gren:
+rclone lsd mega_gren:ENERGETIKA
+rclone ncdu help
+rclone ncdu gren:ENERGETIKA
+rclone ncdu mega_gren:ENERGETIKA
+rclone ncdu mega_gren:
+rclone lsd mega_gren:ENERGETIKA
+rclone ncdu mega_gren:ENERGETIKA
+rclone ncdu mega_gren:
+rclone ls mega_gren:ENERGETIKA
+rclone ncdu mega_gren: | sort -nr | less
+rclone ncdu mega_gren: | sort -nr
+rclone ls mega_gren: | sort -nr
+rclone ls mega_gren: | sort -nr | head
+rclone ls mega_gren: | sort -nr | less
+man rclone
+rclone help
+rclone sync help
+rclone sync --help
+history | grep rclone
+ls | grep rclone
+mkdir rclone-en
+mv rclone-commands-20250618-2.txt rclone-en/
+cp -r rclone-en/ $EMSYS 
+rm rclone-commands-20250618-2.txt 
+vim /home/gregor.redelonghi/.config/rclone/rclone.conf
+history | grep rclone
+vim rclone-continue-command-from-20260618.txt
+cp rclone-continue-command-from-20260618.txt $BRISI 
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI
+vim ~/majstaf/metsys/rclone-commands-20250618-2.txt 
+history | grep rclone
+vim majstaf/metsys/rclone-commands-20250618-2.txt 
+cpi majstaf/metsys/rclone-commands-20250618-2.txt $EMSYS 
+which rclone
+file $(which rclone)
+rclone listremotes
+rclone copy majprogs_en mega_gren:ENERGETIKA/majprogs_en --filter-from /majprogs-yes-no.txt --progress
+rclone copy majprogs_en mega_gren:ENERGETIKA/majprogs_en --filter-from majprogs-yes-no.txt --progress
+history | grep rclone
+history | grep rclone > majstaf/metsys/rclone-commands-20250618-2.txt 
+vim majstaf/metsys/rclone-commands-20250618-2.txt
+rm majstaf/metsys/rclone-commands-20250618.txt
+history | grep rclone
+history | grep rclone
+history | grep rclone >> majstaf/metsys/rclone-commands-20250618.txt
+history | grep rclone
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/Downloads") mega_gren:ENERGETIKA/Downloads --progress
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/Tehnicne-zahteve_2025") mega_gren:ENERGETIKA/Tehnicne-zahteve_2025 --progress
+vim rclone-continue-command-from-20260618.txt 
+rclone copy majprogs_en mega_gren:ENERGETIKA/majprogs_en --filter-from majprogs-yes-no.txt --progress
+rclone copy majprogs_en mega_gren:ENERGETIKA/majprogs_en --filter-from majprogs-yes-no.txt --progress --update
+rclone copy majprogs_en mega_gren:ENERGETIKA/majprogs_en --filter-from majprogs-yes-no.txt --progress
+history |grep rclone
+history |grep rclone >> $DANES/rclone-commands-20250619.txt
+vim rclone-co
+vim rclone-co*
+vim $DANES/rclone-commands-20250619.txt 
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI --progress
+vim $DANES/rclone-commands-20250619.txt 
+cpi $DANES/rclone-commands-20250619.txt $DOWNLOADS 
+vim $DANES/rclone-commands-20250619.txt 
+rclone copy --update $(cygpath -w "/c/Users/gregor.redelonghi/Downloads") mega_gren:ENERGETIKA/Downloads --progress
+rclone sync --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI --progress
+vim $EDTFJLS/.config/rclone/rclone.conf 
+vim .config/rclone/rclone.conf 
+rm ~/majstaf/engit/dotfiles_en/.config/rclone/rclone.conf 
+rclone copyto dotfiles-en-20250619.zip mega_gren:ENERGETIKA/dotfiles-en-20250619.zip
+rclone copyto dotfiles-en-20250619.zip mega_gren:TESTING
+rclone copyto dotfiles-en-20250619.zip mega_gren:TESTING/
+rclone copyto dotfiles-en-20250619.zip mega_gren:TESTING/dotfiles-testing.zip
+cat rclone-commands-20250619.txt 
+rm rclone-commands-20250619.txt
+rm rclone-continue-command-from-20260618.txt .
+rm rclone-continue-command-from-20260618.txt
+lynxd "https://anjackson.net/2023/07/04/robust-file-transfers-with-rclone/" rclone-robust-file-transfers
+prepare-fjl-for-knowledgebase rclone-robust-file-transfers-20250619.txt 
+cpi rclone-robust-file-transfers-20250619.txt $KNOWLEDGEDB/_RCLONE/
+rclone sync --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI --progress
+vim $DANES/rclone-commands-20250619.txt 
+cpi $DANES/rclone-commands-20250619.txt $EPRNS 
+cpi $DANES/rclone-commands-20250619.txt $MSYS/rclone-en/
+cpi $DANES/rclone-commands-20250619.txt $EMSYS/rclone-en/
+cd $EMSYS/rclone-en/
+cd rclone-en/
+rm rclone-commands-20250618-2.txt 
+cd $EMSYS/rclone-en/
+rm rclone-commands-20250618-2.txt 
+cpi rclone-commands-en-20250619.txt ~/majstaf/metsys/
+mv -i rclone-commands-en-20250619.txt rclone-en/
+cd rclone-en/
+rm rclone-commands-20250619.txt 
+cpi rclone-en/rclone-commands-en-20250619.txt $EMSYS/rclone-en/
+cd $EMSYS/rclone-en/
+rm rclone-commands-20250619.txt 
+cat majstaf/metsys/rclone-en/rclone-commands-en-20250619.txt 
+rclone sync --update $(cygpath -w "/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI") mega_gren:ENERGETIKA/_2025_1_PROJEKTI --progress
+cpi rclone-robust-file-transfers-20250619.txt $KNOWLEDGEDB/_RCLONE/
+rm rclone-robust-file-transfers-20250619.txt 
+vim rclone-seznam.txt
+~/majstaf/majbin/lynxdump/lynx-multi-dump-fromlist-en rclone-seznam.txt 
+~/majstaf/majbin/lynxdump/lynx-multi-dump-fromlist-en "rclone-seznam.txt"
+prepare-fjl-for-knowledgebase rclone-commands-and-usage-multif-20250620.txt 
+vim rclone-commands-and-usage-multif-20250620.txt 
+b-convert-txt-to-pdf-v2 rclone-commands-and-usage-multif-20250620.txt 
+vim rclone-commands-and-usage-multif-20250620.txt 
+b-convert-txt-to-pdf-v2 rclone-commands-and-usage-multif-20250620.txt 
+vim rclone-commands-and-usage-multif-20250620.txt 
+b-convert-txt-to-pdf-v2 rclone-commands-and-usage-multif-20250620.txt 
+vim rclone-commands-and-usage-multif-20250620.txt 
+b-convert-txt-to-pdf-v2 rclone-commands-and-usage-multif-20250620.txt 
+rm rclone-seznam.txt 
+mv 0_converted_to_PDF/rclone-commands-and-usage-multif-20250620.txt.pdf .
+cpi rclone-commands-and-usage-multif-20250620.txt $KNOWLEDGEDB/_RCLONE/
+cpi rclone-commands-and-usage-multif-20250620.txt.pdf $KNOWLEDGEDB/_PDF/
+history | grep rclone
+history | grep rclone >> $DANES/rclone-commands-list-en-20250620.txt
+vim $DANES/rclone-commands-list-en-20250620.txt
+mkdir rclone-meganz
+cd rclone-meganz
+mv rclone-meganz/ rbekap-meganz
+w3m -dump "https://docs.oracle.com/en/learn/migr-ocistorage-rclone-p2/index.html#test-environment-1"
+w3m -dump -cols 110 "https://docs.oracle.com/en/learn/migr-ocistorage-rclone-p2/index.html#test-environment-1"
+w3m -dump -cols 110 "https://rclone.org/commands/"
+rm rclone-commands-and-usage-multif-20250620.txt*
+lynxd "https://blog.radwebhosting.com/how-to-generate-a-full-vps-backup-using-rclone-simple-3-minute-guide/" rclone-howto-generate-a-full-vps-backup
+prepare-fjl-for-knowledgebase rclone-howto-generate-a-full-vps-backup-20250620.txt 
+cpi rclone-howto-generate-a-full-vps-backup-20250620.txt $KNOWLEDGEDB/_RCLONE/
+rm rclone-howto-generate-a-full-vps-backup-20250620.txt 
+contains "https://towardsdatascience.com/managing-your-cloud-based-data-storage-with-rclone-32fff991e0b3/"
+lynxd "https://towardsdatascience.com/managing-your-cloud-based-data-storage-with-rclone-32fff991e0b3/" rclone-managing-cloud-based-data-storage
+prepare-fjl-for-knowledgebase rclone-managing-cloud-based-data-storage-20250620.txt 
+rewrapp rclone-managing-cloud-based-data-storage-20250620.txt
+prepare-fjl-for-knowledgebase rclone-managing-cloud-based-data-storage-20250620.txt
+mv rclone-managing-cloud-based-data-storage-20250620.txt $KNOWLEDGEDB/_RCLONE/
+vim $DANES/rclone-commands-list-en-20250620.txt 
+rclone lsd mega_gren:
+rclone lsd mega_gren:ENERGETIKA
+rclone ls mega_gren:ENERGETIKA
+rclone ls --maxdepth 2 mega_gren:ENERGETIKA
+rclone ls --help
+rclone ls --max-depth 2 mega_gren:ENERGETIKA
+rclone ls --max-depth 2 mega_gren:ENERGETIKA |sort nr
+rclone ls --max-depth 2 mega_gren:ENERGETIKA |sort -nr
+rclone ls --help
+rclone ls --max-depth 2 -h mega_gren:ENERGETIKA |sort -nr
+rclone ls --max-depth 2 mega_gren:ENERGETIKA |sort -nr
+rclone copy _IMAGES mega_gren:ENERGETIKA/Downloads/_IMAGES
+rclone copy AVIONI mega_gren:ENERGETIKA/Downloads/AVIONI
+rclone copy -r AVIONI mega_gren:ENERGETIKA/Downloads/AVIONI
+rclone copy $(cygpath -w "$PWD/_2025_podloge") mega_gren_ENERGETIKA/h_2025_podloge
+rclone copy $(cygpath -w "$PWD/_2025_podloge") mega_gren:ENERGETIKA/h_2025_podloge
+rclone sync $(cygpath -w "/h/_2025_podloge") mega_gren:ENERGETIKA/h_2025_podloge
+rclone sync $(cygpath -w "/h/2025/_2025_podloge") mega_gren:ENERGETIKA/h_2025_podloge
+rclone sync $(cygpath -w "/h/2025/_2025_podloge") mega_gren:ENERGETIKA/h_2025_podloge
+echo 'rclone sync $(cygpath -w "/h/2025/_2025_podloge") mega_gren:ENERGETIKA/h_2025_podloge' >> majstaf/metsys/rclone-en/rclone-commands-en.txt 
+vim majstaf/metsys/rclone-en/rclone-commands-en.txt
+rm majstaf/metsys/rclone-en/rclone-commands-en-20250619.txt 
+cp majstaf/metsys/rclone-en/rclone-commands-en-20250619.txt $EMSYS/rclone-en/
+cp majstaf/metsys/rclone-en/rclone-commands-en.txt $EMSYS/rclone-en/
+cd $EMSYS/rclone-en/
+rm rclone-commands-en-20250619.txt 
+cd rclone-en/
+rclone copyto zip-unzip-commands-en.txt mega_gren/ENERGETIKA
+rclone copyto rclone-en/rclone-commands-en.txt mega_gren/ENERGETIKA
+history | grep rclone
+vim rclone-en/rclone-commands-en.txt 
+rclone copyto rclone-en/rclone-commands-en.txt mega_gren/ENERGETIKA
+cpi rclone-en/rclone-commands-en.txt $EMSYS/rclone-en/
+cd $EMSYS/rclone-en/
+cpi rclone-en/rclone-commands-en.txt $EPRNS/
+ll rclone-commands-en*
+rm rclone-commands-en-20250619.txt 
+rclone copyto rclone-en/rclone-commands-en.txt mega_gren:ENERGETIKA
+rclone copy rclone-en/rclone-commands-en.txt mega_gren:ENERGETIKA
+rclone copy zip-unzip-commands-en.txt mega_gren:ENERGETIKA
+vim rclone-en/rclone-commands-en.txt 
+rclone copy rclone-en/rclone-commands-en.txt mega_gren:ENERGETIKA
+cpi rclone-en/rclone-commands-en.txt $EMSYS/rclone-en/
+cpi rclone-en/rclone-commands-en.txt $EPRNS 
+ll rclone-en/rclone-commands-en.txt 
+rm rclone-commands-list-en-20250620.txt 
+rclone copy alseg-en-20250624.zip mega_gren:ENERGETIKA/
+rclone --help
+rclone --help | less
+rclone syns --help
+rclone sync --help
+rclone help exclude
+rclone help | grep exclude
+man rclone
+rclone ls .
+rclone ls . | less
+rclone ls --filter-from exludes . | less
+rclone ls . | grep '.git'
+rclone ls . | grepc '.git'
+rclone ls --filter-from exludes . | grepc '.git'
+rclone ls --filter-from exludes . | grepc 'vlp'
+rclone ls --filter-from exludes . | grepc 'vlp'
+rclone ls --filter-from exludes . | grepc '.git'
+rclone ls --filter-from exludes . | grepc '\.git'
+rclone ls --filter-from exludes $(cygpath -w $EGT) | grepc '\.git'
+rclone ls $(cygpath -w $EGT) | grepc '\.git
