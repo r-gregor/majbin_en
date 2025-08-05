@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+SRC="/home/gregor.redelonghi/majstaf/coding2/toolbox"
+DST="mega_gren:ENERGETIKA/toolbox_en"
+# excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
+
+read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+
+# rclone sync --update --filter-from ${excludes_path} $(cygpath -w "${SRC}") ${DST} --progress
+rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+
