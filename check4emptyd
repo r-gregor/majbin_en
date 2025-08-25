@@ -9,7 +9,7 @@ fi
 testd=$(realpath ${curdir})
 
 if [ "$(ls -A ${testd})" ]; then
-	echo "[INFO] ${testd} is NOT empty"
+	echo "[INFO] *** ${testd} is NOT empty! ***"
 else
 	echo "[INFO] ${testd} is empty"
 fi

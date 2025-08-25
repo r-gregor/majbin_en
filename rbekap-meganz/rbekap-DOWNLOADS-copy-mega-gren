@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-SRC="/c/Users/gregor.redelonghi/Downloads"
+SRC="/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ"
 DST="mega_gren:ENERGETIKA/Downloads"
 
 read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
