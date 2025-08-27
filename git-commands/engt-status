@@ -4,12 +4,14 @@
 # 20241218: read output of cmd directly into array, no more need to run cmd twice
 #           c-style for loop
 # 20250415: update to directories and filenames changes
-# last change: 20250415
+# 20250827: added $GIT_STATUS_REPORTS filename to store reports
+# last change: 20250827
 
 HST="en"
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 CURRDIR=$PWD
+> $GIT_STATUS_REPORTS
 
 unset msg
 unset report
@@ -66,7 +68,7 @@ printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
 	echo
 	for (( j=0; j<${#report[@]}; j++ )); do
-		echo "*** ${report[$j]} ***"
+		echo "*** ${report[$j]} ***" | tee -a $GIT_STATUS_REPORTS
 	done
 else
 	echo
