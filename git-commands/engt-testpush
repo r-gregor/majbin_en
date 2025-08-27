@@ -13,7 +13,7 @@ COLOR_RESET="\e[0m"
 HST="en"
 # DEST=${HOME}/majstaf/${HST}git
 DEST=${HOME}/majstaf/${HST}git
-> $GIT_TPUSH_REPORTS
+> $ENGIT_TPUSH_REPORTS
 
 unset output
 unset report
@@ -50,7 +50,7 @@ printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
 	echo
 	for (( j=0; j<${#report[@]}; j++)); do
-		echo "*** ${report[$j]} ***" | tee -a $GIT_TPUSH_REPORTS
+		echo "*** ${report[$j]} ***" | tee -a $ENGIT_TPUSH_REPORTS
 	done
 else
 	echo

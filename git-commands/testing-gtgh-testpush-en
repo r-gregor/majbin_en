@@ -11,6 +11,8 @@ COLOR_SET="\e[1;38;5;75m"
 COLOR_RESET="\e[0m"
 # TDEST=${HOME}/majstaf_${HST}/coding2/testing
 TDEST=${HOME}/majstaf/coding2/testing
+# 
+> $TESTING_TPUSH_REPORTS
 
 unset output
 unset report
@@ -47,7 +49,7 @@ printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
 	echo
 	for (( j=0; j<${#report[@]}; j++)); do
-		echo "*** ${report[$j]} ***"
+		echo "*** ${report[$j]} ***" | tee -a $TESTING_TPUSH_REPORTS
 	done
 else
 	echo
