@@ -3,6 +3,7 @@
 SRC="/h/2025/_2025_podloge"
 DST="mega_gren:ENERGETIKA/h_2025_podloge"
 
-read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+read -p "[INFO] Confirm? "
 
 rclone copy --update $(cygpath -w "${SRC}") ${DST} --progress

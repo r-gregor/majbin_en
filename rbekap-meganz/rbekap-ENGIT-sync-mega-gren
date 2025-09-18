@@ -4,7 +4,8 @@ SRC="/home/gregor.redelonghi/majstaf/engit"
 DST="mega_gren:ENERGETIKA/ENGIT"
 excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
-read -p "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+read -p "[INFO] Confirm? "
 
 rclone sync --update --filter-from ${excludes_path} $(cygpath -w "${SRC}") ${DST} --progress
 
