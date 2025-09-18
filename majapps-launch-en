@@ -4,27 +4,31 @@
 # last: 20250917 (en)
 
 declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe" \
-                 ["MS Edge"]="/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe" \
+                 ["MS Edge"]="$(cygpath -w /c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe)" \
                  ["Google Chrome"]="C:\Program Files\Google Chrome Portable\GoogleChromePortable.exe" \
                  ["MS Calc"]="/c/Windows/System32/calc.exe" \
                  ["Acrobat Reader"]="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"
-                 # ["AutoCAD 2024"]='c:\Program File\Autodesk\AutoCAD 2024\acad.exe /product ACAD /language en-US' \
+                 ["AutoCAD 2024"]='c:\Program File\Autodesk\AutoCAD 2024\acad.exe /product ACAD /language en-US' \
                  ["Explorer++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe" \
-                 ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe")
+                 ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
+                 ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe")
 
-# TEST
 # echo "apps values only: ${apps[@]}"
 # echo "apps keys only:   ${!apps[@]}"
 # echo "apps length:      ${#apps[@]}"
 
-selection=$(for app in "${!apps[@]}"; do echo "$app"; done | fzf --reverse)
+selection=$(for app in "${!apps[@]}"; do echo "$app"; done | fzf -e --reverse +c --prompt="launch: ")
 
 # TEST 2
 # echo "selection: $selection"
 # echo "app: ${apps["${selection}"]}"
 
 # RUN
-cygstart "${apps["${selection}"]}"
+if [ "${selection}" == "AutoCAD 2024" ]; then
+	cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
+else
+	cygstart "${apps["${selection}"]}" &>/dev/null
+fi
 
 #############################################
 # TODO
@@ -46,10 +50,6 @@ cygstart "${apps["${selection}"]}"
 # ${gr_novapot}/clc.bat
 # cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US"
 # cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe" /b "C:\Program Files\SL-King\Sewer+\Sewer+Load.scr"
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe
-# cygstart /c/Windows/System32/\notepad.exe
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe
 # cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
 # cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/MultiCommander_X64/MultiCommander.exe
 # cygstart "$gr_IE"
@@ -61,8 +61,6 @@ cygstart "${apps["${selection}"]}"
 # cygstart explorer /E, $(cygpath -w /c/users/gregor.redelonghi/${CURRYR})
 # cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 40,40 -s 200,50 -
 # cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/CodeBlocks/codeblocks.exe
-# cygstart /c/Program\ Files/Google/Drive/googledrivesync.exe
-# cygstart /c/Program\ Files/Skype/Phone/Skype.exe
 # cygstart "$(cygpath -w "/c/Users/Public/below average/Super Launcher/SuperLauncher.exe")"
 # cygstart /c/WINDOWS/System32/rundll32.exe user32.dll LockWorkStation
 # cygstart /c/WINDOWS/System32/rundll32.exe  shell32.dll,Control_RunDLL hotplug.dll
