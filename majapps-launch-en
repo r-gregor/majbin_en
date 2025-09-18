@@ -8,16 +8,22 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["Google Chrome"]="C:\Program Files\Google Chrome Portable\GoogleChromePortable.exe" \
                  ["MS Calc"]="/c/Windows/System32/calc.exe" \
                  ["Acrobat Reader"]="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"
-                 ["AutoCAD 2024"]='c:\Program File\Autodesk\AutoCAD 2024\acad.exe /product ACAD /language en-US' \
+                 ["AutoCAD 2024"]=""
                  ["Explorer++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe" \
                  ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
-                 ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe")
+                 ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe" \
+                 ["Nukleus (EN)"]="")
 
 # echo "apps values only: ${apps[@]}"
 # echo "apps keys only:   ${!apps[@]}"
 # echo "apps length:      ${#apps[@]}"
 
-selection=$(for app in "${!apps[@]}"; do echo "$app"; done | fzf -e --reverse +c --prompt="launch: ")
+selection=$(for app in "${!apps[@]}"; do echo "$app"; done | fzf -e --reverse +c -i --prompt="launch: ")
+
+if [ "x${selection}" == "x" ]; then
+	echo "[ERROR] no selection"
+	exit
+fi
 
 # TEST 2
 # echo "selection: $selection"
@@ -26,6 +32,8 @@ selection=$(for app in "${!apps[@]}"; do echo "$app"; done | fzf -e --reverse +c
 # RUN
 if [ "${selection}" == "AutoCAD 2024" ]; then
 	cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
+elif [ "${selection}" == "Nukleus (EN)" ]; then
+	/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe  "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
 else
 	cygstart "${apps["${selection}"]}" &>/dev/null
 fi
