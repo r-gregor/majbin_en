@@ -1,7 +1,11 @@
 #! /usr/bin/env bash
 # filename: majapps-launch.sh
 # 20250917 (en)
-# last: 20250917 (en)
+# 20250919 (en) -- added runff var for firefox path
+# last: 20250919 (en)
+
+runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
+
 
 declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe" \
                  ["MS Edge"]="$(cygpath -w /c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe)" \
@@ -26,17 +30,13 @@ if [ "x${selection}" == "x" ]; then
 	exit
 fi
 
-# TEST 2
-# echo "selection: $selection"
-# echo "app: ${apps["${selection}"]}"
-
 # RUN
 if [ "${selection}" == "AutoCAD 2024" ]; then
 	cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
 elif [ "${selection}" == "Nukleus (EN)" ]; then
-	/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe  "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
+	${runff} "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
 elif [ "${selection}" == "Razvojne Rešitve (EN)" ]; then
-	/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe "https://jpe-arcgis-port.jhl.si/arcgis/apps/webappviewer/index.html?id=b7ec743d0247439fbe941cb6187fa094"
+	${runff} "https://jpe-arcgis-port.jhl.si/arcgis/apps/webappviewer/index.html?id=b7ec743d0247439fbe941cb6187fa094"
 else
 	cygstart "${apps["${selection}"]}" &>/dev/null
 fi
