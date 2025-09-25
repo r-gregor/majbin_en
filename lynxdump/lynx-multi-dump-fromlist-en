@@ -10,28 +10,24 @@ export https_proxy=http://${prx_ip}:80/
 dumplist="$HOME/majstaf/majbin/lynxdump/multi-dump-list.dat"
 
 if [ $# -eq 1 ]; then
+	gr_name=$1
+elif [ $# -eq 2 ]; then
 	gr_seznam=$1
-	if [ ! -f $gr_seznam]; then
+	if [ ! -f $gr_seznam ]; then
 		gr_seznam=${dumplist}
 		echo "No such file. Destination: ${dumplist}"
 	fi
+	gr_name=$2
 else
-	gr_seznam=${dumplist}
+	echo -e "Usage:\n\t$(basename $0) <list> <name>"
+	echo -e "   or:\n\t$(basename $0) [default-list] <name>"
+	echo -e ""
+	exit
 fi
 
 gr_dest="$PWD"
-gr_d_filename="default-filename"
 gr_dejt=$(date +%Y%m%d)
-
-echo "Enter filename [no spaces, only hypens] :"
-read gr_ANS
-
-if [ -z ${gr_ANS} ]; then
-	gr_filename=${gr_d_filename}-multyf-${gr_dejt}.txt
-else
-	gr_imef=$(echo "${gr_ANS}" | tr ' ' '-') 
-	gr_filename=${gr_imef}-multif-${gr_dejt}.txt
-fi
+gr_filename=${gr_name}-multyf-${gr_dejt}.txt
 
 # destination ...
 gr_goto="${PWD}"
