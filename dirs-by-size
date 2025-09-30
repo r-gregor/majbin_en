@@ -3,15 +3,33 @@
 ### Name:		dirs-by-size
 ### Author:		RgregoR
 ### Date:		20201214 
-### Decription:	display dirs by size with totla in decending order
+### Decription:	display dirs by size with total in decending order
 ### ---
-### update 20210218:	added the grep part to command to ddisplay only the sizes +10M
+### update 20210218:	added the grep part to ddisplay only the sizes +10M
 ###						if -a flag is supplied as argument all dirs are displayed
 ### 					changed ctrtc() function to print only 3 dashes "---" if no
 ### 					number of dashes suplied as argument
 ###						display usage ih -h flag is supplied as argument
 ### ---
 ### 
+
+# timestamp
+function tms() {
+	echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
+}
+
+# crtice
+crtn=70
+function crtc() {
+	if [ $# -ne 1 ]; then
+		echo "---"
+	else
+		for ((i=1; i<=$1; i++)); do
+			echo -n "-"
+		done
+		echo
+	fi
+}
 
 # usage
 function usage() {
@@ -33,33 +51,16 @@ if [ $# -ne 0 ]; then
 		exit 0
 	elif [ $1 == "-a" ]; then
 		long=1
-	else
-		long=0
+		tms; echo "Directories by size (all sizes):"
+		crtc
 	fi
+else
+	long=0
+	tms; echo "Directories by size (at least 10 MB):"
+	crtc
 fi
 
-# timestamp
-function tms() {
-    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
-}
 
-# crtice
-crtn=70
-function crtc() {
-	if [ $# -ne 1 ]; then
-		echo "---"
-	else
-		for ((i=1; i<=$1; i++)); do
-			echo -n "-"
-		done
-		echo
-	fi
-}
-
-# Start
-tms; echo "Started: $0"
-# crtc $crtn
-crtc
 
 # command:
 # find * -maxdepth 0 -type d | xargs du -sh --total | sort -hr
@@ -71,6 +72,6 @@ else
 fi
 
 # crtc $crtn
-crtc
-tms; echo "Done!"
+# crtc
+# tms; echo "Done!"
 

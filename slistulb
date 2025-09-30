@@ -2,5 +2,5 @@
 
 
 #! /usr/bin/env bash
-for FFF in $(find ${HOME}/.local/bin/ -type l); do echo $FFF | cut -d'/' -f5; done | column -c $(tput cols) | less
+for FFF in $(find ${HOME}/.local/bin/ -type l); do echo $FFF | cut -d'/' -f6; done | column -c $(tput cols) | less
 

@@ -1,13 +1,5 @@
 #! /usr/bin/env bash
 
-### Name:	Scriptname ...
-### Author:	Author ... 
-### Date:	 
-### Decription:
-### 
-### 
-### 
-
 if [ $# -eq 1 ]; then
 	CURDIR=$1
 else
