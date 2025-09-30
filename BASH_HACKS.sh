@@ -20,5 +20,16 @@ echo 'Absolute path to script location -- NOT the current working dir: $(dirname
 echo "$(dirname $(realpath ${BASH_SOURCE[0]}))"
 
 echo
+echo "run command from script and detach from shell -- no nohup.out file:"
+echo 'nohup <command> >/dev/null 2>&1 &'
+
+echo
+echo -n "set IFS to newline:    "
+echo "IFS=$'\n'"
+
+echo -n "set IFS to orginal:    "
+echo "IFS=$' \t\n'"
+
+echo
 
 
