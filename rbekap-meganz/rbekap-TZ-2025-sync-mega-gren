@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
-SRC="/c/Users/gregor.redelonghi/2025/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-07"
-DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-07"
+SRC="/c/Users/gregor.redelonghi/2025/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-10"
+DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-10"
 
 echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
 read -p "[INFO] Confirm? "
