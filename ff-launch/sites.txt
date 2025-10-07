@@ -1,5 +1,6 @@
 --- 20250721-1459-en ---
 --- 20250808-1333-en ---
+--- 20251007-1349-en ---
 https://nullprogram.com/                                  -- c programming: blog (5+)
 https://justcode.me/category/c/                           -- c programming: blog
 https://c-for-dummies.com/blog/                           -- c programming: blog (5+)
@@ -34,7 +35,7 @@ https://www.youtube.com/@TheCodingTrain                   -- ytb channel
 https://www.youtube.com/@dr-Jonas-Birch                   -- ytb channel
 https://www.youtube.com/@CasualCoder                      -- ytb channel
 https://www.youtube.com/@JacobSorber                      -- ytb channel
-https://www.youtube.com/@LowLevelLearning                 -- ytb channel
+https://www.youtube.com/@LowLevelTV                       -- ytb channel
 https://www.youtube.com/@PortfolioCourses                 -- ytb channel
 https://www.youtube.com/c/Programiz-studios               -- ytb channel
 https://www.youtube.com/@anthonygg_                       -- ytb channel
