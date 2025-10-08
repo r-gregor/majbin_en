@@ -6,6 +6,8 @@
 
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
 
+# gr_MSE=/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe
+runedg="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 
 declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe" \
                  ["MS Edge"]="$(cygpath -w /c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe)" \
@@ -17,6 +19,7 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
                  ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe" \
                  ["Nukleus (EN)"]="" \
+                 ["URE"]="" \
                  ["Razvojne Rešitve (EN)"]="")
 
 # echo "apps values only: ${apps[@]}"
@@ -37,6 +40,10 @@ elif [ "${selection}" == "Nukleus (EN)" ]; then
 	${runff} "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
 elif [ "${selection}" == "Razvojne Rešitve (EN)" ]; then
 	${runff} "https://jpe-arcgis-port.jhl.si/arcgis/apps/webappviewer/index.html?id=b7ec743d0247439fbe941cb6187fa094"
+elif [ "${selection}" == "URE" ]; then
+	jhl_ure="https://ris.jhl.si/"
+	# cygstart "${runedg}" ${jhl_ure}
+	"${runedg}" ${jhl_ure}
 else
 	cygstart "${apps["${selection}"]}" &>/dev/null
 fi
