@@ -1,4 +1,3 @@
-#! /usr/bin/env bash
 # filename: majapps-launch.sh
 # 20250917 (en)
 # 20250919 (en) -- added runff var for firefox path
@@ -17,6 +16,7 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["AutoCAD 2024"]=""
                  ["Explorer++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe" \
                  ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
+                 ["MultiCommander"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/MultiCommander_X64/MultiCommander.exe"
                  ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe" \
                  ["Nukleus (EN)"]="" \
                  ["URE"]="" \
@@ -58,27 +58,15 @@ fi
 # gr_IE=/c/Program\ Files/Internet\ Explorer/iexplore.exe
 # gr_FF=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 # gr_MSE=/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe
-#
+# ------------------------------------------------------------------------------------------
 # cygstart "${gr_OFPOT}/EXCEL.EXE"
 # cygstart "${gr_OFPOT}/WINWORD.EXE"
 # cygstart "${gr_OFPOT}/POWERPNT.EXE"
 # cygstart "${gr_OFPOT}/OUTLOOK.EXE"
-# cygstart /c/Windows/System32/calc.exe
-# cygstart /c/Program\ Files\ \(x86\)/Adobe/Acrobat\ Reader\ DC/Reader/AcroRd32.exe
-# ${gr_novapot}/clc.bat
-# cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US"
-# cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe" /b "C:\Program Files\SL-King\Sewer+\Sewer+Load.scr"
 # cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/MultiCommander_X64/MultiCommander.exe
-# cygstart "$gr_IE"
-# cygstart "${gr_MSE}" www.google.com
 # cygstart /c/WINDOWS/system32/ssmypics.scr /s
-# cygstart $gr_FF "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
-# cygstart '/c/Program Files/Google Chrome Portable/GoogleChromePortable.exe'
-# cygstart $gr_FF
-# cygstart explorer /E, $(cygpath -w /c/users/gregor.redelonghi/${CURRYR})
 # cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 40,40 -s 200,50 -
 # cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/CodeBlocks/codeblocks.exe
-# cygstart "$(cygpath -w "/c/Users/Public/below average/Super Launcher/SuperLauncher.exe")"
 # cygstart /c/WINDOWS/System32/rundll32.exe user32.dll LockWorkStation
 # cygstart /c/WINDOWS/System32/rundll32.exe  shell32.dll,Control_RunDLL hotplug.dll
+#############################################
