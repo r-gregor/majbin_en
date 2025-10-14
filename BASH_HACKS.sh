@@ -60,5 +60,19 @@ echo 'for (( i=0; i<${#output[@]}; i++ )); do'
 echo '	echo -e ">\t${output[$i]}"'
 echo 'done'
 
+cat <<EOF2
+
+---
+single-line example:
+$> readarray -t dirs < <(ls -dA *)
+$> for ((i=0;i<${#dirs[@]};i++)); do printf "dir %02d: %s\n" $[i+1] ${dirs[$i]}; done
+dir 01: _NERAZPOREJENO
+dir 02: coding2
+dir 03: dev
+.
+.
+.
+
+EOF2
 echo "---"
 
