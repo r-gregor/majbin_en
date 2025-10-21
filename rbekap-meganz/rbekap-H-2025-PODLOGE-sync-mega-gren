@@ -6,6 +6,7 @@ SRC="/h/2025/_2025_podloge"
 DST="mega_gren:ENERGETIKA/h_2025_podloge"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
+	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
 	yes | rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
 else
 	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
