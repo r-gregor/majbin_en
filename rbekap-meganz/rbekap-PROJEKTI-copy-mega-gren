@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# 20251021 (en)
+# last change 20251021
 
 SRC="/c/Users/gregor.redelonghi/2025/_2025_1_PROJEKTI"
 DST="mega_gren:ENERGETIKA/_2025_1_PROJEKTI"

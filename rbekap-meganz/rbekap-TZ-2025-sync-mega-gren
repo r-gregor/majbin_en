@@ -1,10 +1,14 @@
 #! /usr/bin/env bash
+# 20251021 (en)
+# last change 20251021
 
 SRC="/c/Users/gregor.redelonghi/2025/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-10"
 DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-10"
 
-echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
-read -p "[INFO] Confirm? "
-
-rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
-
+if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
+	yes | rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+else
+	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
+	read -p "[INFO] Confirm? "
+	rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+fi

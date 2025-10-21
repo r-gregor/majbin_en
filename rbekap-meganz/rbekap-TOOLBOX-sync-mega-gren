@@ -1,12 +1,18 @@
 #! /usr/bin/env bash
+# 20251021 (en)
+# last change 20251021
 
 SRC="/home/gregor.redelonghi/majstaf/coding2/toolbox"
 DST="mega_gren:ENERGETIKA/toolbox_en"
 # excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
-echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
-read -p "[INFO] Confirm? "
+if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
+	yes | rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+else
+	echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
+	read -p "[INFO] Confirm? "
 
-# rclone sync --update --filter-from ${excludes_path} $(cygpath -w "${SRC}") ${DST} --progress
-rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+	# rclone sync --update --filter-from ${excludes_path} $(cygpath -w "${SRC}") ${DST} --progress
+	rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+fi
 
