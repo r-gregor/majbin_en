@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 # filename: majapps-launch.sh
 # 20250917 (en)
 # 20250919 (en) -- added runff var for firefox path
@@ -40,10 +41,16 @@ declare -a keys=("Firefox" \
                  "q (quit)")
 
 while true; do
-	selection=$(for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | fzf -e --reverse +c -i --prompt="launch: ")
+	selection=$(for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | \
+		fzf \
+			-e \
+			--reverse \
+			+c \
+			-i \
+			--prompt="launch: ")
 
 	if [ "x${selection}" == "x" ]; then
-		echo "[ERROR] no selection"
+		echo "[INFO] no selection"
 		exit
 	fi
 
