@@ -15,7 +15,7 @@ gl_rmt_addr="git@gitlab.com:r-gregor"
 # single repo clone and setup function
 single_repo_setup() {
 	if [ $# -ne 1 ]; then
-		echo [ERROR] "must supply repo name as argument"
+		echo -e [ERROR] "must supply repo name as argument\n"
 		exit
 	else
 		repo=$1
@@ -44,5 +44,5 @@ for repo in majbin majrcs metsys dotfiles; do
 	single_repo_setup ${repo}
 done
 
-echo "[INFO] done"
+echo -e "[INFO] done\n"
 

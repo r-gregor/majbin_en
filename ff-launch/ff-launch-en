@@ -11,7 +11,7 @@ readarray -t URLS < <(cat ${SRC})
 selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done | fzf -e --reverse)
 
 if [ "x${selection}" == "x" ]; then
-	echo "[ERROR] nothing selected"
+	echo -e "[ERROR] nothing selected\n"
 	exit
 fi
 

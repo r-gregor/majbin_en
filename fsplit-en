@@ -25,12 +25,13 @@ case $NUMARGS in
 		echo "           fname: file name"
 		echo "           n:     number of parts to split fname into"
 		echo "                  if only <filename> supiplied: n = 2"
+		echo
 		exit
 	;;
 esac
 
 if [ ! $fname ]; then
-	echo "[ERROR] $fname: No such file"
+	echo -e "[ERROR] $fname: No such file\n"
 	exir
 fi
 

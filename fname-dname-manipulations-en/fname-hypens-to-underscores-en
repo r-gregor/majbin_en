@@ -4,7 +4,7 @@
 ARG="$@"
 
 if [ "x${ARG}" = "x" ]; then
-	echo "[ERROR] -- no filename as argument"
+	echo -e "[ERROR] -- no filename as argument\n"
 	exit
 else
 	FJLM=$ARG

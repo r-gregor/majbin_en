@@ -13,7 +13,7 @@ gh_rmt_addr="git@github.com:r-gregor"
 gl_rmt_addr="git@gitlab.com:r-gregor"
 
 if [ $# -ne 1 ]; then
-	echo [ERROR] "must supply repo name as argument"
+	echo -e [ERROR] "must supply repo name as argument\n"
 	exit
 else
 	repo=$1
@@ -34,5 +34,5 @@ git remote -v
 
 git pull gh_${repo_name} main --set-upstream
 cd ../
-echo "[INFO] done"
+echo -e "[INFO] done\n"
 

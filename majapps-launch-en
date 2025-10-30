@@ -45,12 +45,11 @@ while true; do
 		fzf \
 			-e \
 			--reverse \
-			+c \
 			-i \
 			--prompt="launch: ")
 
 	if [ "x${selection}" == "x" ]; then
-		echo "[INFO] no selection"
+		echo -e "[INFO] no selection\n"
 		exit
 	fi
 
