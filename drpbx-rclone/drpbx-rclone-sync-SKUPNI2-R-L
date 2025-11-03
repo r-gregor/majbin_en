@@ -24,7 +24,7 @@ function update() {
     if [ $? == 0 ]; then
         echo "Done."
     else
-        echo "Something went wrong!"
+        echo -e "Something went wrong!\n"
         exit 1
     fi
 }

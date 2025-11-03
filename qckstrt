@@ -43,7 +43,7 @@ cygstart "${gr_OFPOT}/OUTLOOK.EXE"
 echo "Starting Super Launcher ..."
 cygstart "$(cygpath -w "/c/Users/Public/below average/Super Launcher/SuperLauncher.exe")"
 
-echo "All startup instances started successfuly."
+echo -e "All startup instances started successfuly.\n"
 
 exit
 

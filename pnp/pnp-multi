@@ -109,10 +109,7 @@ function createDirStructure() {
 	# Test if a directori already exists!
 	if [ -e "${osn_dir}/${celotna_ozn}" ]; then
 		(tms; echo "Directory [${osn_dir}/${celotna_ozn}] ... EXISTS!") | tee -a ${gr_logf} # append to log
-		(tms; echo "LEAVING!") >> ${gr_logf} # append to log
-		(tms; echo "Exiting $0") >> ${gr_logf} #stop logging
-		(tms; echo "--------------------------------------------------------------------------------") >> ${gr_logf}
-		echo
+		(tms; echo -e "--------------------------------------------------------------------------------\n") >> ${gr_logf}
 		read -p "Press any key to EXIT!"
 		
 		exit 1
@@ -136,8 +133,7 @@ function createDirStructure() {
 	tree ${osn_dir}/${celotna_ozn}
 	printf "%87s\n" | tr " " "-"
 	(tms; echo "SUCCESS!!") | tee -a ${gr_logf} # append to log
-	(tms; echo "Exiting $0") >> ${gr_logf} # stop logging
-	(tms; echo "--------------------------------------------------------------------------------") >> ${gr_logf}
+	(tms; echo -e "--------------------------------------------------------------------------------\n") >> ${gr_logf}
 } # end createDirStructure()
 
 

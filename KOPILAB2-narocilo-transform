@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 if [ $# -ne 1 ]; then
-    echo "NO PARAMETER! --> Naročilo ..."
+    echo -e "NO PARAMETER! --> Naročilo ...\n"
     exit 1
 fi
 

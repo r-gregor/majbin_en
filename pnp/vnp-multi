@@ -92,10 +92,7 @@ EOF
 	# Test if a directori already exists!
 	if [ -e "${osn_dir}/${celotna_ozn}" ]; then
 		echo "[ $(date +%Y%m%d-%H:%M:%S) ] Directory [${osn_dir}/${celotna_ozn}] ... EXISTS!" | tee -a ${gr_logf} # append to log
-			echo "[ $(date +%Y%m%d-%H:%M:%S) ] ... LEAVING! ..." >> ${gr_logf} # append to log
-			echo "[ $(date +%Y%m%d-%H:%M:%S) ] Exiting $0" >> ${gr_logf} #stop logging_en
-			echo "[ $(date +%Y%m%d-%H:%M:%S) ]------------------------------------------------------------------------------" >> ${gr_logf}
-		echo
+			echo -e "[ $(date +%Y%m%d-%H:%M:%S)]------------------------------------------------------------------------------\n" >> ${gr_logf}
 		read -p "Press any key to EXIT!"
 		
 		exit 1
@@ -118,14 +115,12 @@ EOF
 	tree ${osn_dir}/${celotna_ozn}
 	printf "%87s\n" | tr " " "-"
 	(tms; echo "SUCCESS!!") | tee -a ${gr_logf} # append to log
-	(tms; echo "Exiting $0") >> ${gr_logf} # stop logging_en
-	(tms; echo "--------------------------------------------------------------------------------") >> ${gr_logf}
+	(tms; echo -e "--------------------------------------------------------------------------------\n") >> ${gr_logf}
 
 	### else
 	###     echo "[ $(date +%Y%m%d-%H:%M:%S) ] Your answer is NOT \"y\" or \"Y\"." | tee -a ${gr_logf} # append to log
 	###     echo "[ $(date +%Y%m%d-%H:%M:%S) ] ... LEAVING! ..." | tee -a ${gr_logf} # append to log
-	###         echo "[ $(date +%Y%m%d-%H:%M:%S) ] Exiting $0" >> ${gr_logf} # stop logging_en
-	###         echo "[ $(date +%Y%m%d-%H:%M:%S) ]------------------------------------------------------------------------------" >> ${gr_logf}        
+	###         echo -e "[ $(date +%Y%m%d-%H:%M:%S)]------------------------------------------------------------------------------\n" >> ${gr_logf}
 	### fi
 
 done

@@ -17,7 +17,7 @@ function testcmd() {
     if [ $? -eq 0 ]; then
         echo "[OK]"
     else
-        echo "Something went wrog!"
+        echo -e "Something went wrog!\n"
         exit 1
     fi
 }
@@ -27,7 +27,7 @@ dest="/c/Users/gregor.redelonghi/majstaf_en/en_staf/WIN10wallpapers/${danes}"
 
 
 if [ -d ${dest} ]; then
-    tms; echo "Directory ${dest} exists!"
+    tms; echo -e "Directory ${dest} exists!\n"
     exit 1
 else
     \mkdir ${dest}

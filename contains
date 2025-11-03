@@ -14,7 +14,7 @@ function tms() {
 
 # check the number of parameters
 if [ $# -ne 1 ]; then
-    tms; echo -e "Only ONE parameter allowed!\nUsage:\n\t$(basename $0) <URL, or KeyWord>"
+    tms; echo -e "Only ONE parameter allowed!\nUsage:\n\t$(basename $0) <URL, or KeyWord>\n"
     exit
 fi
 

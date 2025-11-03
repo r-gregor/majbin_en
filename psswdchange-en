@@ -15,8 +15,7 @@ gScrts="$HOME/.SCRTS_en"
 gTempd="$HOME/.tmp"
 
 if [[ ! -d $gTempd ]]; then
-	echo "Error: There is no $gTempd/"
-	echo
+	echo -e "Error: There is no $gTempd/\n"
 	exit 1
 fi
 
@@ -60,7 +59,7 @@ gTms; echo "NEW passwd num is: ${gNewn}"
 if [ -f ${gScrts} ]; then
     gTms; echo "Files exist. OK to continue ..."
 else
-    gTms; echo "NO config files! Quitting. Bye"
+    gTms; echo -e "NO config files!\n"
     exit 1
 fi
 

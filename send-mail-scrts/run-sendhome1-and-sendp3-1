@@ -21,7 +21,7 @@ sendsc1=${gPth}/sendhome1list
 sendsc2=${gPth}/sendp3-1-lnk-en
 
 if [ $# -ne 1 ]; then
-    tms; echo "Usage $0 [ \"URL\" ]"
+    tms; echo -e "Usage $0 [ \"URL\" ]\n"
     exit 1
 fi
 

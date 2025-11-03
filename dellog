@@ -52,7 +52,7 @@ read dans1
 
 if [ "$dans1" != y ] && [ "$dans1" != Y ]; then
     tms; echo "Your answer is NOT \"y\" or \"Y\""
-    tms; echo "DONE!"
+    tms; echo -e "DONE!\n"
     exit 1
 fi
 

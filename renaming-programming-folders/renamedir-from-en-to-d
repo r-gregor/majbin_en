@@ -2,7 +2,7 @@
 #  renamedir-from-en-to-d.sh
 
 if [ $# -ne 1 ]; then
-	echo "Usage: $0 <dirname>"
+	echo -e "Usage: $0 <dirname>\n"
 	exit
 else
 	dname1=$1

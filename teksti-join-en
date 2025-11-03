@@ -8,7 +8,7 @@ else
 fi
 
 if [ -f $OUTPUT ]; then
-	echo "$OUTPUT already exists. Supply another filename as argumet"
+	echo -e "$OUTPUT already exists. Supply another filename as argumet\n"
 	exit
 fi
 

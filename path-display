@@ -13,7 +13,7 @@ gr_hmsg="Usage: $0 <filename>"
 
 
 if [ $# -lt 1 ]; then
-    echo ${gr_hmsg}
+    echo -e "${gr_hmsg}\n"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ if [ -e $gr_fjlnm ]; then
     echo ${gr_fullp} | putclip
 
 else
-    echo "No such file found!"
+    echo -e "No such file found!\n"
     exit 1
 fi
 

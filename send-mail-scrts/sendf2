@@ -39,7 +39,7 @@ gr_rcp=${gTo}						# to: recipient
 
 # checkig if there is only one parameter
 if [ $# -ne 1 ]; then
-	tms; echo "Usage: sendfiles.sh [/c/path/to/file]"
+	tms; echo -e "Usage: sendfiles.sh [/c/path/to/file]\n"
 	exit 1
 fi
 
@@ -47,7 +47,7 @@ gAttf="$1"
 
 tms; echo -n "Checking if file exists ... "
 if [ ! -f "${gAttf}" ]; then
- 	tms; echo "There is no ${gAttf}"
+ 	tms; echo -e "There is no ${gAttf}\n"
 	exit 1
 else
 	echo "OK"

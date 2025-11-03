@@ -20,7 +20,7 @@ echo "Destination = ${gr_DST}"
 read -p "Continue?"
 
 if [ -e ${gr_NNC} ]; then
-	echo "There already is ${gr_NNC}, so no need to copy. Exiting!"
+	echo -e "There already is ${gr_NNC}, so no need to copy!\n"
 	exit 0
 fi
 
@@ -28,7 +28,7 @@ fi
 if [ -e ${gr_PTH} ]; then
 	echo -e "\nThe file: ${gr_PTH} exists! It's safe to continue ..."
 else
-	echo -e "\nThere is no such file as: ${gr_PTH}. Exiting!"
+	echo -e "\nThere is no such file as: ${gr_PTH}!\n"
 	exit 1
 fi
 

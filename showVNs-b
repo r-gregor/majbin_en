@@ -4,8 +4,7 @@ curr_yr=$(date +"%Y")
 dest="/c/Users/gregor.redelonghi/${curr_yr}/_${curr_yr}_1_PROJEKTI"
 
 if [ $# -ne 1 ]; then
-	echo "Usage: $0 [date in format \"YYYYmmdd\"]"
-	echo ""
+	echo -e "Usage: $0 [date in format \"YYYYmmdd\"]\n"
 	exit 1
 fi
 

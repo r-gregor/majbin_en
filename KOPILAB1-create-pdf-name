@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 [KOPILAB sent mail subject line]"
+    echo -e "Usage: $0 [KOPILAB sent mail subject line]\n"
     exit 1
 fi
 

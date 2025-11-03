@@ -48,7 +48,7 @@ check=($(diff -qr ${majfjls_src} ${majfjls_dst} \
 
 if [ "x${check[0]}" == "x" ]; then
 	echo "[INFO] No files found"
-	echo "---"
+	echo -e "---\n"
 	exit
 fi
 
@@ -57,7 +57,7 @@ fjls=$(for FFF in $(echo ${check[@]}); do echo $FFF; done | fzf -m --reverse)
 
 if [ "x${fjls[0]}" == "x" ]; then
 	echo "[INFO] No files found/selected"
-	echo "---"
+	echo -e "---\n"
 	exit
 fi
 
@@ -86,7 +86,7 @@ if [ $choice = "y" ] || [ $choice = "Y" ]; then
 	echo "---"
 else
 	echo "[INFO] quit"
-	echo "---"
+	echo -e "---\n"
 	exit
 fi
 

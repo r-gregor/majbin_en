@@ -6,7 +6,7 @@ usage_msg="Usage: go-project-env <project_name>"
 
 # if no <project_name> supplied
 if [ $# -ne 1 ]; then
-    echo ${usage_msg}
+    echo -e "${usage_msg}\n"
     exit 1
 fi
 
@@ -17,8 +17,7 @@ gostart=$PWD
 # if already exists: delete ASK?
 # rm -rv ${gostart}/${project_nm}
 if [ -d src/example.com/rgregor/${project_nm} ]; then
-    echo "src/example.com/rgregor/${project_nm} exists!"
-    echo "Aborting."
+    echo -e "src/example.com/rgregor/${project_nm} exists!\n"
     exit 1
 fi
 

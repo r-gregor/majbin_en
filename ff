@@ -10,6 +10,6 @@ if [ $# -eq 1 ]; then
 elif  [ $# -eq 0 ]; then
     cygstart ${gr_FF}
 else
-    echo "To many parameters!"
+    echo -e "To many parameters!\n"
     exit
 fi
