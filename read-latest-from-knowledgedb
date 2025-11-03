@@ -8,7 +8,7 @@ SRC=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}
 
 if [ $# -eq 1 ]; then
 	if [ $((${ZDAJ} - $1)) -le 0  ]; then
-		echo "Out of time range!"
+		echo -e "Out of time range!\n"
 		exit
 	fi
 	URA=$1
