@@ -1,10 +1,6 @@
 #! /bin/bash
 
-### Name:	Scriptname ...
-### Author:	Author ... 
-### Date:	2013-05-24 
-### Decription:
-### 
+### filename: RSYNC-BACKUP-en
 ### UPDATE 20171208:
 ### --progress replaced with --info=misc2,stats1,progress2 
 ###
@@ -43,8 +39,6 @@ crtc() {
 }
 
 
-(tms; echo "Started: $0")
-
 dT1=$(date +"%s")
 
 # STARO:
@@ -58,7 +52,7 @@ dT1=$(date +"%s")
 # gFilt='/usr/bin/grep "created\|deleted\|transferred"'
 # ${gCmd} --delete /c/Users/gregor.redelonghi/${gCurrYr}/ /h/${gCurrYr}-danes/ | eval ${gFilt} | while read line; do (tms; echo $line) | tee -a ${gBkpLog}; done
 
-(tms; echo "syncing ...  ")
+(tms; echo "syncing ${gUsrSpcp}/${gCurrYr}/ to ${gHnd}/${gCurrYr}-danes/ ...  ")
 gCmd='rsync -rltDv'
 # grep -v '^[[:space:]]*$' -- dont print emty lines or those with only spaces
 ${gCmd} --delete ${gUsrSpcp}/${gCurrYr}/ ${gHnd}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[ $(date +%Y%m%d_%H%M%S) ] rsync: &/"; done
@@ -66,6 +60,6 @@ ${gCmd} --delete ${gUsrSpcp}/${gCurrYr}/ ${gHnd}/${gCurrYr}-danes/ | grep -v '^[
 dT2=$(date +"%s")
 # tms; crtc $(($crtn-20))
 tms; crtc $crtn
-tms; echo -e "Done in $((dT2-dT1)) seconds!"
+tms; echo -e "done in $((dT2-dT1)) seconds!"
 crtc $crtn
 
