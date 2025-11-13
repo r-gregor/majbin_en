@@ -1,0 +1,48 @@
+
+# inside /home/gregor.redelonghi/majstaf/majbin/git-commands:
+$> grep -rh --color=never "^ *git \|/usr/bin/git " * >> git-commands-list-20251113.txt
+
+git clone ${gh_clone_addr}/${repo_name}.git
+git branch -m main
+git remote add gh_${repo_name} ${gh_rmt_addr}/${repo_name}.git
+git remote add gl_${repo_name} ${gl_rmt_addr}/${repo_name}.git
+git remote rm origin
+git remote -v
+git pull gh_${repo_name} main --set-upstream
+...
+NVOL_GDIR="/home/gregor.redelonghi/majstaf/engit/vlpprs_en"
+NVOL_WDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
+get-status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
+...
+gcmd="/usr/bin/git add --verbose ."
+cmd="/usr/bin/git commit"
+echo -n  "/usr/bin/git commit -a ... "
+echo -n "/usr/bin/git commit -m \"$desc\" ... "
+output=$(/usr/bin/git push --dry-run ${rmt} main 2>&1)
+/usr/bin/git log --name-status
+...
+HST="en"
+export VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}"
+export VOLWORKDIR="/c/Users/gregor.redelonghi/majstaf_${HST}/${HST}_staf/majvolpejprs"
+git_nvol="/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKDIR}"
+vol_cmd="/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKDIR}"
+...
+NVOL_GDIR='/home/gregor.redelonghi/majstaf/engit/vlpprs_en'
+NVOL_WTREE='/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+get-status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
+/usr/bin/git status
+NVOL='/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WTREE}'
+get_status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
+/usr/bin/git push --dry-run ${rmt} main &> status
+/usr/bin/git push --dry-run ${rmt} main &> status
+/usr/bin/git status
+
+---
+# from: /home/gregor.redelonghi/majstaf/majrcs/aliases-gredelonghi-en
+### git commands ###
+alias nvol="/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WTREE}"
+alias gst='/usr/bin/git status'
+alias v-sfjl-git-repo='find -type f | grep -v '.git' | fzf | xargs -ro vim' # fzf single search inside repo
+
+---
+
