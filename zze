@@ -165,7 +165,7 @@ cygstart explorer /E, $(cygpath -w /c/users/gregor.redelonghi/${CURRYR})
 ;;
 
 "my" | "MY")
-cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 110,50 -s 180,40 -
+cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 300,40 -s 180,40 -
 
 ;;
 
