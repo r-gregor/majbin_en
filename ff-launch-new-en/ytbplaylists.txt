@@ -1,68 +1,4 @@
---- 20250721-1459-en ---
---- 20250808-1333-en ---
---- 20251007-1349-en ---
---- 20251015-1422-en ---
 --- 20251029-1519-en ---
-https://nullprogram.com/                                  -- c programming: blog (5+)
-https://justcode.me/category/c/                           -- c programming: blog
-https://c-for-dummies.com/blog/                           -- c programming: blog (5+)
-https://codeforwin.org/                                   -- c programming: blog
-https://medium.com/tag/c-programming                      -- c programming: blog
-https://gustedt.wordpress.com/                            -- c programming: blog (5+)
-http://www.robertgamble.net/                              -- c programming: blog (old)
-https://begriffs.com/                                     -- c programming: blog (old)
----
-https://sillycodes.com/category/c/                        -- c programming: portal
-https://cprogrampracticals.blogspot.com/p/home-page.html  -- c programmiing: tutorial
-https://blog.jyotiprakash.org/c-programming               -- c programmiing: tutorial
----
-https://pedropark99.github.io/zig-book/                   -- Zig manual
-https://lemire.me/blog/                                   -- programming
-https://www.rfleury.com/                                  -- programming
-https://dotat.at/@/                                       -- programming
-https://blog.reverberate.org/                             -- programming (old)
-https://nrk.neocities.org/                                -- programming: portal
----
-https://newatlas.com/                                     -- tech news
-https://linuxiac.com/                                     -- linux stuf
-https://vimhelp.org/usr_toc.txt.html                      -- vim users manual (txt)
-https://learnbyexample.github.io/                         -- programming stuf
-https://eli.thegreenplace.net/                            -- programming stuf
-https://johnnysswlab.com/                                 -- programming stuf
-https://biriukov.dev/                                     -- linux/system stuf
-https://linuxhandbook.com/                                -- linux/system: tutorials
----
-https://www.youtube.com/c/TsodingDaily                    -- ytb channel
-https://www.youtube.com/@TheCodingTrain                   -- ytb channel
-https://www.youtube.com/@dr-Jonas-Birch                   -- ytb channel
-https://www.youtube.com/@CasualCoder                      -- ytb channel
-https://www.youtube.com/@JacobSorber                      -- ytb channel
-https://www.youtube.com/@LowLevelTV                       -- ytb channel
-https://www.youtube.com/@PortfolioCourses                 -- ytb channel
-https://www.youtube.com/c/Programiz-studios               -- ytb channel
-https://www.youtube.com/@anthonygg_                       -- ytb channel
-https://www.youtube.com/@profbbrown                       -- ytb channel
-https://www.youtube.com/@CodeVault                        -- ytb channel
-https://www.youtube.com/@WhatsACreel                      -- ytb channel
-https://www.youtube.com/@GreggInkCodes/videos             -- ytb channel
-https://www.youtube.com/c/JacobSorber                     -- ytb channel
-https://www.youtube.com/@KrisJordan                       -- ytb channel
-https://www.youtube.com/@Log2Base2/videos                 -- ytb channel
-https://www.youtube.com/@mycodeschool                     -- ytb channel
-https://www.youtube.com/@nirlichtman                      -- ytb channel
-https://www.youtube.com/c/PortfolioCourses                -- ytb channel
-https://www.youtube.com/c/ThePrimeagen                    -- ytb channel
-https://www.youtube.com/@theteachr/videos                 -- ytb channel
-https://www.youtube.com/@typecraft_dev/videos             -- ytb channel
-https://www.youtube.com/@bootdotdev                       -- ytb channel
-https://www.youtube.com/@JustAGuyLinux                    -- ytb channel
-https://www.youtube.com/@AlexTheRealDev                   -- ytb channel (c mostly)
-https://www.youtube.com/@eom-dev                          -- ytb channel (Eric O Meehan)
-https://www.youtube.com/@aliawan6245                      -- ytb channel (c mostly, 5+)
-https://www.youtube.com/@yousuckatprogramming             -- ytb channel (BASH mostly, 5+)
-https://www.youtube.com/@johannes4gnu_linux96             -- ytb channel (linux drivers/qemu/ ...)
-https://www.youtube.com/@HirschDaniel                     -- ytb channel (c -> low level 5+)
----
 https://www.youtube.com/playlist?list=PL98qAXLA6aftD9ZlnjpLhdQAOFI8xIB6e     -- C Programming for Beginners
 https://www.youtube.com/playlist?list=PL2B6OzTsMUrz3RBEhYGb-0wtH9SqFpcDj     -- Productive Workstation with Linux (Debian)
 https://www.youtube.com/playlist?list=PLamzFoFxwoNjw4EpaVZzP-8lqWA9hOmnD     -- Arrays
@@ -107,4 +43,4 @@ https://www.youtube.com/playlist?list=PLtB7CL7EG7pCw7Xy1SQC53Gl8pI7aDg9t     -- 
 https://www.youtube.com/playlist?list=PLRnI_2_ZWhtDPfMXetMFtU3i1k37Ka8sx     -- cano
 https://www.youtube.com/playlist?list=PLDbRgZ0OOEpUkWDGqp91ODn0dk7LPBAUL     -- Rust Programming Tutorial
 https://www.youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8     -- The Rust Lang Book
----
+
