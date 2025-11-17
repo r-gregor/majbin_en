@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filenme: ff_launch.sh
+# filenme: ff-launch-en
 # 20250605 v2 en
 
 gr_FF=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
