@@ -1,0 +1,129 @@
+..
+./fzf-nova 
+./fzf-nova/majdir.sh 
+./majdir.sh 
+./nested-fzf.sh 
+./test_names.sh 
+:q
+:wq
+DISPLAY=0:0 rxvt
+DISPLAY=0:1 rxvt
+DISPLAY=1:0 rxvt
+EXIT
+ZpPadec 
+[Aexit
+an grep
+c
+cargo --version
+cat * | grep '^cargo'
+cat * | grep '^rustup'
+chnod 644 src/*
+dst
+duf
+dust
+echo "${URLS[@]}"
+echo "${URLS[@]}" | fzf
+echo $PATH | grep majp
+echo $PATH | grepc 'majprog/'
+echo $PATH | grepc majp
+echo $URLS
+echo ${S//e/(&)}
+echo ${S//e/(\&)}
+echo ${S//e/--&--}
+echo ${URLS[@]}
+echo ${URLS[@]} | fzf --feverse
+echo ${URLS[@]} | fzf --reverse
+exit
+find * -maxdepth 0 -not -name "fzf-nova"
+find * -maxdepth 0 -type f
+find * -maxdepth 1 -type f
+find * -type f -name "*c*"
+find * -type f -name "*c-*"
+find * -type f -name "*{c,zig}*"
+find * -type f -name "*{c}*"
+find * -type f -name "\{c-\}*"
+find * -type f -name "c-*"
+find * -type f -name "{c,p}*"
+find * -type f -name "{c,zig}*"
+find * -type f -name "{c-*}"
+find * -type f -name "{c-}*"
+find * -type f -name *{c,zig}*
+find * maxdepth 0 -not -name "fzf-nova"
+find -iname "*mintty*"
+find -name .gitignore |xargs -I{} echo {} && cat {}
+find -name .gitignore |xargs -I{} echo {}; cat {}
+find -name rustup
+find -type d -iname "*fzf*nova*"
+find -type d -iname "*script*"
+find -type f -not (-iname "c-*" -iname "zig-*")
+find -type f -not -iname "c-*"
+find -type f -not -iname "c-*" -not -iname "zig-*"
+find -type f -not \( -iname "c-*" -iname "zig-*" \)
+find -type f -not \( -iname "c-*" -o -iname "zig-*" \)
+find -type f -not \(-iname "c-*" -iname "zig-*"\)
+for FFF in $(find -name .gitignore); do echo $FFF && cat $FFF && echo -e "---\n"; done
+for FFF in $(find -name .gitignore); do echo $FFF && cat $FFF && echo -e "---\n"; done >> seznami_en/.gitignore 
+for FFF in $(find -name .gitignore); do echo $FFF && cat FFF && echo -e "---\n"; done
+for FFF in *.txt; do echo $FFF; done
+for SITE in "${SITES[@]}"; do echo $SITE; done
+for URL in "${URLS[@]}"; do echo "$URL"; done
+for URL in ${URLS[@]}; do echo "$URL"; done
+for URL in ${URLS[@]}; do echo "$URL; done
+git branch
+git push -f ghenszn main
+git push ghenszn main --set-upstream
+git remote
+git remote -v
+git remote add ghenszn git@github.com:r-gregor/seznami_en.git
+git remotes
+git reset --soft HEAD^ 
+git reset --soft HEAD~1
+git reset --soft HEAD~2
+grep 'my(' *
+grep -ir 'stat(' *
+grep -ir fzf
+grep -ir stat *
+grep -r '=\~' *
+grep -r '=~' *
+grep -r 'git ' *
+grep -r 'mintty.exe' *
+grep -r .gitignore *
+grep -r .gitiignore *
+grep -r REMATCH *
+grep -r gref *
+grep -r mintty *
+grep gref *
+grp -ir fzf
+makw
+my
+pkg-config
+q
+r
+readarray -t SITES < <(sed -n "/\[.*\]/p" sites.txt | sed -e 's/\[//' -e 's/\]//')
+readarray -t URLS < <(sed -n "/\["${site}"\]/,/^$/p" ${SITES} | sed -n '2,$'p)
+readarray -t URLS < <(sed -n "/\[${site}\]/,/^$/p" ${SITES} | sed -n '2,$'p)
+readarray -t URLS< <(sed -n "/\[${site}\]/,/^$/p" ${SITES} | sed -n '2,$'p)
+rg LALA .
+rustup update
+rxvt
+rxvt 
+rxvt &
+sed -n "/\["${site}"\]/,/^$/p" ${SITES} | sed -n '2,$'p
+sed -n "/\[${site}\]/,/^$/p" ${SITES} | sed -n '2,$'p
+sed -n "/\[.*\]/p" sites.txt
+sed -n "/\[.*\]/p" sites.txt | sed -e 's/\[//' -e 's/\]//'
+sed -n "/\[c programming\]/,/^$/p" sites.txt
+sed -n "/\[c programming\]/,/^$/p" sites.txt | sed -n '2,$'p
+sed -n "/\[c programming\]/p" sites.txt
+site="c programming"
+testing-gtgh-status-en 
+tree
+tree TRII/
+tree src/
+type my
+xit
+xs
+xs..
+y
+ype my
+čč
