@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+# 20251120 (en)
+# last change 20251120
+
+SRC="${HOME}/majstaf/seznami/bookmarks-en"
+DST="mega_gren:ENERGETIKA/bookmarks-en-2025"
+
+if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
+	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
+	yes | rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+else
+	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
+	read -p "[INFO] Confirm? "
+	rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+fi
