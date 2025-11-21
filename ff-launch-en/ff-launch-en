@@ -16,6 +16,8 @@ SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
 SITES="${SRCDIR}/sites.txt"
 
 ff_launch() {
+	local URLs site selection path
+
 	if [ "$1" == "all" ]; then
 		readarray -t URLS < <(cat ${SITES})
 	else
