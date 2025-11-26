@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+# filename: rbekap-DAILY-mega-gren
+# 20251126 en
+# last: 20251126
+# ---
+
+echo "[INFO] running DAILY backup/sync to 'MEGA.nz (mega_gren)'"
+yes | rbekap-PROJEKTI-sync-mega-gren; echo "---" && \
+yes | rbekap-ENGIT-sync-mega-gren; echo "---" && \
+yes | rbekap-SCRIPTS-sync-mega-gren; echo "---" && \
+yes | rbekap-SUPPORT-sync-mega-gren; echo "---" && \
+yes | rbekap-BOOKMARKS-EN-2025-sync-mega-gren; echo "---" && \
+yes | rbekap-DOWNLOADS-copy-mega-gren
+echo ""
+
