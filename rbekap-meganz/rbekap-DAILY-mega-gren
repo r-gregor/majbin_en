@@ -5,11 +5,11 @@
 # ---
 
 echo "[INFO] running DAILY backup/sync to 'MEGA.nz (mega_gren)'"
-yes | rbekap-PROJEKTI-sync-mega-gren; echo "---" && \
-yes | rbekap-ENGIT-sync-mega-gren; echo "---" && \
-yes | rbekap-SCRIPTS-sync-mega-gren; echo "---" && \
-yes | rbekap-SUPPORT-sync-mega-gren; echo "---" && \
-yes | rbekap-BOOKMARKS-EN-2025-sync-mega-gren; echo "---" && \
-yes | rbekap-DOWNLOADS-copy-mega-gren
+rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
+rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
+rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
+rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
+rbekap-BOOKMARKS-EN-2025-sync-mega-gren -y; echo "---" && \
+rbekap-DOWNLOADS-copy-mega-gren -y
 echo ""
 
