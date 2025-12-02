@@ -2,7 +2,7 @@
 # 20251021 (en)
 # last change 20251021
 
-SRC="/home/gregor.redelonghi/majstaf/coding2/toolbox"
+SRC="/home/gregor.redelonghi/majstaf/majtoolbox"
 DST="mega_gren:ENERGETIKA/toolbox_en"
 # excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
