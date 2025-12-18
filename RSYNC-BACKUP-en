@@ -9,12 +9,18 @@
 ### addet dT2-dT1 calculation of used seconds
 ###
 
-export CURRENT_YEAR_ENV=2025
+todays_year=$(date +%Y)
 
-if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
+if [ $# -eq 1 ]; then
+	export CURRENT_YEAR_ENV=$1
+else
+	export CURRENT_YEAR_ENV=${todays_year}
+fi
+
+if [ $CURRENT_YEAR_ENV -ne ${todays_year} ]; then
 		gCurrYr=$CURRENT_YEAR_ENV
 	else
-		gCurrYr=$(date +%Y)
+		gCurrYr=${todays_year}
 fi
 
 # test
@@ -38,6 +44,10 @@ crtc() {
     echo
 }
 
+if [ ! -d ${gUsrSpcp}/${gCurrYr} ]; then
+	echo -e "No such directory: ${gUsrSpcp}/${gCurrYr}\n"
+	exit
+fi
 
 dT1=$(date +"%s")
 
@@ -51,6 +61,7 @@ dT1=$(date +"%s")
 # gCmd='rsync -rltD --info=name0,stats2,progress0 --modify-window=2'           # RUN backup ptions
 # gFilt='/usr/bin/grep "created\|deleted\|transferred"'
 # ${gCmd} --delete /c/Users/gregor.redelonghi/${gCurrYr}/ /h/${gCurrYr}-danes/ | eval ${gFilt} | while read line; do (tms; echo $line) | tee -a ${gBkpLog}; done
+
 
 (tms; echo "syncing ${gUsrSpcp}/${gCurrYr}/ to ${gHnd}/${gCurrYr}-danes/ ...  ")
 gCmd='rsync -rltDv'
