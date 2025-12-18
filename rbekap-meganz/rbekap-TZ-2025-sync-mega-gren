@@ -1,8 +1,11 @@
 #! /usr/bin/env bash
-# 20251021 (en)
-# last change 20251021
+# 20251021 en
+# 20251218 en: added CURRYR
+# last change 20251218
 
-SRC="/c/Users/gregor.redelonghi/2025/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-11"
+CURRYR=2026
+
+SRC="/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-11"
 DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2025/Tehnicne-zahteve_2025-11"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
@@ -13,3 +16,4 @@ else
 	read -p "[INFO] Confirm? "
 	rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
 fi
+

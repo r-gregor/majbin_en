@@ -1,9 +1,12 @@
 #! /usr/bin/env bash
-# 20251021 (en)
-# last change 20251021
+# 20251021 en
+# 20251218 en: added CURRYR
+# last change 20251218
 
-SRC="/h/2025/_2025_podloge"
-DST="mega_gren:ENERGETIKA/h_2025_podloge"
+CURRYR=2026
+
+SRC="/h/${CURRYR}/_${CURRYR}_podloge"
+DST="mega_gren:ENERGETIKA/h_${CURRYR_podloge}_podloge"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
 	echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
