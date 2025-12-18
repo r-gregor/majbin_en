@@ -9,6 +9,9 @@ script that finds all [plot.log] files listed in BASEDIR/dirlist.conf ( to do! )
 Currently the absolute path to dirname is declared as global variable.
 
 20200519:   executed in end-time - starttime
+20220105:   automatically define CURRENT_YEAR
+20251219:   added year as cli argument and check if such dir exists
+last:       20251219
 '''
 
 import os
@@ -16,8 +19,10 @@ import sys
 import time
 import datetime as dt
 
-# CURRENT_YEAR = str(dt.datetime.now().year)
-CURRENT_YEAR = "2025"
+if len(sys.argv) == 2:
+	CURRENT_YEAR = sys.argv[1]
+else:
+	CURRENT_YEAR = str(dt.datetime.now().year)
 
 # timestamp
 def tms():
@@ -36,6 +41,10 @@ ncrt = 3
 
 # current dir
 gr_curdir = "/c/Users/gregor.redelonghi/" + CURRENT_YEAR
+
+if not os.path.isdir(gr_curdir):
+	print(f"No such directory {gr_curdir}\n")
+	sys.exit(1)
 
 # search pattern (*.bak, *.log -- test = *.txt)
 gr_sptn = "plot.log"
