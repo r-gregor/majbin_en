@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 # filename: rbekap-DAILY-mega-gren
 # 20251126 en v1
-# 20251127 en v2: add final info
-# 20251218 en v3: added CURRYR
+# 20251127 en v2: += inal info
+# 20251218 en v3: += CURRYR
 # last: 20251127
 # ---
 

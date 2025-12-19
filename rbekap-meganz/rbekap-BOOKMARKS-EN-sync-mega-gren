@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # 20251120 en
-# 20251218 en: added CURRYR
+# 20251218 en: += CURRYR
 # last change 20251218
 
 CURRYR=2026

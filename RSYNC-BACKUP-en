@@ -1,13 +1,12 @@
 #! /bin/bash
 
-### filename: RSYNC-BACKUP-en
-### UPDATE 20171208:
-### --progress replaced with --info=misc2,stats1,progress2 
-###
-### UPDATE 20180315
-### --progress replaced with --info=misc2,stats2
-### addet dT2-dT1 calculation of used seconds
-###
+# filename: RSYNC-BACKUP-en
+# 20171208 en: --progress replaced with --info=misc2,stats1,progress2 
+# 20180315 en: --progress replaced with --info=misc2,stats2
+#              += dT2-dT1 calculation of used seconds
+# 20251218 en: check for CURRENT_YEAR_ENV, and supply current year as cmd arg
+#              check if sorce dir exists
+# last: 20251218
 
 if [ -z "${CURRENT_YEAR_ENV}" ]; then
 	export CURRENT_YEAR_ENV=$(date +"%Y")
@@ -23,8 +22,8 @@ fi
 # echo "current year: $gCurrYr"
 # read -p "continue?"
 
-gUsrSpcp="/c/Users/gregor.redelonghi"
-gHnd="/h"
+gSrc="/c/Users/gregor.redelonghi"
+gDest="/h"
 
 function tms() {
     echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
@@ -40,8 +39,8 @@ crtc() {
     echo
 }
 
-if [ ! -d ${gUsrSpcp}/${gCurrYr} ]; then
-	echo -e "No such directory: ${gUsrSpcp}/${gCurrYr}\n"
+if [ ! -d ${gSrc}/${gCurrYr} ]; then
+	echo -e "No such directory: ${gSrc}/${gCurrYr}\n"
 	exit
 fi
 
@@ -59,10 +58,10 @@ dT1=$(date +"%s")
 # ${gCmd} --delete /c/Users/gregor.redelonghi/${gCurrYr}/ /h/${gCurrYr}-danes/ | eval ${gFilt} | while read line; do (tms; echo $line) | tee -a ${gBkpLog}; done
 
 
-(tms; echo "syncing ${gUsrSpcp}/${gCurrYr}/ to ${gHnd}/${gCurrYr}-danes/ ...  ")
+(tms; echo "syncing ${gSrc}/${gCurrYr}/ to ${gDest}/${gCurrYr}-danes/ ...  ")
 gCmd='rsync -rltDv'
 # grep -v '^[[:space:]]*$' -- dont print emty lines or those with only spaces
-${gCmd} --delete ${gUsrSpcp}/${gCurrYr}/ ${gHnd}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[ $(date +%Y%m%d_%H%M%S) ] rsync: &/"; done
+${gCmd} --delete ${gSrc}/${gCurrYr}/ ${gDest}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[ $(date +%Y%m%d_%H%M%S) ] rsync: &/"; done
 
 dT2=$(date +"%s")
 # tms; crtc $(($crtn-20))
