@@ -9,18 +9,14 @@
 ### addet dT2-dT1 calculation of used seconds
 ###
 
-todays_year=$(date +%Y)
-
-if [ $# -eq 1 ]; then
-	export CURRENT_YEAR_ENV=$1
-else
-	export CURRENT_YEAR_ENV=${todays_year}
+if [ -z "${CURRENT_YEAR_ENV}" ]; then
+	export CURRENT_YEAR_ENV=$(date +"%Y")
 fi
 
-if [ $CURRENT_YEAR_ENV -ne ${todays_year} ]; then
-		gCurrYr=$CURRENT_YEAR_ENV
-	else
-		gCurrYr=${todays_year}
+if [ $# -eq 1 ]; then
+	gCurrYr=$1
+else
+	gCurrYr=${CURRENT_YEAR_ENV}
 fi
 
 # test
