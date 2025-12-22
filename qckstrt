@@ -13,11 +13,11 @@ fi
 ### startup programs
 
 # change 20240201
-# echo "Starting OneCommander (explorer) ..."
-# cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
+echo "Starting OneCommander (explorer) ..."
+cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
 
-echo "Starting Explorer ..."
-cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
+# echo "Starting Explorer ..."
+# cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
 
 # echo "Starting Google Chrome ..."
 # cygstart /c/Users/gregor.redelonghi/AppData/Local/Google/Chrome/Application/chrome.exe
