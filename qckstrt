@@ -14,7 +14,8 @@ fi
 
 # change 20240201
 echo "Starting OneCommander (explorer) ..."
-cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
+# cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
+cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin D2
 
 # echo "Starting Explorer ..."
 # cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
