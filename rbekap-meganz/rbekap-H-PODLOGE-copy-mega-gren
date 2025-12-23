@@ -6,7 +6,7 @@
 CURRYR=2026
 
 SRC="/h/${CURRYR}/_${CURRYR}_podloge"
-DST="mega_gren:ENERGETIKA/h_${CURRYR_podloge}_podloge"
+DST="mega_gren:ENERGETIKA/h_${CURRYR}_podloge"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
 	echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
