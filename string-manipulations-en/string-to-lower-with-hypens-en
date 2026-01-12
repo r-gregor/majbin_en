@@ -1,4 +1,5 @@
 #! /bin/bash
+# string-to-lower-with-hypens-en
 
 ARG="$@"
 

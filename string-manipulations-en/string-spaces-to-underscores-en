@@ -1,6 +1,5 @@
 #! /bin/bash
-
-# echo "<filename>" | tr ' ' '_'
+# string-spaces-to-underscores-en
 
 ARG="$@"
 

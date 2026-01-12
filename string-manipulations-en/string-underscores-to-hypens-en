@@ -1,5 +1,5 @@
 #! /bin/bash
-# string-spaces-to-hypens-en
+# string-underscores-to-hypens-en
 
 ARG="$@"
 
@@ -10,6 +10,6 @@ else
 	STRNG="$ARG"
 fi
 
-OUTPUT=$(echo ${STRNG} | sed 's/ \././' | tr ' ' '-')
+OUTPUT=$(echo ${STRNG} | sed 's/ \././' | tr '_' '-')
 echo "${OUTPUT}" | sed 's/"//g'
 
