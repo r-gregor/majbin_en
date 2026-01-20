@@ -143,11 +143,12 @@ int main(int argc, char **argv) {
 		displayPersonsDiff100(persons);
 	}
 
-	release_ptr(line);
-	release_ptr(g_curr_date);
 	fclose(fp);
 
-	// v27
+	/* v27 cleanup */
+	release_ptr(line);
+	release_ptr(g_curr_date);
+
 	for (int i=1; i < g_nLines; i++) {
 		release_ptr(persons_unsorted[i]->name);
 		release_ptr(persons_unsorted[i]);
