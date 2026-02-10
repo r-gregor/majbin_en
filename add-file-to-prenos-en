@@ -1,0 +1,80 @@
+#! /usr/bin/env bash
+# filename: add-file-to-prenos-en
+# 20260210 en v1
+# last: 20260210
+# ---
+
+set -e
+
+DEST="${EGPRNS}"
+
+jarg=false
+marg=false
+aarg=false
+farg=false
+
+
+usage() {
+cat <<USAGE
+
+usage: add-file-to-prenos -[j,m,a,h] -f <file name>
+		-j	add file to update_jbe or
+		-m	add file to update_mdb or
+		-a	add file to update_jbe and update_mdb
+
+		-f <file name> is mandatory!
+
+		-h	print this message
+USAGE
+}
+
+while getopts "jmahf:" arg; do
+	case $arg in
+		j)
+			jarg=true
+			NM="jbe"
+			;;
+		m)
+			marg=true
+			NM="mdb"
+			;;
+		a)
+			aarg=true
+			NM="jbe mdb"
+			;;
+		f)
+			farg=true
+			fname=$OPTARG
+			;;
+		h)
+			usage
+			exit
+			;;
+		*)
+			usage
+			exit
+			;;
+	esac
+done
+
+if [ "${farg}" != "true" ]; then
+	echo "[ERROR] no file selected"
+	usage
+	exit
+fi
+
+if [ ! -f ${fname} ]; then
+	echo "[ERROR] no such file"
+	exit
+fi
+
+if [ "${NM}" == "" ]; then
+	echo "[ERROR] no destination"
+	exit
+fi
+
+for dest in ${NM}; do
+	# echo "cp -i ${fname} ${DEST}/update_${dest}/"
+	cp -i ${fname} ${DEST}/update_${dest}/
+done
+
