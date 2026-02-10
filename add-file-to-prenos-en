@@ -87,6 +87,7 @@ for dest in ${NM}; do
 		echo "[ERROR] no such directory: ${PATH}"
 		exit
 	fi
-	cp -i ${fname} ${PATH}/
+
+	/usr/bin/cp -iv ${fname} ${PATH}/
 done
 
