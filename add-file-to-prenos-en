@@ -8,6 +8,7 @@ set -e
 
 DEST="${EGPRNS}"
 
+earg=false
 jarg=false
 marg=false
 aarg=false
@@ -17,10 +18,11 @@ farg=false
 usage() {
 cat <<USAGE
 
-usage: add-file-to-prenos -[j,m,a,h] -f <file name>
-		-j	add file to update_jbe or
+usage: add-file-to-prenos -[e,j,m,a,h] -f <file name>
+		-e	add file to update_en  and/or
+		-j	add file to update_jbe and/or
 		-m	add file to update_mdb or
-		-a	add file to update_jbe and update_mdb
+		-a	add file to update_jbe and update_mdb and update_en
 
 		-f <file name> is mandatory!
 
@@ -28,19 +30,25 @@ usage: add-file-to-prenos -[j,m,a,h] -f <file name>
 USAGE
 }
 
-while getopts "jmahf:" arg; do
+NM=""
+
+while getopts "ejmahf:" arg; do
 	case $arg in
+		e)
+			earg=true
+			NM+=" en "
+			;;
 		j)
 			jarg=true
-			NM="jbe"
+			NM+=" jbe "
 			;;
 		m)
 			marg=true
-			NM="mdb"
+			NM+=" mdb "
 			;;
 		a)
 			aarg=true
-			NM="jbe mdb"
+			NM="en jbe mdb"
 			;;
 		f)
 			farg=true
@@ -74,7 +82,11 @@ if [ "${NM}" == "" ]; then
 fi
 
 for dest in ${NM}; do
-	# echo "cp -i ${fname} ${DEST}/update_${dest}/"
-	cp -i ${fname} ${DEST}/update_${dest}/
+	PATH="${DEST}/update_${dest}"
+	if [ ! -d "${PATH}" ]; then
+		echo "[ERROR] no such directory: ${PATH}"
+		exit
+	fi
+	cp -i ${fname} ${PATH}/
 done
 
