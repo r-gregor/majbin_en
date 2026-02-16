@@ -30,6 +30,12 @@ declare -A URLS=(
 
 ff_personallaunch() {
 	selection="$(for URL in "${!URLS[@]}"; do echo "$URL"; done 2>/dev/null | ${FZFCMD_EN})"
+
+	if [ "x${selection}" == "x" ]; then
+		echo -e "[INFO] nothing selected\n"
+		exit
+	fi
+
 	nohup ${FFCMD_EN} ${URLS["${selection}"]} >&/dev/null &
 }
 
