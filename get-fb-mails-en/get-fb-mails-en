@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # filename: get-fb-mails.sh
 # 20260216 en v1
-# last: 20260216
+# 20260223 en v2
+# last: 20260223
 # ---
 
 # globals
@@ -29,7 +30,7 @@ update_fb_files_list() {
 }
 
 fill_fb_files() {
-	echo "[INFO] loading messages ..."
+	echo "[INFO] loading messages ..." ### CHANGE i20260223 !!!
 	while IFS= read -r LINE; do
 		local fb_url="$(echo "${LINE%;*}")"
 		local fb_fname="$(echo "${LINE#*;}")"
