@@ -4,8 +4,6 @@
 
 HST="en"
 
-testing-gtgh-status-${HST}
-testing-gtgh-testpush-${HST}
-
-
+testing-status-${HST}
+testing-testpush-${HST}
 
