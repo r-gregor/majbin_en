@@ -1,8 +1,11 @@
 #! /usr/bin/env bash
 # filrname: ff-personal-launch-en
-# 20260216 en
 # from ff-launch-en
-# last: 20260216
+# 20260216 en
+# 20260229 jbe v2: add info what was selected
+#                  change the fzf display to full height
+#                  inside infinite while loop --> Quit to quit
+# last: 20260229
 #---
 
 clear
@@ -28,6 +31,8 @@ declare -A URLS=(
 	["eInženir IZS.si: login"]="https://einzenir.izs.si/m_login.cfm"
 	)
 
+URLS+=(["Quit"]="Quit")
+
 ff_personallaunch() {
 	selection="$(for URL in "${!URLS[@]}"; do echo "$URL"; done 2>/dev/null | ${FZFCMD_EN})"
 
@@ -36,8 +41,14 @@ ff_personallaunch() {
 		exit
 	fi
 
+	if [ "${selection}" == "Quit" ]; then
+		exit 0
+	fi
+
 	nohup ${FFCMD_EN} ${URLS["${selection}"]} >&/dev/null &
 }
 
-ff_personallaunch
+while true; do
+	ff_personallaunch
+done
 
