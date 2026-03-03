@@ -5,7 +5,8 @@
 # 20260229 jbe v2: add info what was selected
 #                  change the fzf display to full height
 #                  inside infinite while loop --> Quit to quit
-# last: 20260229
+# 20260302 mdb v3: numerated list with Quit as last option nad sorted printout
+# last: 20260302
 #---
 
 clear
@@ -17,21 +18,20 @@ SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
 FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 
 declare -A URLS=(
-	["Moj račun Energetika Ljubljana"]="https://mojracun.energetika-lj.si/login"
-	["ELEKTRO-LJUBLJANA -- Prijava v portal Moja energija"]="https://me.elektro-energija.si/Prijava"
-	["Moj Petrol - elektrika (Valvasorjeva 5)"]="https://www.petrol.si/moj-petrol/"
-	["ZD za študente: dr. Darja Marija ŽNIDARŠIČ"]="https://zdstudenti.si/doctor/darja-marija-znidarsic/"
-	["Prijava | doZdravnika.si"]="https://dozdravnika.si/#!/auth/login"
-	["eAsistent - Špela"]="https://www.easistent.com/stran/"
-	["T-2: login"]="https://login.t-2.net/"
-	["TRIGLAV Zavarovalnica: login"]="https://login.triglav.si"
-	["moja POŠTA.si: login"]="https://auth.posta.si/realms/mojaposta/protocol/openid-connect/auth?client_id=mojaposta-webclient&redirect_uri=https%3A%2F%2Fmoja.posta.si%2Fauth-redirect&response_type=code&scope=openid&state=1becfe48a3ff4cf084d1fa8ec739c90d&code_challenge=O3B_Oqn7GCWDDZsPHDXgKhpFL_DIDLU8gACctKlEoJg&code_challenge_method=S256&ui_locales=sl-SI"
-	["T-2 tv2go: login"]="https://tv2go.t-2.net"
-	["URBANA JHL: login"]="https://urbana.jhl.si"
-	["eInženir IZS.si: login"]="https://einzenir.izs.si/m_login.cfm"
-	)
-
-URLS+=(["Quit"]="Quit")
+	["01 - Moj račun Energetika Ljubljana"]="https://mojracun.energetika-lj.si/login"
+	["02 - ELEKTRO-LJUBLJANA -- Prijava v portal Moja energija"]="https://me.elektro-energija.si/Prijava"
+	["03 - Moj Petrol - elektrika (Valvasorjeva 5)"]="https://www.petrol.si/moj-petrol/"
+	["04 - ZD za študente: dr. Darja Marija ŽNIDARŠIČ"]="https://zdstudenti.si/doctor/darja-marija-znidarsic/"
+	["05 - doZdravnika.si | Prijava"]="https://dozdravnika.si/#!/auth/login"
+	["06 - eAsistent - Špela"]="https://www.easistent.com/stran/"
+	["07 - T-2: login"]="https://login.t-2.net/"
+	["08 - TRIGLAV Zavarovalnica: login"]="https://login.triglav.si"
+	["09 - moja POŠTA.si: login"]="https://auth.posta.si/realms/mojaposta/protocol/openid-connect/auth?client_id=mojaposta-webclient&redirect_uri=https%3A%2F%2Fmoja.posta.si%2Fauth-redirect&response_type=code&scope=openid&state=1becfe48a3ff4cf084d1fa8ec739c90d&code_challenge=O3B_Oqn7GCWDDZsPHDXgKhpFL_DIDLU8gACctKlEoJg&code_challenge_method=S256&ui_locales=sl-SI"
+	["10 - T-2 tv2go: login"]="https://tv2go.t-2.net"
+	["11 - URBANA JHL: login"]="https://urbana.jhl.si"
+	["12 - eInženir IZS.si: login"]="https://einzenir.izs.si/m_login.cfm"
+    ["13 - Quit"]="Quit"
+)
 
 ff_personallaunch() {
 	selection="$(for URL in "${!URLS[@]}"; do echo "$URL"; done 2>/dev/null | ${FZFCMD_EN})"
@@ -41,7 +41,7 @@ ff_personallaunch() {
 		exit
 	fi
 
-	if [ "${selection}" == "Quit" ]; then
+	if [ "${selection}" == "13 - Quit" ]; then
 		exit 0
 	fi
 
