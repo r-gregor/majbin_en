@@ -38,7 +38,7 @@ declare -A URLS=(
 	["eInženir IZS.si: login"]="https://einzenir.izs.si/m_login.cfm"
 )
 
-# array of keys from ORLS
+# array of keys from URLS
 KEYS=("${!URLS[@]}")
 
 # functions
