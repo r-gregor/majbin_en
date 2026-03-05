@@ -8,6 +8,7 @@
 # 20260229 jbe v3: keys in separate array for arranged order with 'Quit' as last option
 # 20260303 mdb v4: added $delline
 # 20260304  en v5: $delline calculated from longest KEY line with get_longest function
+#                  sorted output to fzf command
 # last: 20260304
 #---
 
@@ -76,7 +77,8 @@ get_longest() {
 }
 
 ff_personallaunch() {
-	local selection="$(for KEY in "${KEYS[@]}"; do echo "$KEY"; done 2>/dev/null | ${FZFCMD_EN})"
+	# local selection="$(for KEY in "${KEYS[@]}"; do echo "$KEY"; done 2>/dev/null | ${FZFCMD_EN})"
+	local selection="$((for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | ${FZFCMD_EN})"
 
 	if [ "x${selection}" == "x" ]; then
 		echo -e "[INFO] nothing selected\n"
@@ -84,7 +86,7 @@ ff_personallaunch() {
 	fi
 
 	if [ "${selection}" == "Quit" ]; then
-		echo -e "[INFO] leaving\n"
+		# echo -e "[INFO] leaving\n"
 		exit 0
 	fi
 
@@ -98,10 +100,10 @@ ff_personallaunch() {
 longest_l=$(get_longest KEYS)
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)
 
-KEYS+=("${delline}")
-KEYS+=("Quit")
-URLS+=(["${delline}"]="")
-URLS+=(["Quit"]="Quit")
+# KEYS+=("${delline}")
+# KEYS+=("Quit")
+# URLS+=(["${delline}"]="")
+# URLS+=(["Quit"]="Quit")
 
 while true; do
 	ff_personallaunch
