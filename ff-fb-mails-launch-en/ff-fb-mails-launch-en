@@ -2,6 +2,7 @@
 # filename: get-fb-mails-en
 # 20260216 en v1
 # 20260223 en v2
+# 20260306 en v3: add 'sort -nr' in 'selection=...' to sort by datestamp
 # last: 20260223
 # ---
 
@@ -55,7 +56,8 @@ fi
 # cygstart ${FFCMD_EN} ${fb_files[${selection}]}
 
 fb_launch_en() {
-	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | ${FZFCMD_EN})
+	# selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | ${FZFCMD_EN})
+	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | ${FZFCMD_EN})
 
 	if [ "x${selection}" == "x" ]; then
 		echo -e "[INFO] nothing selected\n"
