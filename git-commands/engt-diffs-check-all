@@ -2,7 +2,7 @@
 
 HST="en"
 
-for DDD in majbin majrcs metsys; do
+for DDD in majbin majrcs metsys seznami; do
 	check-git-diffs-${HST} $DDD;
 done
 
