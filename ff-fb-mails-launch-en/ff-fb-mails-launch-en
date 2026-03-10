@@ -18,7 +18,7 @@ declare -A fb_files=()
 
 fb_files_list_update() {
 	> ${fb_files_list}
-	for FFF in ./messages/*; do
+	for FFF in ${SRCDIR}/messages/*; do
 		local fb_url=$(grep '^https://www.facebook.com/share' "$FFF")
 		fb_url=$(echo ${fb_url// /})
 		if [ x"${fb_url}" == "x" ]; then
