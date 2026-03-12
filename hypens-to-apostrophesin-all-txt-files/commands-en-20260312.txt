@@ -1,0 +1,15 @@
+# fname: convert-hypens-to-apostrophes-commands-en-20260312.txt
+# 20260312  en
+# last: 20260312
+# ---
+# grepc -Er "[[:alpha:]]'[[:alpha:]] " * | less
+# grep -Erl "[[:alpha:]]'[[:alpha:]] " * | sort | uniq |wc -l
+# sed "s/\([[:alpha:]]\)'\([[:alpha:]] \)/\1´\2/g" < zsh-install-on-linux-mint-22-20250514.txt | less
+# sed "s/\([[:alpha:]]\)'\([[:alpha:]] \)/\1´\2/g" < zsh-install-on-linux-mint-22-20250514.txt | grepc -E "[[:alpha:]]´[[:alpha:]] "
+# ---
+for FFF in *.txt; do
+	sed -i "s/\([[:alpha:]]\)'\([[:alpha:]]\{1,2\} \)/\1´\2/g" $FFF
+	sed -i "s/\([[:alpha:]]\)'\([[:alpha:]]\{1,2\}$\)/\1´\2/g" $FFF
+	sed -i "s/\([[:alpha:]]\)'\([[:alpha:]]\{1,2\}[,.:]$\)/\1´\2/g" $FFF
+done
+
