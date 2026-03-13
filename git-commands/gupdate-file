@@ -1,0 +1,43 @@
+#! /usr/bin/env bash
+# fname: gupdate-file
+# 20260313 v1  en
+# last: 20260313
+# ---
+
+unset fname
+
+if [ $# -ne 1 ]; then
+	cat <<EOF
+	Usage: gupdate-file ./<fname>
+
+EOF
+	exit
+else
+	fname="$1"
+fi
+
+if [ ! -f "${fname}" ]; then
+	echo "[ERROR] no such file"
+	exit
+fi
+
+HST="en"
+SRCDIR=$PWD
+DSTDIR=$(echo $SRCDIR | sed "s/\(.*majstaf\/\)\(.*\)\(\/.*\)/\1${HST}git\/\2_en\3/")
+
+SRCF="${SRCDIR}/${fname}"
+DSTF="${DSTDIR}/${fname}"
+
+test() {
+	printf "%s\n%s\n%s\n%s\n" \
+		"[INFO] trying to copy" \
+		"[INFO] ${SRCF}" \
+		"[INFO] to" \
+		"[INFO] ${DSTF}"
+	read -p "[INFO] OK?"
+	cp -iv "${SRCF}" "${DSTF}"
+}
+
+# MAIN
+test
+
