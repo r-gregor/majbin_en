@@ -1,13 +1,11 @@
 #! /usr/bin/env bash
-# fname: gupdate-file
+# fname: gupdate-file-en
 # 20260313 v1  en
 # last: 20260313
 # ---
 
-unset fname
 HST="en"
 SRCDIR=$PWD
-
 
 if [[ ! "${SRCDIR}" =~ "majstaf" ]]; then
 	printf "[ERROR] not working outside ~/majstaf/\n"
