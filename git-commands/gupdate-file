@@ -5,8 +5,17 @@
 # ---
 
 unset fname
+HST="en"
+SRCDIR=$PWD
 
-if [ $# -ne 1 ]; then
+
+if [[ ! "${SRCDIR}" =~ "majstaf" ]]; then
+	printf "[ERROR] not working outside ~/majstaf/\n"
+	printf "\n"
+	exit
+fi
+
+if [[ $# -ne 1 ]]; then
 	cat <<EOF
 	Usage: gupdate-file ./<fname>
 
@@ -16,28 +25,25 @@ else
 	fname="$1"
 fi
 
-if [ ! -f "${fname}" ]; then
+if [[ ! -f "${fname}" ]]; then
 	echo "[ERROR] no such file"
 	exit
 fi
 
-HST="en"
-SRCDIR=$PWD
-DSTDIR=$(echo $SRCDIR | sed "s/\(.*majstaf\/\)\(.*\)\(\/.*\)/\1${HST}git\/\2_en\3/")
-
 SRCF="${SRCDIR}/${fname}"
-DSTF="${DSTDIR}/${fname}"
+DSTF=$(echo $SRCDIR/${fname} | sed "s/\(.*majstaf\)\/\([[:alpha:]]\+\)\/\(.*\)/\1\/engit\/\2_en\/\3/")
 
-test() {
-	printf "%s\n%s\n%s\n%s\n" \
-		"[INFO] trying to copy" \
-		"[INFO] ${SRCF}" \
-		"[INFO] to" \
-		"[INFO] ${DSTF}"
-	read -p "[INFO] OK?"
+update_file_to_git() {
+	# printf "%s\n%s\n%s\n%s\n" \
+	# 	"[INFO] trying to copy" \
+	# 	"[INFO] ${SRCF}" \
+	# 	"[INFO] to" \
+	# 	"[INFO] ${DSTF}"
+	# read -p "[INFO] OK?"
 	cp -iv "${SRCF}" "${DSTF}"
 }
 
 # MAIN
-test
+update_file_to_git
 
+printf "\n"
