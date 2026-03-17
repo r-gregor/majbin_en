@@ -73,6 +73,10 @@ while true; do
 		exit
 	fi
 
+	if [ "${selection}" == "${delline}" ]; then #v3
+		continue
+	fi
+
 # RUN
 	if [ "${selection}" == "AutoCAD 2024" ]; then
 		cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
