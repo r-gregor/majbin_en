@@ -4,5 +4,5 @@
 # nohup /usr/bin/mintty -e /usr/bin/bash -c "~/majstaf/majbin/BrthReminder/BrthReminder_c_color.exe;cd;bash" 2> /dev/null
 
 # 20240627
-nohup /usr/bin/mintty -e /usr/bin/bash -c "~/majstaf/majbin/BrthReminder/BrthReminder_c_color.exe;cd;bash" >/dev/null 2>&1 &
+nohup /usr/bin/mintty -e /usr/bin/bash -c "~/majstaf/majbin/BrthReminder-c/BrthReminder-c-colors.exe;cd;bash" >/dev/null 2>&1 &
 

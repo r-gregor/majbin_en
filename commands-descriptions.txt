@@ -1,0 +1,535 @@
+202600320
+-------------------------------------------------------------------------------------------------------------
+30najvecjih
+	poisce in izpise 30 najvecjih map in datotek sortirane po velikosti porabljenega prostora na disku
+	(30.najvecjih.[datestamp].txt) in to datoteko shrani v /home/seznami/
+	finds and writes  30 biggest directories and files sorted by size into <30.najvecjih.[datestamp].txt>
+	saves file into ~/majstaf/seznami/
+-------------------------------------------------------------------------------------------------------------
+add-file-to-prenos-en
+	usage: add-file-to-prenos -[e,j,m,a,h] -f <file name>
+		-e	add file to update_en  and/or
+		-j	add file to update_jbe and/or
+		-m	add file to update_mdb or
+		-a	add file to update_jbe and update_mdb and update_en
+
+		-f <file name> is mandatory!
+		-h	print this message
+-------------------------------------------------------------------------------------------------------------
+bankovci-kovanci
+	divides money number into correspondig bills and coins
+-------------------------------------------------------------------------------------------------------------
+BASH_HACKS.sh
+-------------------------------------------------------------------------------------------------------------
+b-convert-txt-to-pdf-v2
+-------------------------------------------------------------------------------------------------------------
+biggestdirs
+	clear the screen and display biggest dirs under current dir
+-------------------------------------------------------------------------------------------------------------
+biggestfile
+	clear the screen and display biggest files under current dir
+-------------------------------------------------------------------------------------------------------------
+broken-symlinks-list
+	display broken symlinks in ~/.local/bin (must be ran from)
+-------------------------------------------------------------------------------------------------------------
+BrthReminder-c/BrthReminder-c.exe
+BrthReminder-c/bb (symlink)
+	display persons´ birthdays sorted by day till/from current day (bw)
+-------------------------------------------------------------------------------------------------------------
+BrthReminder-c/BrthReminder-c-colors.exe
+BrthReminder-c/bbc (symlink)
+	display persons´ birthdays sorted by day till/from current day (color)
+-------------------------------------------------------------------------------------------------------------
+check4emptyd
+	check if current or supplied directory is empty -- used in other scripts
+-------------------------------------------------------------------------------------------------------------
+check-if-installed
+	check if command is installed
+-------------------------------------------------------------------------------------------------------------
+check-if-mvs-in-both-dirs
+	check if for movies tha are in both dirs Movies/ and Seivom/
+-------------------------------------------------------------------------------------------------------------
+clean-and-replace-fname
+-------------------------------------------------------------------------------------------------------------
+clean-and-replace-fname-case
+-------------------------------------------------------------------------------------------------------------
+clean-ff-bookmarks
+-------------------------------------------------------------------------------------------------------------
+clinije
+-------------------------------------------------------------------------------------------------------------
+coderun
+-------------------------------------------------------------------------------------------------------------
+coding-diffs-en/coding-diffs-en
+-------------------------------------------------------------------------------------------------------------
+color10bit
+-------------------------------------------------------------------------------------------------------------
+contains
+	checks if file with URL any file in CURDIR and subdirs
+-------------------------------------------------------------------------------------------------------------
+crq
+	cargo run --quiet
+-------------------------------------------------------------------------------------------------------------
+danes-check
+	check if $DANES empty
+-------------------------------------------------------------------------------------------------------------
+danes-check-colors
+	check if $DANES empty with colors
+-------------------------------------------------------------------------------------------------------------
+ddbaklog/pddbak
+	ptn script to remove all *.bak files in "/c/Users/gregor.redelonghi/" + CURRENT_YEAR
+-------------------------------------------------------------------------------------------------------------
+ddbaklog/pddlog
+	ptn script: remove all plot.log files in "/c/Users/gregor.redelonghi/" + CURRENT_YEAR
+-------------------------------------------------------------------------------------------------------------
+ddbaklog/pdelbak
+ptn script: inds all *.bak files in CURDIR and subdirs
+-------------------------------------------------------------------------------------------------------------
+ddbaklog/pdellog
+	ptn script: finds all plot.log files in CURDIR and subdirs
+-------------------------------------------------------------------------------------------------------------
+delbak
+	remove all *.bak files in "/c/Users/gregor.redelonghi/" + CURRENT_YEAR
+-------------------------------------------------------------------------------------------------------------
+dellog
+	remove all plot.log files in "/c/Users/gregor.redelonghi/" + CURRENT_YEAR
+-------------------------------------------------------------------------------------------------------------
+dirlist/dirlist.exe
+-------------------------------------------------------------------------------------------------------------
+dirlist/dirlist-abs.exe
+dirlist/dirlist-abs-sort.exe
+dirlist/dirlist-rv.exe
+dirlist/dirlist-rv-abs.exe
+dirlist/dirlist-sort.exe
+dirlist/fjl-info.exe
+dirlist/fjl-info-single.exe
+dirlist/ndirlist.exe
+dirlist/ndirlist-rv.exe
+dirlist/ndirlist-rv-abs.exe
+-------------------------------------------------------------------------------------------------------------
+dirs-by-size-en
+	display directoryes sorted by size (at least 10MB)
+-------------------------------------------------------------------------------------------------------------
+download-ytb-mpe
+	download mp3 music fron youtube video
+-------------------------------------------------------------------------------------------------------------
+duh
+	display directoryes sorted by size
+-------------------------------------------------------------------------------------------------------------
+duh-hidden
+	display directoryes sorted by size (hidden included)
+-------------------------------------------------------------------------------------------------------------
+ext-A-bekap (obsolete)
+ext-C-bekap (obsolete)
+ext-CD-bekap (obsolete)
+ext-D-bekap (obsolete)
+ext-H-bekap (obsolete)
+-------------------------------------------------------------------------------------------------------------
+ff
+	run firefox
+-------------------------------------------------------------------------------------------------------------
+ff-fb-mails-launch-en/ff-fb-mails-launch-en
+	ff open fb mail links with fzf
+-------------------------------------------------------------------------------------------------------------
+ff-launch-en/ff-launch-en
+	ff open links from sites.txt with fzf
+
+-------------------------------------------------------------------------------------------------------------
+ffn
+	run firefox
+-------------------------------------------------------------------------------------------------------------
+ff-personal-launch-en/ff-personal-launch-en
+	ff open links to prsonal sites/portals with fzf
+-------------------------------------------------------------------------------------------------------------
+find-all-shell-scripts.sh
+-------------------------------------------------------------------------------------------------------------
+fjl-info.exe
+	display fname size and numlines in file for all files in dir
+-------------------------------------------------------------------------------------------------------------
+fjl-info-single.exe
+	display fname size and numlines in file for single file as parameter
+-------------------------------------------------------------------------------------------------------------
+fm
+	cygstart explorer
+-------------------------------------------------------------------------------------------------------------
+fname-dname-manipulations-en/dname-rename-to-underscores-with-hypens-en
+fname-dname-manipulations-en/fname-convert-4-spaces-to-tabs-en
+fname-dname-manipulations-en/fname-hypens-to-underscores-en
+fname-dname-manipulations-en/fname-rename-underscores-to-hypens-en
+fname-dname-manipulations-en/fname-rename-underscores-to-hypens-no-confirm-en
+fname-dname-manipulations-en/fname-to-lower-with-hypens-en
+-------------------------------------------------------------------------------------------------------------
+fnd/fnd-duplicate-files
+fnd/fnd-fls-byword
+fnd/fnd-python-files-by-time
+fnd/fnd-txt-latest-files-by-time
+fnd/get-filenames-by-word-dirs
+fnd/get-filenames-by-word-files
+-------------------------------------------------------------------------------------------------------------
+fndb-lnx-executables
+fndb-win-executables
+-------------------------------------------------------------------------------------------------------------
+fsort-files
+	display files in currdir by sorted by size: <size> <fname>
+-------------------------------------------------------------------------------------------------------------
+fsplit-en
+	split large file in number of smaller chunks (to be cat together later)
+-------------------------------------------------------------------------------------------------------------
+ftp-access-en
+-------------------------------------------------------------------------------------------------------------
+geslo-spremeni-en
+-------------------------------------------------------------------------------------------------------------
+get-endiffs
+	display diffs between <ENGIT> and <CURDIR>
+-------------------------------------------------------------------------------------------------------------
+get-public-ip
+-------------------------------------------------------------------------------------------------------------
+get-saved-link-address-and-name-by-timestamp
+-------------------------------------------------------------------------------------------------------------
+git-commands/check-git-diffs-en
+git-commands/engt-all
+git-commands/engt-diffs-check-all
+git-commands/engt-multiple-repos-setup
+git-commands/engt-reports-check
+git-commands/engt-reports-empty
+git-commands/engt-single-repo-setup
+git-commands/engt-status
+git-commands/engt-testpush
+git-commands/gadd-gcmt-en
+git-commands/gcommit-timestamp-en
+git-commands/ghgl-push-en
+git-commands/ghgl-testpush-en
+git-commands/glog-status-en
+git-commands/grefresh-fjl-to-git-repo
+git-commands/gupdate-file-en
+git-commands/gyes-add-commit-push
+git-commands/nvol-push-all
+git-commands/nvol-testpush-all
+git-commands/testing-all-en
+git-commands/testing-status-en
+git-commands/testing-testpush-en
+-------------------------------------------------------------------------------------------------------------
+gocleanmodcache
+-------------------------------------------------------------------------------------------------------------
+go-project-env
+-------------------------------------------------------------------------------------------------------------
+gremdomov/t-gremdomov
+-------------------------------------------------------------------------------------------------------------
+gremdomov/v-gremdomov
+-------------------------------------------------------------------------------------------------------------
+hiddendirs-en
+-------------------------------------------------------------------------------------------------------------
+howmanyfilesindir
+-------------------------------------------------------------------------------------------------------------
+hstl_en/hstl_en
+-------------------------------------------------------------------------------------------------------------
+iconv1-SLO-srt-WIN-to-UTF8
+iconv2-SLO-srt-UTF8-to-WIN
+-------------------------------------------------------------------------------------------------------------
+IMAGES-remove-pics-from-Downloads
+-------------------------------------------------------------------------------------------------------------
+izklop
+-------------------------------------------------------------------------------------------------------------
+jarrun
+jarxrun
+jrun
+-------------------------------------------------------------------------------------------------------------
+jupyter-julia
+-------------------------------------------------------------------------------------------------------------
+jvfx/jvfx-compile
+jvfx/jvfx-run
+-------------------------------------------------------------------------------------------------------------
+kndb-files-from-tmst/kndb-files-from-tmst-in-mnth-en
+kndb-files-from-tmst/kndb-files-from-tmst-till-today-en
+kndb-files-from-tmst/kndb-files-from-yr-tmst-in-mnth-en
+kndb-files-from-tmst/kndb-files-from-yr-tmst-till-today-en
+-------------------------------------------------------------------------------------------------------------
+knowledgedb-copy-file-to-category
+knowledgedb-move-file-to-category
+-------------------------------------------------------------------------------------------------------------
+KOPILAB1-create-pdf-name
+KOPILAB2-narocilo-transform
+-------------------------------------------------------------------------------------------------------------
+kopiraj-a0-v-risbe
+-------------------------------------------------------------------------------------------------------------
+last-disp
+	???
+-------------------------------------------------------------------------------------------------------------
+lastdisp-over1G
+	???
+-------------------------------------------------------------------------------------------------------------
+last-N-sorted-by-date-en
+	last files from $KNOWLEDGEDB ...
+-------------------------------------------------------------------------------------------------------------
+list-dupfilenames
+-------------------------------------------------------------------------------------------------------------
+list-dupfilenames-in-dbot
+	(OLD -- Dropbox)
+-------------------------------------------------------------------------------------------------------------
+list-files-numpart-gt-param
+	(OLD -- Dropbox)
+-------------------------------------------------------------------------------------------------------------
+list-last-20-by-tmstmp
+	(OLD -- Dropbox)
+-------------------------------------------------------------------------------------------------------------
+listulb
+listulb2
+-------------------------------------------------------------------------------------------------------------
+load-local-rust-book-into-browser
+-------------------------------------------------------------------------------------------------------------
+longest-filename-in-curdir
+-------------------------------------------------------------------------------------------------------------
+lsth
+-------------------------------------------------------------------------------------------------------------
+lynxdump/lynxd
+lynxdump/lynxdump-USERAGENT-webpage-to-file
+lynxdump/lynx-multi-dump-fromlist-en
+-------------------------------------------------------------------------------------------------------------
+majapps-launch-en/majapps-launch-en
+-------------------------------------------------------------------------------------------------------------
+make-random-test-moviedir
+-------------------------------------------------------------------------------------------------------------
+nacrt-pdfjoin-into-CN
+-------------------------------------------------------------------------------------------------------------
+narocilo-KOPILAB
+-------------------------------------------------------------------------------------------------------------
+new-c-project-setup
+-------------------------------------------------------------------------------------------------------------
+new-ls/nlc
+-------------------------------------------------------------------------------------------------------------
+new-ls/nlct
+new-ls/nls
+new-ls/nlst
+-------------------------------------------------------------------------------------------------------------
+neww
+	open new mintty window with BrthReminder-c/BrthReminder-c-colors.exe
+-------------------------------------------------------------------------------------------------------------
+nifs
+	new IFS = '\t'
+-------------------------------------------------------------------------------------------------------------
+np
+-------------------------------------------------------------------------------------------------------------
+odjava-menu-en
+	logout/poweroff with fzf
+-------------------------------------------------------------------------------------------------------------
+oifs
+	return to OLD IFS
+-------------------------------------------------------------------------------------------------------------
+onecmd
+	cygstart OneCommander.exe
+-------------------------------------------------------------------------------------------------------------
+onecmd_D2
+	cygstart OneCommander.exe -- profile D2
+-------------------------------------------------------------------------------------------------------------
+onecmd_D3
+	cygstart OneCommander.exe -- profile D3
+-------------------------------------------------------------------------------------------------------------
+onecmd_D4
+	cygstart OneCommander.exe -- profile D4
+-------------------------------------------------------------------------------------------------------------
+opn/opn
+	open CURRDIR in MS File Explorer
+-------------------------------------------------------------------------------------------------------------
+opn/opnu
+	open CURRDIR in cygwin
+-------------------------------------------------------------------------------------------------------------
+opn/opnw
+	open CURRDIR in MS File Explorer
+-------------------------------------------------------------------------------------------------------------
+padec-go.exe
+-------------------------------------------------------------------------------------------------------------
+pagesnum
+	number of pages in a file with 80 char row width
+-------------------------------------------------------------------------------------------------------------
+path-display
+	displays full WINDOWS path of <fname> as parameter
+-------------------------------------------------------------------------------------------------------------
+pddr
+	run:
+		~/.local/bin/pddbak ${CURRYEAR}
+		~/.local/bin/pddlog ${CURRYEAR}
+		~/.local/bin/RSYNC-BACKUP-en ${CURRYEAR}
+-------------------------------------------------------------------------------------------------------------
+pdf-reduce-size
+-------------------------------------------------------------------------------------------------------------
+pokazi50najvecjih
+	display list of 50 biggets dirs/files
+-------------------------------------------------------------------------------------------------------------
+preimenuj-naziv-dokumentov
+-------------------------------------------------------------------------------------------------------------
+prepare-fjl-for-knowledgebase
+-------------------------------------------------------------------------------------------------------------
+print256colours
+-------------------------------------------------------------------------------------------------------------
+psswdchange-en
+-------------------------------------------------------------------------------------------------------------
+python-venv-and-pip-setup/uvenv-s0-mkvnv-install-en
+python-venv-and-pip-setup/uvenv-s1-makevenv-en
+python-venv-and-pip-setup/uvenv-s2-pip-update-and-install-en
+python-venv-and-pip-setup/venv-s0-mkvnv-install-en
+python-venv-and-pip-setup/venv-s1-makevenv-en
+python-venv-and-pip-setup/venv-s2-pip-update-and-install-en
+python-venv-and-pip-setup/venv-s3-remove-venv.sh
+-------------------------------------------------------------------------------------------------------------
+qckstrt
+	"Starting OneCommander (explorer) ..."
+	"Starting MS OutLook ..."
+	"Starting Super Launcher ..."
+-------------------------------------------------------------------------------------------------------------
+rbekap-meganz/rbekap-BOOKMARKS-EN-sync-mega-gren
+rbekap-meganz/rbekap-DAILY-mega-gren
+rbekap-meganz/rbekap-DOWNLOADS-copy-mega-gren
+rbekap-meganz/rbekap-ENGIT-sync-mega-gren
+rbekap-meganz/rbekap-H-PODLOGE-copy-mega-gren
+rbekap-meganz/rbekap-H-PODLOGE-sync-mega-gren
+rbekap-meganz/rbekap-PROJEKTI-copy-mega-gren
+rbekap-meganz/rbekap-PROJEKTI-sync-mega-gren
+rbekap-meganz/rbekap-SCRIPTS-sync-mega-gren
+rbekap-meganz/rbekap-SUPPORT-sync-mega-gren
+rbekap-meganz/rbekap-TOOLBOX-sync-mega-gren
+rbekap-meganz/rbekap-TZ-2025-sync-mega-gren
+rbekap-meganz/rbekap-TZ-2026-sync-mega-gren
+rcln-check-all-remotes-about
+-------------------------------------------------------------------------------------------------------------
+read-latest-from-knowledgedb
+	select and vim view latest files in $KNOWLEDGEDB from hour on CURRDAY vith fzf
+-------------------------------------------------------------------------------------------------------------
+re-link-tu-ulb
+	relink (softlinks) all executable files in CURDIR to ~/.local/bin
+-------------------------------------------------------------------------------------------------------------
+remove-all-commented-lines-c
+-------------------------------------------------------------------------------------------------------------
+remove-end-py
+remove-end-sh
+-------------------------------------------------------------------------------------------------------------
+rename/mrenamef-b
+rename/rename1-fname
+rename/rename2-and-clean-fname
+rename/rename-to-basename1-with-new-ext
+rename-to-basename2-with-new-ext
+-------------------------------------------------------------------------------------------------------------
+renaming-programming-folders/renamedir-from-d-to-en
+renaming-programming-folders/renamedir-from-en-to-d
+renaming-programming-folders/renamedir-to-BRISI
+-------------------------------------------------------------------------------------------------------------
+repair1-quotation-marks
+repair2-inplace-quotation-marks
+-------------------------------------------------------------------------------------------------------------
+repl-bash-en-V1-20180109
+	???
+-------------------------------------------------------------------------------------------------------------
+rewrapp
+rewrapp-n
+-------------------------------------------------------------------------------------------------------------
+risbe-join-en
+-------------------------------------------------------------------------------------------------------------
+rsort-by-accdate-c.exe
+rsort-by-enddate-g.exe
+rsort-by-mdfdate-c.exe
+rsort-by-tmstmp-absp-c.exe
+rsort-by-tmstmp-c.exe
+-------------------------------------------------------------------------------------------------------------
+RSYNC-BACKUP-en
+-------------------------------------------------------------------------------------------------------------
+scales-of-displays-p
+-------------------------------------------------------------------------------------------------------------
+search-by1-or-2
+search-by1-or-more
+	???
+-------------------------------------------------------------------------------------------------------------
+send-mail-scrts/run-sendhome1-and-sendp3-1
+send-mail-scrts/send_config_en.py
+send-mail-scrts/send-1link-en
+send-mail-scrts/send-2args-en
+send-mail-scrts/send-3args-en
+send-mail-scrts/sendf1
+send-mail-scrts/sendf2
+-------------------------------------------------------------------------------------------------------------
+shorten-movie-name
+-------------------------------------------------------------------------------------------------------------
+show-aliases-en
+show-exports-en
+show-subdirs-tree
+show-terminal-colors
+show-vim-mappings
+show-VNs-b
+showw
+-------------------------------------------------------------------------------------------------------------
+slistulb
+-------------------------------------------------------------------------------------------------------------
+softlink1-fname-to-ulb
+-------------------------------------------------------------------------------------------------------------
+sort-files-by-end-date
+-------------------------------------------------------------------------------------------------------------
+sort-movies-by-year
+-------------------------------------------------------------------------------------------------------------
+sort-movies-by-year-p
+-------------------------------------------------------------------------------------------------------------
+sort-shell-scripts-by-numlines
+-------------------------------------------------------------------------------------------------------------
+square-brackets-num-bookmarks-find-and-remove
+-------------------------------------------------------------------------------------------------------------
+string-manipulations-en/string-hypens-to-underscores-en
+string-manipulations-en/string-lower-to-upper-en
+string-manipulations-en/string-spaces-to-hypens-en
+string-manipulations-en/string-spaces-to-underscores-en
+string-manipulations-en/string-to-lower-with-hypens-en
+string-manipulations-en/string-underscores-to-hypens-en
+string-manipulations-en/string-upper-to-lower-en
+string-manipulations-en/txt-fjls-from-unix2dos-en
+-------------------------------------------------------------------------------------------------------------
+super-launcher
+-------------------------------------------------------------------------------------------------------------
+szpp
+szpw
+	???
+-------------------------------------------------------------------------------------------------------------
+tailf-backup-logs-en
+-------------------------------------------------------------------------------------------------------------
+teksti-join-en
+-------------------------------------------------------------------------------------------------------------
+tmxks
+tmxns
+-------------------------------------------------------------------------------------------------------------
+todays-knowledgedb-files-en
+-------------------------------------------------------------------------------------------------------------
+vmf
+	vim from fzf
+-------------------------------------------------------------------------------------------------------------
+vmf-e
+	vim from fzf -- exact match
+-------------------------------------------------------------------------------------------------------------
+vns-NI-poslano-v-kopiranje
+vns-poslano-v-kopiranje
+-------------------------------------------------------------------------------------------------------------
+vview-vedit-commands/vedit-files-from-vim-history
+vview-vedit-commands/vedit-mfjl-efzf
+vview-vedit-commands/vedit-mfjl-fzf
+vview-vedit-commands/vedit-sfjl-efzf
+vview-vedit-commands/vedit-sfjl-fzf
+vview-vedit-commands/vview-files-from-vim-history
+vview-vedit-commands/vview-mfjl-efzf
+vview-vedit-commands/vview-mfjl-fzf
+vview-vedit-commands/vview-sfjl-efzf
+vview-vedit-commands/vview-sfjl-fzf
+-------------------------------------------------------------------------------------------------------------
+w3mdump/w3md
+w3mdump/w3m-multi-dump-fromlist-en
+-------------------------------------------------------------------------------------------------------------
+win10-wallpapers-downloads
+-------------------------------------------------------------------------------------------------------------
+ytb-download-mp3
+-------------------------------------------------------------------------------------------------------------
+zig-clean
+-------------------------------------------------------------------------------------------------------------
+ZpDimCeviPretokHitrost
+ZpHitrostPlina
+ZpPadec.exe
+ZpPretokNormniDejanski
+ZpPretokNormniDejanski-STD
+-------------------------------------------------------------------------------------------------------------
+zshstart
+	cygstart Z Shell
+-------------------------------------------------------------------------------------------------------------
+zze
+-------------------------------------------------------------------------------------------------------------
+
