@@ -22,12 +22,16 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["Acrobat Reader"]="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"
                  ["AutoCAD 2024"]=""
                  ["Explorer++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe" \
+                 ["OneCommander - D2"]="D2"
+                 ["OneCommander - D3"]="D3"
+                 ["OneCommander - D4"]="D4"
                  ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
                  ["MultiCommander"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/MultiCommander_X64/MultiCommander.exe"
                  ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe" \
                  ["Nukleus (EN)"]="" \
                  ["URE"]="" \
-                 ["Razvojne Rešitve (EN)"]="")
+                 ["Razvojne Rešitve (EN)"]="" \
+)
 
 # array of keys from apps
 keys=("${!apps[@]}") # v3
@@ -88,6 +92,8 @@ while true; do
 		jhl_ure="https://ris.jhl.si/"
 		# cygstart "${runedg}" ${jhl_ure}
 		"${runedg}" ${jhl_ure}
+	elif [[ "${selection}" =~ "OneCommander" ]]; then
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
 	elif [ "${selection}" == "Quit" ]; then # v3
 		exit
 	else
