@@ -1,15 +1,18 @@
-#! /bin/bash
-# string-hypens-to-underscores-en
+#! /usr/bin/env bash
+# fname: string-hypens-to-underscores-en
+# 20260331
+# last: 20260331
+# ---
 
 ARG="$@"
 
 if [ "x${ARG}" = "x" ]; then
-	echo -e "[ERROR] -- no string as argument\n"
+	printf "[ERROR] -- no string as argument\n"
 	exit
 else
 	STRNG="$ARG"
 fi
 
-OUTPUT=$(echo ${STRNG} | sed 's/ \././' | tr '-' '_')
+OUTPUT=$(echo "${STRNG}" | sed 's/ \././' | tr '-' '_')
 echo "${OUTPUT}" | sed 's/"//g'
 
