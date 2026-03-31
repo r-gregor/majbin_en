@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # filename: kndb-files-from-tmst-till-today-en
-# 20251125
-# last: 20251125
+# 20260331 display from newest to oldst: $(seq start end) --> $(seq end -1 start)
+# last: 20260331
 # ---
 
 curryr=$(date +"%Y")
@@ -43,24 +43,28 @@ unset DAYS
 declare -a DAYS
 
 if [ ${mnth} -lt ${currmn} ]; then
-	for selectd1 in $(seq ${day} ${month_days[${mnth}]}); do
+	# for selectd1 in $(seq ${day} ${month_days[${mnth}]}); do
+	for selectd1 in $(seq ${month_days[${mnth}]} -1 ${day}); do
 		DAYS+=($( printf "%d%02d%02d" ${curryr} ${mnth} ${selectd1}))
 	done
 
 	let mnth+=1
 
 	while [ ${mnth} -lt ${currmn} ]; do
-		for selectd2 in $(seq 1 ${month_days[${mnth}]}); do
+		# for selectd2 in $(seq 1 ${month_days[${mnth}]}); do
+		for selectd2 in $(seq ${month_days[${mnth}]} -1 1); do
 			DAYS+=($( printf "%d%02d%02d" ${curryr} ${mnth} ${selectd2}))
 		done
 		let mnth+=1
 	done
 
-	for selectd3 in $(seq 1 ${currdy}); do
+	# for selectd3 in $(seq 1 ${currdy}); do
+	for selectd3 in $(seq ${currdy} -1 1); do
 		DAYS+=($( printf "%d%02d%02d" ${curryr} ${currmn} ${selectd3}))
 	done
 else 
-	for selectd3 in $(seq ${day} ${currdy}); do
+	# for selectd3 in $(seq ${day} ${currdy}); do
+	for selectd3 in $(seq ${currdy} -1 ${day}); do
 		DAYS+=($( printf "%d%02d%02d" ${curryr} ${currmn} ${selectd3}))
 	done
 fi
@@ -72,7 +76,7 @@ unset RESULT
 readarray -t RESULT < <(for DYS in ${DAYS[@]}; do find ${SRCDIR} -iname "*${DYS}.txt"; done)
 
 if [ "x${RESULT[0]}" == "x" ]; then
-	echo -e "[INFO] No files found\n"
+	printf "[INFO] No files found\n"
 	exit
 fi
 
@@ -80,11 +84,11 @@ unset fljs
 readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
 
 if [ "x${fjls[0]}" == "x" ]; then
-	echo -e "[INFO] No files selected\n"
+	printf "[INFO] No files selected\n"
 	exit
 fi
 
-echo "Selected:"
+printf "[INFO] Selected:\n"
 for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done
 for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | xargs -ro vim -pM
 
