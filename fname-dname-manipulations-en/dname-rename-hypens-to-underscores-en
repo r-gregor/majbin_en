@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: dname-rename-to-underscores-with-hypens-en
+# fname: dname-rename-hypens-to-underscores-en
 # 20226031
 # last: 20260331
 # ---
@@ -18,8 +18,8 @@ if [ ! -d "${DNAME}" ]; then
 	exit
 fi
 
-NEW_DNAME=$(echo "${DNAME}" | sed 's/ \././' | tr '_' '-')
-printf "[INFO] -- renaming ${DNAME} into ${NEW_DNAME} ...\n"
+NEW_DNAME=$(echo "${DNAME}" | sed 's/ \././' | tr '-' '_')
+printf "[INFO] -- renaming '${DNAME}' into '${NEW_DNAME}' ...\n"
 read -p "OK?"
 
 printf "[INFO] "
