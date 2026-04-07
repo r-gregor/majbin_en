@@ -1,21 +1,23 @@
 #! /usr/bin/env bash
-
-### updated 20220202:
-###    added ${DEST1}, and ${DEST2}
-###    changed for loop
-### -------------------------------
-###
+# fname: last-N-sorted-by-date-en
+# 20220202: added ${DEST1}, and ${DEST2}
+#           changed for loop
+# 20260407: DEST1, DEST2 ==> readarray 'ls -1' command into CATEGORIES
+#           DRPBO --> KNWLGDB
+# last: 20260407
+#---
 
 CMD1=${HOME}/.local/bin/sort-files-by-end-date
 CMD2=${HOME}/.local/bin/rsort-by-tmstmp-c
-# DRPBO=/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO
-DRPBO=/home/gregor.redelonghi/majstaf/engit/knowledgedb
-# DEST1="C_and_Cpp,PYTHON,JAVA,CS_and_other_PL,GIT,VIM,ZIG,LINUX_SYSTEM,TXT,GO"
-# DEST2="C_and_Cpp PYTHON JAVA CS_and_other_PL GIT VIM ZIG LINUX_SYSTEM TXT GO"
+KNWLGDB=/home/gregor.redelonghi/majstaf/engit/knowledgedb
 
 # 20251201
-DEST1="BASH,C_and_Cpp,CODING,CS_and_other_PL,DOCKER,FZF,GIT,GO,JAVA,LINUX_SYSTEM,PYTHON,QEMU_KVM,RCLONE,RSYNC,TERM_CLI,TWMs,VIM,ZIG"
-DEST2="BASH C_and_Cpp CODING CS_and_other_PL DOCKER FZF GIT GO JAVA LINUX_SYSTEM PYTHON QEMU_KVM RCLONE RSYNC TERM_CLI TWMs VIM ZIG"
+unset CATEGORIES
+readarray -t CATEGORIES < <(ls -1 "${KNWLGDB}")
+
+### # TEST
+### for CAT in "${CATEGORIES[@]}"; do printf "category: ${CAT}\n"; done
+### read -p "OK?"
 
 usage() {
 MSG=$(cat << HDOC
@@ -43,18 +45,18 @@ while getopts "hn:" arg; do
 
 		n)
 			num=${OPTARG}
-			for PTH in ${DEST2}; do
-				echo "--- ${DRPBO}/_${PTH} ---"
-				cd ${DRPBO}/_${PTH} && ${CMD2} | head -n ${num}; done
+			for PTH in "${CATEGORIES[@]}"; do
+				echo "--- ${KNWLGDB}/${PTH} ---"
+				cd ${KNWLGDB}/${PTH} && ${CMD2} | head -n ${num}; done
 		;;
 
 		*)
-			echo "Displaying last 10 files from ${DRPBO}/_{"${DEST1}"}"
+			echo "Displaying last 10 files from all categories in: ${KNWLGDB}"
 			echo "For more options/usage run with -h!"
 			echo ""
-			for PTH in ${DEST2}; do
-				echo "--- ${DRPBO}/_${PTH} ---"
-				cd ${DRPBO}/_${PTH} && ${CMD2} | head -n10; done
+			for PTH in "${CATEGORIES[@]}"; do
+				echo "--- ${KNWLGDB}/${PTH} ---"
+				cd ${KNWLGDB}/${PTH} && ${CMD2} | head -n10; done
 		;;
 	esac
 	noargs="false"
@@ -62,11 +64,11 @@ done
 
 
 if [[ ${noargs} == "true" ]]; then
-	echo "Displaying last 10 files from ${DRPBO}/_{"${DEST1}"}"
+	echo "Displaying last 10 files from all categories in: ${KNWLGDB}"
 	echo "For more options/usage run with -h!"
 	echo ""
-	for PTH in ${DEST2}; do
-		echo "--- ${DRPBO}/_${PTH} ---"
-		cd ${DRPBO}/_${PTH} && ${CMD2} | head -n10; done
+	for PTH in "${CATEGORIES[@]}"; do
+		echo "--- ${KNWLGDB}/${PTH} ---"
+		cd ${KNWLGDB}/${PTH} && ${CMD2} | head -n10; done
 fi
 
