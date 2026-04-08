@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # fname: gupdate-file-en
 # 20260313 v1  en
-# last: 20260313
+# 20260408 v2  en: added 'OK?' check into update_file_to_git() function
+# last: 20260408
 # ---
 
 HST="en"
@@ -36,6 +37,7 @@ update_file_to_git() {
 		"from: ${SRCF}" \
 		"to:   ${DSTF}" \
 		"---"
+	read -p "OK?"
 	cp -iv "${SRCF}" "${DSTF}"
 }
 
