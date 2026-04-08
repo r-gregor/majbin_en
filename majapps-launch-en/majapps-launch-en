@@ -8,7 +8,9 @@
 #                sorted output to fzf command
 #                extract KEYS from URLS
 # 20260325 en v4 case statement instead of 'if/elif/then' block
-# last: 20260317
+# 20260408 en v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
+#                as rule inside case statement
+# last: 20260408
 # ---
 
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
@@ -92,6 +94,7 @@ while true; do
 	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
 		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
 		selection_info "${selection}"
+		continue # v5
 	fi
 
 # RUN
