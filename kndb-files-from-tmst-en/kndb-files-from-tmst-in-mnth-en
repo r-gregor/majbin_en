@@ -24,7 +24,7 @@ EOF
 }
 
 if [ $# -ne 2 ]; then
-	echo "Must supply exactly two parameters:"
+	echo "[ERROR] Must supply exactly two parameters:"
 	usage
 	exit
 else
@@ -33,13 +33,13 @@ else
 fi
 
 if [ ${mnth} -lt 1 ] || [ ${mnth} -gt 12 ]; then
-	echo "Month out of range (1 - 12)"
+	echo "[ERROR] Month out of range (1 - 12)"
 	exit
 elif [ ${day} -lt 1 ] || [ ${day} -gt 31 ]; then
-	echo "Day of month out of range (1 - 31)"
+	echo "[ERROR] Day of month out of range (1 - 31)"
 	exit
 elif [ ${mnth} -eq ${currmn} ] && [ ${day} -gt ${currdy} ]; then
-	echo "Day of current month out of range"
+	echo "[ERROR] Day of current month out of range"
 	exit
 fi
 

@@ -46,11 +46,11 @@ else
 fi
 
 if [ ${slctd_mt} -lt 1 ] || [ ${slctd_mt} -gt 12 ]; then
-	echo "Month out of range (1 - 12)"
+	echo "[ERROR] Month out of range (1 - 12)"
 	exit
 elif
 	[ ${slctd_dy} -lt 1 ] || [ ${slctd_dy} -gt ${month_days[${slctd_mt}]} ]; then
-	echo "Day of month out of range (1 - ${month_days[${slctd_mt}]})"
+	echo "[ERROR] Day of month out of range (1 - ${month_days[${slctd_mt}]})"
 	exit
 fi
 
@@ -101,3 +101,4 @@ printf "[INFO] Selected:\n"
 # for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | xargs -ro vim -pM
 # v2
 for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | tee /dev/tty | xargs -ro vim -pM
+
