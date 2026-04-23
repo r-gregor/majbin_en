@@ -1,12 +1,13 @@
 #! /usr/bin/env bash
 # 20251021 en
 # 20251218 en: += CURRYR
-# last change 20251218
+# 20260422 en: v22 2026-04
+# last change 2026042
 
 CURRYR=2026
 
-SRC="/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-02"
-DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-02"
+SRC="/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-04"
+DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-04"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
 	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
