@@ -7,14 +7,17 @@
 # 20260317 en v3 $delline calculated from longest KEY line with get_longest function
 #                sorted output to fzf command
 #                extract KEYS from URLS
-# last: 20260317
+# 20260325 en v4 case statement instead of 'if/elif/then' block
+# 20260408 en v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
+#                as rule inside case statement
+# last: 20260408
 # ---
 
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
-
-# gr_MSE=/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe
 runedg="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+moffpth='/c/Program Files/Microsoft Office/root/Office16' #v4
 
+# v4 from "Mintty till end"
 declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe" \
                  ["MS Edge"]="$(cygpath -w /c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe)" \
                  ["Google Chrome"]="C:\Program Files\Google Chrome Portable\GoogleChromePortable.exe" \
@@ -31,6 +34,11 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["Nukleus (EN)"]="" \
                  ["URE"]="" \
                  ["Razvojne Rešitve (EN)"]="" \
+                 ["Mintty"]="" \
+                 ["MS Excel"]="${moffpth}/EXCEL.EXE" \
+                 ["MS Word"]="${moffpth}/WINWORD.EXE" \
+                 ["MS Powerpoint"]="${moffpth}/POWERPNT.EXE" \
+                 ["MS Outlook"]="${moffpth}/OUTLOOK.EXE" \
 )
 
 # array of keys from apps
@@ -60,6 +68,10 @@ get_longest() {
 	echo "${longest}"
 }
 
+selection_info() {
+	printf "[INFO] selected: $1\n"
+}
+
 # MAIN # v3
 longest_l=$(get_longest keys)                                         # v3
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
@@ -79,47 +91,49 @@ while true; do
 
 	if [ "${selection}" == "${delline}" ]; then #v3
 		continue
+	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
+		selection_info "${selection}"
+		continue # v5
 	fi
 
 # RUN
-	if [ "${selection}" == "AutoCAD 2024" ]; then
-		cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
-	elif [ "${selection}" == "Nukleus (EN)" ]; then
-		${runff} "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
-	elif [ "${selection}" == "Razvojne Rešitve (EN)" ]; then
-		${runff} "https://jpe-arcgis-port.jhl.si/arcgis/apps/webappviewer/index.html?id=b7ec743d0247439fbe941cb6187fa094"
-	elif [ "${selection}" == "URE" ]; then
-		jhl_ure="https://ris.jhl.si/"
-		# cygstart "${runedg}" ${jhl_ure}
-		"${runedg}" ${jhl_ure}
-	elif [[ "${selection}" =~ "OneCommander" ]]; then
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
-	elif [ "${selection}" == "Quit" ]; then # v3
-		exit
-	else
-		cygstart "${apps["${selection}"]}" &>/dev/null
-	fi
-	clear
-done
+	case "${selection}" in #v4
+		"AutoCAD 2024")
+			cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
+			selection_info "${selection}"
+			;;
 
-#############################################
-# TODO
-# gr_verzija=" [ verzija-en - last update: 202401119 ] "
-# gr_izbira=""
-# gr_OFPOT='/c/Program Files/Microsoft Office/root/Office16'
-# gr_GGL="/c/Users/gregor.redelonghi/AppData/Local/Google/Chrome/Application/chrome.exe"
-# gr_FF=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
-# gr_MSE=/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe
-# ------------------------------------------------------------------------------------------
-# cygstart "${gr_OFPOT}/EXCEL.EXE"
-# cygstart "${gr_OFPOT}/WINWORD.EXE"
-# cygstart "${gr_OFPOT}/POWERPNT.EXE"
-# cygstart "${gr_OFPOT}/OUTLOOK.EXE"
-# cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
-# cygstart /c/WINDOWS/system32/ssmypics.scr /s
-# cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 40,40 -s 200,50 -
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/majprogs_en/CodeBlocks/codeblocks.exe
-# cygstart /c/WINDOWS/System32/rundll32.exe user32.dll LockWorkStation
-# cygstart /c/WINDOWS/System32/rundll32.exe  shell32.dll,Control_RunDLL hotplug.dll
-#############################################
+		"Nukleus (EN)")
+			${runff} "http://jpe-nukleus.jhl.si/PassAuth/AutoAuth.aspx?ReturnUrl=/nukleus/profile.aspx?id=Energetika@Ljubljana"
+			selection_info "${selection}"
+			;;
+
+		"Razvojne Rešitve (EN)")
+			${runff} "https://jpe-arcgis-port.jhl.si/arcgis/apps/webappviewer/index.html?id=b7ec743d0247439fbe941cb6187fa094"
+			selection_info "${selection}"
+			;;
+
+		"Mintty")
+			# cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 300,40 -s 180,40 -
+			cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -s 180,40 -
+			selection_info "${selection}"
+			;;
+
+		"URE")
+			jhl_ure="https://ris.jhl.si/"
+			# cygstart "${runedg}" ${jhl_ure}
+			"${runedg}" ${jhl_ure}
+			selection_info "${selection}"
+			;;
+
+		"Quit")
+			exit
+			;;
+		*)
+			cygstart "${apps["${selection}"]}" &>/dev/null
+			selection_info "${selection}"
+			;;
+	esac
+done
 

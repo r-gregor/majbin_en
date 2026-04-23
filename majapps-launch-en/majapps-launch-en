@@ -10,7 +10,8 @@
 # 20260325 en v4 case statement instead of 'if/elif/then' block
 # 20260408 en v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
 #                as rule inside case statement
-# last: 20260408
+# 20260423 en v6 put all RUN statemnets into majaps_run() function and add option to select input as parameter
+# last: 20260423
 # ---
 
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
@@ -72,32 +73,13 @@ selection_info() {
 	printf "[INFO] selected: $1\n"
 }
 
-# MAIN # v3
-longest_l=$(get_longest keys)                                         # v3
-delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
-
-while true; do
-	selection=$((for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | sort; echo "${delline}"; echo "Quit") | \
-		fzf \
-		-e \
-		--reverse \
-		-i \
-		--prompt="launch: ")
-
+# v6
+majaps_run() {
 	if [ "x${selection}" == "x" ]; then
 		echo -e "[INFO] no selection\n"
 		exit
 	fi
 
-	if [ "${selection}" == "${delline}" ]; then #v3
-		continue
-	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
-		selection_info "${selection}"
-		continue # v5
-	fi
-
-# RUN
 	case "${selection}" in #v4
 		"AutoCAD 2024")
 			cygstart "C:\Program Files\Autodesk\AutoCAD 2024\acad.exe"  /product ACAD /language "en-US" &>/dev/null
@@ -135,5 +117,51 @@ while true; do
 			selection_info "${selection}"
 			;;
 	esac
+}
+
+# MAIN
+
+# v6
+if [ $# -eq 1 ]; then
+	# ${varname,,} -- convert string to all lowercase ...
+	selection=$((for key in "${keys[@]}"; do if [[ "${key,,}" =~ "${1,,}" ]]; then echo ${key}; fi; done) | \
+		fzf \
+		-e \
+		--reverse \
+		-i \
+		--prompt="launch: ")
+	
+	if [[ "${selection}" =~ "OneCommander" ]]; then #v4
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
+		selection_info "${selection}"
+		# continue # v6 -- (this instance not inside loop)
+	fi
+	majaps_run
+	exit
+fi
+
+
+longest_l=$(get_longest keys)                                         # v3
+delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
+
+while true; do
+	selection=$((for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | sort; echo "${delline}"; echo "Quit") | \
+		fzf \
+		-e \
+		--reverse \
+		-i \
+		--prompt="launch: ")
+
+
+	# RUN
+	if [ "${selection}" == "${delline}" ]; then #v3
+		continue
+	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
+		selection_info "${selection}"
+		continue # v5
+	fi
+	majaps_run # v6
+
 done
 
