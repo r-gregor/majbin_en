@@ -162,14 +162,17 @@ fi
 longest_l=$(get_longest keys)                                         # v3
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
 
-while true; do
+get_selection_en() {
 	selection=$((for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | sort; echo "${delline}"; echo "Quit") | \
 		fzf \
 		-e \
 		--reverse \
 		-i \
 		--prompt="launch: ")
+}
 
+while true; do
+	get_selection_en
 
 	# RUN
 	if [ "${selection}" == "${delline}" ]; then #v3
