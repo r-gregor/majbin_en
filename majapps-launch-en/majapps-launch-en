@@ -12,6 +12,7 @@
 #                as rule inside case statement
 # 20260423 en v6 put all RUN statemnets into majaps_run() function and add option to select input as parameter
 # 20260423 en v7 selected input as parameter ino array, if multiple option to refine parameter
+# 20260424 en v8 move 'selection=...' expression into get_selection_en() function
 # last: 20260423
 # ---
 
@@ -120,7 +121,17 @@ majaps_run() {
 	esac
 }
 
-# MAIN
+# v8
+get_selection_en() {
+	selection=$((for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | sort; echo "${delline}"; echo "Quit") | \
+		fzf \
+		-e \
+		--reverse \
+		-i \
+		--prompt="launch: ")
+}
+
+# === MAIN ==================================================================================================
 
 # v6
 if [ $# -eq 1 ]; then
@@ -158,21 +169,11 @@ if [ $# -eq 1 ]; then
 	exit
 fi
 
-
 longest_l=$(get_longest keys)                                         # v3
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
 
-get_selection_en() {
-	selection=$((for key in "${!keys[@]}"; do echo "${keys[$key]}"; done | sort; echo "${delline}"; echo "Quit") | \
-		fzf \
-		-e \
-		--reverse \
-		-i \
-		--prompt="launch: ")
-}
-
 while true; do
-	get_selection_en
+	get_selection_en #v8
 
 	# RUN
 	if [ "${selection}" == "${delline}" ]; then #v3
