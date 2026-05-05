@@ -133,6 +133,9 @@ get_selection_en() {
 
 # === MAIN ==================================================================================================
 
+longest_l=$(get_longest keys)                                         # v3
+delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
+
 # v6
 if [ $# -eq 1 ]; then
 	declare -a options
@@ -169,9 +172,6 @@ if [ $# -eq 1 ]; then
 	exit
 fi
 
-longest_l=$(get_longest keys)                                         # v3
-delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
-
 while true; do
 	get_selection_en #v8
 
@@ -184,6 +184,5 @@ while true; do
 		continue # v5
 	fi
 	majaps_run # v6
-
 done
 
