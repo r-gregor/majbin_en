@@ -37,6 +37,7 @@ declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/
                  ["Nukleus (EN)"]="" \
                  ["URE"]="" \
                  ["Razvojne Rešitve (EN)"]="" \
+                 ["PROSOTRSKI INFORNMACIJSKI SISTEM (EN)"]="" \
                  ["Mintty"]="" \
                  ["MS Excel"]="${moffpth}/EXCEL.EXE" \
                  ["MS Word"]="${moffpth}/WINWORD.EXE" \
@@ -108,6 +109,12 @@ majaps_run() {
 			jhl_ure="https://ris.jhl.si/"
 			# cygstart "${runedg}" ${jhl_ure}
 			"${runedg}" ${jhl_ure}
+			selection_info "${selection}"
+			;;
+
+		"PROSOTRSKI INFORNMACIJSKI SISTEM (EN)")
+			pis="https://pis.eprostor.gov.si/pis.html"
+			"${runedg}" ${pis}
 			selection_info "${selection}"
 			;;
 
