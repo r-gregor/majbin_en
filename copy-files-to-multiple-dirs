@@ -24,7 +24,7 @@ USAGE
 }
 
 OIFS=$IFS
-IFS='\n'
+IFS=''
 while getopts "f:d:h" opt; do
 	case $opt in
 		f)
@@ -82,7 +82,7 @@ for FFF in "${fjls[@]}"; do
 	fi
 done
 
-for DST in ${dsts[@]}; do
+for DST in "${dsts[@]}"; do
 	/usr/bin/cp -vi "${fjls[@]}" "${DST}"
 done
 
