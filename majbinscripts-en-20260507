@@ -1,0 +1,431 @@
+30najvecjih
+add-file-to-prenos-en
+b-convert-txt-to-pdf-v2
+bankovci-kovanci
+BASH_HACKS.sh
+biggestdirs
+biggestfile
+broken-symlinks-list
+
+BrthReminder-c/
+	BrthReminder-c-colors.exe
+	BrthReminder-c.exe
+
+centralna.conf
+check-if-installed
+check-if-mvs-in-both-dirs
+check4emptyd
+clean-and-replace-fname
+clean-and-replace-fname-case
+clean-ff-bookmarks
+clinije
+coderun
+
+coding-diffs-en
+	coding-diffs-en
+
+color10bit
+contains
+copy-files-to-multiple-dirs
+crq
+danes-check
+danes-check-colors
+
+ddbaklog/
+	pddbak
+	pddlog
+	pdelbak
+	pdellog
+
+delbak
+dellog
+
+dirlist/
+	dirlist-abs-sort.exe
+	dirlist-abs.exe
+	dirlist-rv-abs.exe
+	dirlist-rv.exe
+	dirlist-sort.exe
+	dirlist.exe
+	fjl-info-single.exe
+	fjl-info.exe
+	ndirlist-rv-abs.exe
+	ndirlist-rv.exe
+	ndirlist.exe
+
+dirs-by-size-en
+download-ytb-mpe
+
+drpbx-rclone/
+	drpbx-rclone-jv1-L-R
+	drpbx-rclone-jv2-R-L
+	drpbx-rclone-mcdn1en-L-R
+	drpbx-rclone-mcdn2d-R-L
+	drpbx-rclone-ODPRTO1-L-R
+	drpbx-rclone-ODPRTO2-R-L
+	drpbx-rclone-ptn1-L-R
+	drpbx-rclone-ptn2-R-L
+	drpbx-rclone-SKUPNI1-L-R
+	drpbx-rclone-SKUPNI2-R-L
+	drpbx-rclone-sync-mcdn1en-L-R
+	drpbx-rclone-sync-mcdn2d-R-L
+	drpbx-rclone-sync-ODPRTO1-L-R
+	drpbx-rclone-sync-ODPRTO2-R-L
+	drpbx-rclone-sync-SKUPNI1-L-R
+	drpbx-rclone-sync-SKUPNI2-R-L
+	drpbx-rclone-txt1-L-R
+	drpbx-rclone-txt2-R-L
+
+duh
+duh-hidden
+ext-A-bekap
+ext-C-bekap
+ext-CD-bekap
+ext-D-bekap
+ext-H-bekap
+ff
+
+ff-fb-mails-launch-en/
+	ff-fb-mails-launch-en
+	/messages/ ...
+
+ff-launch-en/
+	ff-launch-en
+	add-to-sites
+	get-playlist-titles/
+		get-playlist-titles.sh
+
+ff-personal-launch-en/
+	ff-personal-launch-en
+
+ffn
+find-all-shell-scripts.sh
+fjl-info-single.exe
+fjl-info.exe
+fm
+
+fname-dname-manipulations-en/
+	dname-rename-hypens-to-underscores-en
+	dname-rename-to-underscores-with-hypens-en
+	dname-rename-underscores-to-hypens-en
+	fname-convert-4-spaces-to-tabs-en
+	fname-hypens-to-underscores-en
+	fname-rename-hypens-to-underscores-en
+	fname-rename-spaces-to-hypens-en
+	fname-rename-spaces-to-hypens-no-confirm-en
+	fname-rename-to-lower-with-hypens-en
+	fname-rename-underscores-to-hypens-en
+	fname-rename-underscores-to-hypens-no-confirm-en
+	fname-to-lower-with-hypens-en
+
+fnd/
+	fnd-duplicate-files
+	fnd-fls-byword
+	fnd-python-files-by-time
+	fnd-txt-latest-files-by-time
+	get-filenames-by-word-dirs
+	get-filenames-by-word-files
+
+fndb-lnx-executables
+fndb-win-executables
+fsort-files
+fsplit-en
+ftp-access-en
+
+fview-fvedit-commands/
+	vd-mf
+	vd-mfe
+	vd-sf
+	vd-sfe
+	vv-mf
+	vv-mfe
+	vv-sf
+	vv-sfe
+
+geslo-spremeni-en
+get-endiffs
+get-public-ip
+get-saved-link-address-and-name-by-timestamp
+
+git-commands/
+	check-git-diffs-en
+	dwnld-gthb-sfnm
+	dwnld-gtlb-sfnm
+	engt-all
+	engt-diffs-check-all
+	engt-multiple-repos-setup
+	engt-reports-check
+	engt-reports-empty
+	engt-single-repo-setup
+	engt-status
+	engt-testpush
+	gadd-gcmt-en
+	gcommit-timestamp-en
+	ghgl-push-en
+	ghgl-testpush-en
+	glog-status-en
+	grefresh-fjl-to-git-repo
+	gupdate-file-en
+	gyes-add-commit-push
+	nvol-push-all
+	nvol-testpush-all
+	testing-all-en
+	testing-status-en
+	testing-testpush-en
+
+go-project-env
+gocleanmodcache
+
+gremdomov/
+	t-gremdomov
+	v-gremdomov
+
+hiddendirs-en
+howmanyfilesindir
+
+hstl_en/
+	collect_hstl
+	excludes-hstl.txt
+	hstl_en
+
+hypens-to-apostrophesin-all-txt-files/
+	convert-hypens-to-apostrophes-in-all-txt-files-in-dir.sh
+
+iconv1-SLO-srt-WIN-to-UTF8
+iconv2-SLO-srt-UTF8-to-WIN
+IMAGES-remove-pics-from-Downloads
+izklop
+jarrun
+jarxrun
+jrun
+jupyter-julia
+
+jvfx/
+	jvfx-compile
+	jvfx-run
+
+kndb-files-from-tmst-en/
+	kndb-files-from-tmst-in-mnth-en
+	files-from-tmst-till-today-en
+	files-from-yr-tmst-in-mnth-en
+	files-from-yr-tmst-till-today-en
+	knowledgedb-copy-file-to-category
+	knowledgedb-move-file-to-category
+
+KOPILAB1-create-pdf-name
+KOPILAB2-narocilo-transform
+kopiraj-a0-v-risbe
+last-disp
+last-N-sorted-by-date-en
+lastdisp-over1G
+list-dupfilenames
+list-dupfilenames-in-dbot
+list-files-numpart-gt-param
+list-last-20-by-tmstmp
+listulb
+listulb2
+load-local-rust-book-into-browser
+longest-filename-in-curdir
+lsth
+
+lynxdump/
+	lynx-multi-dump-fromlist-en
+	lynxd
+	lynxdump-USERAGENT-webpage-to-file
+	multi-dump-list.dat
+
+majapps-launch-en/
+	majapps-launch-en
+
+make-random-test-moviedir
+
+nacrtovanje/
+	nacrt-brez-popisov-pdfjoin-into-CN
+	nacrt-pdfjoin-into-CN
+	risbe-join-en
+	teksti-join-en
+
+narocilo-KOPILAB
+new-c-project-setup
+
+new-ls/
+	nlc
+	nlct
+	nls
+	nlst
+
+neww
+nifs
+np
+odjava-menu-en
+oifs
+onecmd
+onecmd_D2
+onecmd_D3
+onecmd_D4
+OneCommander-D3
+
+opn/
+	opn
+	opnu
+	opnw
+
+padec-go.exe
+pagesnum
+path-display
+pddr
+pdf-reduce-size
+
+pnp/
+	pnp
+	pnp-multi
+	pnpgd
+	pnpgd-multi
+	seznam.pnp
+	vnp
+	vnp-multi
+
+pokazi50najvecjih
+preimenuj-naziv-dokumentov
+prepare-fjl-for-knowledgebase
+print256colours
+psswdchange-en
+
+python-venv-and-pip-setup/
+	uvenv-s0-mkvnv-install-en
+	uvenv-s1-makevenv-en
+	uvenv-s2-pip-update-and-install-en
+	venv-s0-mkvnv-install-en
+	venv-s1-makevenv-en
+	venv-s2-pip-update-and-install-en
+	venv-s3-remove-venv.sh
+
+qckstrt
+
+rbekap-meganz/
+	rbekap-BOOKMARKS-EN-sync-mega-gren
+	rbekap-DAILY-mega-gren
+	rbekap-DOWNLOADS-copy-mega-gren
+	rbekap-ENGIT-sync-mega-gren
+	rbekap-H-PODLOGE-copy-mega-gren
+	rbekap-H-PODLOGE-sync-mega-gren
+	rbekap-PROJEKTI-copy-mega-gren
+	rbekap-PROJEKTI-sync-mega-gren
+	rbekap-SCRIPTS-sync-mega-gren
+	rbekap-SUPPORT-sync-mega-gren
+	rbekap-TOOLBOX-sync-mega-gren
+	rbekap-TZ-2025-sync-mega-gren
+	rbekap-TZ-2026-sync-mega-gren
+
+rcln-check-all-remotes-about
+re-link-tu-ulb
+read-latest-from-knowledgedb
+remove-all-commented-lines-c
+remove-end-py
+remove-end-sh
+
+rename/
+	mrenamef-b
+	rename-to-basename1-with-new-ext
+	rename1-fname
+	rename2-and-clean-fname
+
+rename-to-basename2-with-new-ext
+
+renaming-programming-folders/
+	renamedir-from-d-to-en
+	renamedir-from-en-to-d
+	renamedir-to-BRISI
+
+repair1-quotation-marks
+repair2-inplace-quotation-marks
+repl-bash-en-V1-20180109
+rewrapp
+rewrapp-n
+rsort-by-accdate-c.exe
+rsort-by-enddate-g.exe
+rsort-by-mdfdate-c.exe
+rsort-by-tmstmp-absp-c.exe
+rsort-by-tmstmp-c.exe
+RSYNC-BACKUP-en
+scales-of-displays-p
+search-by1-or-2
+search-by1-or-more
+
+send-mail-scrts/
+	run-sendhome1-and-sendp3-1
+	send-1link-en
+	send-2args-en
+	send-3args-en
+	sendf1
+	sendf2
+	send_config_en.conf
+	send_config_en.py
+
+shorten-movie-name
+show-aliases-en
+show-exports-en
+show-subdirs-tree
+show-terminal-colors
+show-vim-mappings
+show-VNs-b
+showw
+slistulb
+softlink1-fname-to-ulb
+sort-files-by-end-date
+sort-movies-by-year
+sort-movies-by-year-p
+sort-shell-scripts-by-numlines
+square-brackets-num-bookmarks-find-and-remove
+
+string-manipulations-en/
+	string-hypens-to-underscores-en
+	string-lower-to-upper-en
+	string-spaces-to-hypens-en
+	string-spaces-to-underscores-en
+	string-to-lower-with-hypens-en
+	string-underscores-to-hypens-en
+	string-upper-to-lower-en
+	txt-fjls-from-unix2dos-en
+
+super-launcher
+szpp
+szpw
+tailf-backup-logs-en
+tmxks
+tmxns
+tmxns-backup.txt
+todays-knowledgedb-files-en
+update-copy-files-to-multiple-dirs-20260507
+vmf
+vmf-e
+vns-NI-poslano-v-kopiranje
+vns-poslano-v-kopiranje
+
+vview-vedit-commands/
+	vedit-files-from-vim-history
+	vedit-mfjl-efzf
+	vedit-mfjl-fzf
+	vedit-sfjl-efzf
+	vedit-sfjl-fzf
+	vview-files-from-vim-history
+	vview-mfjl-efzf
+	vview-mfjl-fzf
+	vview-sfjl-efzf
+	vview-sfjl-fzf
+
+w3mdump/
+	w3m-multi-dump-fromlist-en
+	w3md
+
+win10-wallpapers-downloads
+ytb-download-mp3
+zig-clean
+ZpDimCeviPretokHitrost
+ZpHitrostPlina
+ZpPadec.exe
+ZpPretokNormniDejanski
+ZpPretokNormniDejanski-STD
+zshstart
+zze
+
