@@ -37,3 +37,4 @@ fi
 # execute
 echo "Soft-linking ${fname_full} to ${HOME}/.local/bin/ ..."
 ln -sv $(realpath ${source_path}/${fname_full}) ${dest_path}/${fname}
+
