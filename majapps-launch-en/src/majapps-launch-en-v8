@@ -1,46 +1,54 @@
 #! /usr/bin/env bash
 # filename: majapps-launch.sh
-# 20250917 
-# 20250919 v1 added runff var for firefox path
-# 20251017 v2 run inside infinite loop and added 'q' to quit
-#             keys in separate index-ed array to keep display order
-# 20260317 v3 $delline calculated from longest KEY line with get_longest function
-#             sorted output to fzf command
-#             extract KEYS from URLS
-# 20260325 v4 case statement instead of 'if/elif/then' block
-# 20260408 v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
-#             as rule inside case statement
-# 20260423 v6 put all RUN statemnets into majaps_run() function and add option to select input as parameter
-# 20260423 v7 selected input as parameter into array, if multiple option to refine parameter
-# 20260424 v8 move 'selection=...' expression into get_selection_en() function
-# 20260514 v9 move links to external (csv format with ';' delimiter) file and add load_links_into_array()
-#             function to load links from file into associative array
-# last: 20260514
+# 20250917 en
+# 20250919 en v1 added runff var for firefox path
+# 20251017 en v2 run inside infinite loop and added 'q' to quit
+#                keys in separate index-ed array to keep display order
+# 20260317 en v3 $delline calculated from longest KEY line with get_longest function
+#                sorted output to fzf command
+#                extract KEYS from URLS
+# 20260325 en v4 case statement instead of 'if/elif/then' block
+# 20260408 en v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
+#                as rule inside case statement
+# 20260423 en v6 put all RUN statemnets into majaps_run() function and add option to select input as parameter
+# 20260423 en v7 selected input as parameter into array, if multiple option to refine parameter
+# 20260424 en v8 move 'selection=...' expression into get_selection_en() function
+# last: 20260423
 # ---
 
-# clear the screen:
-printf "\033[H\033[2J"
-
-# globals
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
 runedg="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 moffpth='/c/Program Files/Microsoft Office/root/Office16' #v4
 
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))" # v9
-FNAME="majapps_links_list_en"                     # v9
-FPTH=${SRCDIR}/${FNAME}                           # v9
+# v4 from "Mintty till end"
+declare -A apps=(["Firefox"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe" \
+                 ["MS Edge"]="$(cygpath -w /c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe)" \
+                 ["Google Chrome"]="C:\Program Files\Google Chrome Portable\GoogleChromePortable.exe" \
+                 ["MS Calc"]="/c/Windows/System32/calc.exe" \
+                 ["Acrobat Reader"]="C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"
+                 ["AutoCAD 2024"]=""
+                 ["Explorer++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Explorerpp/Explorer++.exe" \
+                 ["OneCommander - D2"]="D2"
+                 ["OneCommander - D3"]="D3"
+                 ["OneCommander - D4"]="D4"
+                 ["Notepad++"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++/notepad++.exe" \
+                 ["MultiCommander"]="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/MultiCommander_X64/MultiCommander.exe"
+                 ["Super Launcher"]="c:\Users\Public\below average\Super Launcher\SuperLauncher.exe" \
+                 ["Nukleus (EN)"]="" \
+                 ["URE"]="" \
+                 ["Razvojne Rešitve (EN)"]="" \
+                 ["PROSOTRSKI INFORNMACIJSKI SISTEM (EN)"]="" \
+                 ["Mintty"]="" \
+                 ["MS Excel"]="${moffpth}/EXCEL.EXE" \
+                 ["MS Word"]="${moffpth}/WINWORD.EXE" \
+                 ["MS Powerpoint"]="${moffpth}/POWERPNT.EXE" \
+                 ["MS Outlook"]="${moffpth}/OUTLOOK.EXE" \
+)
 
-# assoc array
-declare -A majapps
+# array of keys from apps
+keys=("${!apps[@]}") # v3
 
-# functions
-# v9
-load_links_into_array() {
-	while IFS=';' read key value; do
-		majapps["${key}"]="${value}"
-	done < "${FPTH}"
-}
-
+# functions #v3
 get_longest() {
 	if [ ! $# -eq 1 ]; then
 		echo "[ERROR1] must supply array of sentences as parameter"
@@ -65,7 +73,7 @@ get_longest() {
 }
 
 selection_info() {
-	printf "[INFO] selected: $1\n"
+	printf "[INFO] selected: $1\n\n"
 }
 
 # v6
@@ -114,7 +122,7 @@ majaps_run() {
 			exit
 			;;
 		*)
-			cygstart "${majapps["${selection}"]}" &>/dev/null
+			cygstart "${apps["${selection}"]}" &>/dev/null
 			selection_info "${selection}"
 			;;
 	esac
@@ -131,10 +139,6 @@ get_selection_en() {
 }
 
 # === MAIN ==================================================================================================
-load_links_into_array # v6
-
-# array of keys from majapps
-keys=("${!majapps[@]}") # v3
 
 longest_l=$(get_longest keys)                                         # v3
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)  # v3
@@ -166,8 +170,7 @@ if [ $# -eq 1 ]; then
 	read -p "[INFO] launch: ${selection} ... OK?"
 
 	if [[ "${selection}" =~ "OneCommander" ]]; then #v4
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin
-		"${majapps[${selection}]}"
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
 		selection_info "${selection}"
 		exit
 		# continue # v6 -- (this instance not inside loop)
@@ -183,7 +186,7 @@ while true; do
 	if [ "${selection}" == "${delline}" ]; then #v3
 		continue
 	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${majapps[${selection}]}"
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${apps[${selection}]}"
 		selection_info "${selection}"
 		continue # v5
 	fi
