@@ -166,8 +166,8 @@ if [ $# -eq 1 ]; then
 	read -p "[INFO] launch: ${selection} ... OK?"
 
 	if [[ "${selection}" =~ "OneCommander" ]]; then #v4
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin
-		"${majapps[${selection}]}"
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin \
+			"${majapps[${selection}]}"
 		selection_info "${selection}"
 		exit
 		# continue # v6 -- (this instance not inside loop)
@@ -183,7 +183,8 @@ while true; do
 	if [ "${selection}" == "${delline}" ]; then #v3
 		continue
 	elif [[ "${selection}" =~ "OneCommander" ]]; then #v4
-		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin "${majapps[${selection}]}"
+		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin \
+			"${majapps[${selection}]}"
 		selection_info "${selection}"
 		continue # v5
 	fi
