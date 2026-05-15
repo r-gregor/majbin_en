@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-# fname: string-spaces-to-hypens-en
-# 20260331
-# last: 20260331
+# fname: string-spaces-to-hypens-en.sh
+# v1_20260331
 # ---
 
 ARG="$@"

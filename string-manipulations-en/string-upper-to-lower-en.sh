@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-# fname: string-upper-to-lower-en
-# 20260331
-# last: 20260331
+# fname: string-upper-to-lower-en.sh
+# v1_20260331
 # ---
 
 arg="$@"

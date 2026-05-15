@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-# fname: txt-fjls-from-unix2dos-en
-# 20260331
-# last: 20260331
+# fname: txt-fjls-from-unix2dos-en.sh
+# v1_20260331
 # ---
 
 nifs() {

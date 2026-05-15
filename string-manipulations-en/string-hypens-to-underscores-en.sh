@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-# fname: string-hypens-to-underscores-en
-# 20260331
-# last: 20260331
+# fname: string-hypens-to-underscores-en.sh
+# v1_20260331
 # ---
 
 ARG="$@"
