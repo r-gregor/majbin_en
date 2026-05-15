@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# filename: knowledgedb-move-file-to-category
-# 20260409  en: multiple files, with checks ...
+# filename: knowledgedb-move-file-to-category.sh
+# v1_20260409 multiple files, with checks ...
 # last: 20260409
 # ---
 

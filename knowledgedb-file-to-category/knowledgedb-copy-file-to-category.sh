@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
-# filename: knowledgedb-copy-file-to-category
-# 20251118
-# 20260409  en: multiple files, with checks ...
+# filename: knowledgedb-copy-file-to-category.sh
+# v1_20251118
+# v2_20260409  en: multiple files, with checks ...
 # last: 20260409
 # ---
 
