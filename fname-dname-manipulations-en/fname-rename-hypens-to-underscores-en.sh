@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 # fname: fname-rename-hypens-to-underscores-en
-# 20226031
-# last: 20260331
+# v1_20226031
 # ---
 
 ARG="$@"
