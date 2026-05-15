@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: nls.sh
+# ---
 
 # CMMND='stat --printf="%y %n\n" * | cut -b 1-11,36-'
 

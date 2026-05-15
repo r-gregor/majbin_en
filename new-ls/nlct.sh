@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: nlct.sh
+# ---
 
 if [ $# -eq 1 ]; then
 	LSDIR="$1"
