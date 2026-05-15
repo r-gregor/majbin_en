@@ -1,4 +1,8 @@
 #! /usr/bin/env bash
+# fname: lynxd.sh
+# v1_20250925 remove option to use dumplist
+# last: 20250925
+# ---
 
 ###  EN-proxy ...
 # prx_ip=172.17.3.64

@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-
-# filename: lynx-multi-dump-fromlist-en
-# 20250925 v1 en: remove option to use dumplist
+# filename: lynx-multi-dump-fromlist-en.sh
+# v1_20250925 remove option to use dumplist
 # last: 20250925
 # ---
 
