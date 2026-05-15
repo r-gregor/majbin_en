@@ -52,9 +52,16 @@ delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)
 selections+=( $((for KEY in "${keys[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | ${FZFCMD_EN}) )
 
 if [ "${#selections[@]}" -eq 0 ]; then
-	printf "[INFO] nothing selected"
+	printf "[INFO] nothing selected\n\n"
 	exit
 fi
+
+for SELECTION in "${selections[@]}"; do
+	if [ "$SELECTION" == "Quit" ]; then
+		printf "[INFO] nothing selected\n\n"
+		exit
+	fi
+done
 
 count=0
 printf "[INFO] rclone cyncing sheduled for:\n"
@@ -64,17 +71,10 @@ for DEST in "${selections[@]}"; do
 done
 read -p "OK?"
 
+if [ "${SELECTION}" == "${delline}" ]; then
+	continue
+fi
 for SELECTION in "${selections[@]}"; do
-	if [ "$SELECTION" == "Quit" ]; then
-		exit
-	fi
-
-	if [ "${SELECTION}" == "${delline}" ]; then
-		continue
-	fi
-
-
-	# echo "${dsts["${SELECTION}"]} -y; printf '---\n'"
 	eval "${dsts["${SELECTION}"]} -y; echo \"---\""
 done
 
