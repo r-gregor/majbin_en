@@ -1,10 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-fb-mails-launch-en
-# 20260216 en v1
-# 20260223 en v2
-# 20260306 en v3: add 'sort -nr' in 'selection=...' to sort by datestamp
-#                 rename directory and filename from get-fb-mails-en to: ff-fb-mails-launch-en
-# last: 20260223
+# v3_20260306
 # ---
 
 # globals

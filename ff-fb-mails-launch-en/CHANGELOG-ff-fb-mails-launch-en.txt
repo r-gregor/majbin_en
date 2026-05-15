@@ -1,0 +1,8 @@
+filename: CHANGELOG-ff-fb-mails-launch-en.txt
+v1_20260216
+v2_20260223
+v3_20260306 add 'sort -nr' in 'selection=...' to sort by datestamp
+            rename directory and filename from get-fb-mails-en to: ff-fb-mails-launch-en
+last: 20260223
+---
+
