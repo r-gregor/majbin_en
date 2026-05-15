@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# 20251021 (en)
-# last change 20251021
+# fname: rbekap-DOWNLOADS-copy-mega-gren.sh
+# v1_20251021
+# last: 20251021
+# ---
 
 SRC="/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ"
 DST="mega_gren:ENERGETIKA/Downloads"

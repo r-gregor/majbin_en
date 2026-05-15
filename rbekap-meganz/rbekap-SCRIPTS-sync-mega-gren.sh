@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# 20251111 (en)
-# last change 20251111
+# fname: rbekap-SCRIPTS-sync-mega-gren.sh
+# v1_20251111
+# last: 20251111
+# ---
 
 SRC="/home/gregor.redelonghi/majstaf/majscripts_en"
 DST="mega_gren:ENERGETIKA/majscripts_en"

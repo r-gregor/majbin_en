@@ -1,8 +1,10 @@
 #! /usr/bin/env bash
-# 20251021 en
-# 20251218 en: += CURRYR
-# 20260422 en: v22 2026-04
-# last change 2026042
+# fname: rbekap-TZ-2026-sync-mega-gren.sh
+# v1_20251021
+# v2_20251218 += CURRYR
+# v3_20260422
+# last: 2026042
+# ---
 
 CURRYR=2026
 

@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# 20251021 (en)
-# last change 20251021
+# fname: rbekap-ENGIT-sync-mega-gren.sh
+# v1_20251021
+# last: 20251021
+# ---
 
 SRC="/home/gregor.redelonghi/majstaf/engit"
 DST="mega_gren:ENERGETIKA/ENGIT"
