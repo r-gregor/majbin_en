@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# risbe_join
+# fname: risbe-join-en.sh
+# ---
 
 if [ $# -eq 1 ]; then
 	OUTPUT=$1

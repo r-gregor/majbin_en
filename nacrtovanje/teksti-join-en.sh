@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# teksti_join
+# fname: teksti-join-en.sh
+# ---
 
 if [ $# -eq 1 ]; then
 	OUTPUT=$1

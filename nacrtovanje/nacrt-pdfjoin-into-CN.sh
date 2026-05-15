@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: nacrt-pdfjoin-into-CN.sh
+# ---
 
 pdfjoin="java -jar $(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/pdftk-all.jar")"
 
