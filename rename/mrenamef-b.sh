@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: mrenamef-b.sh
+# ---
 
 if [ $# -ne 3 ]; then
 	echo -e "\tUsage:\n\t\t$0 [pattern] [replacement] <fname>\n"
