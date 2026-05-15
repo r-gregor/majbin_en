@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
-# filename: kndb-files-from-tmst-in-mnth-en
-# 20251125
-# 20260331 v1 display from newest to oldst: $(seq start end) --> $(seq end -1 start)
-# 20260415 v2 final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
+# filename: kndb-files-from-tmst-in-mnth-en.sh
+# v0_20251125
+# v1_20260331 display from newest to oldst: $(seq start end) --> $(seq end -1 start)
+# v2_20260415 final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
 # last: 20260415
 # ---
 

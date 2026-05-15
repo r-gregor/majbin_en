@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
-# filename: kndb-files-from-tmst-till-today-en
-# 20260105
-# 20260331 v1 display from newest to oldset
-# 20260415 v2 final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
+# filename: kndb-files-from-tmst-till-today-en.sh
+# v0_20260105
+# v1_20260331 display from newest to oldset
+# v2_20260415 final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
 # last: 20260415
 # ---
 
