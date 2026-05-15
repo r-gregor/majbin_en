@@ -1,18 +1,10 @@
 #! /bin/bash
-
-### Name:	find-file-by-word.sh
-### Author:	RgregoR
-### Date:	2016-04-18 (20160419,)
-### Descr.:	find file by containing (whole) word like: grep, sed, ubuntu, 2016 ...
-### 
-### -----------------------------------------------------------------------------------
-#### UPDATE-1 (20160819-en):
-### added test if search pattern suplied as parameter to scritp, else ask for it ...
-### -----------------------------------------------------------------------------------
-### UPDATE-2 (20160819-en):
-### change grep expression from "\b${gr_WRD}\b" to "${gr_WRD}\w*"
-### (it searches fort the part of the word too)
-### -----------------------------------------------------------------------------------
+# fname: find-file-by-word.sh
+# v1_20160418: find file by containing (whole) word like: grep, sed, ubuntu, 2016 ...
+# v2_20160819: added test if search pattern suplied as parameter to scritp, else ask for it ...
+# v3_20160819: change grep expression from "\b${gr_WRD}\b" to "${gr_WRD}\w*"
+#              (it searches fort the part of the word too)
+#---
 
 clear
 echo "$(basename $0): FINDING FILES BY CONTAINING WORD"

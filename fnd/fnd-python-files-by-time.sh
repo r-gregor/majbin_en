@@ -1,4 +1,8 @@
 #! /bin/bash
+# fname: fnd-python-files-by-time.sh
+# 20260514
+# ---
+
 clear
 
 gr_MSG="Usage: $0 [ , < path >, -h ]"

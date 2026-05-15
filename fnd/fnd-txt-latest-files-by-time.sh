@@ -1,4 +1,8 @@
 #! /bin/bash
+# fname: fnd-txt-latest-files-by-time.sh
+# v1_20260514
+#---
+
 clear
 
 gr_MSG="Usage: $0 [ , < path >, -h ]"
