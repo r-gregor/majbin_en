@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 # fname: vedit-sfjl-efzf.sh
-# 20260319  en v1
-# last: 20260319
+# v1_20260319
 # ---
 
 vcmd='vim'

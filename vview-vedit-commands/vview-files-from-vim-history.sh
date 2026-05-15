@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
-# filename: vview-files-from-vim-history
-# 20260211 en v1
-# last: 20260211
+# filename: vview-files-from-vim-history.sh
+# v1_20260211
 # ---
 
 unset fljs
