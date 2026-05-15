@@ -1,13 +1,6 @@
 #! /usr/bin/env bash
 # filrname: ff-personal-launch-en
-# from ff-launch-en
-# 20260216 en
-# 20260229 jbe v2: add info what was selected
-#                  change the fzf display to full height
-#                  inside infinite while loop --> Quit to quit
-# 20260229 jbe v3: keys in separate array for arranged order with 'Quit' as last option
-# 20260303 mdb v4: added $delline
-# last: 20260303
+# v4_0260303
 #---
 
 clear

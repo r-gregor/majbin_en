@@ -1,0 +1,15 @@
+filename: CHANGELOG-ff-personal-launch-en.txt
+v1_0260216
+v2_0260229 add info what was selected
+           change the fzf display to full height
+           inside infinite while loop --> Quit to quit
+v3_0260229 keys in separate array for arranged order with 'Quit' as last option
+v4_0260303 added $delline
+v5_0260304 $delline calculated from longest KEY line with get_longest function
+           sorted output to fzf command
+v6_0260305 extract KEYS from URLS
+v7_0260508 move links to external (csv format with ';' delimiter) file and add load_links_into_array()
+           function to load links from file into associative array
+last: 20260508
+---
+

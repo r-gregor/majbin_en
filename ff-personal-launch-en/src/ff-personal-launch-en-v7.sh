@@ -1,18 +1,7 @@
 #! /usr/bin/env bash
-# filrname: ff-personal-launch-en
+# filename: ff-personal-launch-en
 # from ff-launch-en
-# 20260216 v1
-# 20260229 v2: add info what was selected
-#              change the fzf display to full height
-#              inside infinite while loop --> Quit to quit
-# 20260229 v3: keys in separate array for arranged order with 'Quit' as last option
-# 20260303 v4: added $delline
-# 20260304 v5: $delline calculated from longest KEY line with get_longest function
-#              sorted output to fzf command
-# 20260305 v6: extract KEYS from URLS
-# 20260508 v7: move links to external (csv format with ';' delimiter) file and add load_links_into_array()
-#              function to load links from file into associative array
-# last: 20260508
+# v7_20260508
 #---
 
 clear

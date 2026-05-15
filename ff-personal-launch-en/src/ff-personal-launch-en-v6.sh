@@ -1,16 +1,6 @@
 #! /usr/bin/env bash
-# filrname: ff-personal-launch-en
-# from ff-launch-en
-# 20260216 en
-# 20260229 jbe v2: add info what was selected
-#                  change the fzf display to full height
-#                  inside infinite while loop --> Quit to quit
-# 20260229 jbe v3: keys in separate array for arranged order with 'Quit' as last option
-# 20260303 mdb v4: added $delline
-# 20260304  en v5: $delline calculated from longest KEY line with get_longest function
-#                  sorted output to fzf command
-# 20260305  en v6: extract KEYS from URLS
-# last: 20260305
+# filename: ff-personal-launch-en
+# v6_20260305
 #---
 
 clear
