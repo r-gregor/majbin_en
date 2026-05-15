@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-#  renamedir-from-en-to-d.sh
+# fname: renamedir-from-en-to-d.sh
+# ---
 
 if [ $# -ne 1 ]; then
 	echo -e "Usage: $0 <dirname>\n"

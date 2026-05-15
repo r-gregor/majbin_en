@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-#  renamedir-to-BRISI.sh
+# fname: renamedir-to-BRISI.sh
+# ---
 
 if [ $# -ne 1 ]; then
 	echo -e "Usage: $0 <dirname>\n"
