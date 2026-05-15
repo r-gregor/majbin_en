@@ -1,13 +1,7 @@
 #! /usr/bin/env bash
-
-### Name:	drpbx-rclone-ptn2-R-L.sh
-### Author:	RgregoR
-### Date:	20201111
-### Decription:
-### sync local ODPRTO/_PYTHON to dropbox(EN) with rclone
-### 
-### 
-
+# filename: drpbx-rclone-ptn2-R-L.sh
+# v1_20201111
+#---
 
 gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/_PYTHON") 
 gRemote="dropbox:ODPRTO/_PYTHON"

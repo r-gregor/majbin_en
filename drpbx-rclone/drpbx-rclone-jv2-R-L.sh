@@ -1,13 +1,7 @@
 #! /usr/bin/env bash
-
-### Name:	drpbx-rclone-jv2-R-L.sh
-### Author:	RgregoR
-### Date:	20201111
-### Decription:
-### sync local ODPRTO/_JAVA to dropbox(EN) with rclone
-### 
-### 
-
+# filename: drpbx-rclone-jv2-R-L.sh
+# v1_20201111
+#---
 
 gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/_JAVA") 
 gRemote="dropbox:ODPRTO/_JAVA"

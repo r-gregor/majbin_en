@@ -1,12 +1,7 @@
 #! /usr/bin/env bash
-
-### Name:	drpbx-rclone-mcdn3d-sync-R-L.sh
-### Author:	RgregoR
-### Date:	20201111
-### Decription:
-### rclone copy REMOTE(d) to LOCAL(d)
-### 
-### 
+# filename: drpbx-rclone-sync-mcdn2d-R-L.sh
+# v1_20201111
+#---
 
 LOCALMN=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/MCDN_d")
 REMOTEMN="dropbox:ODPRTO/MCDN_d"

@@ -1,13 +1,7 @@
 #! /usr/bin/env bash
-
-### Name:	drpbx-rclone-ptn1-L-R.sh
-### Author:	RgregoR
-### Date:	20201111
-### Decription:
-### rclone copy gRemote to gLocal
-### 
-### 
-
+# filename: drpbx-rclone-ptn1-L-R.sh
+# v1_20201111
+#---
 
 gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/ODPRTO/_PYTHON")
 gRemote="dropbox:ODPRTO/_PYTHON"

@@ -1,12 +1,7 @@
 #! /usr/bin/env bash
-
-### Name:	drpbx-rclone-SKUPNI1-L-R.sh
-### Author:	RgregoR
-### Date:	20201112
-### Decription:
-### rclone copy gLocal to gRemote
-### 
-### 
+# filename: drpbx-rclone-SKUPNI2-R-L.sh
+# v1_20201111
+#---
 
 gLocal=$(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/drpbx-en/SKUPNI")
 gRemote="dropbox:SKUPNI"
