@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 # fname: vview-sfjl-efzf.sh
-# v1_20260319
+# 20260319  en v1
+# last: 20260319
 # ---
 
 vcmd='vim -M'
