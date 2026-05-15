@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
-# filename: collect_hstl
-# 20251120 en: collect and filter out all history snapshots till today
+# filename: collect_hstl.sh
+# v1_20251120 collect and filter out all history snapshots till today
 # last: 20251120
+# ---
 
 SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
 

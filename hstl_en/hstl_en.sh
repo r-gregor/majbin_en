@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
-# filename: hstl_en
-# 20251120 en: create history commands snapshot
+# filename: hstl_en.sh
+# v1_20251120 create history commands snapshot
 # last: 20251120
+# ---
 
 HISTFILE=~/.bash_history
 HISTCONTROL=erasedups
