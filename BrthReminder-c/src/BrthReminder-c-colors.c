@@ -1,17 +1,6 @@
 /*
- * BrthReminder_c_color.c
- * v22: remove function wcstok() for tokenizing, because mingW could not compile
- *      into win native executable. Running in cmd still not showing "čšž" properly
- *      Go version works well (go for win)
- *      wcstok() function replaced by char by char copy, and swprintf() function to
- *      conwert wchar_t chars into integers
- *
- * v23: wcscasecmp instead of wcssmp in main() for case insensitive comparisson
- * v24: check for part of the name (case insesitive)
- * v25: 20241121: get realpath to set absolute path to ROJSTNIDNEVI.txt file
- *                so no probems with softlinking
- * v26: 20241206: moved all time and date related structs and globals into daysdiff.h
- * v27: 20260107: remove duplicates from printout and report number of duplicates found
+ * filename: BrthReminder_c_color.c
+ * v27_20260107
  */
 
 #include <stdio.h>
