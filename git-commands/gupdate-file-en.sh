@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
-# fname: gupdate-file-en
-# 20260313 v1  en
-# 20260408 v2  en: added 'OK?' check into update_file_to_git() function
+# fname: gupdate-file-en.sh
+# v1_20260313
+# v2_20260408 added 'OK?' check into update_file_to_git() function
 # last: 20260408
 # ---
 

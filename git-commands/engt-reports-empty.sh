@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
-# flename: engt-empty-reports
-# last change: 20250827
+# flename: engt-reports-empty.sh
+# v1_20250827
+# ---
 
 echo "[INFO] emty-ing reports for git staus commands ..."
 > $ENGIT_STATUS_REPORTS

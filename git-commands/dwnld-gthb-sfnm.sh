@@ -2,7 +2,7 @@
 # filename: dwnld-gthb-sfnm
 # download single filename from https://github.com/r-gregor
 # into: github_r-regor/repo/<[dirname/]filename>
-# 20260421 v1
+# v1_20260421
 # last: 20260421
 # ---
 

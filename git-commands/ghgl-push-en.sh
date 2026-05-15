@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# filename: ghgl-push-en
-# last change: 20240823
+# filename: ghgl-push-en.sh
+# v1_20240823
+# last: 20240823
+# ---
 
 rmts=( $(git remote) )
 

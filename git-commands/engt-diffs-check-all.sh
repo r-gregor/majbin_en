@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+# fname: engt-diffs-check-all.sh
+# v1_20260514
+# ---
 
 HST="en"
 

@@ -2,7 +2,7 @@
 # filename: dwnld-gtlb-sfnm
 # download single filename from https://gitlab.com/r-gregor
 # into: gitlab_r-regor/repo/<[dirname/]filename>
-# 20260421 v1
+# v1_20260421
 # last: 20260421
 # ---
 

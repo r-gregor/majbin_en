@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# nvol_testpush_all
-# last change: 20240823
+# fname: nvol-push-all.sh
+# v1_20240823
+# last: 20240823
+# ---
 
 HST="en"
 

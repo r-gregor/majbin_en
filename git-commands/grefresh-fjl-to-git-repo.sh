@@ -1,7 +1,10 @@
 #! /usr/bin/env bash
-# filename: grefresh-fjl-to-git-repo
-# 20241216
-# 20250415
+# filename: grefresh-fjl-to-git-repo.sh
+# v1_20241216
+# v2_20250415
+# last: 20250415
+# ---
+
 
 if [ $# -ne 1 ]; then
 	echo -e "Usage: $0 <file-name>\n\n"

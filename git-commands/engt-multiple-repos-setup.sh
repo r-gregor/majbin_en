@@ -1,8 +1,7 @@
 #! /usr/bin/env bash
-
-# engt-multiple-repos-setup
-# 20250508
-# -------------------
+# fname: engt-multiple-repos-setup.sh
+# v1_20250508
+# ---
 
 # globals
 hst="en"

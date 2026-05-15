@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 # flename: engt-check-reports
-# last change: 20250827
+# v1_20250827
+# ---
 
 echo "[INFO] checking reports for git staus commands ..."
 cat $ENGIT_STATUS_REPORTS

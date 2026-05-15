@@ -1,10 +1,11 @@
 #! /usr/bin/env bash
-# filename: testing_gtghstatus_en
-# 20241216: store output of commands into array instead of external filea
-# 20241218: read output of cmd directly into array, no more need to run cmd twice
-#           c-style for loop
-# 20250827: added $GIT_STATUS_REPORTS filename to store reports
-# last change: 20250827
+# filename: testing-status-en.sh
+# v1_20241216 store output of commands into array instead of external filea
+# v2_20241218 read output of cmd directly into array, no more need to run cmd twice
+#             c-style for loop
+# v3_20250827 added $GIT_STATUS_REPORTS filename to store reports
+# last: 20250827
+# ---
 
 HST="en"
 TSTDST=${HOME}/majstaf/coding2/testing

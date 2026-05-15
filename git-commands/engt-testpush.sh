@@ -1,10 +1,11 @@
 #! /usr/bin/env bash
-# filename: engt-testpush
-# 20241216: store output of cmd into array instead of external file
-# 20241218: c-style for loop
-# 20250415: update to directories and filenames changes
-# 20250827: added $GIT_STATUS_REPORTS filename to store reports
-# last change: 20250827
+# filename: engt-testpush.sh
+# v1_20241216 store output of cmd into array instead of external file
+# v2_20241218 c-style for loop
+# v3_20250415 update to directories and filenames changes
+# v4_20250827 added $GIT_STATUS_REPORTS filename to store reports
+# last: 20250827
+# ---
 
 # COLOR_SET="\e[1;94m"
 # COLOR_SET="\e[1;34m"

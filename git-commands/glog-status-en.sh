@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
-# filename: glog-status-en
-# last change: 20240823
-
+# filename: glog-status-en.sh
+# v1_20240823
+# last: 20240823
+# ---
 
 # for myopt in raw numstat shortstat dirstat summary name-only name-status check; do
 # 	echo -e "*** git log --${myopt} ***"

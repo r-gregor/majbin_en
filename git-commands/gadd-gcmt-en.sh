@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# filename: gadd-gcmt-en
-# last change: 20240912
+# filename: gadd-gcmt-en.sh
+# v1_20240912
+# last: 20240912
+# ---
 
 gcmd="/usr/bin/git add --verbose ."
 gcmt="${HOME}/.local/bin/gcommit-timestamp-en"

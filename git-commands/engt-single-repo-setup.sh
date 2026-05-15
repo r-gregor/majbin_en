@@ -1,8 +1,7 @@
 #! /usr/bin/env bash
-
-# engt-single-repo-setup
-# 20250508
-# -------------------
+# fname: engt-single-repo-setup.sh
+# v1_20250508
+# ---
 
 # globals
 hst="en"

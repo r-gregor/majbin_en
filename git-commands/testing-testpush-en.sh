@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
-# filename: testing_gtgh_testpush_en
-# 20241216: store output of cmd into array instead of external file
-# 20241218: c-style for loop
-# last change: 20241218
+# filename: testing-testpush-en.sh
+# v1_20241216 store output of cmd into array instead of external file
+# v2_20241218 c-style for loop
+# last: 20241218
+# ---
 
 HST="en"
 

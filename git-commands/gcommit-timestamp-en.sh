@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
-# filename: gcommit-timestamp-en
-# last change: 20240827
+# filename: gcommit-timestamp-en.sh
+# v1_20240827
+# last: 20240827
+# ---
 
 HST="en"
 cmd="/usr/bin/git commit"
