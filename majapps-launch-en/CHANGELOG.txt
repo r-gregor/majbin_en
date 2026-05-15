@@ -1,0 +1,19 @@
+filename: majapps-launch.sh
+v0_20250917
+v1_0250919 added runff var for firefox path
+v2_0251017 run inside infinite loop and added 'q' to quit
+           keys in separate index-ed array to keep display order
+v3_0260317 $delline calculated from longest KEY line with get_longest function
+           sorted output to fzf command
+           extract KEYS from URLS
+v4_0260325 case statement instead of 'if/elif/then' block
+v5_0260408 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
+           as rule inside case statement
+v6_0260423 put all RUN statemnets into majaps_run() function and add option to select input as parameter
+v7_0260423 selected input as parameter into array, if multiple option to refine parameter
+v8_0260424 move 'selection=...' expression into get_selection_en() function
+v9_0260514 move links to external (csv format with ';' delimiter) file and add load_links_into_array()
+            function to load links from file into associative array
+last: 20260514
+---
+

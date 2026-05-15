@@ -1,19 +1,6 @@
 #! /usr/bin/env bash
 # filename: majapps-launch.sh
-# 20250917 en
-# 20250919 en v1 added runff var for firefox path
-# 20251017 en v2 run inside infinite loop and added 'q' to quit
-#                keys in separate index-ed array to keep display order
-# 20260317 en v3 $delline calculated from longest KEY line with get_longest function
-#                sorted output to fzf command
-#                extract KEYS from URLS
-# 20260325 en v4 case statement instead of 'if/elif/then' block
-# 20260408 en v5 added continue in if block for OneCommander, so thai it does not print "selected ..." twice
-#                as rule inside case statement
-# 20260423 en v6 put all RUN statemnets into majaps_run() function and add option to select input as parameter
-# 20260423 en v7 selected input as parameter into array, if multiple option to refine parameter
-# 20260424 en v8 move 'selection=...' expression into get_selection_en() function
-# last: 20260423
+# v8_20260424
 # ---
 
 runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
