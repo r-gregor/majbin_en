@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+# fname: w3md.sh
+# v1_20260106
+# ---
 
 ###  EN-proxy ...
 # prx_ip=172.17.3.64

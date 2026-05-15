@@ -1,8 +1,6 @@
 #! /usr/bin/env bash
-
-# filename: w3m-multi-dump-fromlist-en
-# 20260106 v1 en: remove option to use dumplist
-# last: 20260106
+# fname: w3m-multi-dump-fromlist-en.sh
+# v1_20260106
 # ---
 
 ###  EN-proxy ...
