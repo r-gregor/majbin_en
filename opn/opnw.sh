@@ -1,4 +1,6 @@
 #!/bin/bash
+# fname: opnw.sh
+# ---
 
 myPOT=$1
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+# fname: opnu.sh
+# ---
 
 myPOT="$1"
 
