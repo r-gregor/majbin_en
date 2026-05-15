@@ -4,10 +4,12 @@
 # last: 20251120
 # ---
 
+
+shopt -s histappend
 HISTFILE=~/.bash_history
 HISTCONTROL=erasedups
 HISTCONTROL=ignoreboth
-HISTSIZE=10000
+HISTSIZE=100000
 HISTFILESIZE=5000
 export HISTTIMEFORMAT='%F %T '
 
