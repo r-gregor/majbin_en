@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
+# fname: sendf1
+# ---
 
 import datetime as dt
 

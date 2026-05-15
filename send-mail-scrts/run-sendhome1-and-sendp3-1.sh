@@ -1,12 +1,6 @@
 #! /bin/bash
-
-### Name:   Scriptname ...
-### Author: Author ... 
-### Date:   2013-05-24 
-### Decription:
-### 
-### 
-### 
+# fname: run-sendhome1-and-sendp3-1.sh
+# ---
 
 # timestamp
 function tms() {

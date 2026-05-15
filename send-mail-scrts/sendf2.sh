@@ -1,18 +1,12 @@
 #! /bin/bash
+# fname: sendf2.sh
+# v1_20140926
+# v2_20170321 import connection data from external file "send_config_en.conf"
+#             check if there is one and only on argument:
+#             putting argument into variable
+# ---
 
-### Name:	sendfiles.sh
-### Author:	RgregoR
-### Date:	2014-09-26
-### script that sends l from CLI over <sendEmail (WinXP cmd)>
-### 
-### UPDATE: 2017-03-21: import connection data from external file "send_config_en.conf"
-### 
-### 
-# check if there is one and only on argument:
-# putting argument into variable
-
-
-# NOVO 2017-03-21
+# NOVO 20170321
 gConfPth="$HOME/majstaf/majbin/send-mail-scrts"
 source "${gConfPth}/send_config_en.conf"
 
