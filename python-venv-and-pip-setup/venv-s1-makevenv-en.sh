@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: venv-s1-makevenv-en.sh
+# ---
 
 py3="/c/Users/gregor.redelonghi/AppData/Local/Programs/Python/Python310/python.exe"
 

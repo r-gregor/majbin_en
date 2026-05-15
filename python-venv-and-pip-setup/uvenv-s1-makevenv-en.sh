@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: uvenv-s1-makevenv-en.sh
+# ---
 
 ptn3="/usr/bin/python3"
 PY3="./venv/bin/python"

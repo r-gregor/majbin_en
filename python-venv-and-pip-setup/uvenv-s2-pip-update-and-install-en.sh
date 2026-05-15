@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
+# fname: uvenv-s2-pip-update-and-install-en.sh
+# ---
 
 FILE=$(realpath ./requirements.txt)
 PY3="./venv/bin/python"

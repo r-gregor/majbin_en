@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+# fname: venv-s0-mkvnv-install-en.sh
+# ---
+
 ptn3="/c/Users/gregor.redelonghi/AppData/Local/Programs/Python/Python310/python.exe"
 PY3="./venv/Scripts/python.exe"
 
