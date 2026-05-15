@@ -45,6 +45,10 @@ get_longest() {
 }
 
 # === MAIN ===
+
+# clear the screen:
+printf "\033[H\033[2J"
+
 keys=("${!dsts[@]}")
 longest_l=$(get_longest keys)
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)
