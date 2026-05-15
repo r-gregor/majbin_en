@@ -1,13 +1,12 @@
 #! /bin/bash
+# fname: t-gremdomov.sh
+# performs backups, sends home links list, and restarts the comp.
+# v1_20150305
+# v2_20150323
+# v3_20150327
+# v4_20181107 remove starting DB -- no indirect update of DB any more ...
+# ---
 
-### Name:	gremdomov.sh
-### Author:	RgregoR
-### Date:	20150305 -- updated 20150323 / 20150327
-### Decription:
-### goinghome (gremdomov) script that runs Dropbox, performs backups, sends home links list, and restarts the comp.
-### 
-### UPDATE 20181107: remove starting DB -- no indirect update of DB any more ... 
- 
 # variables declaration
 
 # timestamp
