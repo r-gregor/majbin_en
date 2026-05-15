@@ -1,12 +1,6 @@
 #! /usr/bin/env bash
-# filrname: ff-launch-en
-# 20251117 v1 en
-# 20251117 v2 en: :associative array --> no case statement needed
-# 20251117 v3 en: ALL --> cat all txt files into process subst ...
-#                 no 'all.txt' needed
-# 20251118 v4 en: single "sites.txt" with "[section name]" headers parsing
-# 20251118 v5 en: get 'categories' from 'sites.txt' file directly
-# 20260305 v6 en: put main into infinite while loop
+# filename: ff-launch-en
+# v6_20260305
 # last: 20260305
 # ---
 

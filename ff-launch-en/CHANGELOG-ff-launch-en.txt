@@ -1,0 +1,11 @@
+filename: CHANGELOG-ff-launch-en.txt
+v1_0251117
+v2_0251117 associative array --> no case statement needed
+v3_0251117 ALL --> cat all txt files into process subst ...
+           no 'all.txt' needed
+v4_0251118 single "sites.txt" with "[section name]" headers parsing
+v5_0251118 get 'categories' from 'sites.txt' file directly
+v6_0260305 put main into infinite while loop
+last: 20260305
+---
+
