@@ -76,6 +76,11 @@ majaps_run() {
 			selection_info "${selection}"
 			;;
 
+		"UrbInfo Ljubljana")
+			${runff} "https://urbinfo.ljubljana.si/web/profile.aspx?id=Urbinfo@Ljubljana"
+			selection_info "${selection}"
+			;;
+
 		"Mintty")
 			# cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -p 300,40 -s 180,40 -
 			cygstart /c/users/gregor.redelonghi/majstaf_en/majprogs_en/cygwin64/bin/mintty.exe -s 180,40 -
