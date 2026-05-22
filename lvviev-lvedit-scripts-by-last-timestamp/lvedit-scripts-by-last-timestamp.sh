@@ -23,7 +23,7 @@ VIM_CMD="/usr/bin/vim"
 usage() {
 cat << "EOF"
 
-	Usage: list-scripts-by-last-timestamp <datestamp>
+	Usage: lvedit-scripts-by-last-timestamp <datestamp>
 		<datestamp> format: YYYYmmdd ("20260520")
                             at least YYYYmm
 
