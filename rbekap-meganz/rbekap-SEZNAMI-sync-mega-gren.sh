@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: rbekap-BOOKMARKS-EN-sync-mega-gren.sh
+# fname: rbekap-SEZNAMI-sync-mega-gren.sh
 # v1_20251120
 # v2_20251218 += CURRYR
 # last: 20251218
@@ -7,8 +7,8 @@
 
 CURRYR=2026
 
-SRC="${HOME}/majstaf/majbookmarks/bookmarks-en/"
-DST="mega_gren:ENERGETIKA/bookmarks-en-${CURRYR}"
+SRC="${HOME}/majstaf/seznami/"
+DST="mega_gren:ENERGETIKA/seznami"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
 	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"

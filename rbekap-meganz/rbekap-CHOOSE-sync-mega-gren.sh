@@ -18,8 +18,8 @@ declare -A dsts=(["BOOKMARKS-EN"]="rbekap-BOOKMARKS-EN-sync-mega-gren" \
                   ["TOOLBOX"]="rbekap-TOOLBOX-sync-mega-gren" \
                   ["TZ-2025"]="rbekap-TZ-2025-sync-mega-gren" \
                   ["TZ-2026"]="rbekap-TZ-2026-sync-mega-gren" \
+                  ["SEZNAMI"]="rbekap-SEZNAMI-sync-mega-gren" \
 )
-
 
 get_longest() {
 	if [ ! $# -eq 1 ]; then

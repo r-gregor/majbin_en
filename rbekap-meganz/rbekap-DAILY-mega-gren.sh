@@ -14,7 +14,8 @@ declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
                   "~/majstaf/engit" \
                   "~/majstaf/majscripts_en" \
                   "~/majstaf/majsupport_en" \
-                  "~/majstaf/seznami/bookmarks-en" \
+                  "~/majstaf/majbookmarks/bookmarks-en" \
+                  "~/majstaf/seznami" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ")
 
 #v1/v3
@@ -24,6 +25,7 @@ rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-BOOKMARKS-EN-sync-mega-gren -y; echo "---" && \
+rbekap-SEZNAMI-sync-mega-gren.sh -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 
 #v2
