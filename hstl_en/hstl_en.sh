@@ -15,8 +15,10 @@ export HISTTIMEFORMAT='%F %T '
 
 gPth="$HOME/majstaf/seznami/hstl-en-$(date +'%Y%m%d-%H%M%S').txt"
 set -o history
+history -r
+history -a
+history -w
 history >> ${gPth}
 set +o history
 echo "Sccesfully added commands from HISTORY to ${gPth}"
-
 

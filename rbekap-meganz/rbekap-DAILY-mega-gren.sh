@@ -25,7 +25,7 @@ rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-BOOKMARKS-EN-sync-mega-gren -y; echo "---" && \
-rbekap-SEZNAMI-sync-mega-gren.sh -y; echo "---" && \
+rbekap-SEZNAMI-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 
 #v2

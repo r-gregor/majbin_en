@@ -5,13 +5,16 @@
 # ---
 
 SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+CURRYR=$(date +"%Y")
+
 
 gr_FJL=commands-history-list-en-by-$(date +"%Y%m%d").txt
 touch ${gr_FJL}
 
 # 01-COLLECT-ALL-COMMANDS-from-history-en-dat-to-single-file.onl.txt
 export LC_ALL=C
-cat $HOME/majstaf/seznami/hstl-en-2025* | cut -b 28- | grep -v -f "${SRCDIR}/excludes-hstl.txt" | sort | uniq -c >> ${gr_FJL}
+# cat $HOME/majstaf/seznami/hstl-en-${CURRYR}* | cut -b 28- | grep -v -f "${SRCDIR}/excludes-hstl.txt" | sort | uniq -c >> ${gr_FJL}
+cat $HOME/majstaf/seznami/hstl-en-${CURRYR}* | cut -b 28- | sort | uniq -c >> ${gr_FJL}
 
 # 02-REMOVE-count-nums-infront-of-commands-in-single-file.onl.txt
 cat commands-history-list-en-by-$(date +"%Y%m%d").txt | cut -b 9- > commands-history-list-en-by-$(date +"%Y%m%d")-2.txt
