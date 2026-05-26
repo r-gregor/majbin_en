@@ -14,7 +14,7 @@ declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
                   "~/majstaf/engit" \
                   "~/majstaf/majscripts_en" \
                   "~/majstaf/majsupport_en" \
-                  "~/majstaf/majbookmarks/bookmarks-en" \
+                  "~/majstaf/bookmarks-en" \
                   "~/majstaf/seznami" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ")
 

@@ -7,7 +7,7 @@
 
 CURRYR=2026
 
-SRC="${HOME}/majstaf/majbookmarks/bookmarks-en/"
+SRC="${HOME}/majstaf/bookmarks-en/"
 DST="mega_gren:ENERGETIKA/bookmarks-en-${CURRYR}"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
