@@ -98,6 +98,7 @@ majaps_run() {
 		"Quit")
 			exit
 			;;
+
 		*)
 			cygstart "${majapps["${selection}"]}" &>/dev/null
 			selection_info "${selection}"
