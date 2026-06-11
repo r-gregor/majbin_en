@@ -50,7 +50,7 @@ get_longest() {
 }
 
 selection_info() {
-	printf "[INFO] selected: $1\n\n"
+	printf "[INFO] selected: $1\n"
 }
 
 # v6
@@ -106,6 +106,7 @@ majaps_run() {
 			;;
 
 		"Quit")
+			printf "\n"
 			exit
 			;;
 
@@ -165,6 +166,7 @@ if [ $# -eq 1 ]; then
 		cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin \
 			"${majapps[${selection}]}"
 		selection_info "${selection}"
+		printf "\n"
 		exit
 		# continue # v6 -- (this instance not inside loop)
 	fi
@@ -186,4 +188,5 @@ while true; do
 	fi
 	majaps_run # v6
 done
+printf "\n"
 
