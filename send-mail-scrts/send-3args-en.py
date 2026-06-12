@@ -86,6 +86,6 @@ gTxt = gMsgf.as_string()
 server.sendmail(scn.gFrom, scn.gTo, gTxt)
 server.quit()
 
-print("[ {} ] DONE!".format(tms()))
+print("[ {} ] DONE!\n".format(tms()))
 
 
