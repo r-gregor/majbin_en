@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# filename: copy-files-to-multiple-dirs
-# 20260506 v1 -- copy selected files to multiple directories. Add each file with optinon -f
+# filename: copy-files-to-multiple-dirs.sh
+# 20260506 v1 -- copy selected files to multiple directories. Add each file with option -f
 #                and each direcory with option -d
 # 20260507 v2 -- added until loop to cycle trough multiple parameters for single -f and -d option
 #                function usage() updated acordingly
