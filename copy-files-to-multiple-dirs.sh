@@ -18,7 +18,7 @@ farg=false
 usage() {
 cat <<USAGE
 
-usage: copy-files-to-multiple-dirs -f <fnm1> <fnm2> <"fnm3 with spaces"> -d <dirnm1> -d <dirnm2> ...
+usage: copy-files-to-multiple-dirs -f <fnm1> <fnm2> <"fnm3 with spaces"> -d <dirnm1> <dirnm2> ...
                                    -h ... print this message
 
 USAGE
