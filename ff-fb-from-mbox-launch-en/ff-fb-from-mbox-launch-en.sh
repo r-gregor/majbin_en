@@ -65,7 +65,7 @@ fb_launch_en() {
 		exit 0
 	fi
 
-	echo "[INFO] selected: ${selection} <${fb_files[${selection}]}>"
+	echo "[INFO] selected: ${selection} | ${fb_files[${selection}]}"
 	cygstart ${FFCMD_EN} ${fb_files[${selection}]}
 }
 
