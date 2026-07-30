@@ -7,7 +7,7 @@ import datetime as dt
 
 # timestamp
 def tms():
-    return dt.datetime.now().strftime('%Y%m%d_%H%M%S')
+	return dt.datetime.now().strftime('%Y%m%d_%H%M%S')
 
 # import ext data from: send-config_en
 import send_config_en as scn
@@ -29,20 +29,20 @@ gCurrTL=datetime.now().strftime('%H%M%S')
 
 # getting filenames ...
 if len(sys.argv) < 2:
-    print("[ {} ] There should be at least one filename as argumet to {}".format(tms(), sys.argv[0]))
-    sys.exit(1)
+	print("[ {} ] There should be at least one filename as argumet to {}".format(tms(), sys.argv[0]))
+	sys.exit(1)
 
 # NOVO 20180329
 # Defining func to get multiline text ...
 def grf_usrinp():
-    global user_input
-    user_input = [] 
-    entry = input("[ {} ] Enter BODY text, 'done' on its own line to send:\n----------------------------------------------------------------------\n".format(tms())) 
-    while entry != "done": 
-        user_input.append(entry)
-        entry = input("")
-    user_input = '\n'.join(user_input) + '\n'
-    return user_input
+	global user_input
+	user_input = [] 
+	entry = input("[ {} ] Enter BODY text, 'done' on its own line to send:\n----------------------------------------------------------------------\n".format(tms())) 
+	while entry != "done": 
+		user_input.append(entry)
+		entry = input("")
+	user_input = '\n'.join(user_input) + '\n'
+	return user_input
 
 gUmsgs = grf_usrinp()
 
@@ -56,22 +56,22 @@ print("[ {} ] Started: {}".format(tms(), sys.argv[0]))
 gFiles = []
 
 def curdir(gFile):
-    if '/' not in gFile:
-        gFile = os.getcwd() + "/" + gFile
-    return gFile
+	if '/' not in gFile:
+		gFile = os.getcwd() + "/" + gFile
+	return gFile
 
 
 # Check if files exist:
 for gFile in sys.argv[1:]:
-    
-    gFile = curdir(gFile)
-    
-    if not os.path.isfile(gFile):
-        print("[ {} ] There is no {}".format(tms(), gFile))
-        print("[ {} ] Exiting. Bye.".format(tms()))
-        sys.exit(1)
-    else:
-        gFiles.append(gFile)
+	
+	gFile = curdir(gFile)
+	
+	if not os.path.isfile(gFile):
+		print("[ {} ] There is no {}".format(tms(), gFile))
+		print("[ {} ] Exiting. Bye.".format(tms()))
+		sys.exit(1)
+	else:
+		gFiles.append(gFile)
 
 
 # String variable to be displayed as BODY of  a message
@@ -82,59 +82,59 @@ gBdyf += gUmsgs
 
 gBdyf += "\n" + "Attached files:" + "\n"
 for gFajl in gFiles:
-    fpot, fname = gFajl.rsplit('/', 1)
-    gBdyf += fname + "\n" 
+	fpot, fname = gFajl.rsplit('/', 1)
+	gBdyf += fname + "\n" 
 
 def main():
-    # sender = os.getenv("FROM_P")
-    # en_psswd = os.getenv("PSSWD_P")
-    sender = scn.gFrom
-    en_psswd = scn.gPsswd
-    recipients = ['gredelonghi@gmail.com']
+	# sender = os.getenv("FROM_P")
+	# en_psswd = os.getenv("PSSWD_P")
+	sender = scn.gFrom
+	en_psswd = scn.gPsswd
+	recipients = ['gredelonghi@gmail.com']
 
-    # Create the enclosing (outer) message
-    outer = MIMEMultipart()
-    outer['Subject'] = "Sending from en " + gCurrD + "-" + gCurrTL + "..."
-    outer['To'] = COMMASPACE.join(recipients)
-    outer['From'] = sender
-    outer.attach(MIMEText(gBdyf, 'plain'))
-    outer.preamble = 'You will not see this in a MIME-aware mail reader.\n'
+	# Create the enclosing (outer) message
+	outer = MIMEMultipart()
+	outer['Subject'] = "Sending from en " + gCurrD + "-" + gCurrTL + "..."
+	outer['To'] = COMMASPACE.join(recipients)
+	outer['From'] = sender
+	outer.attach(MIMEText(gBdyf, 'plain'))
+	outer.preamble = 'You will not see this in a MIME-aware mail reader.\n'
 
-    # List of attachments
-    attachments = gFiles
-    print(attachments)
+	# List of attachments
+	attachments = gFiles
+	print(attachments)
 
-    # Add the attachments to the message
-    for gFile in attachments:
-        try:
-            with open(gFile, 'rb') as fp:
-                msg = MIMEBase('application', "octet-stream")
-                msg.set_payload(fp.read())
-            encoders.encode_base64(msg)
-            msg.add_header('Content-Disposition', 'attachment', filename=os.path.basename(gFile))
-            outer.attach(msg)
-        except:
-            print("[ {} ] Unable to open one of the attachments. Error: {}".format(tms(), sys.exc_info()[0]))
-            raise
+	# Add the attachments to the message
+	for gFile in attachments:
+		try:
+			with open(gFile, 'rb') as fp:
+				msg = MIMEBase('application', "octet-stream")
+				msg.set_payload(fp.read())
+			encoders.encode_base64(msg)
+			msg.add_header('Content-Disposition', 'attachment', filename=os.path.basename(gFile))
+			outer.attach(msg)
+		except:
+			print("[ {} ] Unable to open one of the attachments. Error: {}".format(tms(), sys.exc_info()[0]))
+			raise
 
-    composed = outer.as_string()
+	composed = outer.as_string()
 
-    print("[ {} ] Working ...".format(tms()))
+	print("[ {} ] Working ...".format(tms()))
 
-    # Send the email
-    try:
-        with smtplib.SMTP(scn.gSmtp, scn.gPort) as s:
-            s.ehlo()
-            s.starttls()
-            s.ehlo()
-            s.login(sender, en_psswd)
-            s.sendmail(sender, recipients, composed)
-            s.close()
-        print("[ {} ] Email sent!".format(tms()))
-    except:
-        print("[ {} ] Unable to send the email. Error: {}".format(tms(), sys.exc_info()[0]))
-        raise
+	# Send the email
+	try:
+		with smtplib.SMTP(scn.gSmtp, scn.gPort) as s:
+			s.ehlo()
+			s.starttls()
+			s.ehlo()
+			s.login(sender, en_psswd)
+			s.sendmail(sender, recipients, composed)
+			s.close()
+		print("[ {} ] Email sent!".format(tms()))
+	except:
+		print("[ {} ] Unable to send the email. Error: {}".format(tms(), sys.exc_info()[0]))
+		raise
 
 if __name__ == '__main__':
-    main()
+	main()
 	print("\n")
