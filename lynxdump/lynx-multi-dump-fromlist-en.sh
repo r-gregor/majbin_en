@@ -1,9 +1,10 @@
 #! /usr/bin/env bash
 # filename: lynx-multi-dump-fromlist-en.sh
-# v1_20250925 remove option to use dumplist
-# v2 20260731 implement fname_string_adjustment function
+# 20250925 v1 remove option to use dumplist
+# 20260731 v2 implement fname_string_adjustment function
 #             add prefix option
-# last: 20260731
+# 20260804 v3 move command into dump_command() function
+# last: 20260804
 # ---
 
 # EN-proxy ...
@@ -35,15 +36,16 @@ usage() {
 	printf "\n\tUSAGE: <scriptmname> [list] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
 }
 
-lynxd_command() {
+dump_command() {
 	lynx -dump -width=110 "$@"
 }
 
 #MAIN
+clear
 
 if [ $# -lt 2 ]; then
-usage
-exit 1
+	usage
+	exit 1
 fi
 
 if [ $# -eq 2 ]; then
@@ -83,7 +85,7 @@ for FFF in $(cat ${seznam}); do
 	printf "[INFO] inserting $FFF into ${ffname}\n"
 	printf "$FFF\n" >> ${ffname}
 	# lynx -dump -width=110 $FFF >> ${ffname}
-	lynxd_command $FFF >> ${ffname}
+	dump_command $FFF >> ${ffname}
 	printf "\n\n\n---\n" >> ${ffname}
 done
 

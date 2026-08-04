@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
-# fname: w3m-multi-dump-fromlist-en.sh
+# fname: w3md-en.sh
 # 20260106 v1
 # 20260731 v2 implement fname_string_adjustment function
 #             add prefix option
-# 20260804 v3 move command into dump_command() function
+# 20260804 v3 move command into lynxd_command() function
 # last: 20260804
 # ---
 
@@ -32,15 +32,16 @@ fname_string_adjustment() {
 	printf "${fname_str_updated}-${today}.txt"
 }
 
+
 usage() {
-	printf "\n\tUSAGE: <scriptmname> [list] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
+	printf "\n\tUSAGE: <scriptmname> [web-URL] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
 }
 
 dump_command() {
 	w3m -dump -cols 110 "$@"
 }
 
-#MAIN
+# MAIN
 clear
 
 if [ $# -lt 2 ]; then
@@ -49,45 +50,29 @@ if [ $# -lt 2 ]; then
 fi
 
 if [ $# -eq 2 ]; then
-	seznam="$1"
-	if [ ! -f $seznam ]; then
-		printf "[ERROR] no such file: ${seznam}\n\n"
-		exit 1
-	fi
-	ffname=$(fname_string_adjustment "$2")
+	weburl="$1"
+	flnm=$(fname_string_adjustment "$2")
 elif [ $# -eq 3 ]; then
-	seznam="$1"
-	if [ ! -f $seznam ]; then
-		printf "[ERROR] no such file: ${seznam}\n\n"
-		exit 1
-	fi
+	weburl="$1"
 	pfnm=$(fname_string_adjustment "$2")
-	ffname="${3,,}-${pfnm}"
+	flnm="${3}-${pfnm}"
 else
 	usage
 	exit 1
 fi
 
-dest="$PWD"
 
-# destination ...
-fdest="${PWD}"
-printf "[INFO] Destination: ${fdest}/${ffname}\n"
+printf "[INFO] %-10s%s\n" "Web URL:" "${weburl}"
+printf "[INFO] %-10s%s\n" "filename:" "${flnm}"
 
-# If OK pres any key, else ctrl-c ...
-read -p "[INFO] Continue ?"
-cd $fdest
-touch ${ffname}
+printf "[INFO] Press <enter> to proceed or <ctrl-c> to quit"
+read ANS
 
-printf "filename: ${ffname}\n" >> ${ffname}
-
-for FFF in $(cat ${seznam}); do
-	printf "[INFO] inserting $FFF into ${ffname}\n"
-	printf "$FFF\n" >> ${ffname}
-	# lynx -dump -width=110 $FFF >> ${ffname}
-	dump_command $FFF >> ${ffname}
-	printf "\n\n\n---\n" >> ${ffname}
-done
+printf "filename: ${flnm}\n" >> ${flnm}
+printf "${weburl}\n\n" >> ${flnm}
+# lynx -dump -width=110 ${weburl} >> ${flnm}
+dump_command ${weburl} >> ${flnm}
+echo -e "\n\n---\n" >> ${flnm}
 
 printf "[INFO] done\n"
 
