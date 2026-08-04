@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 # fname: w3md-en.sh
 # 20260106 v1
-# 20260731 v2 implement fname_string_adjustment function
+# 20260731 v2 implement fname_string_adjustment() function
 #             add prefix option
-# 20260804 v3 move command into lynxd_command() function
+# 20260804 v3 move 'w3m dump' command into dump_command() function
 # last: 20260804
 # ---
 
