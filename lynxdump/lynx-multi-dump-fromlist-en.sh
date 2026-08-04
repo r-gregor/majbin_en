@@ -17,22 +17,26 @@ fname_string_adjustment() {
 	today=$(date +"%Y%m%d")
 	fname_str="$1"
 	fname_str_updated=$(echo "${fname_str}" | \
-		sed "s/[:]\+//" | \
-		sed "s/[;]\+//" | \
-		sed "s/[.]\+//" | \
-		sed "s/[,]\+//" | \
-		sed "s/[?]\+//" | \
-		sed "s/[@]\+//" | \
-		tr '[[:upper:]]' '[[:lower:]]' | \
+		sed "s/[:]\+//g" | \
+		sed "s/[;]\+//g" | \
+		sed "s/[\.]\+//g" | \
+		sed "s/[,]\+//g" | \
+		sed "s/[\?]\+//g" | \
+		sed "s/[\@]\+//g" | \
 		sed "s/  */-/g" | \
-		sed "s/-\{2,\}/-/g"
+		sed "s/--*/-/g" | \
+		tr '[[:upper:]]' '[[:lower:]]'
 	)
 
-	printf "${fname_str_updated}-multif-${today}.txt"
+	printf "${fname_str_updated}-${today}.txt"
 }
 
 usage() {
 	printf "\n\tUSAGE: <scriptmname> [list] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
+}
+
+lynxd_command() {
+	lynx -dump -width=110 "$@"
 }
 
 #MAIN
@@ -75,8 +79,13 @@ touch ${ffname}
 
 printf "filename: ${ffname}\n" >> ${ffname}
 
-for FFF in $(cat ${seznam}); do printf "[INFO] inserting $FFF into ${ffname}\n"; done
-for FFF in $(cat ${seznam}); do printf "$FFF\n" >> ${ffname}; lynx -dump -width=110 $FFF >> ${ffname}; echo -e "\n\n\n---" >> ${ffname}; done
+for FFF in $(cat ${seznam}); do
+	printf "[INFO] inserting $FFF into ${ffname}\n"
+	printf "$FFF\n" >> ${ffname}
+	# lynx -dump -width=110 $FFF >> ${ffname}
+	lynxd_command $FFF >> ${ffname}
+	printf "\n\n\n---\n" >> ${ffname}
+done
 
 printf "[INFO] done\n"
 

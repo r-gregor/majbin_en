@@ -17,22 +17,27 @@ fname_string_adjustment() {
 	today=$(date +"%Y%m%d")
 	fname_str="$1"
 	fname_str_updated=$(echo "${fname_str}" | \
-		sed "s/[:]\+//" | \
-		sed "s/[;]\+//" | \
-		sed "s/[.]\+//" | \
-		sed "s/[,]\+//" | \
-		sed "s/[?]\+//" | \
-		sed "s/[@]\+//" | \
-		tr '[[:upper:]]' '[[:lower:]]' | \
+		sed "s/[:]\+//g" | \
+		sed "s/[;]\+//g" | \
+		sed "s/[\.]\+//g" | \
+		sed "s/[,]\+//g" | \
+		sed "s/[\?]\+//g" | \
+		sed "s/[\@]\+//g" | \
 		sed "s/  */-/g" | \
-		sed "s/-\{2,\}/-/g"
+		sed "s/--*/-/g" | \
+		tr '[[:upper:]]' '[[:lower:]]'
 	)
 
 	printf "${fname_str_updated}-${today}.txt"
 }
 
+
 usage() {
 	printf "\n\tUSAGE: <scriptmname> [web-URL] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
+}
+
+lynxd_command() {
+	lynx -dump -width=110 "$@"
 }
 
 # MAIN
@@ -66,7 +71,8 @@ read ANS
 # echo -e "${weburl}\n\n" >> ${flnm}
 printf "filename: ${flnm}\n" >> ${flnm}
 printf "${weburl}\n\n" >> ${flnm}
-lynx -dump -width=110 ${weburl} >> ${flnm}
+# lynx -dump -width=110 ${weburl} >> ${flnm}
+lynxd_command ${weburl} >> ${flnm}
 echo -e "\n\n---\n" >> ${flnm}
 
 printf "[INFO] done\n"
