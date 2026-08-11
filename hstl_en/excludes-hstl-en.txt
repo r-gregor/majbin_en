@@ -28,6 +28,7 @@ less
 ll
 ls
 lynxd
+lynx-
 make
 man
 mcm
@@ -49,7 +50,8 @@ tail
 testing-*
 touch
 vim
-vview-mfjl-efzf
+vview-
+vedit-
 wget
 which
 ydd
@@ -144,7 +146,6 @@ listulb*
 load-local-rust-book-into-browser
 longest-filename-in-curdir
 lsth
-lynxdump
 majapps-launch-en
 make-random-test-moviedir
 nacrt-pdfjoin-into-CN
@@ -216,11 +217,14 @@ teksti-join-en
 tmxks
 tmxns
 todays-knowledgedb-files-en
+ve-
 vmf
 vmf-e
 vns-NI-poslano-v-kopiranje
 vns-poslano-v-kopiranje
-w3mdump
+vv-
+w3md
+w3m-
 win10-wallpapers-downloads
 ytb-download-mp3
 zig-clean
