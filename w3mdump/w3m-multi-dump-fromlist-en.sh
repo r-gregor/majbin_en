@@ -29,7 +29,7 @@ fname_string_adjustment() {
 		tr '[[:upper:]]' '[[:lower:]]'
 	)
 
-	printf "${fname_str_updated}-${today}.txt"
+	printf "${fname_str_updated}-multif-${today}.txt"
 }
 
 usage() {
