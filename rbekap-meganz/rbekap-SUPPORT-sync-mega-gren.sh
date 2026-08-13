@@ -1,11 +1,12 @@
 #! /usr/bin/env bash
 # fname: rbekap-SUPPORT-sync-mega-gren.sh
-# v1_20251111
-# last: 20251111
+# 20251111 v1
+# 20260813 v2 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
-SRC="/home/gregor.redelonghi/majstaf/majsupport_en"
-DST="mega_gren:ENERGETIKA/majsupport_en"
+SRC="/home/gregor.redelonghi/majstaf/majsupport"
+DST="mega_gren:ENERGETIKA/majsupport"
 excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then

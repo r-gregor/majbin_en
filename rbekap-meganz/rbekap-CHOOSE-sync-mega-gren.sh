@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 # fname: rbekap-CHOOSE-sync-mega-gren.sh
-# v1_20260515
+# 20260515 v1
+# 20260813 v2 RENAMES to names without '_en'
+# last 20260813
 # ---
 
 # globals
@@ -8,7 +10,7 @@ SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
 FZFCMD_EN="fzf -e -m --reverse"   # cygwin version does not support --width option
 CURRYR=2026
 
-declare -A dsts=(["BOOKMARKS-EN"]="rbekap-BOOKMARKS-EN-sync-mega-gren" \
+declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
                   ["DOWNLOADS"]="rbekap-DOWNLOADS-copy-mega-gren" \
                   ["ENGIT"]="rbekap-ENGIT-sync-mega-gren" \
                   ["H-PODLOGE"]="rbekap-H-PODLOGE-sync-mega-gren" \
@@ -81,6 +83,4 @@ fi
 for SELECTION in "${selections[@]}"; do
 	eval "${dsts["${SELECTION}"]} -y; echo \"---\""
 done
-
-
 

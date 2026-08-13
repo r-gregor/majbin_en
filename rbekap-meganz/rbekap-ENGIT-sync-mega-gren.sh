@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # fname: rbekap-ENGIT-sync-mega-gren.sh
-# v1_20251021
+# 20251021 v1
 # last: 20251021
 # ---
 

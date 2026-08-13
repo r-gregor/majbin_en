@@ -1,11 +1,12 @@
 #! /usr/bin/env bash
 # fname: rbekap-TOOLBOX-sync-mega-gren.sh
-# v1_20251021
-# last: 20251021
+# 20251021 v1
+# 20260813 v2 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
 SRC="/home/gregor.redelonghi/majstaf/majtoolbox"
-DST="mega_gren:ENERGETIKA/toolbox_en"
+DST="mega_gren:ENERGETIKA/majtoolbox"
 # excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then

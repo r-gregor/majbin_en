@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # fname: rbekap-H-PODLOGE-sync-mega-gren.sh
-# v1_20251021
-# v1_20251218 += CURRYR
+# 20251021 v1
+# 20251218 v1 += CURRYR
 # last: 20251218
 # ---
 

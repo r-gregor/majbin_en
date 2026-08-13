@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # filename: rbekap-ALL2-mega-gren.sh
-# v1_20250622 from rbekap-DAILY-mega-gren.sh
-# last: 202622
+# 20250622 v1 from rbekap-DAILY-mega-gren.sh
+# 20260813 v2 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
 #v3
@@ -10,9 +11,9 @@ CURRYR=2026
 #v2/v3
 declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
                   "~/majstaf/engit" \
-                  "~/majstaf/majscripts_en" \
-                  "~/majstaf/majsupport_en" \
-                  "~/majstaf/bookmarks-en" \
+                  "~/majstaf/majscripts" \
+                  "~/majstaf/majsupport" \
+                  "~/majstaf/majbookmarks" \
                   "~/majstaf/seznami" \
                   "~/majstaf/majtoolbox" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ" \
@@ -21,7 +22,7 @@ declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
 
 #v1/v3
 echo "[INFO] running ALL backup/sync to 'MEGA.nz (mega_gren)'"
-rbekap-BOOKMARKS-EN-sync-mega-gren -y; echo "---" && \
+rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y; echo "---" && \
 rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-H-PODLOGE-sync-mega-gren -y; echo "---" && \

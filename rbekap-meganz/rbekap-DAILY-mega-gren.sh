@@ -1,9 +1,10 @@
 #! /usr/bin/env bash
 # filename: rbekap-DAILY-mega-gren.sh
-# v1_20251126
-# v2_20251127 += inal info
-# v3_20251218 += CURRYR
-# last: 20251218
+# 20251126 v1
+# 20251127 v2 += inal info
+# 20251218 v3 += CURRYR
+# 20260813 v4 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
 #v3
@@ -12,9 +13,9 @@ CURRYR=2026
 #v2/v3
 declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
                   "~/majstaf/engit" \
-                  "~/majstaf/majscripts_en" \
-                  "~/majstaf/majsupport_en" \
-                  "~/majstaf/bookmarks-en" \
+                  "~/majstaf/majscripts" \
+                  "~/majstaf/majsupport" \
+                  "~/majstaf/majbookmarks" \
                   "~/majstaf/seznami" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ")
 
@@ -24,7 +25,7 @@ rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
 rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
-rbekap-BOOKMARKS-EN-sync-mega-gren -y; echo "---" && \
+rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
 rbekap-SEZNAMI-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 

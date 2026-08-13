@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # fname: rbekap-SEZNAMI-sync-mega-gren.sh
-# v1_20251120
-# v2_20251218 += CURRYR
+# 20251120 v1
+# 20251218 v2 += CURRYR
 # last: 20251218
 # ---
 

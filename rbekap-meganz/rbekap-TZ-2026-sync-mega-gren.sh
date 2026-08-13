@@ -1,9 +1,8 @@
-#! /usr/bin/env bash
 # fname: rbekap-TZ-2026-sync-mega-gren.sh
-# v1_20251021
-# v2_20251218 += CURRYR
-# v3_20260422
-# last: 2026042
+# 20251021 v1
+# 20251218 v2 += CURRYR
+# 20260813 v2 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
 CURRYR=2026

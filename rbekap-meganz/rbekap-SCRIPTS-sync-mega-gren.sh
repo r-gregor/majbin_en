@@ -1,11 +1,10 @@
 #! /usr/bin/env bash
 # fname: rbekap-SCRIPTS-sync-mega-gren.sh
-# v1_20251111
-# last: 20251111
+# last: 20260813
 # ---
 
-SRC="/home/gregor.redelonghi/majstaf/majscripts_en"
-DST="mega_gren:ENERGETIKA/majscripts_en"
+SRC="/home/gregor.redelonghi/majstaf/majscripts"
+DST="mega_gren:ENERGETIKA/majscripts"
 excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then

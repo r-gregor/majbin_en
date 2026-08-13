@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # fname: rbekap-DOWNLOADS-copy-mega-gren.sh
 # v1_20251021
-# last: 20251021
+# 20260813 v2 RENAMES to names without '_en'
+# last: 20260813
 # ---
 
 SRC="/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ"
