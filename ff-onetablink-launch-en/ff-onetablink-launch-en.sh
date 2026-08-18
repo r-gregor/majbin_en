@@ -1,20 +1,21 @@
 #! /usr/bin/env bash
 # fname: ff-onetablink-launch-en.sh
-# v1_20260529 converts a line:
+# 20260529 v1 converts a line:
 #             https://www.youtube.com/results?search_query=salsa+hand+toss+flip | (7) salsa hand toss flip - YouTube
 #             ... to ...
 #             https://www.youtube.com/results?search_query=salsa+hand+toss+flip;salsa hand toss flip
-# v2_20260529 output into array
-# v3_20260529 output into associative array
-# v4 20260729 added 'Quit' and checks for false selections
+# 20260529 v2 output into array
+# 20260529 v3 output into associative array
+# 20260729 v4 added 'Quit' and checks for false selections
 #             put everything into while loop
 #             changed 'echo -e' into 'printf'
-# last 20260729
+# 20260818 v5 remove '- Youtube' from sed remplace to include youtube videos ...
+# last 20260818
 # ---
 
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+# SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 
 unset llist
@@ -41,12 +42,14 @@ else
 fi
 
 # load lines from file into array
-while IFS= read LINE; do
+while IFS= read -r LINE; do
 	if [ "${#LINE}" -lt 2 ]; then
 		continue
 	fi
 
-	converted_line="$(echo $LINE | sed -e 's/\([^ ]\+\) | \(.*\)/\1;\2/' -e 's/([[:digit:]]\+) //' -e '/\S/!d'  -e 's/ - YouTube//')"
+	# converted_line="$(echo $LINE | sed -e 's/\([^ ]\+\) | \(.*\)/\1;\2/' -e 's/([[:digit:]]\+) //' -e '/\S/!d'  -e 's/ - YouTube//')"
+	# v5
+	converted_line="$(echo "$LINE" | sed -e 's/\([^ ]\+\) | \(.*\)/\1;\2/' -e 's/([[:digit:]]\+) //' -e '/\S/!d')"
 	url=${converted_line%%;*}
 	dscr=${converted_line#*;}
 
@@ -57,16 +60,16 @@ done < "${fjl}"
 #v4
 ff_onetablink_launch() {
 	# selection - fzf
-	selection=$((for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | ${FZFCMD_EN}) #v4
+	selection=$( (for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | ${FZFCMD_EN} ) #v4
 
 	#v4
-	if [ "x${selection}" == "x" ]; then
+	if [ "${selection}" == "" ]; then
 		printf "[INFO] nothing selected\n"
 		exit 0
 	fi
 
 	if  [ "${selection}" == "----" ]; then
-		continue
+		return
 	fi
 
 	if [ "${selection}" == "Quit" ]; then
@@ -75,10 +78,10 @@ ff_onetablink_launch() {
 	fi
 
 	# run
-	for URL in ${!llist[@]}; do
-		if [[ "${llist["${URL}"]}" =~ "${selection}" ]]; then
-		printf "[INFO] selected: ${selection}\n" #v4
-		cygstart ${FFCMD_EN} "${URL}"
+	for URL in "${!llist[@]}"; do
+		if [[ "${llist["${URL}"]}" =~ ${selection} ]]; then
+		printf "[INFO] selected: %s\n" "${selection}" #v4
+		cygstart "${FFCMD_EN}" "${URL}"
 		# exit #v4
 		fi
 	done
