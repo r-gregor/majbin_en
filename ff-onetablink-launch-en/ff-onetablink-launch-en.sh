@@ -9,7 +9,7 @@
 # 20260729 v4 added 'Quit' and checks for false selections
 #             put everything into while loop
 #             changed 'echo -e' into 'printf'
-# 20260818 v5 remove '- Youtube' from sed remplace to include youtube videos ...
+# 20260818 v5 remove '- Youtube' from sed replace to include youtube videos ...
 # last 20260818
 # ---
 
