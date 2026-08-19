@@ -10,7 +10,7 @@ fi
 
 tmp_stmp=$(date +"%Y%m%d_%H%M")
 
-FJL=$(find * -maxdepth 0 -name "_*.pdf")
+FJL=$(find * -maxdepth 0 -name "*.pdf")
 PTH=$PWD
 PROJ=$(echo $PTH |cut -d'/' -f7)
 NRCL=narocilo_${tmp_stmp}.txt
