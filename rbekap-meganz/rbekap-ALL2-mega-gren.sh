@@ -10,11 +10,9 @@ CURRYR=2026
 
 #v2/v3
 declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
-                  "~/majstaf/engit" \
                   "~/majstaf/majscripts" \
                   "~/majstaf/majsupport" \
                   "~/majstaf/majbookmarks" \
-                  "~/majstaf/seznami" \
                   "~/majstaf/majtoolbox" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ" \
                   "/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-04" \
@@ -24,14 +22,12 @@ declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
 echo "[INFO] running ALL backup/sync to 'MEGA.nz (mega_gren)'"
 rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y; echo "---" && \
-rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-H-PODLOGE-sync-mega-gren -y; echo "---" && \
 rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-TOOLBOX-sync-mega-gren -y; echo "---" && \
-rbekap-TZ-2026-sync-mega-gren -y; echo "---" && \
-rbekap-SEZNAMI-sync-mega-gren -y; echo "---" && \
+rbekap-TZ-2026-sync-mega-gren -y; echo "---"
 
 #v2
 echo -e "---\n[INFO] backup/sync of:"

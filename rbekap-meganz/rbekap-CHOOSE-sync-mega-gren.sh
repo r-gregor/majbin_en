@@ -12,7 +12,6 @@ CURRYR=2026
 
 declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
                   ["DOWNLOADS"]="rbekap-DOWNLOADS-copy-mega-gren" \
-                  ["ENGIT"]="rbekap-ENGIT-sync-mega-gren" \
                   ["H-PODLOGE"]="rbekap-H-PODLOGE-sync-mega-gren" \
                   ["PROJEKTI"]="rbekap-PROJEKTI-sync-mega-gren" \
                   ["SCRIPTS"]="rbekap-SCRIPTS-sync-mega-gren" \
@@ -20,7 +19,6 @@ declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
                   ["TOOLBOX"]="rbekap-TOOLBOX-sync-mega-gren" \
                   ["TZ-2025"]="rbekap-TZ-2025-sync-mega-gren" \
                   ["TZ-2026"]="rbekap-TZ-2026-sync-mega-gren" \
-                  ["SEZNAMI"]="rbekap-SEZNAMI-sync-mega-gren" \
 )
 
 get_longest() {

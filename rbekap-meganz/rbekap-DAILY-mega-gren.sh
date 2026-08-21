@@ -12,21 +12,17 @@ CURRYR=2026
 
 #v2/v3
 declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
-                  "~/majstaf/engit" \
                   "~/majstaf/majscripts" \
                   "~/majstaf/majsupport" \
                   "~/majstaf/majbookmarks" \
-                  "~/majstaf/seznami" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ")
 
 #v1/v3
 echo "[INFO] running DAILY backup/sync to 'MEGA.nz (mega_gren)'"
 rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
-rbekap-ENGIT-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
-rbekap-SEZNAMI-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 
 #v2
