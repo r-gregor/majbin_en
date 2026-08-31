@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 # filename: kndb-files-from-tmst-till-today-en.sh
-# v0_20260105
-# v1_20260331 display from newest to oldset
-# v2_20260415 final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
-# last: 20260415
+# 20260331 v1: display from newest to oldset
+# 20260415 v2: final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
+# 20260831 v3: fzf files list sorted by cathegory
+# last: 20260831
 # ---
 
 curryr=$(date +"%Y")
@@ -77,7 +77,9 @@ if [ "x${RESULT[0]}" == "x" ]; then
 fi
 
 unset fljs
-readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
+# v3
+# readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
+readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | sort -t'/' -k7 | fzf -m -e --reverse)
 
 if [ "x${fjls[0]}" == "x" ]; then
 	printf "[INFO] No files selected\n"
