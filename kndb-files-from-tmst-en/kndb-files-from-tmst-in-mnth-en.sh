@@ -12,14 +12,14 @@ currmn=$(date +"%m")
 currdy=$(date +"%d")
 
 scrpt=$(basename $0)
-SRCDIR=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}
+SRCDIR="${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}"
 
 months=("" "January" "February" "March" "April" "May" "June" "July" "Avgust" "September" "October" "November" "December")
 month_days=(0 31 29 31 30 31 30 31 31 30 31 30 31)
 
 usage() {
 cat << EOF
-	Usage: ${scrpt} <month_num> <day_num>
+	Usage: "${scrpt}" <month_num> <day_num>
 	
 EOF
 }
@@ -29,17 +29,17 @@ if [ $# -ne 2 ]; then
 	usage
 	exit
 else
-	mnth=$1
-	day=$2
+	mnth="$1"
+	day="$2"
 fi
 
-if [ ${mnth} -lt 1 ] || [ ${mnth} -gt 12 ]; then
+if [ "${mnth}" -lt 1 ] || [ "${mnth}" -gt 12 ]; then
 	echo "[ERROR] Month out of range (1 - 12)"
 	exit
-elif [ ${day} -lt 1 ] || [ ${day} -gt 31 ]; then
+elif [ "${day}" -lt 1 ] || [ "${day}" -gt 31 ]; then
 	echo "[ERROR] Day of month out of range (1 - 31)"
 	exit
-elif [ ${mnth} -eq ${currmn} ] && [ ${day} -gt ${currdy} ]; then
+elif [ "${mnth}" -eq "${currmn}" ] && [ "${day}" -gt "${currdy}" ]; then
 	echo "[ERROR] Day of current month out of range"
 	exit
 fi
@@ -47,10 +47,10 @@ fi
 unset RESULT
 # readarray -t RESULT < <(for DYS in $(seq ${day} ${month_days[${mnth}]}); do find ${SRCDIR} -iname "*${curryr}${mnth}${DYS}.txt"; done)
 # readarray -t RESULT < <(for DYS in $(seq ${day} ${month_days[${mnth}]}); do find ${SRCDIR} \
-readarray -t RESULT < <(for DYS in $(seq  ${month_days[${mnth}]} -1 ${day}); do find ${SRCDIR} \
-	-iname $(printf "*%d%02d%02d.txt" ${curryr} ${mnth} ${DYS}); done)
+readarray -t RESULT < <(for DYS in $(seq  "${month_days["${mnth}"]}" -1 "${day}"); do find "${SRCDIR}" \
+	-iname $(printf "*%d%02d%02d.txt" "${curryr}" "${mnth}" "${DYS}"); done)
 
-if [ "x${RESULT[0]}" == "x" ]; then
+if [ "${RESULT[0]}" == "" ]; then
 	printf "[INFO] No files found\n"
 	exit
 fi
@@ -58,9 +58,9 @@ fi
 unset fjls
 # v3
 # readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
-readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | sort -t'/' -k7 | fzf -m -e --reverse)
+readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | sort -t'/' -k7 | fzf -m -e --reverse)
 
-if [ "x${fjls[0]}" == "x" ]; then
+if [ "${fjls[0]}" == "" ]; then
 	printf "[INFO] No files selected\n"
 	exit
 fi
@@ -69,5 +69,5 @@ printf "[INFO] Selected:\n"
 # for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done
 # for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | xargs -ro vim -pM
 # v2
-for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | tee /dev/tty | xargs -ro vim -pM
+for FJL in $(echo "${fjls[@]}"); do echo "${FJL}"; done | tee /dev/tty | xargs -ro vim -pM
 
