@@ -1,10 +1,16 @@
 #! /usr/bin/env bash
-
-### 
+# 20260903 v2: number of copies either as parameter to program, or prompt if no parameter
+#              if number of copies not set, set it to 4
+# last 20260903
+# ---
 
 if [ $# -eq 1 ]; then
 	NN=$1
 else
+	read -r -p "Število izvodov: " NN
+fi
+
+if [ -z $NN ]; then
 	NN=4
 fi
 
