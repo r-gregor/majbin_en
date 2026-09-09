@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filename: testing-status-en.sh
+# filename: gtesting-status-en.sh
 # v1_20241216 store output of commands into array instead of external filea
 # v2_20241218 read output of cmd directly into array, no more need to run cmd twice
 #             c-style for loop

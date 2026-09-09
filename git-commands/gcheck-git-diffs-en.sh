@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filename: check-git-diffs-en
+# filename: gcheck-git-diffs-en.sh
 # v2 20241106
 # v3 20241106
 # v4 20250417
