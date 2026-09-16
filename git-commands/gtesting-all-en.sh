@@ -6,6 +6,6 @@
 
 HST="en"
 
-testing-status-${HST}
-testing-testpush-${HST}
+gtesting-status-${HST}
+gtesting-testpush-${HST}
 
