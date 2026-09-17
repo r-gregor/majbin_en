@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 # filename: ff-fb-mails-from-mbox-launch-en.sh
-# v3_20260721
+# 20260721 v3
+# 20260917 v4: put FZFCOMMAND into function
+# last: 20260917
 # ---
 
 # globals

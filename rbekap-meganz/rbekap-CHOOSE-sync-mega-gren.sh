@@ -2,7 +2,8 @@
 # fname: rbekap-CHOOSE-sync-mega-gren.sh
 # 20260515 v1
 # 20260813 v2 RENAMES to names without '_en'
-# last 20260813
+# 20260917 v3 put FZFCMD into function
+# last: 20260917
 # ---
 
 # globals

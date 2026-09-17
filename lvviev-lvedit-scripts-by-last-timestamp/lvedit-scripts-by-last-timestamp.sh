@@ -1,11 +1,12 @@
 #! /usr/bin/env bash
 # fname: lvedit-scripts-by-last-timestamp.sh
-# v1_20260520
-# v2_20260520 add fzf single selection
-# v3_20260220 fzf to multiple selections to open in vim
-# v4_20260521 refactor parts of code into functions and introduce main()
-# v5_20260521 open in vim
-# last: 20260521
+# 20260520 v1 
+# 20260520 v2: add fzf single selection
+# 20260220 v3: fzf to multiple selections to open in vim
+# 20260521 v4: refactor parts of code into functions and introduce main()
+# 20260521 v5: open in vim
+# 20260917 v6: put FZFCMD into function
+# last: 20260917
 # ---
 
 unset fjls_lst

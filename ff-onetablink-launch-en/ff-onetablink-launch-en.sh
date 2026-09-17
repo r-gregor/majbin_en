@@ -10,7 +10,8 @@
 #             put everything into while loop
 #             changed 'echo -e' into 'printf'
 # 20260818 v5 remove '- Youtube' from sed replace to include youtube videos ...
-# last 20260818
+# 20260917 v6: put FZFCMD into function
+# last: 20260917
 # ---
 
 # globals

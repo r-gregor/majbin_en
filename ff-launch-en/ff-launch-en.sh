@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # filename: ff-launch-en
-# v6_20260305
-# last: 20260305
+# 20260305 v6
+# 20260917 v7: put FZFCMD into function
+# last: 20260917
 # ---
 
 clear
