@@ -10,30 +10,32 @@ unset KEYS
 
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 FZFCMD_EN="fzf -e --reverse"   # cygwin version does not support --width option
 FNAME="personal_links_list_en" # v7
-FPTH=${SRCDIR}/${FNAME}        # v7
+FPTH="${SRCDIR}"/"${FNAME}"    # v7
 
 # assoc array
 declare -A URLS
 
 # v7
 load_links_into_array() {
-	while IFS=';' read key value; do
+	while IFS=';' read -r key value; do
 		URLS["${key}"]="${value}"
 	done < "${FPTH}"
 }
 
 # functions
 get_longest() {
+	local len
+	local longest
+
 	if [ ! $# -eq 1 ]; then
 		echo "[ERROR1] must supply array of sentences as parameter"
 		exit 1
 	fi
 
-	local len=0
-	local longest
+	len=0
 	local -n lines2=$1 # new way: must call array as < array_name >
 
 	for line in "${lines2[@]}"; do
@@ -50,9 +52,10 @@ get_longest() {
 }
 
 ff_personallaunch() {
-	local selection=$((for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | ${FZFCMD_EN})
+	local selection
+	selection=$( (for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | "${FZFCMD_EN}" )
 
-	if [ "x${selection}" == "x" ]; then
+	if [ "${selection}" == "" ]; then
 		# echo -e "[INFO] nothing selected\n"
 		exit 0
 	fi

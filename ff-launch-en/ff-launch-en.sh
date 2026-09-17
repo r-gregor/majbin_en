@@ -8,25 +8,28 @@ clear
 
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 SITES="${SRCDIR}/sites.txt"
 
 ff_launch() {
-	local URLs site selection path
+	local URLS
+	local site
+	local selection
+	local path
 
 	if [ "$1" == "all" ]; then
-		readarray -t URLS < <(cat ${SITES})
+		readarray -t URLS < <(cat "${SITES}")
 	else
 		site=$1
 		# v4
 		# readarray -t URLS < <(sed -n "/\[${site}\]/,/^$/p" ${SITES} | sed -n '2,$'p)
-		readarray -t URLS < <(sed -n "/\[${site}\]/,/^$/p" ${SITES})
+		readarray -t URLS < <(sed -n "/\[${site}\]/,/^$/p" "${SITES}")
 	fi
 
-	selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done 2>/dev/null | ${FZFCMD_EN})
+	selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done 2>/dev/null | "${FZFCMD_EN}")
 
-	if [ "x${selection}" == "x" ]; then
+	if [ "${selection}" == "" ]; then
 		echo -e "[INFO] nothing selected\n"
 		exit
 	fi
@@ -51,9 +54,9 @@ categories+=("ALL")
 categories+=("q (quit)")
 
 while true; do
-	selected=$(for WAY in "${categories[@]}"; do echo $WAY; done | fzf +c --reverse)
+	selected=$(for WAY in "${categories[@]}"; do echo "${WAY}"; done | fzf +c --reverse)
 
-	if [ "x${selected}" == "x" ]; then
+	if [ "${selected}" == "" ]; then
 		echo -e "[INFO] nothing selected\n"
 		exit
 	fi
@@ -70,3 +73,4 @@ while true; do
 
 	ff_launch "${dest}"
 done
+

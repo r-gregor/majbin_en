@@ -60,7 +60,7 @@ done < "${fjl}"
 #v4
 ff_onetablink_launch() {
 	# selection - fzf
-	selection=$( (for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | ${FZFCMD_EN} ) #v4
+	selection=$( (for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | "${FZFCMD_EN} ") #v4
 
 	#v4
 	if [ "${selection}" == "" ]; then
