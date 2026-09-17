@@ -17,7 +17,6 @@ declare -a selections
 currdtstmp=$(date +"%Y%m%d")
 
 dest_en="/home/gregor.redelonghi/majstaf/majbin"
-FZFCMD_EN="fzf -e -m --reverse"   # cygwin version does not support --width option
 VIM_CMD="/usr/bin/vim -M"
 
 usage() {
@@ -30,6 +29,9 @@ cat << "EOF"
 EOF
 }
 
+FZFCMD_EN() {
+	fzf -e -m --reverse # cygwin version does not support --width option
+}
 
 load_files_into_list() {
 	for FFF in $(find ${dest_en}/* -name "*\.sh" | grep -v 'src/'); do
@@ -71,7 +73,7 @@ main() {
 		while IFS=';' read fname dtstmp; do
 			echo "${fname}"
 		done < <(echo ${FJL})
-	done) | ${FZFCMD_EN})
+	done) | FZFCMD_EN)
 
 	if [ "${#selections[@]}" -eq 0 ]; then
 		printf "[INFO] nothing selected\n\n"

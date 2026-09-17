@@ -11,12 +11,15 @@ unset KEYS
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-FZFCMD_EN="fzf -e --reverse"   # cygwin version does not support --width option
 FNAME="personal_links_list_en" # v7
 FPTH="${SRCDIR}"/"${FNAME}"    # v7
 
 # assoc array
 declare -A URLS
+
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 
 # v7
 load_links_into_array() {
@@ -53,7 +56,7 @@ get_longest() {
 
 ff_personallaunch() {
 	local selection
-	selection=$( (for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | "${FZFCMD_EN}" )
+	selection=$( (for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | FZFCMD_EN )
 
 	if [ "${selection}" == "" ]; then
 		# echo -e "[INFO] nothing selected\n"

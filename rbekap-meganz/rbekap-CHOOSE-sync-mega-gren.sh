@@ -7,7 +7,6 @@
 
 # globals
 SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
-FZFCMD_EN="fzf -e -m --reverse"   # cygwin version does not support --width option
 CURRYR=2026
 
 declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
@@ -21,6 +20,9 @@ declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
                   ["TZ-2026"]="rbekap-TZ-2026-sync-mega-gren" \
 )
 
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 get_longest() {
 	if [ ! $# -eq 1 ]; then
 		echo "[ERROR1] must supply array of sentences as parameter"
@@ -53,7 +55,7 @@ keys=("${!dsts[@]}")
 longest_l=$(get_longest keys)
 delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)
 
-selections+=( $((for KEY in "${keys[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | ${FZFCMD_EN}) )
+selections+=( $((for KEY in "${keys[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | FZFCMD_EN) )
 
 if [ "${#selections[@]}" -eq 0 ]; then
 	printf "[INFO] nothing selected\n\n"

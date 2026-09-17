@@ -9,8 +9,11 @@ clear
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 SITES="${SRCDIR}/sites.txt"
+
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 
 ff_launch() {
 	local URLS
@@ -27,7 +30,7 @@ ff_launch() {
 		readarray -t URLS < <(sed -n "/\[${site}\]/,/^$/p" "${SITES}")
 	fi
 
-	selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done 2>/dev/null | "${FZFCMD_EN}")
+	selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done 2>/dev/null | FZFCMD_EN)
 
 	if [ "${selection}" == "" ]; then
 		echo -e "[INFO] nothing selected\n"

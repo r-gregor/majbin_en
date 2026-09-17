@@ -6,11 +6,14 @@
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 fb_files_list="${SRCDIR}/fb_files_list.txt"
 
 unset fb_files
 declare -A fb_files=()
+
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 
 fb_files_list_update() {
 		local fb_url
@@ -61,7 +64,7 @@ fi
 
 fb_launch_en() {
 	# selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | "${FZFCMD_EN}")
-	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | "${FZFCMD_EN}")
+	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | FZFCMD_EN)
 
 	if [ "${selection}" == "" ]; then
 		echo -e "[INFO] nothing selected\n"

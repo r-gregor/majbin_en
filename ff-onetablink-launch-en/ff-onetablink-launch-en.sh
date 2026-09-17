@@ -16,10 +16,13 @@
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 # SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 
 unset llist
 declare -A llist
+
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 
 usage() {
 	cat <<"EOF"
@@ -60,7 +63,7 @@ done < "${fjl}"
 #v4
 ff_onetablink_launch() {
 	# selection - fzf
-	selection=$( (for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | "${FZFCMD_EN} ") #v4
+	selection=$( (for descrp in "${llist[@]}"; do echo "${descrp}"; done; echo "----"; echo "Quit") | FZFCMD_EN) #v4
 
 	#v4
 	if [ "${selection}" == "" ]; then

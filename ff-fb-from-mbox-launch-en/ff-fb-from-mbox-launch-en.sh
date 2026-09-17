@@ -6,11 +6,14 @@
 # globals
 FFCMD_EN=/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe
 SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-FZFCMD_EN="fzf -e --reverse" # cygwin version does not support --width option
 fb_files_list="${SRCDIR}/data/fb_files_list_from_mbox.txt"
 
 unset fb_files
 declare -A fb_files=()
+
+FZFCMD_EN() {
+	fzf -e --reverse # cygwin version does not support --width option
+}
 
 fb_files_list_update() {
 	> "${fb_files_list}"
@@ -53,12 +56,12 @@ fi
 
 # selection=$(for EL in "${!fb_files[@]}"; do
 #    echo "${EL}"
-# done | "${FZFCMD_EN}")
+# done | FZFCMD_EN)
 # cygstart "${FFCMD_EN}" "${fb_files["${selection}"]}"
 
 fb_launch_en() {
-	# selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | "${FZFCMD_EN}")
-	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | "${FZFCMD_EN}")
+	# selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | FZFCMD_EN)
+	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | FZFCMD_EN)
 
 	if [ "${selection}" == "" ]; then
 		echo -e "[INFO] nothing selected\n"
