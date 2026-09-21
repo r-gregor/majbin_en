@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-#fname: nvol-testpush-all.sh
+# fname: nvol-testpush-all.sh
+# descpt: Testpush to majvolpejprs remote
 # v1_20240823
 # last: 20240823
 # ---

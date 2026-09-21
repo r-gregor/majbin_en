@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: gupdate-file-en.sh
+# descpt: Update file from src-dir to git-repository
 # v1_20260313
 # v2_20260408 added 'OK?' check into update_file_to_git() function
 # last: 20260408

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: gadd-gcmt-en.sh
+# descpt: Add unstashed files/dirs and run gcommit-timestamp-en script
 # v1_20240912
 # last: 20240912
 # ---

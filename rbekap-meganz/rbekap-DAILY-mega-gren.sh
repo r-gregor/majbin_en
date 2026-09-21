@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: rbekap-DAILY-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # 20251126 v1
 # 20251127 v2 += inal info
 # 20251218 v3 += CURRYR

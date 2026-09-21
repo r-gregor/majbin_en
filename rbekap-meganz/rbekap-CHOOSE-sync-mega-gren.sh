@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: rbekap-CHOOSE-sync-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # 20260515 v1
 # 20260813 v2 RENAMES to names without '_en'
 # 20260917 v3 put FZFCMD into function

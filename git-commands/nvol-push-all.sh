@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: nvol-push-all.sh
+# descpt: Push to majvolpejprs remotes
 # v1_20240823
 # last: 20240823
 # ---

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: rbekap-ALL2-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # 20250622 v1 from rbekap-DAILY-mega-gren.sh
 # 20260813 v2 RENAMES to names without '_en'
 # last: 20260813

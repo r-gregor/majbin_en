@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: grefresh-fjl-to-git-repo.sh
+# descpt: Refresh (update) file/dir from source to git-repository
 # v1_20241216
 # v2_20250415
 # last: 20250415

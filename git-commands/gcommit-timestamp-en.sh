@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: gcommit-timestamp-en.sh
+# descpt: Commit with auto-generated commit message with timestamp
 # v1_20240827
 # last: 20240827
 # ---

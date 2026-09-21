@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: create-fb-files-list-from-mbox.sh
+# descpt: Create fb-links list from external 'mbox' file
 # v1_20260721
 # last: 20260721
 # ---

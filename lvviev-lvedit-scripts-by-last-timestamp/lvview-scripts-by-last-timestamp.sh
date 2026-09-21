@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: lvview-scripts-by-last-timestamp.sh
+# decpt: View script in vim with FZF sellection with timestamp
 # 20260520 v1 
 # 20260520 v2: add fzf single selection
 # 20260220 v3: fzf to multiple selections to open in vim

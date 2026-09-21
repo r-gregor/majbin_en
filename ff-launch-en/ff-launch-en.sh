@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-launch-en
+# descpt: Launch www site in Firefox with FZF selection from external list
 # 20260305 v6
 # 20260917 v7: put FZFCMD into function
 # last: 20260917

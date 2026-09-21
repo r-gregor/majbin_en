@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: engt-status.sh
+# descpt: Check if there are staged files/dirs to be uploaded
 # v1_20241216 store output of cmd into array instead of external file
 # v2_20241218 read output of cmd directly into array, no more need to run cmd twice
 #             c-style for loop

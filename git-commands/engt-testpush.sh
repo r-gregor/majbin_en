@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: engt-testpush.sh
+# descpt: Test-push to remotes
 # v1_20241216 store output of cmd into array instead of external file
 # v2_20241218 c-style for loop
 # v3_20250415 update to directories and filenames changes

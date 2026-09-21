@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: rbekap-H-PODLOGE-copy-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # 20251021 v1
 # 20251218 v2 += CURRYR
 # last: 20251218

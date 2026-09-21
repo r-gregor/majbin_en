@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ghgl-testpush-en.sh
+# descpt: Testpush to all git-remotes in current git-repository
 # v1_20240823
 # last: 20240823
 # ---

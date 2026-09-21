@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 # fname: lvedit-scripts-by-last-timestamp.sh
-# 20260520 v1 
+# decpt: Edit script in vim with FZF sellection with timestamp
+# 20260520 v1
 # 20260520 v2: add fzf single selection
 # 20260220 v3: fzf to multiple selections to open in vim
 # 20260521 v4: refactor parts of code into functions and introduce main()

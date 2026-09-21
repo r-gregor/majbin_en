@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-fb-mails-from-mbox-launch-en.sh
+# descpt: Launch fb-links in Firefox with FZF sellection from external fb-links-mbox file
 # 20260721 v3
 # 20260917 v4: put FZFCOMMAND into function
 # last: 20260917

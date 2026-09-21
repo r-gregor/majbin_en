@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: glog-status-en.sh
+# descpt: Git-log in current git-repository
 # v1_20240823
 # last: 20240823
 # ---

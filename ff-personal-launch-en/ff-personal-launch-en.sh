@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-personal-launch-en
+# descpt: Launch www link to personal site in Firefox with FZF sellection from external file
 # from ff-launch-en
 # 20260508 v7
 # 20260917 v8: put FZFCMD into function

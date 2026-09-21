@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-fb-mails-launch-en
+# descpt: Launch fb-link in Firefox with FZF sellection from external file
 # 20260306 v3
 # 20260917 v4: put FZFCMD into function
 # last: 20260917

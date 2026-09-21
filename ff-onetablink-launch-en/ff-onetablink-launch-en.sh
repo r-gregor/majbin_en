@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: ff-onetablink-launch-en.sh
+# decspt: Launch onetab-ling in Firefox with FZF sellection from external file
 # 20260529 v1 converts a line:
 #             https://www.youtube.com/results?search_query=salsa+hand+toss+flip | (7) salsa hand toss flip - YouTube
 #             ... to ...
@@ -27,7 +28,7 @@ FZFCMD_EN() {
 
 usage() {
 	cat <<"EOF"
-	Usage: convert-onetab-to-csv <filename>
+	Usage: ff-onetablink-launch-en <filename>
 
 EOF
 }

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: rbekap-TOOLBOX-sync-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # 20251021 v1
 # 20260813 v2 RENAMES to names without '_en'
 # last: 20260813

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: gtesting-status-en.sh
+# descpt: Check git-status in .../testing/*
 # v1_20241216 store output of commands into array instead of external filea
 # v2_20241218 read output of cmd directly into array, no more need to run cmd twice
 #             c-style for loop

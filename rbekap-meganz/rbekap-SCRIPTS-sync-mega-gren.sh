@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: rbekap-SCRIPTS-sync-mega-gren.sh
+# descpt: Rclone sellected files/dirs to mega_gren:
 # last: 20260813
 # ---
 

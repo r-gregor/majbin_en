@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ghgl-push-en.sh
+# descpt: Push to all git-remotes in current git-repository
 # v1_20240823
 # last: 20240823
 # ---

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # flename: engt-check-reports
+# descpt: Check the status and test-push reports
 # v1_20250827
 # ---
 

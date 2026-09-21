@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # flename: engt-reports-empty.sh
+# descpt: Empty status and test-push reports
 # v1_20250827
 # ---
 

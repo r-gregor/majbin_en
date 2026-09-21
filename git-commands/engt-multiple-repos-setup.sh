@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: engt-multiple-repos-setup.sh
+# descpt: Setup multiple git-repositories
 # v1_20250508
 # ---
 

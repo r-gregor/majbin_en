@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 # filename: dwnld-gtlb-sfnm
-# download single filename from https://gitlab.com/r-gregor
-# into: gitlab_r-regor/repo/<[dirname/]filename>
+# descpt: Download single filename from https://gitlab.com/r-gregor into: gitlab_r-regor/repo/<[dirname/]filename>
 # v1_20260421
 # last: 20260421
 # ---

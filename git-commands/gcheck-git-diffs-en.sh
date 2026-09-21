@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: gcheck-git-diffs-en.sh
+# descpt: Check for git-diffs for each file in git-repository with same files in src-directory
 # v2 20241106
 # v3 20241106
 # v4 20250417

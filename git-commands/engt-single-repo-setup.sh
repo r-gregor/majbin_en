@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: engt-single-repo-setup.sh
+# descpt: Setup single repository
 # v1_20250508
 # ---
 
