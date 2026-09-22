@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 # filename: majapps-launch.sh
-# v10_20260527
+# descpt: Launch fzf-selected app
+# 20260527 v10
+# last 20260527
 # ---
 
 # clear the screen:
@@ -11,9 +13,9 @@ runff="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxP
 runedg="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 moffpth='/c/Program Files/Microsoft Office/root/Office16' #v4
 
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))" # v9
-FNAME="majapps_links_list_en"                     # v9
-FPTH=${SRCDIR}/${FNAME}                           # v9
+SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")" # v9
+FNAME="majapps_links_list_en"                         # v9
+FPTH="${SRCDIR}/${FNAME}"                             # v9
 
 # assoc array
 declare -A majapps
@@ -55,7 +57,7 @@ selection_info() {
 
 # v6
 majaps_run() {
-	if [ "x${selection}" == "x" ]; then
+	if [ "${selection}" == "" ]; then
 		echo -e "[INFO] no selection\n"
 		exit
 	fi
