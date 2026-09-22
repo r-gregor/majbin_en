@@ -68,7 +68,7 @@ else
 fi
 printf "${COLOR_RESET}"
 
-cd"${CURRDIR}" || exit 1
+cd "${CURRDIR}" || exit 1
 
 echo ""
 
