@@ -22,10 +22,10 @@ report=()
 
 
 get-status() {
-	cmd=$1
+	cmd="$1"
 	output=()
 	readarray -t -O ${#output[@]} output < <(${cmd} status)
-	echo ${output[@]} | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
+	echo "${output[@]}" | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
 		echo -n "[INFO] checking git status in ${DDD} ..."
@@ -49,12 +49,10 @@ get-status() {
 echo "========================================"
 echo "[INFO] running engt-status ..."
 echo "========================================"
-cd ~/majstaf/${HST}git/
+cd ~/majstaf/${HST}git/ || exit 1
 # for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs"); do
-
-	cd $DDD &> /dev/null
-
+	cd "$DDD" &> /dev/null
 	get-status "/usr/bin/git"
 	cd ..
 done
@@ -78,7 +76,7 @@ else
 fi
 printf "${COLOR_RESET}"
 
-cd ${CURRDIR}
+cd"${CURRDIR}" || exit 1
 
 echo ""
 

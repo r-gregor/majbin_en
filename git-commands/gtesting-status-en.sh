@@ -21,7 +21,7 @@ unset output
 report=()
 
 function get_status() {
-	cmd=$1
+	cmd="$1"
 	output=()
 	readarray -t -O ${#output[@]} output < <(${cmd} status)
 	echo ${output[@]} | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
@@ -48,9 +48,9 @@ function get_status() {
 echo "========================================="
 echo "[INFO] running testing_gtgh_status_en ..."
 echo "========================================="
-cd ${TSTDST}
+cd"${TSTDST}" || exit 1
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
-	cd $DDD &> /dev/null
+	cd "$DDD" &> /dev/null
 
 	get_status "/usr/bin/git"
 	cd ..
@@ -68,7 +68,7 @@ else
 fi
 printf "${COLOR_RESET}"
 
-cd ${CURRDIR}
+cd"${CURRDIR}" || exit 1
 
 echo ""
 

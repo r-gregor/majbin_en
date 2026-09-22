@@ -1,4 +1,8 @@
 #! /usr/bin/env bash
+# filename: show-aliases-en.sh
+# descpt: Show all aliases from $MRCS
+# last: 20260922
+# ---
 
 PDD=20
 PTH="${HOME}/majstaf/majrcs/aliases-gredelonghi-en"
