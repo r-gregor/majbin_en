@@ -48,7 +48,7 @@ function get_status() {
 echo "========================================="
 echo "[INFO] running testing_gtgh_status_en ..."
 echo "========================================="
-cd"${TSTDST}" || exit 1
+cd "${TSTDST}" || exit 1
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd "$DDD" &> /dev/null
 
