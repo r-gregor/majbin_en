@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filename: kndb-files-from-tmst-in-mnth-en.sh
+# filename: kndb-files-from-tmst-in-mnth-mdb
 # 20251125
 # 20260331 v1: display from newest to oldst: $(seq start end) --> $(seq end -1 start)
 # 20260415 v2: final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
@@ -12,7 +12,8 @@ currmn=$(date +"%m")
 currdy=$(date +"%d")
 
 scrpt=$(basename $0)
-SRCDIR="${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}"
+SRCDIR="${KNOWLEDGEDB:-${HOME}/majstaf/${HST}git/knowledgedb}"
+
 
 months=("" "January" "February" "March" "April" "May" "June" "July" "Avgust" "September" "October" "November" "December")
 month_days=(0 31 29 31 30 31 30 31 31 30 31 30 31)
@@ -25,22 +26,22 @@ EOF
 }
 
 if [ $# -ne 2 ]; then
-	echo "[ERROR] Must supply exactly two parameters:"
+	echo "Must supply exactly two parameters:"
 	usage
 	exit
 else
-	mnth="$1"
-	day="$2"
+	mnth=$1
+	day=$2
 fi
 
 if [ "${mnth}" -lt 1 ] || [ "${mnth}" -gt 12 ]; then
-	echo "[ERROR] Month out of range (1 - 12)"
+	echo "Month out of range (1 - 12)"
 	exit
 elif [ "${day}" -lt 1 ] || [ "${day}" -gt 31 ]; then
-	echo "[ERROR] Day of month out of range (1 - 31)"
+	echo "Day of month out of range (1 - 31)"
 	exit
 elif [ "${mnth}" -eq "${currmn}" ] && [ "${day}" -gt "${currdy}" ]; then
-	echo "[ERROR] Day of current month out of range"
+	echo "Day of current month out of range"
 	exit
 fi
 
@@ -57,7 +58,7 @@ fi
 
 unset fjls
 # v3
-# readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
+# readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | fzf -m -e --reverse)
 readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | sort -t'/' -k7 | fzf -m -e --reverse)
 
 if [ "${fjls[0]}" == "" ]; then
@@ -69,5 +70,5 @@ printf "[INFO] Selected:\n"
 # for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done
 # for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | xargs -ro vim -pM
 # v2
-for FJL in $(echo "${fjls[@]}"); do echo "${FJL}"; done | tee /dev/tty | xargs -ro vim -pM
+for FJL in $(echo ${fjls[@]}); do echo "$FJL"; done | tee /dev/tty | xargs -ro vim -pM
 

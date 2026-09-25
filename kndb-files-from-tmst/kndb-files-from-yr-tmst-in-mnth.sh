@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filename: kndb-files-from-yr-tmst-in-mnth-en.sh
+# filename: kndb-files-from-yr-tmst-in-mnth-mdb
 # 20260331 v1: display from newest to oldst: $(seq start end) --> $(seq end -1 start)
 # 20260415 v2: final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
 # 20260831 v3: fzf files list sorted by cathegory
@@ -11,19 +11,20 @@ currmn=$(date +"%m")
 currdy=$(date +"%d")
 
 scrpt=$(basename $0)
-SRCDIR="${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}"
+
+SRCDIR="${KNOWLEDGEDB:-${HOME}/majstaf/${HST}git/knowledgedb}"
 
 months=("" "January" "February" "March" "April" "May" "June" "July" "Avgust" "September" "October" "November" "December")
 month_days=(0 31 29 31 30 31 30 31 31 30 31 30 31)
 
 usage() {
 cat << EOF
-    Usage: "${scrpt}" + 3 parameters:
+    Usage: ${scrpt} + 3 parameters:
                       <year>
                       <month_num>
                       <day_num>
 
-       or: "${scrpt}" + 2 parameters:
+       or: ${scrpt} + 2 parameters:
                       <month_num>
                       <day_num>
                       (year is current year)
@@ -56,20 +57,19 @@ fi
 # fi
 
 if [ "${mnth}" -lt 1 ] || [ "${mnth}" -gt 12 ]; then
-	echo "[ERROR] Month out of range (1 - 12)"
+	echo "Month out of range (1 - 12)"
 	exit
 elif [ "${day}" -lt 1 ] || [ "${day}" -gt 31 ]; then
-	echo "[ERROR] Day of month out of range (1 - 31)"
+	echo "Day of month out of range (1 - 31)"
 	exit
-elif [ "${mnth}" -eq "${currmn}" ] && [ $"{day}" -gt "${currdy}" ]; then
-	echo "[ERROR] Day of current month out of range"
+elif [ "${mnth}" -eq "${currmn}" ] && [ "${day}" -gt "${currdy}" ]; then
+	echo "Day of current month out of range"
 	exit
 fi
 
 unset RESULT
-# readarray -t RESULT < <(for DYS in $(seq ${day} ${month_days[${mnth}]}); do find ${SRCDIR} -iname "*${curryr}${mnth}${DYS}.txt"; done)
-# readarray -t RESULT < <(for DYS in $(seq ${day} ${month_days[${mnth}]}); do find ${SRCDIR} \
-# v1
+# readarray -t RESULT < <(for DYS in $(seq "${day}" ${month_days["${mnth}"]}); do find ${SRCDIR} -iname "*${curryr}"${mnth}"${DYS}.txt"; done)
+# readarray -t RESULT < <(for DYS in $(seq "${day}" ${month_days["${mnth}"]}); do find ${SRCDIR} \
 readarray -t RESULT < <(for DYS in $(seq "${month_days["${mnth}"]}" -1 "${day}"); do find "${SRCDIR}" \
 	-iname $(printf "*%d%02d%02d.txt" "${curryr}" "${mnth}" "${DYS}"); done)
 
@@ -78,12 +78,13 @@ if [ "${RESULT[0]}" == "" ]; then
 	exit
 fi
 
-# v3
 unset fjls
-# readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
+
+# v3
+# readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | fzf -m -e --reverse)
 readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | sort -t'/' -k7 | fzf -m -e --reverse)
 
-if [ "${fjls[0]}" == "" ]; then
+if [ "${fjls[0]}" == "" ]; then;
 	printf "[INFO] No files selected\n"
 	exit
 fi

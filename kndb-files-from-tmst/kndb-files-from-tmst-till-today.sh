@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# filename: kndb-files-from-tmst-till-today-en.sh
+# filename: kndb-files-from-tmst-till-today-mdb
+# 20260105
 # 20260331 v1: display from newest to oldset
 # 20260415 v2: final printout to stdout and into xargs in one line with 'tee /dev/tty' comand
 # 20260831 v3: fzf files list sorted by cathegory
@@ -11,8 +12,9 @@ currmn=$(date +"%m")
 currdy=$(date +"%d")
 currdt=$(date +"%Y%m%d")
 
-scrpt="$(basename $0)"
-SRCDIR="${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}"
+scrpt=$(basename $0)
+SRCDIR="${KNOWLEDGEDB:-${HOME}/majstaf/${HST}git/knowledgedb}"
+
 
 months=("" "January" "February" "March" "April" "May" "June" "July" "Avgust" "September" "October" "November" "December")
 month_days=(0 31 29 31 30 31 30 31 31 30 31 30 31)
@@ -25,20 +27,20 @@ EOF
 }
 
 if [ $# -eq 2 ]; then
-	slctd_yr=$(date +%Y)
-	slctd_mt="$1"
-	slctd_dy="$2"
+	slctd_yr=$(date +"%Y")
+	slctd_mt=$1
+	slctd_dy=$2
 else
 	usage
 	exit
 fi
 
 if [ "${slctd_mt}" -lt 1 ] || [ "${slctd_mt}" -gt 12 ]; then
-	echo "[ERROR] Month out of range (1 - 12)"
+	echo "Month out of range (1 - 12)"
 	exit
 elif
 	[ "${slctd_dy}" -lt 1 ] || [ "${slctd_dy}" -gt "${month_days["${slctd_mt}"]}" ]; then
-	echo "[ERROR] Day of month out of range (1 - "${month_days["${slctd_mt}"]}")"
+	echo "Day of month out of range (1 - "${month_days["${slctd_mt}"]}")"
 	exit
 fi
 
@@ -46,7 +48,7 @@ unset DAYS
 declare -a DAYS
 
 dtnum=("${slctd_yr}" "${slctd_mt}" "${slctd_dy}")
-startdt="$(printf "%d%02d%02d" "${dtnum[0]}" "${dtnum[1]}" "${dtnum[2]}")"
+startdt=$(printf "%d%02d%02d" "${dtnum[0]}" "${dtnum[1]}" "${dtnum[2]}")
 
 # 20230331: newest to oldest ...
 # newdt="${startdt}"
@@ -78,7 +80,7 @@ fi
 
 unset fljs
 # v3
-# readarray -t fjls < <(for FJL in $(echo ${RESULT[@]}); do echo "$FJL"; done | fzf -m -e --reverse)
+# readarray -t fjls < <(for FJL in $(echo "${RESULT[@]})"; do echo "${FJL}"; done | fzf -m -e --reverse)
 readarray -t fjls < <(for FJL in $(echo "${RESULT[@]}"); do echo "${FJL}"; done | sort -t'/' -k7 | fzf -m -e --reverse)
 
 if [ "${fjls[0]}" == "" ]; then
