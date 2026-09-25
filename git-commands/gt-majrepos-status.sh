@@ -1,27 +1,26 @@
 #! /usr/bin/env bash
-# filename: engt-status.sh
-# descpt: Check if there are staged files/dirs to be uploaded
-# v1_20241216 store output of cmd into array instead of external file
-# v2_20241218 read output of cmd directly into array, no more need to run cmd twice
-#             c-style for loop
-# v3_20250415 update to directories and filenames changes
-# v4_20250827 added $GIT_STATUS_REPORTS filename to store reports
-# last: 20250827
+# filename: gt-status.sh
+# descpt: git-status to all git repositories
+# 20241216: store output of cmd into array instead of external file
+# 20241218: read output of cmd directly into array, no more need to run cmd twice
+#           c-style for loop
+# 20250301: correct output messaging
+# 20260924: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260924
 # ---
 
-HST="en"
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
 CURRDIR=$PWD
-> $ENGIT_STATUS_REPORTS
 
 unset msg
 unset report
 unset output
 report=()
+> $GT_STATUS_REPORTS
 
-
-get-status() {
+get_status() {
 	cmd="$1"
 	output=()
 	readarray -t -O ${#output[@]} output < <(${cmd} status)
@@ -36,39 +35,39 @@ get-status() {
 		msg=$(echo -e "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT\n")
 		echo -e "$msg"
 		printf "${COLOR_RESET}"
+
 		readarray -t -O "${#report[@]}" report < <(echo -e "$msg")
 
 		for (( i=0; i<${#output[@]}; i++ )); do
 			echo -e ">\t${output[$i]}"
 		done
-
 		echo "---"
 	fi
 }
 
 echo "========================================"
-echo "[INFO] running engt-status ..."
+echo "[INFO] running gt-status ..."
 echo "========================================"
-cd ~/majstaf/${HST}git/ || exit 1
-# for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
-for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs"); do
+cd ~/majstaf/${HST}git/
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd "$DDD" &> /dev/null
-	get-status "/usr/bin/git"
+
+	get_status "/usr/bin/git"
 	cd ..
 done
 
 # volpejpers
 DDD="vlpprs_${HST}"
-NVOL_GDIR="/home/gregor.redelonghi/majstaf/engit/vlpprs_en"
-NVOL_WDIR="/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs"
-get-status "/usr/bin/git --git-dir=${NVOL_GDIR} --work-tree=${NVOL_WDIR}"
-
+VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}"
+VOLWORKTREE="${HOME}/majstaf/majvolpejpers"
+get_status "/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKTREE}"
 
 printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
 	echo
 	for (( j=0; j<${#report[@]}; j++ )); do
-		echo "*** ${report[$j]} ***" | tee -a $ENGIT_STATUS_REPORTS
+		# echo "*** ${report[$j]} ***"
+		echo "*** ${report[$j]} ***" | tee -a $GT_STATUS_REPORTS
 	done
 else
 	echo
@@ -76,7 +75,7 @@ else
 fi
 printf "${COLOR_RESET}"
 
-cd "${CURRDIR}" || exit 1
+cd "${CURRDIR}"
 
 echo ""
 

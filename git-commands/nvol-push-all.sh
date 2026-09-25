@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 # fname: nvol-push-all.sh
 # descpt: Push to majvolpejprs remotes
-# v1_20240823
-# last: 20240823
+# 20240823
+# 20260925: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260925
 # ---
-
-HST="en"
 
 export VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}"
 export VOLWORKDIR="/c/Users/gregor.redelonghi/majstaf_${HST}/${HST}_staf/majvolpejprs"

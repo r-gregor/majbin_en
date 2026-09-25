@@ -1,30 +1,31 @@
 #! /usr/bin/env bash
-# filename: gtesting-status-en.sh
-# descpt: Check git-status in .../testing/*
-# v1_20241216 store output of commands into array instead of external filea
-# v2_20241218 read output of cmd directly into array, no more need to run cmd twice
-#             c-style for loop
-# v3_20250827 added $GIT_STATUS_REPORTS filename to store reports
-# last: 20250827
+# filename: gt-testing-status.sh
+# descpt: git-status to all testing repositories
+# 20241216: store output of commands into array instead of external filea
+# 20241218: read output of cmd directly into array, no more need to run cmd twice
+#           c-style for loop
+# 20250301: correct output messaging
+# 20260924: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260924
 # ---
 
-HST="en"
-TSTDST=${HOME}/majstaf/coding2/testing
+TSTDST="${HOME}/majstaf/coding2/testing"
 COLOR_SET="\e[1;92m"
 COLOR_RESET="\e[0m"
-CURRDIR=$PWD
-> $TESTING_STATUS_REPORTS
+CURRDIR="$PWD"
 
 unset msg
 unset report
 unset output
 report=()
+> $TESTING_STATUS_REPORTS
 
-function get_status() {
+get_status() {
 	cmd="$1"
 	output=()
-	readarray -t -O ${#output[@]} output < <(${cmd} status)
-	echo ${output[@]} | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
+	readarray -t -O "${#output[@]}" output < <("${cmd}" status)
+	echo "${output[@]}" | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
 		echo -n "[INFO] checking git status in ${DDD} ..."
@@ -45,9 +46,9 @@ function get_status() {
 	fi
 }
 
-echo "========================================="
-echo "[INFO] running testing_gtgh_status_en ..."
-echo "========================================="
+echo "========================================"
+echo "[INFO] running gtesting-status ..."
+echo "========================================"
 cd "${TSTDST}" || exit 1
 for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 	cd "$DDD" &> /dev/null
@@ -60,7 +61,10 @@ printf "${COLOR_SET}"
 if [ ${#report[@]} -gt 0 ]; then
 	echo
 	for (( j=0; j<${#report[@]}; j++ )); do
+		# echo "*** ${report[$j]} ***"
 		echo "*** ${report[$j]} ***" | tee -a $TESTING_STATUS_REPORTS
+		
+		
 	done
 else
 	echo

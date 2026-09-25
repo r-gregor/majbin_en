@@ -1,14 +1,16 @@
 #! /usr/bin/env bash
-# flename: engt-reports-empty.sh
-# descpt: Empty status and test-push reports
-# v1_20250827
+# flename: gt-reports-empty.sh
+# descpt: Empty git reports
+# 20260924: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260924
 # ---
 
 echo "[INFO] emty-ing reports for git staus commands ..."
-> $ENGIT_STATUS_REPORTS
+> $GT_STATUS_REPORTS
 > $TESTING_STATUS_REPORTS
 echo "[INFO] checking reports for git test push commands ..."
-> $ENGIT_TPUSH_REPORTS
+> $GT_TPUSH_REPORTS
 > $TESTING_TPUSH_REPORTS
 echo "[INFO] done"
 

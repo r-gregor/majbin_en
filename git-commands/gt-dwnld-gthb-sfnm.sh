@@ -1,11 +1,13 @@
 #! /usr/bin/env bash
-# filename: dwnld-gtlb-sfnm
-# descpt: Download single filename from https://gitlab.com/r-gregor into: gitlab_r-regor/repo/<[dirname/]filename>
-# v1_20260421
-# last: 20260421
+# filename: gt-dwnld-gthb-sfnm.sh
+# descpt: Download single filename from https://github.com/r-gregor into github_r-regor/repo/<[dirname/]filename>
+# 20260421 v1
+# 20260924: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260924
 # ---
 
-HUB=gitlab
+HUB=github
 
 if [ $# -ne 2 ]; then
 	printf "[ERROR] wrong number of parameters\n"
@@ -13,8 +15,8 @@ if [ $# -ne 2 ]; then
 	printf "\n"
 	exit
 else
-	repo=$1
-	src=$2
+	repo="$1"
+	src="$2"
 fi
 
 dhub="${HUB}_r-gregor_$(date +'%Y%m%d')"
@@ -24,9 +26,9 @@ if [ ! -d "${dst}" ]; then
 	mkdir -pv "${dst}"
 fi
 
-if [[ ${src} =~ "/" ]]; then
+if [[ "${src}" =~ / ]]; then
 	fdir="${src%/*}"
-	fname=${src##*/}
+	fname="${src##*/}"
 	odir="${dst}/${fdir}"
 else
 	fname="${src}"
@@ -34,7 +36,7 @@ else
 fi
 
 oname="${fname}"
-ipath="https://gitlab.com/r-gregor/${repo}/-/raw/main/${src}?ref_type=heads"
+ipath="https://raw.githubusercontent.com/r-gregor/${repo}/refs/heads/main/${src}"
 opath="${odir}/${oname}"
 
 if [ ! -d "${odir}" ]; then

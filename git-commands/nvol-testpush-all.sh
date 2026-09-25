@@ -1,8 +1,10 @@
 #! /usr/bin/env bash
 # fname: nvol-testpush-all.sh
 # descpt: Testpush to majvolpejprs remote
-# v1_20240823
-# last: 20240823
+# 20240823
+# 20260925: unified scripts for linux
+#           HST and system info from exported global variable
+# last: 20260925
 # ---
 
 HST="en"
