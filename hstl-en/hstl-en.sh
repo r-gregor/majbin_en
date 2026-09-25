@@ -13,8 +13,7 @@ HISTSIZE=100000
 HISTFILESIZE=5000
 export HISTTIMEFORMAT='%F %T '
 
-HNM='en'
-HSTL_PATH="$HOME/majstaf/seznami/hstl-${HNM}-$(date +'%Y%m%d-%H%M%S').txt"
+HSTL_PATH="$HOME/majstaf/seznami/hstl-${HST}-$(date +'%Y%m%d-%H%M%S').txt"
 set -o history
 history -r
 history -a
