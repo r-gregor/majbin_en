@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
-# fname: fname-to-lower-with-hypens-en
-# v1_20226031
+# fname: fname-to-lower-with-hypens
+# 20226031
+# last: 20260331
 # ---
 
 ARG="$@"

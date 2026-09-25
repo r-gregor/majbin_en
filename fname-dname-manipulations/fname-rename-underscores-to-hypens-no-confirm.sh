@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
-# fname: fname-rename-spaces-to-hypens-en
-# v1_20226031
+# fname: fname-rename-underscores-to-hypens-no-confirm
+# 20226031
+# last: 20260331
 # ---
 
 ARG="$@"
@@ -17,9 +18,8 @@ if [ ! -f "${FNAME}" ]; then
 	exit
 fi
 
-NEW_FNAME=$(echo "${FNAME}" | sed 's/ \././' | tr ' ' '-')
-printf "[INFO] renaming:\n'${FNAME}' ... to\n'${NEW_FNAME}'\n"
-read -p "[INPUT] OK?"
+NEW_FNAME=$(echo "${FNAME}" | sed 's/ \././' | tr '_' '-')
+
 printf "[INFO] "
 mv -v "${FNAME}" "${NEW_FNAME}"
 printf "\n"

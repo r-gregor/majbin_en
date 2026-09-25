@@ -1,24 +1,26 @@
 #! /usr/bin/env bash
-# fname: fname-rename-spaces-to-hypens-no-confirm-en
-# v1_20226031
+# fname: fname-rename-spaces-to-hypens
+# 20226031
+# last: 20260331
 # ---
 
 ARG="$@"
 
 if [ "x${ARG}" = "x" ]; then
-	echo -e "[ERROR] -- no filename as argument\n"
+	printf "[ERROR] -- no filename as argument\n"
 	exit
 else
 	FNAME="$ARG"
 fi
 
 if [ ! -f "${FNAME}" ]; then
-	echo -e "[ERROR] -- no such file\n"
+	printf "[ERROR] -- no such file\n"
 	exit
 fi
 
 NEW_FNAME=$(echo "${FNAME}" | sed 's/ \././' | tr ' ' '-')
-
+printf "[INFO] renaming:\n'${FNAME}' ... to\n'${NEW_FNAME}'\n"
+read -p "[INPUT] OK?"
 printf "[INFO] "
 mv -v "${FNAME}" "${NEW_FNAME}"
 printf "\n"
