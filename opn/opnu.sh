@@ -2,13 +2,12 @@
 # fname: opnu.sh
 # ---
 
-myPOT="$1"
+myPOT=$1
 
 
-if [ $# -gt 1 ] || [ $# -lt 1 ]; then
+if [ $# -ne 1 ]; then
 	clear
-	echo "USAGE: $0 <absolute path>"
-	echo
+	printf "USAGE: $0 <absolute path>\n\n"
 fi
 
 cd "$(cygpath -u "${myPOT}")"
