@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 # fname: txt-fjls-from-unix2dos-en.sh
-# v1_20260331
+# descpt: Convert all txt files in currdir from dos to unix line-endings
+# 20260925
+# last: 20260925
 # ---
 
 nifs() {
