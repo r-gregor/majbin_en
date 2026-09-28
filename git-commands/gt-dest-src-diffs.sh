@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: gt-dest-src-diffs.sh
+# descpt: check for diff-s of all files in git-repository with original files
 # 20260924
 # 20260924: unified scripts for linux
 #           HST and system info from exported global variable
