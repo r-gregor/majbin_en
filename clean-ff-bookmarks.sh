@@ -1,4 +1,9 @@
 #! /usr/bin/env bash
+# filename: clean-ff-bookmarks.sh
+# descpt: cleans all bookmars in bookmarks file
+# 20260928
+# last: 20260928
+# ---
 
 if [ $# -eq 1 ]; then
 	fname=$1

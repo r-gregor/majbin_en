@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: add-file-to-prenos-en
+# descpt: add file to prenos git-repo
 # 20260210 en v1
 # last: 20260210
 # ---

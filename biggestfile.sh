@@ -1,7 +1,11 @@
 #! /bin/bash
-
-### clear the screen and display biggest files
-### under current dir ...
+# filenme: biggestfile.sh
+# descpt: clear the screen and display biggest files under current dir
+# 20260928
+# last: 20260928
+# --# 20260928
+# last: 20260928
+# ---
 
 # CHANGING IFS TO NEWLINE
 gr_oldifs=$IFS

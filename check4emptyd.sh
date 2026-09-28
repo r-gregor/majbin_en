@@ -1,4 +1,9 @@
 #! /usr/bin/env bash
+# filename: check4emptyd.sh
+# descpt: check for empty directories
+# 20260928
+# last: 20260928
+# ---
 
 if [ $# -ne 1 ]; then
 	curdir="."

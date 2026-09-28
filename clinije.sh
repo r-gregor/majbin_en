@@ -1,10 +1,9 @@
 #! /bin/bash
-
-### clinije.sh
-### copies [linije.shx] file from /c/users/gredelonghi ... /SHAPE datoteke/
-### to all directories named *_risbe*, where file doesn't exist.
-
-### last change: 20140116: changed gr_PATH and gr_DPATH variables
+# filename: clinije.sh
+# descpt: copies [linije.shx] file from /c/users/gredelonghi ... /SHAPE datoteke/ to all directories named *_risbe*, where file doesn't exist.
+# 20140116: changed gr_PATH and gr_DPATH variables
+# last: 20140116
+# ---
 
 gr_MAJDOCS="//jhl.si/dfs/jpe/home/gregor.redelonghi"
 gr_GRDLNGH="/c/Users/gregor.redelonghi"

@@ -1,4 +1,9 @@
 #! /bin/bash
+# filename: coderun.sh
+# descpt: run VScode (Cygwin)
+# 20260928
+# last: 20260928
+# ---
 
 if [ $# -eq 1 ]; then
     unixpath=$1

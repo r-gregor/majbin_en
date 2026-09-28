@@ -1,7 +1,9 @@
 #! /bin/bash
-
-### clear the screen and display biggest dirs
-### under current dir ...
+# filename: biggestdirs.sh
+# descpt: clear the screen and display biggest dirs
+# 20260928
+# last: 20260928
+# ---
 
 # CHANGING IFS TO NEWLINE
 gr_oldifs=$IFS

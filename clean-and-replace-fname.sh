@@ -1,6 +1,10 @@
 #! /usr/bin/env bash
+# filename: clean-and-replace-fname.sh
+# descpt: cleans filename (preserves lettercase, with underscores) and offers to rename it
+# 20260928
+# last: 20260928
+# ---
 
-# clean_and_replace_fname
 # preserves letter case
 
 if [ $# -ne 1 ]; then

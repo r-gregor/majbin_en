@@ -1,4 +1,9 @@
 #! /usr/bin/env bash
+# filename: clean-and-replace-fname-case.sh
+# descpt: cleans filename (hanges all letters to LOWERCASE, with underscores) and offers to rename it
+# 20260928
+# last: 20260928
+# ---
 
 # clean_and_replace_fname_case
 # changes all letters to LOWERCASE

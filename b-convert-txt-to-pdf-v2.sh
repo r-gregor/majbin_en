@@ -1,13 +1,11 @@
 #! /bin/bash
-
-# filename:     b-convert-txt-to-pdf.sh
-# version:      V2 -- 20220926
-#
+# filename: b-convert-txt-to-pdf.sh
+# descpt: convert txt file into pdf inside ./0_converted_to_PDF directory
+# 20220926 v2: changed so it can compile all ascii files (.c, .go, .py, .java, ...)
 # !!! It requires enscript and ghostscript apps to be installed !!!
 # Both are usually in base repos.
-#
-# changed so it can compile all ascii files (.c, .go, .py, .java, ...)
-#
+# last: 20220926
+# ---
 
 # timestamp
 function tms() {
