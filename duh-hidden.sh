@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-
 # filename: duh-hidden.sh
 # descpt: du, but with hidden files
 # last: 20260922
