@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # filename: showw.sh
-# idescpt: List all show-* commands and run fzf selection
+# descpt: List all show-* commands and run fzf selection
 # 20260209
 # last: 20260209
 # ---
