@@ -14,11 +14,11 @@ git_nvol="/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKDIR}"
 ghvol="git@github.com:r-gregor/vlpprs_${HST}.git"
 glvol="git@gitlab.com:r-gregor/vlpprs_${HST}.git"
 
-echo "[INFO] Push to ${ghvol} ..."
+echo "[i] Push to ${ghvol} ..."
 ${git_nvol} push ${ghvol} main
 echo "---"
 
-echo "[INFO] Push to ${glvol} ..."
+echo "[i] Push to ${glvol} ..."
 ${git_nvol} push ${glvol} main
 echo "---"
 
