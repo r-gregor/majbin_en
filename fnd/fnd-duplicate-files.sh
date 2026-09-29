@@ -1,5 +1,6 @@
 #! /bin/bash
 # fname: find-duplicatef-01.sh
+# descpt: find non-empty duplicate files
 # v1_20140420
 # ONELINER that finds all duplicate files (by contents) in groups separated ba empty lines ...
 #---

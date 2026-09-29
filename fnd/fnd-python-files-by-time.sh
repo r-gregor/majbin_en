@@ -1,33 +1,35 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # fname: fnd-python-files-by-time.sh
+# descpt: find python files sorted by date
 # 20260514
 # ---
 
 clear
 
-gr_MSG="Usage: $0 [ , < path >, -h ]"
+MSG="Usage: $0 [ , < path >, -h ]"
 
 if [ $# -eq 1 ]; then
-	gr_LCT=$1
+	LCT=$1
 else
-	gr_LCT="$PWD"
+	LCT="$PWD"
 fi
 
-if [ ! -e ${gr_LCT} ]; then
-	echo -e "The path supplied is NONEXISTANT!\n"
+if [ ! -e "${LCT}" ]; then
+	printf "[E] no such path: '%s'\n\n" "${LCT}"
 	exit 1
 fi
 	
 
 clear
-echo -e "Finding [ python ... txt ] files, sorted by date ..."
-echo -e "\nSerch start location is: \n\t${gr_LCT}\n"
+printf "[i] finding [ python ... txt ] files, sorted by date ...\n"
+printf "[i] serch start location is: \n\t'%s'\n" "${LCT}"
 	
 # command:
-find ${gr_LCT} -type f -iname "*python*" -exec ls -lgG --time-style=long-iso {} \; 2>/dev/null | cut -d' ' -f4- | sort -nr
-if [ $? -ne "0" ]; then
-	echo "Something went WRONG."
+find ${LCT} -type f -iname "*python*" -o -iname "ptn*" -exec ls -lgG --time-style=long-iso {} \; 2>/dev/null | cut -d' ' -f4- | sort -nr
+if [ $? -ne 0 ]; then
+	printf "[E] something went WRONG\n\n"
+	exit 1
 fi
 
-echo -e "\nDone.\n"
-
+printf "[i] done\n"
+-o -iname "ptn*" 

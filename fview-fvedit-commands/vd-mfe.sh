@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # fname: ve-me
-# pipe output of external command into ve-me
+# descpt: open fzf-selected (-e) file in vim
 # v1_20260402
 # last: 20260402
 # ---
