@@ -28,7 +28,7 @@ get_status() {
 	echo "${output[@]}" | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
-		printf -n "[i] checking git status in ${DDD} ...\n"
+		printf "[i] checking git status in ${DDD} ..."
 		printf " no action required\n"
 	else
 		printf -- "---\n"

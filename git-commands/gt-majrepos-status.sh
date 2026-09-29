@@ -27,19 +27,19 @@ get_status() {
 	echo "${output[@]}" | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
-		printf -n "[i] checking git status in ${DDD} ...\n"
+		printf "[i] checking git status in ${DDD} ..."
 		printf " no action required\n"
 	else
 		printf -- "---\n"
 		printf "${COLOR_SET}"
 		msg=$(echo -e "[REPORT] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT\n")
-		printf "$msg"
+		echo -e "$msg"
 		printf "${COLOR_RESET}"
 
 		readarray -t -O "${#report[@]}" report < <(echo -e "$msg")
 
 		for (( i=0; i<${#output[@]}; i++ )); do
-			printf ">\t${output[$i]}"
+			echo -e ">\t${output[$i]}"
 		done
 		printf -- "---\n"
 	fi
