@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: hstl-en.sh
+# descpt: copy all history commands into '$SZNM/hstl-' file
 # 20251120 v1 create history commands snapshot
 # last: 20251120
 # ---
@@ -20,5 +21,5 @@ history -a
 history -w
 history >> ${HSTL_PATH}
 set +o history
-echo "Sccesfully added commands from HISTORY to ${HSTL_PATH}"
+printf "[i] succesfully added commands from HISTORY to '%s'\n\n" "${HSTL_PATH}"
 

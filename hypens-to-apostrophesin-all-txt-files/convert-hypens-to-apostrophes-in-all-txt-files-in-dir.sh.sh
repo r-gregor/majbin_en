@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: convert-hypens-to-apostrophes-in-all-txt-files-in-dir.sh
+# descpt: convert hypens to apostrophes in all txt files in curdir
 # 2060312 en
 # last: 20260312
 # ---
