@@ -1,107 +1,82 @@
-#!/bin/bash
-
-### ------------------------------------------------------------------------
-### name:       delbak.sh
-### author:     RgregoR, 2017
-### date:       20171116 
-### ------------------------------------------------------------------------
-###  script that finds all *.bak files in currdir and subdirs
-
-### ------------------------------------------------------------------------
+#! /usr/bin/env bash
+# fname: delbak.sh
+# descpt: finds all *.bak files in currdir and subdirs
+# 20171116 v1
+# last: 20171116
+# ---
 
 # timestamp
 function tms() {
-    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
+	printf "[ $(date +%Y%m%d_%H%M%S) ] "
 }
 
-
-tms; echo "Starting $0 ..."
-
-
+tms; printf "[i] Starting $0 ...\n"
 gr_oldifs=$IFS
 IFS=$'\n'
  
-# info
-# cat <<"EOF"
-# #######################################################
-# # scriptname: delbak.sh                               #
-# # --------------------------------------------------- #
-# # finding and deleting [*.bak] files in:              #
-# # $currdir and subdirs                                #
-# #######################################################
-# 
-# EOF
-
 # creating temp file to store a list of found files
 gr_tmpf="$HOME/.tmp/delbaklist.txt"
-touch ${gr_tmpf}
+touch "${gr_tmpf}"
 
 # empty the file
-> ${gr_tmpf}
+> "${gr_tmpf}"
 
-gr_curdir=$(realpath $PWD)
-tms; echo "The curdir: $gr_curdir"
+gr_curdir=$(realpath "$PWD")
+tms; printf "[i] The curdir: ${gr_curdir}\n"
 
 # Ask for confirmation:
-tms; echo -n "Proceed [y/n]?  "
+tms; printf "[?] Proceed [y/n]?  "
 
 # Read ansver:
 read dans1
 
 if [ "$dans1" != y ] && [ "$dans1" != Y ]; then
-    tms; echo "Your answer is NOT \"y\" or \"Y\""
-    tms; echo -e "DONE!\n"
-    exit 1
+	tms; printf "[E] Your answer is NOT \"y\" or \"Y\"\n"
+	tms; printf "[i] done\n"
+	exit 1
 fi
 
 
-# NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO NOVO
-for fls in $(find ${gr_curdir} -name "*.bak"); do
-    echo "${fls}" >> ${gr_tmpf}
+for fls in $(find "${gr_curdir}" -name "*.bak"); do
+	echo "${fls}" >> "${gr_tmpf}"
 done
 
-gr_st=$(cat ${gr_tmpf} | wc -l)
+gr_st=$(cat "${gr_tmpf}" | wc -l)
 
 
-if [ ${gr_st} != 0 ]; then
-    cat ${gr_tmpf}
-    echo
-    tms; echo "Number of files found: ${gr_st}"
-    
-    # setting linefeed as a field sepparator
-    gr_oldifs=$IFS
-    IFS=$'\n'
-    
-    tms; echo -n "Delete? [y|n] "
-    read _ans
-        if [ "$_ans" == y ] || [ "$_ans" == Y ]; then
-            tms; echo "Deleting found *.bak files ..."
-            
-            while read fls1; do
-                rm -v ${fls1}
-            done < ${gr_tmpf}
-            echo
-            tms; echo "DONE!"
-            
-        else
-            tms; echo "Your answer is NOT \"y\" or \"Y\"."
-            read -p "$tms Press any key to continue or ctrl-c to quit!"
-            tms; echo "DONE!"
-        fi
-    
-    # setting field sepparator to its original value
-    IFS=${gr_oldifs}
+if [ "${gr_st}" != 0 ]; then
+	cat "${gr_tmpf}"
+	echo
+	tms; echo "[i] Number of files found: ${gr_st}"
+	
+	# setting linefeed as a field sepparator
+	gr_oldifs=$IFS
+	IFS=$'\n'
+	
+	tms; printf "[?] Delete? [y|n] "
+	read _ans
+		if [ "$_ans" == y ] || [ "$_ans" == Y ]; then
+			tms; echo "[i] Deleting found *.bak files ..."
+			
+			while read fls1; do
+				rm -v "${fls1}"
+			done < "${gr_tmpf}"
+			echo
+			tms; printf "[i] done\n"
+			
+		else
+			tms; printf "[E] Your answer is NOT \"y\" or \"Y\"\n"
+			read -p "$tms Press any key to continue or ctrl-c to quit!"
+			tms; printf "[i] done\n"
+		fi
+	
+	# setting field sepparator to its original value
+	IFS="${gr_oldifs}"
 else
-    tms; echo "Number of files found: ${gr_st}"
-    tms; echo "DONE!"
+	tms; echo "Number of files found: ${gr_st}"
+	tms; echo "[i] done"
 fi
 
 IFS=${gr_oldifs}
-rm ${gr_tmpf}
-
-
-
-
-
-
+rm "${gr_tmpf}"
 

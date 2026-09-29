@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # fname: d3f.sh
-# descot: Start OneCommander - D3 and Firefox
+# descpt: Start OneCommander - D3 and Firefox
 # 20260922
 # last 20260922
 # ---
