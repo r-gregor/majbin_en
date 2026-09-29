@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# fname: ff-onetablink-launch-mdb.sh
+# fname: ff-onetablink-launch.sh
+# descpt: open onetablinks in Firefox with fzf list from external file
 # 20260529 v1: converts a line:
 #             https://www.youtube.com/results?search_query=salsa+hand+toss+flip | (7) salsa hand toss flip - YouTube
 #             ... to ...
@@ -21,7 +22,7 @@ declare -A llist
 
 usage() {
 	cat <<"EOF"
-	Usage: ff-onetablink-launch-jbe <filename>
+	Usage: ff-onetablink-launch <filename>
 
 EOF
 }
@@ -37,7 +38,7 @@ if [ $# -ne 1 ]; then
 else
 	fjl="$1"
 	if [ ! -f "${fjl}" ]; then
-		printf "%s\n\n" "[ERROR] No such file: ${fjl}"
+		printf "%s\n\n" "[E] No such file: ${fjl}"
 		exit
 	fi
 fi
@@ -65,7 +66,7 @@ ff_onetablink_launch() {
 
 	#v4
 	if [ "${selection}" == "" ]; then
-		printf "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit 0
 	fi
 
@@ -81,7 +82,7 @@ ff_onetablink_launch() {
 	# run
 	for URL in "${!llist[@]}"; do
 		if [[ "${llist["${URL}"]}" =~ ${selection} ]]; then
-			printf "[INFO] selected: %s\n" "${selection}" #v4
+			printf "[i] selected: %s\n" "${selection}" #v4
 			(nohup ${FFCMD} "${URL}" &) > /dev/null 2>&1
 			# exit #v4
 		fi

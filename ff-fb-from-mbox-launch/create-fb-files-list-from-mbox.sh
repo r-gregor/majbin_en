@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: create-fb-files-list-from-mbox-mdb.sh
+# descpt: create fb-links file from mbox file
 # v1_20260721
 # last: 20260721
 # ---
@@ -17,15 +18,15 @@ SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
 tdy=$(date +"%Y%m%d_%H%M%S")
 
 if [ $# -ne 1 ]; then
-	printf "[ERROR] no sorce *.mbox file supplied\n"
-	printf "[INFO] Usage: create-fb-files-list-from-mbox <mbox file>\n\n"
+	printf "[E] no sorce *.mbox file supplied\n"
+	printf "[i] Usage: create-fb-files-list-from-mbox <mbox file>\n\n"
 	exit
 else
 	src="${SRCDIR}/${1}"
 fi
 
 if [ ! -f "${src}" ]; then
-	printf "[ERROR] no such file: %s\n\n" "${src}"
+	printf "[E] no such file: %s\n\n" "${src}"
 	exit
 fi
 
@@ -42,13 +43,13 @@ if [ ! -f "${dst}" ]; then
 	touch "${dst}"
 fi
 
-printf "[INFO] Making backup of '%s' to '%s' ...\n" "${dst_local}" "${bkp_local}"
+printf "[i] Making backup of '%s' to '%s' ...\n" "${dst_local}" "${bkp_local}"
 cp "${dst}" "${fbf_backup}"
 
-printf "[INFO] Cleaning up '%s' ...\n" "${dst_local}"
+printf "[i] Cleaning up '%s' ...\n" "${dst_local}"
 > ${dst}
 
-printf "[INFO] Loading info from *.mbox file into '%s' ...\n" "${dst_local}"
+printf "[i] Loading info from *.mbox file into '%s' ...\n" "${dst_local}"
 while read -r LINE2; do
 	if [[ $LINE2 =~ "Date" ]]; then
 		yr=$(echo "$LINE2" | cut -d' ' -f5)
@@ -68,5 +69,5 @@ while read -r LINE2; do
 	fi
 done < "${src}"
 
-printf "[INFO] Done!\n"
+printf "[i] Done!\n"
 

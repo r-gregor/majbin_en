@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: ff-launch--en
+# descpt: open url-links in Firefox with fzf list from external file
 # 20251117 v1
 # 20251117 v2: :associative array --> no case statement needed
 # 20251117 v3: ALL --> cat all txt files into process subst ...
@@ -34,22 +35,22 @@ ff_launch() {
 	selection=$(for URL in "${URLS[@]}"; do echo "$URL"; done 2>/dev/null | FZFCMD)
 
 	if [ "${selection}" == "" ]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit
 	fi
 
 	if [[ "${selection}" =~ ^(---) ]]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit
 	fi
 
 	if [[ "${selection}" =~ ^\[.*\] ]]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit
 	fi
 
 	path=$(echo "${selection}" | cut -d ' ' -f1)
-	echo "[INFO] selected: ${path}"
+	printf "[i] selected: ${path}\n"
 	# nohup ${FFCMD} "${path}" >&/dev/null &
 	(nohup ${FFCMD} "${path}" &) > /dev/null 2>&1
 }
@@ -63,7 +64,7 @@ while true; do
 	selected=$(for WAY in "${categories[@]}"; do echo "${WAY}"; done | fzf +c --reverse)
 
 	if [ "${selected}" == "" ]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit
 	fi
 

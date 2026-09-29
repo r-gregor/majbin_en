@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
-# filename: ff-personal-launch-en
-# from ff-launch-en
+# filename: ff-personal-launch.sh
+# descpt: open url-link in Firefox with fzf list from external file
+# from ff-launch
 # 20260216
 # 20260229 v2: add info what was selected
 #              change the fzf display to full height
@@ -43,7 +44,7 @@ load_links_into_array() {
 
 get_longest() {
 	if [ ! $# -eq 1 ]; then
-		echo "[ERROR1] must supply array of sentences as parameter"
+		printf "[E1] must supply array of sentences as parameter\n"
 		exit 1
 	fi
 
@@ -68,17 +69,16 @@ ff_personallaunch() {
 	local selection=$((for KEY in "${KEYS[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | fzf --reverse)
 
 	if [ "${selection}" == "" ]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit 0
 	fi
 
 	if [ "${selection}" == "Quit" ]; then
-		# echo -e "[INFO] leaving\n"
 		exit 0
 	fi
 
 	if [ "${selection}" != "${delline}" ]; then
-		echo "[INFO] selected: ${selection}"
+		printf "[i] selected: ${selection}\n"
 		# nohup ${FFCMD} "${URLS["${selection}"]}" >&/dev/null &
 		(nohup ${FFCMD} "${URLS["${selection}"]}" &) > /dev/null 2>&1
 	fi

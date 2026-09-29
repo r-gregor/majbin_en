@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-# filename: get-fb-mails.sh
+# filename: ff-fb-mails-launch.sh
+# descpt: open fb-mails links in Firefox from fzf list
 # 20260216 v1
 # 20260223 v2
 # 20260306 v3: add 'sort -nr' in 'selection=...' to sort by datestamp
@@ -41,7 +42,7 @@ fb_files_load() {
 	local fb_url
 	local fb_fname
 
-	echo "[INFO] loading messages ..."
+	echo "[i] loading messages ..."
 	while IFS= read -r LINE; do
 		fb_url="${LINE%;*}"
 		fb_fname="${LINE#*;}"
@@ -52,7 +53,7 @@ fb_files_load() {
 
 if [ $# -eq 1 ]; then
 	if [ "$1" == "-u" ] || [ "$1" == "--update" ]; then
-		echo "[INFO] updating ${fb_files_list} ..."
+		echo "[i] updating ${fb_files_list} ..."
 		fb_files_list_update
 	fi
 	fb_files_load
@@ -65,7 +66,7 @@ fb_launch() {
 	selection=$(for EL in "${!fb_files[@]}"; do echo "${EL}"; done | sort -nr | FZFCMD) # SORT BY TIMESTAMP
 
 	if [ "${selection}" == "" ]; then
-		echo -e "[INFO] nothing selected\n"
+		printf "[i] nothing selected\n"
 		exit 0
 	fi
 
@@ -73,7 +74,7 @@ fb_launch() {
 		exit 0
 	fi
 
-	echo "[INFO] selected: ${selection} | ${fb_files["${selection}"]}"
+	echo "[i] selected: ${selection} | ${fb_files["${selection}"]}"
 	# nohup ${FFCMD} "${fb_files["${selection}"]}" >&/dev/null &
 	(nohup ${FFCMD} "${fb_files["${selection}"]}" &) >/dev/null 2>&1
 }
