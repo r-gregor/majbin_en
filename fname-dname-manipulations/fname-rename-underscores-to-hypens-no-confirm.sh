@@ -1,26 +1,27 @@
 #! /usr/bin/env bash
 # fname: fname-rename-underscores-to-hypens-no-confirm
+# descpt: rename file from underscores to hypens -- NO CONFIRM
 # 20226031
 # last: 20260331
 # ---
 
 ARG="$@"
 
-if [ "x${ARG}" = "x" ]; then
-	printf "[ERROR] -- no filename as argument\n"
+if [ "${ARG}" = "" ]; then
+	printf "[E] -- no filename as argument\n"
 	exit
 else
 	FNAME="$ARG"
 fi
 
 if [ ! -f "${FNAME}" ]; then
-	printf "[ERROR] -- no such file\n"
+	printf "[E] -- no such file\n"
 	exit
 fi
 
 NEW_FNAME=$(echo "${FNAME}" | sed 's/ \././' | tr '_' '-')
 
-printf "[INFO] "
+printf "[i] "
 mv -v "${FNAME}" "${NEW_FNAME}"
 printf "\n"
 
