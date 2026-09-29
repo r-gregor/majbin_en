@@ -1,15 +1,21 @@
 #! /usr/bin/env bash
+# fname: ff.sh
+# descpt: run firefox
+# 20260929 v1
+# last: 20260929
+# ---
 
-gr_FF="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
+FF="/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/FireFox_63.0.1/FirefoxPortable.exe"
 
-gr_PTH=file://$(cygpath -w $PWD | sed 's:\\:/:g')
+PTH=file://$(cygpath -w $PWD | sed 's:\\:/:g')
 
 if [ $# -eq 1 ]; then
-    gr_FJL=$1
-    cygstart ${gr_FF} ${gr_PTH}/${gr_FJL}
+    FJL="$1"
+    cygstart "${FF}" "${PTH}/${FJL}"
 elif  [ $# -eq 0 ]; then
-    cygstart ${gr_FF}
+    cygstart "${FF}"
 else
-    echo -e "To many parameters!\n"
+    printf "[E] To many parameters!\n"
     exit
 fi
+
