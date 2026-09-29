@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# fname: vv-m
-# pipe output of external command into vv-m
+# fname: fview-fvedit-commands/vv-mf.sh
+# descpt: open multiple fzf-sellected files in vim
 # v1_20260402
 # last: 20260402
 # ---

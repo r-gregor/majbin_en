@@ -1,72 +1,60 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: geslo-spremeni-en.sh
+# descpt: change psswd-num in config files for sending mail cli
+# 20230523: conf data in ~/.SCRTS file
+# last: 20230523
+# ---
 
-### Name:   spremeni_geslo_en
-### Author: RgregoR
-### Date:   20240919
-### Decription:
-### Change psswd-num in config files for sending mail CLI
-### UPDATE 20230523: conf data in ~/.SCRTS file
-
-# path to .SCRTS
-# gCurdir="$HOME/majstaf/majbin/send_mail_scrts/"
+# === globals ===
 gScrts="$HOME/.SCRTS_en"
-
-# path to temp backup files
 gTempd="$HOME/.tmp"
 
-if [[ ! -d $gTempd ]]; then
-	echo -e "Error: There is no $gTempd/\n"
+if [[ ! -d "$gTempd" ]]; then
+	printf "[E] no such directory '%s'\n" "${gTempd}"
 	exit 1
 fi
 
 # timestamp
 function gTms() {
-    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
+    printf "[ $(date +%Y%m%d_%H%M%S) ] "
 }
 
-
-gTms; echo "Starting $0"
+gTms; printf "[i] starting $0"
 
 # creating backup files
-gTms; echo -n "Creating backupfiles ... "
+gTms; printf "[i] creating backupfiles ... "
 
-# for gEnd in conf py; do
-#     cp ${gCurdir}/send_config_en.${gEnd} ${gTempd}/send_config_en.${gEnd}_${gTms}.bckp 2> /dev/null
-# done
-cp ${gScrts} ${gTempd}/${gScrts}.bckp 2> /dev/null
+cp "${gScrts}" "${gTempd}/${gScrts}.bckp" 2> /dev/null
 
-echo "done"
+printf "[i] done\n"
 
-# TEST for PSWD in config files
-gTms; echo "Checking for 'number' in password ..."
+gTms; printf "[i] checking for 'number' in password ...\n"
 
-function getNum() {
-	num=$(grep 'PSSWD_SCRTS' ${gScrts} | grep -oE "[[:digit:]]{3}")
-	echo $num
+getNum() {
+	num=$(grep 'PSSWD_SCRTS' "${gScrts}" | grep -oE "[[:digit:]]{3}")
+	echo "$num"
 }
 
 gOldn=$(getNum "conf")
 NUM_O=$(getNum "py")
-echo "Old passwd number: $NUM_O"
+printf "[i] old passwd number: %s\n\n" "$NUM_O"
 
-echo
-gTms; read -p "Enter NEW passwd num: " gNewn
+gTms; read -r -p "[?] enter NEW passwd num: " gNewn
 
-gTms; echo "Old passwd num is: ${gOldn}"
-gTms; echo "NEW passwd num is: ${gNewn}"
+gTms; printf "[i] old passwd num is: '%s'\n" "${gOldn}"
+gTms; printf "[i] NEW passwd num is: '%s'\n" "${gNewn}"
 
-# TEST for files
-if [ -f ${gScrts} ]; then
-    gTms; echo "Files exist. OK to continue ..."
+if [ -f "${gScrts}" ]; then
+    gTms; printf "[W] files exist. OK to continue ...\n"
 else
-    gTms; echo -e "NO config files!\n"
+    gTms; printf "[E] NO config files\n"
     exit 1
 fi
 
-gTms; read -p "Continue?"
+gTms; read -r -p "[?] continue?"
 
 # ACTION
-gTms; echo "Replacing old psswd in send_config_en.*: "
-sed -i "s/${gOldn}/${gNewn}/g" ${gScrts}
-grep ${gNewn} ${gScrts}
+gTms; printf "[i] teplacing old psswd in send_config_en.*: \n"
+sed -i "s/${gOldn}/${gNewn}/g" "${gScrts}"
+grep "${gNewn}" "${gScrts}"
 

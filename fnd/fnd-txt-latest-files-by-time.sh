@@ -1,5 +1,6 @@
 #! /bin/bash
 # fname: fnd-txt-latest-files-by-time.sh
+# descpt: find latest *.txt files sorted by time
 # v1_20260514
 #---
 
