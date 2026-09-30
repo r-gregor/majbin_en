@@ -7,8 +7,7 @@
 # 20250301: correct output messaging
 # 20260924: unified scripts for linux
 #           HST and system info from exported global variable
-# 20260930: corrected VOLWORKTREE path to correct Win path
-# last: 20260930
+# last: 20260924
 # ---
 
 COLOR_SET="\e[1;92m"
@@ -60,10 +59,7 @@ done
 # volpejpers
 DDD="vlpprs_${HST}"
 VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}"
-
-# 20260930:
-# VOLWORKTREE="${HOME}/majstaf/majvolpejpers"
-VOLWORKTREE='/c/Users/gregor.redelonghi/majstaf_en/en_staf/majvolpejprs'
+VOLWORKTREE="${HOME}/majstaf/majvolpejpers"
 get_status "/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKTREE}"
 
 printf "${COLOR_SET}"
