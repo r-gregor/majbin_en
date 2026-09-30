@@ -65,7 +65,7 @@ update_log() {
 		exit 1
 	fi
 
-	printf "%s updated file: %s\n" "${ltmpstmp}" "$(realpath "${SRCF}")" >> "${ldest}"
+	printf "%s updated: %s\n" "${ltmpstmp}" "$(realpath "${SRCF}")" >> "${ldest}"
 }
 
 update_file_to_git() {
