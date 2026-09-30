@@ -1,10 +1,12 @@
 #! /usr/bin/env bash
 # filename: lynx-multi-dump-fromlist-en.sh
+# descpt: convert multiple http-tech-sites from url-list in external file into txt-file using lynx
 # v1_20250925 remove option to use dumplist
 # v2 20260731 implement fname_string_adjustment() function
 #             add prefix option
 # 20260804 v3 move 'lynx dump' command into dump_command() function
-# last: 20260804
+# 20260930
+# last: 20260930
 # ---
 
 # EN-proxy ...
@@ -43,21 +45,21 @@ dump_command() {
 #MAIN
 
 if [ $# -lt 2 ]; then
-usage
-exit 1
+	usage
+	exit 1
 fi
 
 if [ $# -eq 2 ]; then
 	seznam="$1"
 	if [ ! -f $seznam ]; then
-		printf "[ERROR] no such file: ${seznam}\n\n"
+		printf "[E] no such file: ${seznam}\n\n"
 		exit 1
 	fi
 	ffname=$(fname_string_adjustment "$2")
 elif [ $# -eq 3 ]; then
 	seznam="$1"
 	if [ ! -f $seznam ]; then
-		printf "[ERROR] no such file: ${seznam}\n\n"
+		printf "[E] no such file: ${seznam}\n\n"
 		exit 1
 	fi
 	pfnm=$(fname_string_adjustment "$2")
@@ -71,22 +73,22 @@ dest="$PWD"
 
 # destination ...
 fdest="${PWD}"
-printf "[INFO] Destination: ${fdest}/${ffname}\n"
+printf "[i] Destination: ${fdest}/${ffname}\n"
 
 # If OK pres any key, else ctrl-c ...
-read -p "[INFO] Continue ?"
-cd $fdest
-touch ${ffname}
+read -r -p "[?] Continue ?"
+cd "${fdest}"
+touch "${ffname}"
 
 printf "filename: ${ffname}\n" >> ${ffname}
 
-for FFF in $(cat ${seznam}); do
-	printf "[INFO] inserting $FFF into ${ffname}\n"
-	printf "$FFF\n" >> ${ffname}
-	# lynx -dump -width=110 $FFF >> ${ffname}
-	dump_command $FFF >> ${ffname}
-	printf "\n\n\n---\n" >> ${ffname}
+for FFF in $(cat "${seznam}"); do
+	printf "[i] inserting $FFF into ${ffname}\n"
+	printf "$FFF\n" >> "${ffname}"
+	# lynx -dump -width=110 $FFF >> "${ffname}"
+	dump_command $FFF >> "${ffname}"
+	printf -- "\n\n\n---\n" >> "${ffname}"
 done
 
-printf "[INFO] done\n"
+printf "[i] done\n"
 

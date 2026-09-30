@@ -1,10 +1,12 @@
 #! /usr/bin/env bash
 # fname: lynxd-en.sh
+# descpt: convert http-tech-site into txt-file using lynx
 # 20250925 v1 remove option to use dumplist
 # 20260731 v2 implement fname_string_adjustment() function
 #             add prefix option
 # 20260804 v3 move 'lynx dump' command into dump_command() function
-# last: 20260804
+# 20260930
+# last: 20260930
 # ---
 
 ###  EN-proxy ...
@@ -45,8 +47,8 @@ dump_command() {
 clear
 
 if [ $# -lt 2 ]; then
-usage
-exit 1
+	usage
+	exit 1
 fi
 
 if [ $# -eq 2 ]; then
@@ -62,19 +64,19 @@ else
 fi
 
 
-printf "[INFO] %-10s%s\n" "Web URL:" "${weburl}"
-printf "[INFO] %-10s%s\n" "filename:" "${flnm}"
+printf "[i] %-10s%s\n" "Web URL:" "${weburl}"
+printf "[i] %-10s%s\n" "filename:" "${flnm}"
 
-printf "[INFO] Press <enter> to proceed or <ctrl-c> to quit"
-read ANS
+ rintf "[?] Press <enter> to proceed or <ctrl-c> to quit"
+read -r ANS
 
 # echo "filename: ${flnm}" >> ${flnm}
-# echo -e "${weburl}\n\n" >> ${flnm}
-printf "filename: ${flnm}\n" >> ${flnm}
-printf "${weburl}\n\n" >> ${flnm}
+# printf "${weburl}\n\n" >> ${flnm}
+printf "filename: ${flnm}\n" >> "${flnm}"
+printf "${weburl}\n\n" >> "${flnm}"
 # lynx -dump -width=110 ${weburl} >> ${flnm}
-dump_command ${weburl} >> ${flnm}
-echo -e "\n\n---\n" >> ${flnm}
+dump_command "${weburl}" >> "${flnm}"
+printf -- "\n\n---\n" >> "${flnm}"
 
-printf "[INFO] done\n"
+printf "[i] done\n"
 
