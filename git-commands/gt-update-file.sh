@@ -43,16 +43,16 @@ if [[ ! "${DSTD}" =~ ${ptrn} ]]; then
 fi
 
 if [ ! -f "${DSTF}" ]; then
-	printf "[WARN] no such file on destination: %s\n" "${DSTF##*/}"
+	printf "[W] no such file on destination: %s\n" "${DSTF##*/}"
 	read -r -p "Continue?"
 fi
 
 update_file_to_git() {
-	printf "%s\n%s\n%s\n" \
-		"from: ${SRCF}" \
-		"to:   ${DSTF}" \
-		"---"
-	read -p "OK?"
+	printf -- "%s\n%s\n%s\n" \
+		"[i] from: ${SRCF}" \
+		"[i] to:   ${DSTF}" \
+		"[i] ---"
+	read -p "[?] OK?"
 	cp -iv "${SRCF}" "${DSTF}"
 }
 
