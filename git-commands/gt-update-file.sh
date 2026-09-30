@@ -13,7 +13,7 @@
 # ---
 
 if [ $# -ne 1 ]; then
-	printf "\tUsage: gupdate-file <src_fname>\n\n"
+	printf "\tUsage: gt-update-file <src_fname>\n\n"
 	exit 1
 else
 	src_fname=$(realpath "$1")
@@ -46,7 +46,7 @@ fi
 
 if [ ! -f "${DSTF}" ]; then
 	printf "[W] no such file on destination: %s\n" "${DSTF##*/}"
-	read -r -p "Continue?"
+	read -r -p "[?] Continue?"
 fi
 
 update_log() {
