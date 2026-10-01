@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/qckstrt.sh 
+/home/gregor.redelonghi/majstaf/majbin/read-latest-from-knowledgedb.sh 
+/home/gregor.redelonghi/majstaf/majbin/relink-shell-link-names-to-names-with-sh.sh 
+/home/gregor.redelonghi/majstaf/majbin/remove-all-commented-lines-c.sh 
+/home/gregor.redelonghi/majstaf/majbin/rename/mrenamef-b.sh 
+/home/gregor.redelonghi/majstaf/majbin/rename-to-basename2-with-new-ext.sh 
+/home/gregor.redelonghi/majstaf/majbin/renaming-programming-folders/renamedir-from-d-to-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/renaming-programming-folders/renamedir-from-en-to-d.sh 
+/home/gregor.redelonghi/majstaf/majbin/renaming-programming-folders/renamedir-to-BRISI.sh 
+/home/gregor.redelonghi/majstaf/majbin/repair1-quotation-marks.sh 

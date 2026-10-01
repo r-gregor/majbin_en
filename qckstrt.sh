@@ -1,50 +1,27 @@
-#!/bin/bash
+#! /usr/bin/env bash
+# fname: qckstrt.sh
+# descpt: quick start (cygwin) --> qtm
+# 20261001 v1
+# last: 20261001
+# ---
 
-# gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office14'
-# gr_OFPOT='/c/Program Files (x86)/Microsoft Office/Office16'
-gr_OFPOT='/c/Program Files/Microsoft Office/root/Office16'
+# if [ "$CURRENT_YEAR_ENV" -ne $(date +%Y) ]; then
+# 	CURRYR="$CURRENT_YEAR_ENV"
+# else
+# 	CURRYR=$(date +%Y)
+# fi
 
-if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
-	CURRYR=$CURRENT_YEAR_ENV
-else
-	CURRYR=$(date +%Y)
-fi
+OFPOT='/c/Program Files/Microsoft Office/root/Office16'
 
-### startup programs
-
-# change 20240201
-echo "Starting OneCommander (explorer) ..."
-# cygstart "$(cygpath -w /c/users/gregor.redelonghi/majstaf_en/majprogs_en/OneCommander/OneCommander.exe)"
+printf "[i] starting OneCommander (explorer) ...\n"
 cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin D2
 
-# echo "Starting Explorer ..."
-# cygstart explorer /E,"$(cygpath -w /c/users/gregor.redelonghi/${CURRYR})"
+printf "[i] starting MS OutLook ...\n"
+cygstart "${OFPOT}/OUTLOOK.EXE"
 
-# echo "Starting Google Chrome ..."
-# cygstart /c/Users/gregor.redelonghi/AppData/Local/Google/Chrome/Application/chrome.exe
-
-# echo "Starting FireFox (portable) ..."
-# cygstart /c/Users/gregor.redelonghi/majstaf_en/myprogs/FireFox_63.0.1/FirefoxPortable.exe
-
-# echo "Starting Dropbox ..."
-# cygstart /c/Users/gregor.redelonghi/AppData/Roaming/Dropbox/bin/Dropbox.exe
-
-echo "Starting MS OutLook ..."
-cygstart "${gr_OFPOT}/OUTLOOK.EXE"
-
-# echo "Starting zze on Mintty ..."
-# mintty -p 200,100 -s 210,60 -e /bin/bash /home/gregor.redelonghi/majstaf/coding2/zze/zze.sh &
-# zze is staring in nex sequence in .tmux_1_conf ...
-
-# 
-# echo "Starting tmux on Mintty ..."
-# mintty -p 200,100 -s 210,60 -e /usr/bin/tmux -f ~/.tmux_2_conf attach &
-
-# 20230525: added Super Launcher
-echo "Starting Super Launcher ..."
+printf "[i] starting Super Launcher ...\n"
 cygstart "$(cygpath -w "/c/Users/Public/below average/Super Launcher/SuperLauncher.exe")"
 
-echo -e "All startup instances started successfuly.\n"
-
-exit
+printf "[i] all startup instances started successfuly.\n\n"
+exit 0
 

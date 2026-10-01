@@ -1,4 +1,10 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: repair1-quotation-marks.sh
+# descpt: replace quotation and graphical characters for conversion into pdf-format
+# 20261001 v1
+# last: 20261001
+# ---
+
 
 # converting STRANGE quotation marks to NORMAL ones:
 # ‘ (left single quotation mark \u2018)                     --> to '
@@ -23,7 +29,13 @@
 #  version V3: 20190710: added box chars
 #
 
-FJL=$1
+if [ $# -ne 1 ]; then
+	printf "[E] must suply single filename\n\n"
+	exit 1
+else
+	FJL="$1"
+fi
+
 
 # command
 sed -e "s/[$(printf "\u201c")$(printf "\u201d")]/\"/g" \
@@ -38,6 +50,6 @@ sed -e "s/[$(printf "\u201c")$(printf "\u201d")]/\"/g" \
     -e "s/$(printf "\u2502")/\|/g" \
     -e "s/$(printf "\u2013")/-/g" \
     -e "s/$(printf "\u2014")/-/g" $FJL
-    
-echo -e "\n$FJL ... REPAIRED!"
-    
+
+printf "[i] done\n\n"
+

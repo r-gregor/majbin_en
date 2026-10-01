@@ -1,22 +1,30 @@
 #! /usr/bin/env bash
+# fname: read-latest-from-knowledgedb.sh
+# descpt: read/view todays files from $KNOWLEDGEDB from hour/12
+# 20261001 v1
+# last: 
+# ---
+
+#! /usr/bin/env bash
 
 DANES=$(date +"%Y%m%d")
 ZDAJ=$(date +"%H")
 URA=12
-SRC=${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}
+SRC="${KNOWLEDGEDB:-/home/gregor.redelonghi/majstaf/engit/knowledgedb}"
 
 
 if [ $# -eq 1 ]; then
 	if [ $((${ZDAJ} - $1)) -le 0  ]; then
-		echo -e "Out of time range!\n"
-		exit
+		printf "[E] out of time range\n"
+		exit 1
 	fi
-	URA=$1
+	URA="$1"
 fi
 
-echo -e "\nGetting today's entries:"
-echo -e "\tin \"${SRC}\""
-echo -e "\tafter: ${URA}:00:00 on ${DANES}"
-read -p "Continue?"
+printf "\n[i] getting today's entries:\n"
+printf "\tin \"${SRC}\"\n"
+printf "\tafter: ${URA}:00:00 on ${DANES}\n"
+read -r -p "[?] continue?\n"
 
-find ${SRC} -newermt "${DANES} ${URA}:00:00" -type f | grep -v '\.git' | fzf -m --reverse | xargs -ro vim -pM
+find "${SRC}" -newermt "${DANES} ${URA}:00:00" -type f | grep -v '\.git' | fzf -m --reverse | xargs -ro vim -pM
+
