@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # fname: lvedit-scripts-by-last-timestamp.sh
-# decpt: Edit script in vim with FZF sellection with timestamp
+# descpt: Edit script in vim with FZF sellection with timestamp
 # 20260520 v1
 # 20260520 v2: add fzf single selection
 # 20260220 v3: fzf to multiple selections to open in vim
@@ -36,10 +36,10 @@ FZFCMD_EN() {
 }
 
 load_files_into_list() {
-	for FFF in $(find ${dest_en}/* -name "*\.sh" | grep -v 'src/'); do
+	for FFF in $(find "${dest_en}/*" -name "*\.sh" | grep -v 'src/'); do
 		dtstmp=$(grep last "$FFF" | grep -Eo "[0-9]{8}")
 		if [ $? -eq 0 ]; then
-			if [[ ${dtstmp} =~ ${djt} ]]; then
+			if [[ "${dtstmp}" =~ ${djt} ]]; then
 				fjls_lst+=("${FFF};${dtstmp}")
 			else
 				continue
@@ -49,8 +49,8 @@ load_files_into_list() {
 		fi
 	done
 
-	if [ ${#fjls_lst[@]} -eq 0 ]; then
-		printf "[INFO] no file with datestamp: '%s' found\n\n" "${dtstmp}"
+	if [ "${#fjls_lst[@]}" -eq 0 ]; then
+		printf "[i] no file with datestamp: '%s' found\n\n" "${dtstmp}"
 		exit 1
 	fi
 
@@ -78,28 +78,28 @@ main() {
 	done) | FZFCMD_EN)
 
 	if [ "${#selections[@]}" -eq 0 ]; then
-		printf "[INFO] nothing selected\n\n"
+		printf "[i] nothing selected\n\n"
 		exit 1
 	fi
 
 	for selection1 in ${selections[@]}; do
 		if [[ "${selection1}" == "Quit" ]]; then
-			printf "[INFO] nothing selected\n\n"
+			printf "[i] nothing selected\n\n"
 			exit 1
 		fi
 	done
 
 	# info
-	printf "[INFO] Selected:\n"
-	for selection2 in ${selections[@]}; do
+	printf "[i] Selected:\n"
+	for selection2 in "${selections[@]}"; do
 		printf "${selection2}\n"
 	done
 	printf "\n"
 
 	# open in vim
-	for selection2 in ${selections[@]}; do
+	for selection2 in "${selections[@]}"; do
 		printf "${selection2} "
-	done | xargs -ro ${VIM_CMD}
+	done | xargs -ro "${VIM_CMD}"
 	printf "\n"
 }
 

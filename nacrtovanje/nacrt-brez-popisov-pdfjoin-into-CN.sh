@@ -1,6 +1,9 @@
-#! /usr/bin/env bash
 # fname: nacrt-brez-popisov-pdfjoin-into-CN.sh
+# descpt: pdfjoin nacrt brez popisov pdfjoin into __CN2.pdf
+# 20261001 v1
+# last: 20261001
 # ---
+
 
 pdfjoin="java -jar $(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/pdftk-all.jar")"
 
@@ -13,5 +16,5 @@ read -e RISBE
 echo
 
 # command:
-$pdfjoin T=${TEKSTI} R=${RISBE} cat T R output __CN2.pdf
+$pdfjoin T="${TEKSTI}" R="${RISBE}" cat T R output __CN2.pdf
 

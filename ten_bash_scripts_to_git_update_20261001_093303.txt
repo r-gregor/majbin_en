@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/longest-filename-in-curdir.sh 
+/home/gregor.redelonghi/majstaf/majbin/lsth.sh 
+/home/gregor.redelonghi/majstaf/majbin/lvviev-lvedit-scripts-by-last-timestamp/lvedit-scripts-by-last-timestamp.sh 
+/home/gregor.redelonghi/majstaf/majbin/lvviev-lvedit-scripts-by-last-timestamp/lvview-scripts-by-last-timestamp.sh 
+/home/gregor.redelonghi/majstaf/majbin/make-random-test-moviedir.sh 
+/home/gregor.redelonghi/majstaf/majbin/nacrtovanje/nacrt-brez-popisov-pdfjoin-into-CN.sh 
+/home/gregor.redelonghi/majstaf/majbin/nacrtovanje/nacrt-pdfjoin-into-CN.sh 
+/home/gregor.redelonghi/majstaf/majbin/nacrtovanje/risbe-join-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/nacrtovanje/teksti-join-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/narocilo-KOPILAB.sh 

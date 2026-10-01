@@ -1,6 +1,3 @@
-#! /usr/bin/env bash
-# 20251222
-
-echo "Starting OneCommander (explorer) - D3 ..."
+printf "[i] starting OneCommander (explorer) - D3 ...\n"
 cygstart "c:\Users\gregor.redelonghi\majstaf_en\majprogs_en\OneCommander\OneCommander.exe" -openwin D3
 

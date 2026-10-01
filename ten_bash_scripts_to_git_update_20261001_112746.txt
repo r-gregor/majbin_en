@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/pokazi50najvecjih.sh 
+/home/gregor.redelonghi/majstaf/majbin/preimenuj-naziv-dokumentov.sh 
+/home/gregor.redelonghi/majstaf/majbin/prepare-fjl-for-knowledgebase.sh 
+/home/gregor.redelonghi/majstaf/majbin/print256colours.sh 
+/home/gregor.redelonghi/majstaf/majbin/psswdchange-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/python-venv-and-pip-setup/uvenv-s0-mkvnv-install-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/python-venv-and-pip-setup/uvenv-s1-makevenv-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/python-venv-and-pip-setup/uvenv-s2-pip-update-and-install-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/python-venv-and-pip-setup/venv-s0-mkvnv-install-en.sh 
+/home/gregor.redelonghi/majstaf/majbin/python-venv-and-pip-setup/venv-s1-makevenv-en.sh 

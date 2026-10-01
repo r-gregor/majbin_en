@@ -1,19 +1,23 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: prepare-fjl-for-knowledgebase.sh
+# descpt: prepare txt-file for editing after converting from html
+# 20261001 v1
+# last: 20261001
+# ---
+
+unset FJL
 
 if [ $# -ne 1 ]; then
-    echo -e "You must supply filename as argument!\n"
+    printf "[E] must supply filename as argument\n\n"
     exit 1
+else
+	FJL="$1"
 fi
 
-FJL=$1
-
-rpr=${HOME}/.local/bin/repair2-inplace-quotation-marks
-# run=$HOME/majstaf/coding/00_ukazi/np.sh
+rpr="${HOME}/.local/bin/repair2-inplace-quotation-marks"
 run=/usr/bin/vim
 
+$rpr "${FJL}" &&
+echo "[i] opening ${FJL} ...\n"
+$run "${FJL}"
 
-# run command:
-
-$rpr $FJL &&
-echo "$FJL ... OPENING ..."
-$run $FJL

@@ -1,45 +1,41 @@
 #! /usr/bin/env bash
+# fname: preimenuj-naziv-dokumentov.sh
+# descpt: rename part of filename with pattern for ALL '*.doc*', '*.xls*' and "*.txt' files in currdir
+# 20261001 v1
+# last: 20261001
+# ---
 
 if [ $# -ne 2 ]; then
-	echo "Usage: preimenuj [old-file-name-pattern] [new-file-name-pattern]"
-	echo ""
-	echo "       01a_pretavitev-Valvasorjeva-PID_NASLOVNA-STRAN.docx"
-	echo "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-	echo ""
+	printf "Usage: preimenuj-naziv-dokumentov [old-file-name-pattern] [new-file-name-pattern]\n"
+	printf "\n"
+    printf "       01a_pretavitev-Valvasorjeva-PID_NASLOVNA-STRAN.docx\n"
+    printf "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+	printf "\n"
 	exit 1
 fi
 
-old=$1
-new=$2
+old="$1"
+new="$2"
 
-# DRY RUN -- echo ...
-echo "DRY run ..."
-for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*"); do
-    oldF=${FFF}
-    newF=${FFF//${old}/${new}}
-
-    ### if [[ $oldF == $newF ]]; then
-    ###     echo "Old and new names are same!"
-    ###     exit 1
-    ### else
-    ###     echo "${oldF} --> ${newF}"
-    ### fi
-    
-    echo "${oldF} --> ${newF}"
+printf "[i] dry run ...\n"
+for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*" -o -name "*\.txt"); do
+	oldF="${FFF}"
+	newF="${FFF//"${old}"/"${new}"}"
+	printf "${oldF} --> ${newF}\n"
 done
 
-echo "Continue? [yes/YES]"
-read ANS
+read -r -p "[i] continue? [yes/YES]" ANS
 
-if [[ $ANS == "yes" || $ANS == "YES" ]]; then
-	for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*"); do
-        oldF=${FFF}
-        newF=${FFF//${old}/${new}}
-        
-        # TEST
-        # echo mv -v ${oldF} ${newF}; done
-        
-        #RUN
-        mv -v ${oldF} ${newF}; done
-	echo "Done."
+if [[ "$ANS" == "yes" || "$ANS" == "YES" ]]; then
+	for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*" -o -name "*\.txt"); do
+		oldF="${FFF}"
+		newF="${FFF//"${old}"/"${new}"}"
+		mv -v "${oldF}" "${newF}"
+	done
+else
+	printf "[E] no confirmation -- leaving\n\n"
+	exit 1
 fi
+
+printf "[i] done\n\n"
+

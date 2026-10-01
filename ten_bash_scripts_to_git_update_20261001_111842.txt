@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/pddr.sh 
+/home/gregor.redelonghi/majstaf/majbin/pdf-reduce-size.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/pnp-multi.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/pnp.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/pnpgd-multi.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/pnpgd.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/vnp-multi.sh 
+/home/gregor.redelonghi/majstaf/majbin/pnp/vnp.sh 
+/home/gregor.redelonghi/majstaf/majbin/pokazi50najvecjih.sh 
+/home/gregor.redelonghi/majstaf/majbin/preimenuj-naziv-dokumentov.sh 

@@ -1,32 +1,34 @@
-#!/bin/bash
+#! /usr/bin/env bash
+# fname: odjava-menu-en.sh
+# descpt: cli fzf menu to logout/restart/poweroff
+# 20261001 v1
+# last: 20261001
+# ---
 
 clear
 
-choice=$(echo -e "1 - Odjavi $USERNAME\n2 - Ponovni zagon\n3 - Zaustavitev sistema\n4 - Izhod" | fzf +c --reverse --prompt="logout/poweroff >")
-
+choice=$(echo -e "1 - logout $USERNAME\n2 - reboot\n3 - poweroff\n4 - exit" | fzf +c --reverse --prompt="logout/poweroff >")
 case "${choice}" in
 
-	"1 - Odjavi $USERNAME")
+	"1 - logout $USERNAME")
 		cygstart shutdown /l
 	;;
 
-	"2 - Ponovni zagon")
+	"2 - reboot")
 		shutdown -r now
 	;;
 
-	"3 - Zaustavitev sistema")
+	"3 - poweroff")
 		shutdown -s now
 	;;
 
-	"4 - Izhod")
+	"4 - exit")
 		clear
 		exit 0
 	;;
 
 	*)
-		echo "NOT IN THE LIST!"
-		read -p "Press any key to EXIT!"
-		clear
+		printf "[E] not in the list\n"
 		exit 1
 	;;
 esac

@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
-
-# Tom Hale, 2016. MIT Licence.
-# Print out 256 colours, with each number printed in its corresponding colour
+#! /usr/bin/env bash
+# fname: print256colours.sh
+# descpt: print out 256 colours, with each number printed in its corresponding colour
 # See http://askubuntu.com/questions/821157/print-a-256-color-test-pattern-in-the-terminal/821163#821163
+# 20261001 v1
+# last: 
+# ---
 
 set -eu # Fail on errors or undeclared variables
 
@@ -10,7 +12,7 @@ printable_colours=256
 
 # Return a colour that contrasts with the given colour
 # Bash only does integer division, so keep it integral
-function contrast_colour {
+contrast_colour() {
 	local r g b luminance
 	colour="$1"
 
@@ -49,16 +51,16 @@ function contrast_colour {
 }
 
 # Print a coloured block with the number of that colour
-function print_colour {
+print_colour() {
 	local colour="$1" contrast
 	contrast=$(contrast_colour "$1")
-	printf "\e[48;5;%sm" "$colour"				  # Start block of colour
-	printf "\e[38;5;%sm%3d" "$contrast" "$colour" # In contrast, print number
-	printf "\e[0m "								  # Reset colour
+    printf "\e[48;5;%sm" "$colour"                # Start block of colour
+    printf "\e[38;5;%sm%3d" "$contrast" "$colour" # In contrast, print number
+    printf "\e[0m "                               # Reset colour
 }
 
 # Starting at $1, print a run of $2 colours
-function print_run {
+print_run() {
 	local i
 	for (( i = "$1"; i < "$1" + "$2" && i < printable_colours; i++ )) do
 		print_colour "$i"
@@ -67,13 +69,20 @@ function print_run {
 }
 
 # Print blocks of colours
-function print_blocks {
-	local start="$1" i
-	local end="$2" # inclusive
-	local block_cols="$3"
-	local block_rows="$4"
-	local blocks_per_line="$5"
-	local block_length=$((block_cols * block_rows))
+print_blocks() {
+	local start
+	local end
+	local block_cols
+	local block_rows
+	local blocks_per_line
+	local block_length
+
+	start="$1" i
+	end="$2" # inclusive
+	block_cols="$3"
+	block_rows="$4"
+	blocks_per_line="$5"
+	block_length=$((block_cols * block_rows))
 
 	# Print sets of blocks
 	for (( i = start; i <= end; i += (blocks_per_line-1) * block_length )) do

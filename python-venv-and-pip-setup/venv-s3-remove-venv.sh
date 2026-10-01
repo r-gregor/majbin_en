@@ -1,14 +1,18 @@
 #! /usr/bin/env bash
 # fname: venv-s3-remove-venv.sh
+# descpt: remove virtual env in python project
+# 20261001 v1
+# last: 20261001
 # ---
 
 VENVDIR=$(realpath ./venv)
-echo $VENVDIR
+printf "${VENVDIR}\n"
 
-if [ -d $VENVDIR ]; then
-     echo "Removing ./venv ..."
-     rm -rv ${VENVDIR}
-     echo "Done"
+if [ -d "${VENVDIR}" ]; then
+	printf "[i] removing ./venv ...\n"
+	rm -rv "${VENVDIR}"
+	printf "[i] done\n"
 else
-    echo "No ${VENVDIR} found"
+	printf "[E] no ${VENVDIR} found\n"
+	exit 1
 fi

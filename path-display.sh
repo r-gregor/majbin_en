@@ -1,33 +1,27 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: path-display.sh
+# descpt: displays full WINDOWS path of file as parameter
+# 20261001 v1
+# last: 20261001
+# ---
 
-### Name:   path-display.sh
-### Author: RgregoR
-### Date:   2018-02-20
-### Decription:
-### Script that displays full WINDOWS path of <current> file: as parameter
-### 
-### 
+unset fjlnm
+hmsg="usage: path-display <filename>"
 
-
-gr_hmsg="Usage: $0 <filename>"
-
-
-if [ $# -lt 1 ]; then
-    echo -e "${gr_hmsg}\n"
+if [ $# -ne 1 ]; then
+    printf "[E] ${hmsg}\n\n"
     exit 1
-fi
-
-gr_fjlnm=$1
-
-if [ -e $gr_fjlnm ]; then
-    gr_fullp=$(cygpath -w $(realpath ${gr_fjlnm}))
-    echo ${gr_fullp}
-    echo "Storing to clipboard ..."
-    echo ${gr_fullp} | putclip
-
 else
-    echo -e "No such file found!\n"
-    exit 1
+	fjlnm="$1"
 fi
 
+if [ -e "${fjlnm}" ]; then
+    fullp="$(cygpath -w "$(realpath "${fjlnm}")")"
+    printf "[i] win-path: '%s'\n" "${fullp}"
+    printf "[i] storing to clipboard ...\n"
+    printf "%s" "${fullp}" | putclip
+else
+    printf "[E] no such file found '%s'\n\n" "${fjlnm}"
+    exit 1
+fi
 

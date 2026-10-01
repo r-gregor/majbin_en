@@ -1,7 +1,12 @@
 #! /usr/bin/env bash
+# fname: new-c-project-setup.sh
+# descpt: setup env for new c-project
+# 20261001 v1
+# last: 20261001
+# ---
 
 if [ $# -eq 1 ]; then
-	project_name=$1
+	project_name="$1"
 else
 	project_name="defaultprojectname-rename-me_$(date +%Y%m%d)"
 fi
@@ -9,12 +14,12 @@ fi
 project_path="./${project_name}"
 
 
-if [ -d ${project_path} ]; then
-	echo -e "${project_path} exists!\n"
-	exit
+if [ -d "${project_path}" ]; then
+	printf "[E] ${project_path} exists!\n"
+	exit 1
 fi
 
-echo "Creating new project: ${project_name}"
+printf "[i] creating new project: ${project_name}\n"
 mkdir -vp ${project_path}/{src,lib,include,tests,bin,build}
 
 cat <<'EOF' > "${project_path}/Makefile"
@@ -58,5 +63,5 @@ int main(void) {
 
 EOF2
 
-tree ${project_path}
+tree "${project_path}"
 

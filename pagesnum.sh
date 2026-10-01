@@ -1,19 +1,25 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: pagesnum.sh
+# descpt: get number of pages in fname (approx: chars per line: 80)
+# 20261001 v1
+# last: 20261001
+# ---
 
-if [ $# -eq 0 ]; then
-    echo -e "Usage $0 + [filename]\n"
+unset FJL
+
+if [ $# -ne 1 ]; then
+    printf "[E] usage: pagesnum + <filename>\n\n"
     exit 1
+else
+	FJL="$1"
 fi
 
-gr_FJL=$1
 
-gr_PGNM=$(echo "$(cat ${gr_FJL} | wc -l) / 80" | bc)
+PGNM=$(echo "$(cat "${FJL}" | wc -l) / 80" | bc)
 
-if [ $gr_PGNM -lt 1 ]; then
-	gr_PGNM=1
+if [ "${PGNM}" -lt 1 ]; then
+	PGNM=1
 fi
 
-echo
-echo -n "Number of pages of file ${gr_FJL} is:  __${gr_PGNM}__" 
-echo
+printf "[i] number of pages in file '%s' is: %d\n\n" "${FJL}" "${PGNM}"
 

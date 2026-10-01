@@ -1,13 +1,17 @@
-#!/bin/bash
-# fname: opnu.sh
+#! /usr/bin/env bash
+# fname: opn/opnu.sh
+# descpt: cd into unix path
+# 20261001 v1
+# last: 20261001
 # ---
 
-myPOT=$1
-
+unset myPOT
 
 if [ $# -ne 1 ]; then
 	clear
-	printf "USAGE: $0 <absolute path>\n\n"
+	printf "usage: $0 <absolute path>\n\n"
+else
+	myPOT="$1"
 fi
 
 cd "$(cygpath -u "${myPOT}")"

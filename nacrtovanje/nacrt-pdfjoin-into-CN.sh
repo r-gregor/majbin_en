@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 # filename: nacrt-pdfjoin-into-CN.sh
+# descpt: pdfjoin nacrt s popisi into __CN2.pdf
+# 20261001 v1
+# last: 20261001
 # ---
 
 pdfjoin="java -jar $(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/pdftk-all.jar")"
@@ -18,5 +21,5 @@ read -e POPISI
 echo
 
 # command:
-$pdfjoin T=${TEKSTI} R=${RISBE} P=${POPISI} cat T1-r2 P Tr1-end R output __CN2.pdf
+$pdfjoin T="${TEKSTI}" R="${RISBE}" P="${POPISI}" cat T1-r2 P Tr1-end R output __CN2.pdf
 
