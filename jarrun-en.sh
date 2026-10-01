@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: jjrun.sh
+# fname: jarrun-en.sh
 # descpt: run *.jar file with java -jar (cygwin)
 # 20261001 v1
 # last: 20261001
@@ -18,4 +18,3 @@ else
 fi
 
 java -jar $(cygpath -w $(realpath "${unixpath}")) "${rest}"
-

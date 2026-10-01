@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/izklop.sh 
+/home/gregor.redelonghi/majstaf/majbin/jarrun.sh 
+/home/gregor.redelonghi/majstaf/majbin/jarxrun.sh 
+/home/gregor.redelonghi/majstaf/majbin/jrun.sh 
+/home/gregor.redelonghi/majstaf/majbin/jvfx/jvfx-compile.sh 
+/home/gregor.redelonghi/majstaf/majbin/jvfx/jvfx-run.sh 
+/home/gregor.redelonghi/majstaf/majbin/knowledgedb-file-to-category/knowledgedb-copy-file-to-category.sh 
+/home/gregor.redelonghi/majstaf/majbin/knowledgedb-file-to-category/knowledgedb-move-file-to-category.sh 
+/home/gregor.redelonghi/majstaf/majbin/KOPILAB1-create-pdf-name.sh 
+/home/gregor.redelonghi/majstaf/majbin/KOPILAB2-narocilo-transform.sh 

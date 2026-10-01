@@ -1,64 +1,63 @@
-#!/bin/bash
+#! /usr/bin/env bash
+# fname: izklop.sh
+# descpt: Logout/restart/shutdow cli-menu
+# 20261001 v1
+# last: 20261001
+# ---
 
 clear
 
-gr_mznst=""
+menu() {
+	cat <<PRINT-on-SCREEN
+---------------------------------------
+1 - logout $USERNAME
+2 - reboot
+3 - shutdown
+N - back to 'zze'
+---------------------------------------
+0 - exit
+---------------------------------------
+PRINT-on-SCREEN
+}
+
+mznst=""
 
 while true; do
 
-echo
+	printf "\n"
 
-cat <<PRINT-on-SCREEN
----------------------------------------
-1 - odjavi $USERNAME
-2 - ponovni zagon
-3 - ZAUSTAVITEV
-N - nazaj na zze
----------------------------------------
-0 - izhod
----------------------------------------
-PRINT-on-SCREEN
+	menu
+	printf "[?] insert choice number/char: "
+	read -r mznst
 
+	printf "\n"
 
-echo -n "Vnesi stevilko: "
-
-read gr_mznst
-
-echo
-
-case "${gr_mznst}" in
-
-"1" )
-shutdown -l -t 05
-;;
-"2" )
-shutdown -r -t 05
-;;
-"3" )
-shutdown -s -t 05
-;;
-"N" )
-clear && source ./zze.sh
-break
-;;
-
-
-
-"0" )
-clear
-exit 0
-
-;;
-
-* )
-echo "NOT IN THE LIST!"
-read -p "Press any key to EXIT!"
-clear
-exit 1
-
-;;
-
-esac
-clear
+	case "${mznst}" in
+		"1" )
+			shutdown -l -t 05
+			;;
+		"2" )
+			shutdown -r -t 05
+			;;
+		"3" )
+			shutdown -s -t 05
+			;;
+		"N" )
+			clear && source ./zze.sh
+			break
+			;;
+		"0" )
+			clear
+			exit 0
+			;;
+		* )
+			printf "[E] choice not in the list\n"
+			read -r -p "[?] press any key to exit"
+			clear
+			exit 1
+			;;
+	esac
+	clear
 
 done
+
