@@ -1,6 +1,18 @@
-#! /bin/bash
-# filename: jvfx_compile
+#! /usr/bin/env bash
+# fname: jvfx-run.sh
+# descpt: run java executable (without .java ext) wizh javafx module
+# 20261001 v1
+# last: 20261001
+# ---
 
-SC_NAME=$1
+unset SC_NAME
 
-java --module-path $PATH_TO_FX --add-modules=javafx.controls ${SC_NAME//.class/}
+if [ $# -ne 1 ]; then
+	printf "[E] must supply a filename (without .java ext)\n"
+	exit 1
+else
+	SC_NAME="$1"
+fi
+
+java --module-path "${PATH_TO_FX}" --add-modules=javafx.controls "${SC_NAME//.class/}"
+

@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # filename: knowledgedb-copy-file-to-category.sh
+# descpt: copy file to a cathegory in $KNOWLEDGEDB
 # v1_20251118
 # v2_20260409  en: multiple files, with checks ...
 # last: 20260409
@@ -7,10 +8,10 @@
 
 # globals
 SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
-DEST="/home/gregor.redelonghi/majstaf/engit/knowledgedb"
+DEST="${HOME}/majstaf/${HST}git/knowledgedb"
 
 if [ $# -lt 1 ]; then
-	echo -e "usage: $0 <filename>\n"
+	printf "usage: $0 <filename>\n"
 	exit
 fi
 
@@ -23,13 +24,13 @@ while [ "$1" ]; do
 done
 
 if [ "${#fjls[@]}" -lt 1 ]; then
-	printf "[INFO] No files selected"
+	printf "[i] No files selected"
 	exit
 fi
 
 for ((i=0; i<"${#fjls[@]}"; i++)); do
 	if [ ! -f "${fjls[i]}" ]; then
-		printf "[ERROR] file: '%s' does NOT exist\n" "${fjls[i]}"
+		printf "[E] file: '%s' does NOT exist\n" "${fjls[i]}"
 		printf "\n"
 		exit
 	fi
@@ -37,11 +38,11 @@ done
 
 CATEGORY=$(ls -1 ${DEST} | fzf -e --reverse)
 
-printf "[INFO] copy selected files:\n"
+printf "[i] copy selected files:\n"
 for ((j=0; j<"${#fjls[@]}"; j++)); do
-	printf "[INFO] '%s'\n" "${fjls[j]}"
+	printf "[i] '%s'\n" "${fjls[j]}"
 done
-printf "[INFO] to .../%s [y/n]?  " "${CATEGORY}"
+printf "[i] to .../%s [y/n]?  " "${CATEGORY}"
 read -r ans
 
 if [ "${ans}" == "y" ] || [ "${ans}" == "Y" ]; then
@@ -51,7 +52,7 @@ if [ "${ans}" == "y" ] || [ "${ans}" == "Y" ]; then
 	done
 	printf "\n"
 else
-	printf "[INFO] No files copied\n"
+	printf "[i] No files copied\n"
 	printf "\n"
 	exit
 fi

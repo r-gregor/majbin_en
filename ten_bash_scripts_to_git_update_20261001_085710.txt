@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/kopiraj-a0-v-risbe.sh 
+/home/gregor.redelonghi/majstaf/majbin/last-disp.sh 
+/home/gregor.redelonghi/majstaf/majbin/list-dupfilenames.sh 
+/home/gregor.redelonghi/majstaf/majbin/list-dupfilenames-in-dbot.sh 
+/home/gregor.redelonghi/majstaf/majbin/list-files-numpart-gt-param.sh 
+/home/gregor.redelonghi/majstaf/majbin/list-last-20-by-tmstmp.sh 
+/home/gregor.redelonghi/majstaf/majbin/list-new-files-from-n-days-from-today/list-new-files-from-n-days-from-today.sh 
+/home/gregor.redelonghi/majstaf/majbin/listulb.sh 
+/home/gregor.redelonghi/majstaf/majbin/listulb2.sh 
+/home/gregor.redelonghi/majstaf/majbin/load-local-rust-book-into-browser.sh 

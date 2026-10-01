@@ -1,19 +1,23 @@
 #! /usr/bin/env bash
+# fname: list-last-20-by-tmstmp.sh
+# descpt:  list last filenames by trailing timestamp *-yyyymmdd*
+# 20261001 v1
+# last: 20261001
+# ---
 
-# curryr=2021
+unset curryr
 
-if [ $CURRENT_YEAR_ENV -ne $(date +%Y) ]; then
-		curryr=$CURRENT_YEAR_ENV
+if [ "${CURRENT}_YEAR_ENV" -ne $(date +%Y) ]; then
+		curryr="${CURRENT}_YEAR_ENV"
 	else
 		curryr=$(date +%Y)
 fi
 
 if [ $# -ne 1 ]; then
-    myyr=$curryr
+    myyr="${curryr}"
 else
-    myyr=$1
+    myyr="$1"
 fi
 
-# find * -maxdepth 1 -type f -regex ".*${myyr}....\..*" | sort -n | head -n20
 find * -maxdepth 1 -type f -regex ".*${myyr}[0-9][0-9][0-9][0-9]\..*" | sort -n | head -n20
 
