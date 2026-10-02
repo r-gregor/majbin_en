@@ -6,7 +6,8 @@
 # ---
 
 if [ $# -ne 2 ]; then
-	printf "Usage: preimenuj-naziv-dokumentov [old-file-name-pattern] [new-file-name-pattern]\n"
+	printf "[i] rename ALL '*.doc*', '*.xls*' or '*.txt' files -- switch patterns\n"
+	printf "[i] Usage: preimenuj-naziv-dokumentov [old-file-name-pattern] [new-file-name-pattern]\n"
 	printf "\n"
     printf "       01a_pretavitev-Valvasorjeva-PID_NASLOVNA-STRAN.docx\n"
     printf "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
@@ -24,7 +25,7 @@ for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*" -o -name "*\.
 	printf "${oldF} --> ${newF}\n"
 done
 
-read -r -p "[i] continue? [yes/YES]" ANS
+read -r -p "[?] continue? (yes/YES) " ANS
 
 if [[ "$ANS" == "yes" || "$ANS" == "YES" ]]; then
 	for FFF in $(find * -maxdepth 0 -name "*\.doc*" -o -name "*\.xls*" -o -name "*\.txt"); do

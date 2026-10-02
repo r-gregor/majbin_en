@@ -5,16 +5,15 @@
 # last: 20260409
 # ---
 
+if [ $# -lt 1 ]; then
+	printf "[E] usage: $0 <filename>\n"
+	exit 1
+fi
+
 # globals
 SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 DEST="${HOME}/majstaf/${HST}git/knowledgedb"
 
-if [ $# -lt 1 ]; then
-	printf "usage: $0 <filename>\n"
-	exit
-fi
-
-# 20260409
 declare -a fjls;
 
 while [ "$1" ]; do
@@ -23,13 +22,13 @@ while [ "$1" ]; do
 done
 
 if [ "${#fjls[@]}" -lt 1 ]; then
-	printf "[i] No files selected"
-	exit
+	printf "[E] no files selected"
+	exit 1
 fi
 
 for ((i=0; i<"${#fjls[@]}"; i++)); do
 	if [ ! -f "${fjls[i]}" ]; then
-		printf "[E] file: '%s' does NOT exist\n" "${fjls[i]}"
+		printf "[E] no such file:'%s'\n" "${fjls[i]}"
 		printf "\n"
 		exit
 	fi
@@ -41,7 +40,7 @@ printf "[i] move selected files:\n"
 for ((j=0; j<"${#fjls[@]}"; j++)); do
 	printf "[i] '%s'\n" "${fjls[j]}"
 done
-printf "[?] to .../%s [y/n]?  " "${CATEGORY}"
+printf "[?] to .../%s (y/n)?  " "${CATEGORY}"
 read -r ans
 
 if [ "${ans}" == "y" ] || [ "${ans}" == "Y" ]; then
@@ -51,8 +50,8 @@ if [ "${ans}" == "y" ] || [ "${ans}" == "Y" ]; then
 	done
 	printf "\n"
 else
-	printf "[i] No files moved\n"
+	printf "[E] no files moved\n"
 	printf "\n"
-	exit
+	exit 1
 fi
 
