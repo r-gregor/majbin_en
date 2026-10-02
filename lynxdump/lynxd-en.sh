@@ -67,7 +67,7 @@ fi
 printf "[i] %-10s%s\n" "Web URL:" "${weburl}"
 printf "[i] %-10s%s\n" "filename:" "${flnm}"
 
- rintf "[?] Press <enter> to proceed or <ctrl-c> to quit"
+printf "[?] Press <enter> to proceed or <ctrl-c> to quit"
 read -r ANS
 
 # echo "filename: ${flnm}" >> ${flnm}
