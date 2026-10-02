@@ -40,7 +40,7 @@ fi
 
 dT1=$(date +"%s")
 
-(printf "[i] syncing ${gSrc}/${gCurrYr}/ to ${gDest}/${gCurrYr}-danes/ ...  \n")
+printf "[i] syncing ${gSrc}/${gCurrYr}/ to ${gDest}/${gCurrYr}-danes/ ...  \n"
 gCmd='rsync -rltDv'
 ${gCmd} --delete ${gSrc}/${gCurrYr}/ ${gDest}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[i] rsync: &/"; done
 
