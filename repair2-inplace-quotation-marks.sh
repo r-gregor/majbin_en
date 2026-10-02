@@ -1,4 +1,10 @@
 #! /bin/bash
+#! /usr/bin/env bash
+# fname: repair2-inplace-quotation-marks.sh
+# descpt: repair / replace special and quotation chars with pdf-convert safe ones
+# 20261002 v1
+# last: 20261002
+# ---
 
 # converting STRANGE quotation marks to NORMAL ones:
 # ‘ (left single quotation mark \u2018)                     --> to '
@@ -25,7 +31,7 @@
 #  version v5: 20250212: added command v2
 # ==============================================================================================
 
-FJL=$1
+FJL="$1"
 
 # command
 sed -i -e "s/[$(printf "\u201c")$(printf "\u201d")]/\"/g" \
@@ -50,5 +56,6 @@ sed -i -e "s/┌/+/g" \
 -e "s/┘/+/g" \
 -e "s/┴/+/g" $FJL
 
-echo -e "\n$FJL ... REPAIRED!"
+printf -- "\n---\n[i] ${FJL} ... repaired\n\n"
+
 

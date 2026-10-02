@@ -1,4 +1,9 @@
 #! /usr/bin/env bash
+# fname: show-terminal-colors.sh
+# descpt: display terminal colors
+# 20261002 v1
+# last: 20261002
+# ---
 
 printf "256 depth color:\n"
 echo   '\e[38;5;116m 116_BARVA\n'

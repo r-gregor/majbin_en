@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 # fname: bdellog.sh
+# descpt: find and delete 'plot.log' files in '/c/Users/gregor.redelonghi/${CURRYEAR}' and sub-directories
 # 20261002 v2
 # last: 20261002
 # ---

@@ -1,0 +1,10 @@
+/home/gregor.redelonghi/majstaf/majbin/bdbaklog/bdellog.sh 
+/home/gregor.redelonghi/majstaf/majbin/repair2-inplace-quotation-marks.sh 
+/home/gregor.redelonghi/majstaf/majbin/repl-bash-en-V1-20180109.sh 
+/home/gregor.redelonghi/majstaf/majbin/rewrapp.sh 
+/home/gregor.redelonghi/majstaf/majbin/rewrapp-n.sh 
+/home/gregor.redelonghi/majstaf/majbin/search-by1-or-2.sh 
+/home/gregor.redelonghi/majstaf/majbin/search-by1-or-more.sh 
+/home/gregor.redelonghi/majstaf/majbin/send-mail-scrts/run-sendhome1-and-sendp3-1.sh 
+/home/gregor.redelonghi/majstaf/majbin/send-mail-scrts/s22.sh 
+/home/gregor.redelonghi/majstaf/majbin/send-mail-scrts/sendf2.sh 
