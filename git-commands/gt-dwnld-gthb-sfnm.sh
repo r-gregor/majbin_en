@@ -11,7 +11,7 @@ HUB=github
 
 if [ $# -ne 2 ]; then
 	printf "[E] wrong number of parameters\n"
-	printf "Usage: $0 <repository> <file name>\n"
+	printf "Usage: gt-dwnld-gthb-sfnm <repository> <file name>\n"
 	printf "\n"
 	exit
 else
