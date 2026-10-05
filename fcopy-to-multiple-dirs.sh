@@ -60,28 +60,28 @@ done
 if [ "${farg}" != "true" ]; then
 	printf "[E] no file selected\n"
 	usage
-	exit
+	exit 1
 fi
 
 
 if [ "${darg}" != "true" ]; then
 	printf "[E] no directory selected\n"
 	usage
-	exit
+	exit 1
 fi
 IFS=$OIFS
 
 for DDD in "${dsts[@]}"; do
 	if [ ! -d "${DDD}" ]; then
 		printf "[E] no such directory: ${DDD}\n\n"
-		exit
+		exit 1
 	fi
 done
 
 for FFF in "${fjls[@]}"; do
 	if [ ! -f "${FFF}" ]; then
 		printf "[E] no such file: ${FFF}\n\n"
-		exit
+		exit 1
 	fi
 done
 
