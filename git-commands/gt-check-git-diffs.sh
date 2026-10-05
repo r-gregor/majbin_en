@@ -7,7 +7,8 @@
 # 20260305 v5
 # 20260924: unified scripts for linux
 #           HST and system info from exported global variable
-# last: 20260924
+# 20261005
+# last: 20261005
 # ---
 
 src_path=${HOME}/majstaf
@@ -34,7 +35,7 @@ read -r -p "[?] Continue?"
 
 if [ ! -d "${majfjls_src}" ] || [ ! -d "${majfjls_dst}" ]; then
 	printf -e "[E] No such directories found\n\n"
-	exit
+	exit 1
 fi
 
 short_src=$(echo "${majfjls_src}" | sed "s:${HOME}/majstaf:...:")
@@ -52,24 +53,24 @@ check=($(diff -qr "${majfjls_src}" "${majfjls_dst}" \
 	| sed -e 's/\/: /\//' -e 's/: /\//'))
 
 if [ "${check[0]}" == "" ]; then
-	printf "[i] No files found\n"
+	printf "[E] No files found\n"
 	printf -- "---\n"
-	exit
+	exit 1
 fi
 
 fjls=$(for FFF in $(echo "${check[@]}"); do echo "$FFF"; done | fzf -m --reverse)
 
 
 if [ "${fjls[0]}" == "" ]; then
-	printf "[i] No files found/selected\n"
+	printf "[E] No files found/selected\n"
 	printf -- "---\n"
-	exit
+	exit 1
 fi
 
 SRC=$(echo "${majfjls_src}" | sed "s:${HOME}/majstaf/::")
 DST=$(echo "${majfjls_dst}" | sed "s:${HOME}/majstaf/::")
 
-printf "[i] Files to be copied from [${SRC}] to [${DST}]:\n"
+printf "[i] files to be copied from [${SRC}] to [${DST}]:\n"
 i=0
 for FJL in "${fjls[@]}"; do
 	((i++))
@@ -77,7 +78,7 @@ for FJL in "${fjls[@]}"; do
 done
 printf "\n"
 
-read -p "[y/Y] to procede [Any other key to quit] " choice
+read -r -p "[?] procede (y/Y)?  " choice
 
 if [ "$choice" = "y" ] || [ "$choice" = "Y" ]; then
 	for FJL in "${fjls[@]}"; do
