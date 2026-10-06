@@ -1,40 +1,33 @@
-#! /bin/bash
+#! /usr/bin/env bash
+# fname: softlink1-fname-to-ulb.sh
+# descpt: soft-link bash script to '~/.local/bin/'
+# 20261006 v1
+# last: 20261006
+# ---
 
-# filename:     softlink1-filename-to-ulb.sh
-# version:      V1 -- 20190131
-#
-
-
-# test if filename supplied as argument
-if [ ! $# -eq 1 ]; then
-    echo "Usage:"
-    echo -e "$0 [scriptname]\n"
-    exit
-fi
-
-source_path=$(dirname $1)
+# === GLOBALS ===
+source_path="$(dirname "$1")"
 dest_path="${HOME}/.local/bin"
 
-fname_full=$(basename $1)
-fname=${fname_full%%.*}
-ext=${fname_full##*.}
+fname_full="$(basename "$1")"
+fname="${fname_full%%.*}"
+ext="${fname_full##*.}"
 
+# === MAIN ===
+if [ ! $# -eq 1 ]; then
+	printf "[E] usage:\n"
+	printf "\tsoftlink1-fname-to-ulb <scriptname>\n\n"
+	exit 1
+fi
 
-# tests
-# echo "Source path: ${source_path}"
-# echo "Destination path: ${dest_path}"
-# echo "Complete filename: ${fname_full}"
-# echo "Filename without extension: ${fname}"
-# echo "Extension only: ${ext}"
-
-
-# test if filename exists
-if [ ! -e ${source_path}/${fname_full} ]; then
-    echo -e "file: ${fname_full} NOT found!\n"
-    exit
+if [ ! -e "${source_path}/${fname_full}" ]; then
+	printf "[E] no such file: '%s'\n\n" "${fname_full}"
+	exit 1
 fi
 
 # execute
-echo "Soft-linking ${fname_full} to ${HOME}/.local/bin/ ..."
-ln -sv $(realpath ${source_path}/${fname_full}) ${dest_path}/${fname}
+printf "[i] soft-linking '%s' to '%s' ...\n" "${fname_full}" "${HOME}/.local/bin/"
+ln -sv "$(realpath "${source_path}/${fname_full}")" "${dest_path}/${fname}"
+
+printf "\n"
 

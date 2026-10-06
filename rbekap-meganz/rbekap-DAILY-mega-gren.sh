@@ -1,36 +1,32 @@
 #! /usr/bin/env bash
 # filename: rbekap-DAILY-mega-gren.sh
 # descpt: Rclone sellected files/dirs to mega_gren:
-# 20251126 v1
-# 20251127 v2 += inal info
-# 20251218 v3 += CURRYR
-# 20260813 v4 RENAMES to names without '_en'
-# last: 20260813
+# 20261002
+# last: 20261002
 # ---
 
-#v3
+# === GLOBALS ===
 CURRYR=2026
 
-#v2/v3
 declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
                   "~/majstaf/majscripts" \
                   "~/majstaf/majsupport" \
                   "~/majstaf/majbookmarks" \
                   "/c/Users/gregor.redelonghi/Downloads/__ARHIVIRAJ")
 
-#v1/v3
-echo "[INFO] running DAILY backup/sync to 'MEGA.nz (mega_gren)'"
+# === MAIN ===
+printf "[i] running DAILY backup/sync to 'MEGA.nz (mega_gren)'\n"
 rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
 rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 
-#v2
-echo -e "---\n[INFO] backup/sync of:"
+printf "---\n[i] backup/sync of:\n"
 for DEST in "${DESTS[@]}"; do
-	echo -e "\t'${DEST}'"
+	printf "\t'%s'\n" "${DEST}"
 done
-echo "to 'mega_gren:ENERGETIKA' done"
-echo ""
+printf "to 'mega_gren:ENERGETIKA' done\n"
+
+printf "\n"
 

@@ -1,24 +1,32 @@
 #! /usr/bin/env bash
+# fname: zig-clean.sh
+# descpt: clean 'zig-out' '.zig-cache' from zig-project directory
+# 20261006 v1
+# last: 20261006
+# ---
 
+# === GLOBALS ===
 TARGET=$PWD
-
 OUT="${TARGET}/zig-out"
 CCH="${TARGET}/.zig-cache"
 
-if [ ! -d ${OUT} ]; then
-	echo -e "[ERROR] no '${OUT}' dir\n"
-	exit
+# === MAIN ===
+if [ ! -d "${OUT}" ]; then
+	printf "[E] no '%s' directory\n\n" "${OUT}"
+	exit 1
 fi
 
-if [ ! -d ${CCH} ]; then
-	echo -e "[ERROR] no '${CCH}' dir\n"
-	exit
+if [ ! -d "${CCH}" ]; then
+	printf "[E] no '%s' directory\n\n" "${CCH}"
+	exit 1
 fi
 
-echo "Dirs to remove:" 
-echo "${OUT}"
-echo "${CCH}"
-read -p "OK ?"
+printf "[i] directories to be removed:\n"
+printf "\t'%s'\n" "${OUT}"
+printf "\t'%s'\n" "${CCH}"
+read -r -p "[?] confitm?"
 
-rm -rv ${OUT} ${CCH}
+rm -rv "${OUT}" "${CCH}"
+
+printf "[i] done \n\n"
 

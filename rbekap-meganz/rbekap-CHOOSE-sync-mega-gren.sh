@@ -1,14 +1,12 @@
 #! /usr/bin/env bash
 # fname: rbekap-CHOOSE-sync-mega-gren.sh
 # descpt: Rclone sellected files/dirs to mega_gren:
-# 20260515 v1
-# 20260813 v2 RENAMES to names without '_en'
-# 20260917 v3 put FZFCMD into function
-# last: 20260917
+# 20261002
+# last: 20261002
 # ---
 
-# globals
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+# === GLOBALS ===
+SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 CURRYR=2026
 
 declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
@@ -22,12 +20,20 @@ declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
                   ["TZ-2026"]="rbekap-TZ-2026-sync-mega-gren" \
 )
 
-FZFCMD_EN() {
-	fzf -e --reverse # cygwin version does not support --width option
+# === FUNCTIONS ===
+
+clr_scr() {
+	# clear the screen:
+	printf "\033[H\033[2J"
 }
+
+FZFCMD() {
+	fzf -e --reverse
+}
+
 get_longest() {
 	if [ ! $# -eq 1 ]; then
-		echo "[ERROR1] must supply array of sentences as parameter"
+		printf "[E] must supply array of sentences as parameter\n\n"
 		exit 1
 	fi
 
@@ -49,40 +55,41 @@ get_longest() {
 }
 
 # === MAIN ===
-
-# clear the screen:
-printf "\033[H\033[2J"
+clr_scr
 
 keys=("${!dsts[@]}")
 longest_l=$(get_longest keys)
-delline=$(for((i = 0; i < ${#longest_l}; i++)); do printf "-"; done)
+delline=$(for((i = 0; i < "${#longest_l}"; i++)); do printf "-"; done)
 
-selections+=( $((for KEY in "${keys[@]}"; do echo "$KEY"; done | sort; echo "${delline}" ; echo "Quit") | FZFCMD_EN) )
+selections+=( $((for KEY in "${keys[@]}"; do echo "${KEY}"; done | sort; echo "${delline}" ; echo "Quit") | FZFCMD) )
 
 if [ "${#selections[@]}" -eq 0 ]; then
-	printf "[INFO] nothing selected\n\n"
-	exit
+	printf "[i] nothing selected\n\n"
+	exit 0
 fi
 
 for SELECTION in "${selections[@]}"; do
 	if [ "$SELECTION" == "Quit" ]; then
-		printf "[INFO] nothing selected\n\n"
-		exit
+		printf "[i] nothing selected\n\n"
+		exit 0
 	fi
 done
 
 count=0
-printf "[INFO] rclone cyncing sheduled for:\n"
+printf "[i] rclone cyncing sheduled for:\n"
 for DEST in "${selections[@]}"; do
 	((count++))
-	printf "\t${count} - ${DEST}\n"
+	printf "\t"${count}" - "${DEST}"\n"
 done
-read -p "OK?"
+read -r -p "[?] confirm?"
 
 if [ "${SELECTION}" == "${delline}" ]; then
 	continue
 fi
+
 for SELECTION in "${selections[@]}"; do
 	eval "${dsts["${SELECTION}"]} -y; echo \"---\""
 done
+
+printf "\n"
 

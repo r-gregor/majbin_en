@@ -1,9 +1,11 @@
 #! /usr/bin/env bash
-# fname: export-dot-vimrc-mappings-into-file.sh
-# 20260915 v2 added check for program parameters and check for PREFIX existance
-# last: 20260915
+# fname: vexport-dot-vimrc-mappings-into-file-en.sh
+# descpt: export mappings from '~/.vimrc' into external file
+# 20261006 v1
+# last: 20261006
 # ---
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
 	PREFIX="."
 else
@@ -11,13 +13,10 @@ else
 fi
 
 if [ ! -d "${PREFIX}" ]; then
-	printf "[ERROR] no such directory/dest: '%s'\n\n" "${PREFIX}"
+	printf "[E] no such directory/dest: '%s'\n\n" "${PREFIX}"
 	exit 1
 fi
 
-
-
-HST=en
 TMSTMP=$(date +"%Y%m%d-%H%M%S")
 DESTF="${PREFIX}/dot-vimrc-${HST}-mappings-with-explanations-${TMSTMP}.txt"
 
@@ -27,4 +26,7 @@ touch "${DESTF}"
 cat ~/.vimrc | grep -B1 '^[a-z]*map' >> "${DESTF}"
 (printf -- "\" ---\n\n") >> "${DESTF}"
 
-printf "[INFO] ~/.vimrc mappings succesfully exported to ${DESTF}\n\n"
+printf "[i] ~/.vimrc mappings succesfully exported to: '%s'\n"  "${DESTF}"
+
+printf "\n"
+

@@ -1,19 +1,19 @@
 #! /usr/bin/env bash
 # fname: w3md-en.sh
-# 20260106 v1
-# 20260731 v2 implement fname_string_adjustment() function
-#             add prefix option
-# 20260804 v3 move 'w3m dump' command into dump_command() function
-# last: 20260804
+# descpt: convert single 'html-file'  to 'txt-file' with w3m
+# 20261006
+# last: 20261006
 # ---
 
-###  EN-proxy ...
+# === GLOBALS ===
+#  EN-proxy:
 # prx_ip=172.17.3.64
 prx_ip=10.91.8.21
 export http_proxy=http://${prx_ip}:80/
 export ftp_proxy=ftp://${prx_ip}:8021/
 export https_proxy=http://${prx_ip}:80/
 
+# === FUNCTIONS ===
 fname_string_adjustment() {
 	today=$(date +"%Y%m%d")
 	fname_str="$1"
@@ -34,14 +34,14 @@ fname_string_adjustment() {
 
 
 usage() {
-	printf "\n\tUSAGE: <scriptmname> [web-URL] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
+	printf "\n\t[u] usage: <scriptmname> [web-URL] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
 }
 
 dump_command() {
 	w3m -dump -cols 110 "$@"
 }
 
-# MAIN
+# === MAIN ===
 clear
 
 if [ $# -lt 2 ]; then
@@ -62,17 +62,15 @@ else
 fi
 
 
-printf "[INFO] %-10s%s\n" "Web URL:" "${weburl}"
-printf "[INFO] %-10s%s\n" "filename:" "${flnm}"
+printf "[i] %-10s%s\n" "Web URL:" "${weburl}"
+printf "[i] %-10s%s\n" "filename:" "${flnm}"
 
-printf "[INFO] Press <enter> to proceed or <ctrl-c> to quit"
-read ANS
+read -r -p "[?] confirm?"
 
-printf "filename: ${flnm}\n" >> ${flnm}
-printf "${weburl}\n\n" >> ${flnm}
-# lynx -dump -width=110 ${weburl} >> ${flnm}
-dump_command ${weburl} >> ${flnm}
-echo -e "\n\n---\n" >> ${flnm}
+printf "filename: ${flnm}\n" >> "${flnm}"
+printf "${weburl}\n\n" >> "${flnm}"
+dump_command "${weburl}" >> "${flnm}"
+echo -e "\n\n---\n" >> "${flnm}"
 
-printf "[INFO] done\n"
+printf "[i] done\n\n"
 

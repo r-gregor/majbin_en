@@ -1,47 +1,45 @@
 #! /usr/bin/env bash
-# filename: win10-wallpapers-downloads.sh
+# fname: win10-wallpapers-downloads.sh
+# descpt: download win-10 wallpapers from 'Microsoft.Windows.ContentDeliveryManager'
+# 20261006 v1
+# last: 20261006
+# ---
 
-# timestamp
-function tms() {
-    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
-}
-
-# today
+# === GLOBALS ===
 danes="win10wallpapers_$(date +%Y%m%d)"
-
-# START
-tms; echo "Starting $0 ..."
-
-
-function testcmd() {
-    if [ $? -eq 0 ]; then
-        echo "[OK]"
-    else
-        echo -e "Something went wrog!\n"
-        exit 1
-    fi
-}
-
 source="/c/Users/gregor.redelonghi/AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets"
 dest="/c/Users/gregor.redelonghi/majstaf_en/en_staf/WIN10wallpapers/${danes}"
 
+# === FUNCTIONS ===
+function testcmd() {
+	if [ $? -eq 0 ]; then
+		printf "[i] OK\n"
+	else
+		printf "[E] something went wrong\n\n"
+		exit 1
+	fi
+}
 
+# === MAIN ===
 if [ -d ${dest} ]; then
-    tms; echo -e "Directory ${dest} exists!\n"
-    exit 1
+	printf "[E] no such directory: '%s'\n\n" "${dest}"
+	exit 1
 else
-    \mkdir ${dest}
+	/usr/bin/mkdir "${dest}"
 fi
 
-tms; echo -n "Copying WIN10 wallpapers to ${dest} ... "
-\cp ${source}/* ${dest}/
+printf "[i] copying WIN10 wallpapers to '%s'\n" "${dest}"
+/usr/bin/cp ${source}/* ${dest}/
 testcmd
 
-tms; echo -n "Renaming walpapers to *.jpg files ... "
-cd $dest
-for FFF in $(\ls -1 ${dest}/*); do \mv ${FFF} ${FFF}.jpg; done
+printf "[i] renaming walpapers to *.jpg files ... \n"
+cd "${dest}"
+for FFF in $(\ls -1 "${dest}"/*); do
+	/usr/bin/mv "${FFF}" "${FFF}.jpg"
+done
 testcmd
 
-cygstart "explorer" $(cygpath -w "${dest}")
+cygstart "explorer" "$(cygpath -w "${dest}")"
 
-tms; echo "Done!"
+printf "[i] done\n\n"
+

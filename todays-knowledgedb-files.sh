@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: todays-knowledgedb-files-en.sh
+# fname: todays-knowledgedb-files.sh
 # descpt: fzf-find todays files from $KNOWLEDGEDB and open them in vim (read-only)
 # 20261006 v1
 # last: 20261006

@@ -1,35 +1,26 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # fname: run-sendhome1-and-sendp3-1.sh
+# descpt: run sendhome1 and sendp3-1-lnk-en scripts
+# 20261006 v1
+# last: 20261006
 # ---
 
-# timestamp
-function tms() {
-    echo -n "[ $(date +%Y%m%d_%H%M%S) ] "
-}
-
-tms; echo "Starting $0 ..." 
-
+# === GLOBALS ===
 gPth="$HOME/majstaf/majbin/send_mail"
+sendsc1="${gPth}/sendhome1list"
+sendsc2="${gPth}/sendp3-1-lnk-en"
 
-sendsc1=${gPth}/sendhome1list
-sendsc2=${gPth}/sendp3-1-lnk-en
-
+# === MAIN ===
 if [ $# -ne 1 ]; then
-    tms; echo -e "Usage $0 [ \"URL\" ]\n"
-    exit 1
+	printf "[E] usage: run-sendhome1-and-sendp3-1 [ \"URL\" ]\n"
+	exit 1
 fi
 
-U="$1"
-
-$sendsc1 ${U} && $sendsc2 ${U}
-
-# if [ $? -eq 0 ]; then
-#     tms; echo -e 'Done!\n'
-# else
-#     tms; echo "Something went wrong!"
-# fi
+URL="$1"
+"${sendsc1}" "${URL}" && "${sendsc2}" "${URL}"
 
 if [ $? -ne 0 ]; then
-    tms; echo "Something went wrong!"
+	printf "[E] something went wrong!\n\n"
+	exit 1
 fi
 

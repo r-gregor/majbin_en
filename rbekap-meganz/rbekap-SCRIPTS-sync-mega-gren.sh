@@ -1,21 +1,25 @@
 #! /usr/bin/env bash
 # fname: rbekap-SCRIPTS-sync-mega-gren.sh
 # descpt: Rclone sellected files/dirs to mega_gren:
-# last: 20260813
+# 20261006
+# last: 20261006
 # ---
 
+# === GLOBALS ===
 SRC="/home/gregor.redelonghi/majstaf/majscripts"
 DST="mega_gren:ENERGETIKA/majscripts"
-excludes_path="$(cygpath -w $(dirname $(realpath ${BASH_SOURCE[0]}))/excludes)"
+excludes_path="$(cygpath -w "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"/excludes)"
 
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
-	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
-	yes | rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+	printf "[i] backup/sync '%s' to 'MEGA.nz (mega_gren)'\n" "${SRC}"
+	yes | rclone sync --update "$(cygpath -w "${SRC}")" "${DST}" --progress
 else
-	echo "[INFO] backup/sync '${SRC}' to 'MEGA.nz (mega_gren)'"
-	read -p "[INFO] Confirm? "
+	printf "[i] backup/sync '%s' to 'MEGA.nz (mega_gren)'\n" "${SRC}"
+	read -r -p "[?] confirm? "
 
-	# rclone sync --update --filter-from ${excludes_path} $(cygpath -w "${SRC}") ${DST} --progress
-	rclone sync --update $(cygpath -w "${SRC}") ${DST} --progress
+	# rclone sync --update --filter-from "${excludes_path}" "$(cygpath -w "${SRC}")" "${DST}" --progress
+	rclone sync --update "$(cygpath -w "${SRC}")" "${DST}" --progress
 fi
+
+printf "\n"
 

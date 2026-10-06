@@ -1,21 +1,24 @@
 #! /usr/bin/env bash
 # fname: rbekap-H-PODLOGE-copy-mega-gren.sh
 # descpt: Rclone sellected files/dirs to mega_gren:
-# 20251021 v1
-# 20251218 v2 += CURRYR
-# last: 20251218
+# 20261006
+# last: 20261006
 # ---
 
+# === GLOBALS ===
 CURRYR=2026
-
 SRC="/h/${CURRYR}/_${CURRYR}_podloge"
 DST="mega_gren:ENERGETIKA/h_${CURRYR}_podloge"
 
+# === MAIN ===
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then
-	echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
-	yes | rclone copy --update $(cygpath -w "${SRC}") ${DST} --progress
+	printf "[i] backup/copy '%s' to 'MEGA.nz (mega_gren)'\n" "${SRC}"
+	yes | rclone copy --update "$(cygpath -w "${SRC}")" "${DST}" --progress
 else
-	echo "[INFO] backup/copy '${SRC}' to 'MEGA.nz (mega_gren)'"
-	read -p "[INFO] Confirm? "
-	rclone copy --update $(cygpath -w "${SRC}") ${DST} --progress
+	printf "[i] backup/copy '%s' to 'MEGA.nz (mega_gren)'\n" "${SRC}"
+	read -r -p "[?] confirm? "
+	rclone copy --update "$(cygpath -w "${SRC}")" "${DST}" --progress
 fi
+
+printf "\n"
+
