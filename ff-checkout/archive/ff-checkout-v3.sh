@@ -2,6 +2,7 @@
 # filename: ff-checkout-en.sh
 # descpt: Launch www-sites from external file in format: 'http-link;decription'
 # from: ff-fb-mails-from-mbox-launch-en.sh
+# 20260923 v1
 # 20261006 v2: add sellection counter 'num_selected'
 # last: 20261006
 # ---

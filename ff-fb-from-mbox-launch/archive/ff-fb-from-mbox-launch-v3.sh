@@ -44,7 +44,7 @@ fb_files_load() {
 		local fb_url="${LINE%;*}"
 		local fb_fname="${LINE#*;}"
 		fb_files+=(["${fb_fname}"]="${fb_url}")
-	done < "${fb_files_list}"
+	done <"${fb_files_list}"
 	fb_files+=(["Quit"]="Quit")
 }
 

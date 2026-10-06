@@ -24,7 +24,7 @@ run_update_file() {
 	dst_f="${2}"
 
 	if [ ! -f "${dst_f}" ]; then
-		printf "[W] no such file on destination: %s" "${dst_f##*/}"
+		printf "[W] no such file on destination: %s" "${dst_f##*/}\n"
 		read -r -p "[?] continue (y/n)?" ans
 
 		if [[ "${ans}"  != "y" && "${ans}"  != "Y" ]]; then
