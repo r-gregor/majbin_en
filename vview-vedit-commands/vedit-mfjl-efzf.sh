@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 # fname: vedit-mfjl-efzf.sh
-# 20260319  en v1
-# last: 20260319
+# descpt: vim-edit multiple files single file from fzf-sellection -- exact match
+# 20261006 v1
+# last: 20261006
 # ---
 
 # === GLOBALS ===
