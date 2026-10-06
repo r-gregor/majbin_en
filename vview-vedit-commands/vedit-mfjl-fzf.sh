@@ -1,19 +1,23 @@
 #! /usr/bin/env bash
 # fname: vedit-mfjl-fzf.sh
-# 20260319  en v1
-# last: 20260319
+# descpt: vim-edit multiple files from fzf-sellection
+# 20261002
+# last: 20261002
 # ---
 
+# === GLOBALS ===
 vcmd='vim -p'
 fcmd='fzf -m --reverse'
-readarray -t selections < <(cd $HOME && ${fcmd})
+
+# === MAIN ===
+readarray -t selections < <(cd "${HOME}" && "${fcmd}")
 
 if [ "${#selections[@]}" -eq 0 ]; then
-	printf "[INFO] nothing selected\n\n"
-	exit
+	printf "[i] nothing selected\n\n"
+	exit 0
 fi
 
-printf "[INFO] selected:\n"
+printf "[i] selected:\n"
 for selection in "${selections[@]}"; do
 	printf "%s\n" "${HOME}/${selection}"
 done
@@ -22,3 +26,4 @@ for selection in "${selections[@]}"; do
 	printf "${HOME}/${selection} "
 done | xargs -ro ${vcmd}
 
+printf "\n"
