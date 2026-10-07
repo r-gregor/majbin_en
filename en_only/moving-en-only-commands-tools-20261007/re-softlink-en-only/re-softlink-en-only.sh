@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
-# fname: re-softlink-en-only/re-softlink-en-only.sh
-# descpt: 
+# fname: re-softlink-en-only.sh
+# descpt: re-link existing soft link in '~/.local/bin/' to new (target) command
 # 20261007 v1
 # last: 20261007
 # ---
 
 if [ $# -ne 1 ]; then
-	printf "[E]usage: re-softlink-en-only <fyle type (sh, exe, py)>\n\n"
+	printf "[E]usage: re-softlink-en-only <file type (sh, exe, py)>\n\n"
 	exit 1
 else
 	EXT="$1"

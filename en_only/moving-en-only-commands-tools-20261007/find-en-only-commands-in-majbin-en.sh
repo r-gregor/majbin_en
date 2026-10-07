@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # fname: find-en-only-commands-in-majbin-en.sh
-# descpt: find snd display commands in 'majbin' that work on win only (en_only)
+# descpt: find and display commands in 'majbin' that work on win only (en_only)
 # 20261007 v1
 # last: 20261007
 # ---
