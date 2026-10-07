@@ -1,19 +1,19 @@
 #! /usr/bin/env bash
 # filename: knowledgedb-copy-file-to-category.sh
 # descpt: copy file to a cathegory in $KNOWLEDGEDB
-# v1_20251118
-# v2_20260409  en: multiple files, with checks ...
-# 20261002
-# last: 20261002
+# 20251118 v1
+# 20260409 v2: multiple files, with checks ...
+# 20261007
+# last: 20261007
 # ---
 
 if [ $# -lt 1 ]; then
-	printf "[E] usage: $0 <filename>\n"
+	printf "[E] usage: knowledgedb-copy-file-to-category <filename>\n"
 	exit 1
 fi
 
 # globals
-SRCDIR="$(dirname $(realpath ${BASH_SOURCE[0]}))"
+SRCDIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 DEST="${HOME}/majstaf/${HST}git/knowledgedb"
 
 declare -a fjls;

@@ -1,12 +1,13 @@
 #! /usr/bin/env bash
 # filename: knowledgedb-move-file-to-category.sh
 # descpt: move file to a cathegory in $KNOWLEDGEDB
-# v1_20260409 multiple files, with checks ...
-# last: 20260409
+# 20260409 v1: multiple files, with checks ...
+# 20261007
+# last: 20261007
 # ---
 
 if [ $# -lt 1 ]; then
-	printf "[E] usage: $0 <filename>\n"
+	printf "[E] usage: knowledgedb-move-file-to-category <filename>\n"
 	exit 1
 fi
 

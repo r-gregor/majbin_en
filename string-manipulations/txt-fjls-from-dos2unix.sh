@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: txt-fjls-from-unix2dos-en.sh
+# fname: txt-fjls-from-dos2unix.sh
 # descpt: Convert all txt files in currdir from dos to unix line-endings
 # 20260925
 # last: 20260925
@@ -21,13 +21,13 @@ else
 fi
 
 if [ ! -d "$CURDIR" ]; then
-	printf "[ERROR] -- no such directory\n"
+	printf "[E] -- no such directory\n"
 	exit
 fi
 
-read -p "All '*.txt' files will be converted from unix to dos line endings! Continue?"
+read -r -p "[?] all '*.txt' files will be converted from unix to dos line endings! Continue?"
 
 nifs
-for FFF in $(find "${CURDIR}" -type f -name "*\.txt"); do unix2dos "$FFF"; done
+for FFF in $(find "${CURDIR}" -type f -name "*\.txt"); do unix2dos "${FFF}"; done
 oifs
 
