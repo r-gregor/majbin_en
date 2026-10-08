@@ -5,13 +5,18 @@
 # last: 20261006
 # ---
 
-# === GLOBALS ===
-vcmd='vim -Mp'
-fcmd='fzf -m --reverse'
+# === FUNCTIONS ===
+FZFCMD() {
+	fzf -m --reverse
+}
+
+vcmd() {
+	vim -Mp
+}
 
 # === MAIN ===
 printf "\n"
-readarray -t selections < <(cd "${HOME}" && "${fcmd}")
+readarray -t selections < <(cd "${HOME}" && FZFCMD)
 
 if [ "${#selections[@]}" -eq 0 ]; then
 	printf "[i] nothing selected\n\n"
@@ -25,7 +30,7 @@ done
 
 for selection in "${selections[@]}"; do
 	printf "${HOME}/${selection} "
-done | xargs -ro ${vcmd}
+done | xargs -ro vcmd
 
 printf "\n"
 

@@ -11,12 +11,18 @@ unset selection
 unset finallist
 fljs=()
 
+
+# === FUNCTIONS ===
+FZFCMD() {
+	fzf -e -m --reverse
+}
+
 # === MAIN ===
 for LINE in $(grep -E "^> .*[0-9]{8}\.txt" ~/.viminfo | cut -d' ' -f2-); do
 	fljs+=("${LINE//\~/${HOME}}")
 done
 
-selection=$(for fjl in "${fljs[@]}"; do echo "${fjl}"; done 2>/dev/null | fzf -e -m --reverse)
+selection=$(for fjl in "${fljs[@]}"; do echo "${fjl}"; done 2>/dev/null | FZFCMD)
 
 if [ "${selection}" == "" ]; then
 	printf "[i] nothing selected\n\n"
