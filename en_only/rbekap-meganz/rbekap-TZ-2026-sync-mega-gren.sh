@@ -7,8 +7,8 @@
 
 # === GLOBALS ===
 CURRYR=2026
-SRC="/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-04"
-DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-04"
+SRC="/c/Users/gregor.redelonghi/${CURRYR}/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-10"
+DST="mega_gren:ENERGETIKA/Tehnicne-zahteve_2026/Tehnicne-zahteve_2026-10"
 
 # === MAIN ===
 if [ $# -eq 1 ] && [ "${1}" == "-y" ]; then

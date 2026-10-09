@@ -36,7 +36,7 @@ for check_dir in majbin majrcs metsys; do
 	unset FOUNDDIFFS
 	declare -a FOUNDDIFFS
 
-	readarray -t FOUNDDIFFS < <(for FFF in $(ls -1); do diff -qr "${FFF}" "${MAJSTAF}/${check_dir}/${FFF}" 2>&1 | grep -iv 'only'; done)
+	readarray -t FOUNDDIFFS < <(for FFF in $(ls -1); do diff -qr "${FFF}" "${MAJSTAF}/${check_dir}/${FFF}" 2>&1 | grep -iv 'only '; done)
 	found_num="${#FOUNDDIFFS[@]}"
 
 	if [ "${found_num}" -ne 0 ]; then
