@@ -22,7 +22,7 @@ rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
 rbekap-DOWNLOADS-copy-mega-gren -y
 
-printf "---\n[i] backup/sync of:\n"
+printf -- "---\n[i] backup/sync of:\n"
 for DEST in "${DESTS[@]}"; do
 	printf "\t'%s'\n" "${DEST}"
 done

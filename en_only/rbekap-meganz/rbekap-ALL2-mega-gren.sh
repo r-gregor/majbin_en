@@ -28,7 +28,7 @@ rbekap-SUPPORT-sync-mega-gren -y; echo "---" && \
 rbekap-TOOLBOX-sync-mega-gren -y; echo "---" && \
 rbekap-TZ-2026-sync-mega-gren -y; echo "---"
 
-printf "---\n[i] backup/sync of:\n"
+printf -- "---\n[i] backup/sync of:\n"
 for DEST in "${DESTS[@]}"; do
 	printf "\t'%s'\n" "${DEST}"
 done
