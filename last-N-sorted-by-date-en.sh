@@ -5,12 +5,11 @@
 #           changed for loop
 # 20260407: DEST1, DEST2 ==> readarray 'ls -1' command into CATEGORIES
 #           DRPBO --> KNWLGDB
-# last: 20260407
+# 20261013: change KNWLGDB --> make it universal
+# last: 20261013
 #---
 
-KNWLGDB=/home/gregor.redelonghi/majstaf/engit/knowledgedb
-# CMD1=${HOME}/.local/bin/sort-files-by-end-date
-# CMD2=${HOME}/.local/bin/rsort-by-tmstmp-c
+KNWLGDB="${HOME}/majstaf/${HST}git/knowledgedb"
 
 CMD1() {
 	"${HOME}"/.local/bin/sort-files-by-end-date

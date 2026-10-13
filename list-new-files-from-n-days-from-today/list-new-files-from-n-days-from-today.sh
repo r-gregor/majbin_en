@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: list-new-files-from-n-days-from-today-en.sh
+# fname: list-new-files-from-n-days-from-today.sh
 # descpt: list new files from n-days back till today
 # 20260731 v1
 # 20260809 v2 refine find command to prune (not desend into unwanted drectories
@@ -9,6 +9,7 @@
 # 20260902 v6 fixed value of start_date if days_diff is  lower than or equal to zero
 #             with retruning from function
 # 20260903 v7 put everithing into list_new_files() function and check if ddiff is a anumber
+# 20261013 v8 make it universal
 # last 20260810
 # ---
 

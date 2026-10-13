@@ -2,7 +2,8 @@
 # fname: todays-knowledgedb-files.sh
 # descpt: fzf-find todays files from $KNOWLEDGEDB and open them in vim (read-only)
 # 20261006 v1
-# last: 20261006
+# 20261013 v2 make it universal
+# last: 20261013
 # ---
 
 # === GLOBALS ===
