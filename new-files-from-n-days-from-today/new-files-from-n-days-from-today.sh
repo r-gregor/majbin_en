@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-# fname: list-new-files-from-n-days-from-today.sh
-# descpt: list new files from n-days back till today
+# fname: new-files-from-n-days-from-today.sh
+# descpt: display a list of new files from n-days back till today
 # 20260731 v1
 # 20260809 v2 refine find command to prune (not desend into unwanted drectories
 # 20260810 v3 add options to select path and days difference
