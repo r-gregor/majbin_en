@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: last-N-sorted-by-date-en
+# fname: last-knowledgedb-files-date-sorted.sh
 # descpt: List last 10 files from $KNOWLEDGEDB in all cathegories sorted by date
 # 20220202: added ${DEST1}, and ${DEST2}
 #           changed for loop
