@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# filename: lynx-multi-dump-fromlist-en.sh
+# filename: lynx-multi-dump-fromlist.sh
 # descpt: convert multiple http-tech-sites from url-list in external file into txt-file using lynx
 # v1_20250925 remove option to use dumplist
 # v2 20260731 implement fname_string_adjustment() function
