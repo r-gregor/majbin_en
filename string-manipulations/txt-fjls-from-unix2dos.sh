@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: txt-fjls-from-unix2dos-en.sh
+# fname: ./string-manipulations/txt-fjls-from-unix2dos.sh
 # descpt: Convert all txt files in currdir from unix to dos line-endings
 # 20260925
 # last: 20260925

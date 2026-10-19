@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: w3m-multi-dump-fromlist-en.sh
+# fname: ./w3mdump/w3m-multi-dump-fromlist.sh
 # descpt: convert multiple 'html-files' into single 'txt-file' with w3m
 # 20261013 make universal --> proxy settins only if on cygwin
 # last: 20261013

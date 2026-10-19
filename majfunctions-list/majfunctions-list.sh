@@ -1,13 +1,13 @@
 #! /usr/bin/env bash
 # fname: majfunctions-list.sh
-# descpt: display list of functions in $MRCS/funclist-en with decription
+# descpt: display list of functions in "${MRCS}/funclist-${HST}" with decription
 # 20261016
 # last: 20261016
 # ---
 
 # === GLOBALS ===
 PTH="${HOME}/majstaf/majrcs/"
-fnc_lst="${PTH}/funclist-en"
+fnc_lst="${PTH}/funclist-${HST}"
 
 # === MAIN ===
 while read -r LINE; do
