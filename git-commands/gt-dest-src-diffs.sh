@@ -13,7 +13,7 @@ MAJSTAF="${HOME}/majstaf"
 MAJSTAF_G="${MAJSTAF}/${HST}git"
 
 cd "${MAJSTAF_G}/dotfiles_${HST}"
-printf "[i] diffs: dotfiles_en ...\n"
+printf "[i] diffs: dotfiles_${HST} ...\n"
 
 unset DTFOUNDDIFFS
 declare -a DTFOUNDDIFFS
