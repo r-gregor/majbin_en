@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 # fname: ./string-manipulations/txt-fjls-from-unix2dos.sh
 # descpt: Convert all txt files in currdir from unix to dos line-endings
-# 20260925
-# last: 20260925
+# 20261021
+# last: 20261021
 # ---
 
 nifs() {
@@ -21,11 +21,11 @@ else
 fi
 
 if [ ! -d "$CURDIR" ]; then
-	printf "[E] -- no such directory\n"
-	exit
+	printf "[e] no such directory: '%s'\n\n" "${CURDIR}"
+	exit 1
 fi
 
-read -r -p "[?] all '*.txt' files will be converted from unix to dos line endings! Continue?"
+read -r -p "[?] all '*.txt' files will be converted from unix to dos line endings -- continue?"
 
 nifs
 for FFF in $(find "${CURDIR}" -type f -name "*\.txt"); do unix2dos "${FFF}"; done;

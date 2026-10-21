@@ -5,8 +5,7 @@
 # ---
 
 if [ $# -ne 1 ]; then
-    printf "[E] the FJL varible is not set\n"
-    printf "[E] you must add a [filename.srt] to be converted as argument\n"
+    printf "[e] no <filename.srt> to be converted as argument\n\n"
     exit 1
 else
     FJL="$1"
@@ -15,5 +14,5 @@ fi
 printf "[i] converting '%s' from WINDOWS-1250 to utf-8 ...\n" "${FJL}"
 iconv -f WINDOWS-1250 -t utf-8 "$PWD"/$FJL > "$PWD"/SLO-UTF8.srt
 printf "[i] exported to SLO-UTF8.srt ...\n"
-printf "[i] done\n"
+printf "[i] done\n\n"
 

@@ -15,7 +15,7 @@ project_path="./${project_name}"
 
 
 if [ -d "${project_path}" ]; then
-	printf "[E] ${project_path} exists!\n"
+	printf "[e] ${project_path} exists!\n\n"
 	exit 1
 fi
 

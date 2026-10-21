@@ -13,6 +13,9 @@ if [ -d "${VENVDIR}" ]; then
 	rm -rv "${VENVDIR}"
 	printf "[i] done\n"
 else
-	printf "[E] no ${VENVDIR} found\n"
+	printf "[e] no ${VENVDIR} found\n\n"
 	exit 1
 fi
+
+printf "\n"
+

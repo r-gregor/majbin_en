@@ -13,16 +13,16 @@ dest="/c/Users/gregor.redelonghi/majstaf_en/en_staf/WIN10wallpapers/${danes}"
 # === FUNCTIONS ===
 function testcmd() {
 	if [ $? -eq 0 ]; then
-		printf "[i] OK\n"
+		printf "[i] ok\n"
 	else
-		printf "[E] something went wrong\n\n"
+		printf "[e] something went wrong\n\n"
 		exit 1
 	fi
 }
 
 # === MAIN ===
 if [ -d ${dest} ]; then
-	printf "[E] no such directory: '%s'\n\n" "${dest}"
+	printf "[e] no such directory: '%s'\n\n" "${dest}"
 	exit 1
 else
 	/usr/bin/mkdir "${dest}"

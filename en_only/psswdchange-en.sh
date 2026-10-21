@@ -6,51 +6,41 @@
 # last: 20261001
 # ---
 
-# path to .SCRTS
-# gCurdir="$HOME/majstaf/majbin/send_mail_scrts/"
-gScrts="$HOME/.SCRTS_en"
 
-# path to temp backup files
-gTempd="$HOME/.tmp"
+# === GLOBALS ===
+scrts_pth="$HOME/.SCRTS_en"
+tmpf_pth="$HOME/.tmp"
 
-if [[ ! -d "${gTempd}" ]]; then
-	printf "[E] error: There is no ${gTempd}/\n\n"
-	exit 1
-fi
-
-printf "[i] starting $0 ...\n"
-
-# creating backup files
-printf "[i] creating backupfiles ... "
-
-# for gEnd in conf py; do
-#	  cp ${gCurdir}/send_config_en.${gEnd} ${gTempd}/send_config_en.${gEnd}_${gTms}.bckp 2> /dev/null
-# done
-cp "${gScrts}" "${gTempd}/${gScrts}.bckp" 2> /dev/null
-printf " done\n"
-
-# TEST for PSWD in config files
-printf "[i] checking for 'number' in password ...\n"
-
-getNum() {
-	num=$(grep 'PSSWD_SCRTS' "${gScrts}" | grep -oE "[[:digit:]]{3}")
+# === FUNCTIONS ===
+get_old_psswd_num() {
+	num=$(grep 'PSSWD_SCRTS' "${scrts_pth}" | grep -oE "[[:digit:]]{3}")
 	echo "${num}"
 }
 
-gOldn=$(getNum "conf")
-NUM_O=$(getNum "py")
-printf "[i] old passwd number: $NUM_O\n"
+# === MAIN ===
+if [[ ! -d "${tmpf_pth}" ]]; then
+	printf "[e] no ${tmpf_pth}/ found\n\n"
+	exit 1
+fi
+
+printf "[i] creating backupfiles ... \n"
+cp "${scrts_pth}" "${tmpf_pth}/${scrts_pth}.bckp" 2> /dev/null
+printf "[i] done\n"
+
+printf "[i] checking for 'number' in password ...\n"
+old_psswd_num=$(get_old_psswd_num)
+# NUM_O=$(get_old_psswd_num "py")
+printf "[i] old passwd number: ${old_psswd_num}\n"
 printf -- "---\n"
 
-read -r -p "[?} enter NEW passwd num: " gNewn
-printf "[i] old passwd num is: ${gOldn}\n"
-printf "[i] NEW passwd num is: ${gNewn}\n"
+read -r -p "[?} enter NEW passwd num: " new_psswd_num
+printf "[i] old passwd num is: ${old_psswd_num}\n"
+printf "[i] NEW passwd num is: ${new_psswd_num}\n"
 
-# TEST for files
-if [ -f "${gScrts}" ]; then
-	gTms; printf "[i] files exist. OK to continue ...\n"
+if [ -f "${scrts_pth}" ]; then
+	printf "[i] config files exist -- ok to continue ...\n"
 else
-	gTms; printf "[E] NO config files\n"
+	printf "[e] no config files\n\n"
 	exit 1
 fi
 
@@ -59,6 +49,6 @@ read -r -p "[?] continue?"
 
 # ACTION
 printf "[i] replacing old psswd in send_config_en.*:\n"
-sed -i "s/${gOldn}/${gNewn}/g" "${gScrts}"
-grep "${gNewn}" "${gScrts}"
+sed -i "s/${old_psswd_num}/${new_psswd_num}/g" "${scrts_pth}"
+grep "${new_psswd_num}" "${scrts_pth}"
 

@@ -10,22 +10,13 @@
 # last: 20261002
 # ---
 
-if [ -z "${CURRENT_YEAR_ENV}" ]; then
-	export CURRENT_YEAR_ENV=$(date +"%Y")
-fi
-
-if [ $# -eq 1 ]; then
-	gCurrYr=$1
-else
-	gCurrYr=${CURRENT_YEAR_ENV}
-fi
-
-gSrc="/c/Users/gregor.redelonghi"
-gDest="/h"
-
-# crtn=100
+# === GLOBALS ===
+src_dir="/c/Users/gregor.redelonghi"
+dest_dir="/h"
+rsync_cmd='rsync -rltDv'
 crtn=3
 
+# === FUNCTIONS ===
 crtc() {
 	for ((i=1; i<=$1; i++)); do
 		printf "-"
@@ -33,19 +24,31 @@ crtc() {
 	printf "\n"
 }
 
-if [ ! -d ${gSrc}/${gCurrYr} ]; then
-	printf "[E] No such directory: ${gSrc}/${gCurrYr}\n\n"
+# === MAIN ===
+if [ -z "${CURRENT_YEAR_ENV}" ]; then
+	export CURRENT_YEAR_ENV=$(date +"%Y")
+fi
+
+if [ $# -eq 1 ]; then
+	curr_yr=$1
+else
+	curr_yr=${CURRENT_YEAR_ENV}
+fi
+
+if [ ! -d ${src_dir}/${curr_yr} ]; then
+	printf "[e] No such directory: ${src_dir}/${curr_yr}\n\n"
 	exit
 fi
 
 dT1=$(date +"%s")
 
-printf "[i] syncing ${gSrc}/${gCurrYr}/ to ${gDest}/${gCurrYr}-danes/ ...  \n"
-gCmd='rsync -rltDv'
-${gCmd} --delete ${gSrc}/${gCurrYr}/ ${gDest}/${gCurrYr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[i] rsync: &/"; done
+printf "[i] syncing ${src_dir}/${curr_yr}/ to ${dest_dir}/${curr_yr}-danes/ ...  \n"
+${rsync_cmd} --delete ${src_dir}/${curr_yr}/ ${dest_dir}/${curr_yr}-danes/ | grep -v '^[[:space:]]*$' | while read line; do echo $line | sed "s/.*/[i] rsync: &/"; done
 
 dT2=$(date +"%s")
 crtc $crtn
 printf "[i] done in $((dT2-dT1)) seconds!\n"
 crtc $crtn
+
+printf "\n"
 

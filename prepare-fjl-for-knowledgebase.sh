@@ -2,13 +2,15 @@
 # fname: prepare-fjl-for-knowledgebase.sh
 # descpt: prepare txt-file for editing after converting from html
 # 20261001 v1
-# last: 20261001
-# ---
+# 20261021
+# last: 20261021
 
+# === GLOBALS ===
 unset FJL
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
-    printf "[E] must supply filename as argument\n\n"
+    printf "[e] must supply filename as argument\n\n"
     exit 1
 else
 	FJL="$1"
@@ -20,4 +22,6 @@ run=/usr/bin/vim
 $rpr "${FJL}" &&
 echo "[i] opening ${FJL} ...\n"
 $run "${FJL}"
+
+printf "\n"
 

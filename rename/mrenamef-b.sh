@@ -1,12 +1,14 @@
 #! /usr/bin/env bash
 # fname: mrenamef-b.sh
 # descpt: rename filename replacing part of filename with pattern
-# 20261001 v1
-# last: 
+# 20261021
+# last: 20261021
 # ---
 
+
+# === MAIN ===
 if [ $# -ne 3 ]; then
-	printf "[E] \tUsage:\n\t\t$0 [pattern] [replacement] <fname>\n\n"
+	printf "[e] usage: mrenamef-b.sh [pattern] [replacement] <fname>\n\n"
 	exit 1
 fi
 
@@ -22,3 +24,4 @@ mv -v "${fname}" "${fname//"${pattern}"/"${replacement}"}"
 # set IFS to orginal ' \t\n'
 IFS=$' \t\n'
 
+printf "\n"

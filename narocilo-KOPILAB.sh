@@ -3,13 +3,15 @@
 # descpt: create txt-form to send copying order (naročilo) to KOPILAB by email
 # 20260903 v2: number of copies either as parameter to program, or prompt if no parameter
 #              if number of copies not set, set it to 4
-# last 20260903
-# ---
+# 20261021
+# last: 20261021
 
+
+# === MAIN ===
 if [ $# -eq 1 ]; then
 	NN=$1
 else
-	read -r -p "[?] Število izvodov: " NN
+	read -r -p "[?] število izvodov: " NN
 fi
 
 if [ -z "${NN}" ]; then
@@ -18,7 +20,7 @@ fi
 
 # test if $NN is number:
 if ! [[ "${NN}" =~ ^[1-9]+$ ]]; then
-	printf "[E] argument is not a positive nubmer\n\n"
+	printf "[e] argument is not a positive nubmer\n\n"
 	exit 1
 fi
 
@@ -49,4 +51,6 @@ msg > "${NRCL}"
 echo "---" >> "${NRCL}"
 echo $(cygpath -w "$PWD") >> "${NRCL}"
 "${HOME}"/.local/bin/np "${NRCL}"
+
+printf "\n"
 

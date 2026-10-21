@@ -2,15 +2,15 @@
 #! /usr/bin/env bash
 # fname: square-brackets-num-bookmarks-find-and-remove.sh
 # descpt: find '[digits]' in a filename as parameter and remove them
-# 20261006 v1
-# last: 20261006
+# 20261021
+# last: 20261021
 # ---
 
 unset fnm
 
 # === MAIN ===
 if [ $# -ne 1 ]; then
-	printf "[E] must suply a filename\n\n"
+	printf "[e] must suply a filename\n\n"
 	exit 1
 else
 	fnm=$1
@@ -26,7 +26,7 @@ if [[ $ANS == "yes" || $ANS == "YES" ]]; then
 	sed -i 's/\[[[:digit:]]\{2,3\}\]//g' "${fnm}"
 	printf "[i] done\n"
 else
-	printf "[E] terminating ...\n\n"
+	printf "[e] terminating ...\n\n"
 	exit 1
 fi
 

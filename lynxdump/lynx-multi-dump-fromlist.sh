@@ -6,8 +6,8 @@
 #             add prefix option
 # 20260804 v3 move 'lynx dump' command into dump_command() function
 # 20261013 v4 make universal --> proxy settins only if on cygwin
-# last: 20261013
-# ---
+# 20261021
+# last: 20261021
 
 # === FUNCTIONS ===
 check_for_ostype() {
@@ -54,7 +54,7 @@ fname_string_adjustment() {
 }
 
 usage() {
-	printf "\n\tUSAGE: <scriptmname> [list] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
+	printf "[!] usage: <scriptmname> [list] \"[fname inside double quotes]\" [prefix: c, go, bash, ...(optional)]\n\n"
 }
 
 dump_command() {
@@ -73,14 +73,14 @@ fi
 if [ $# -eq 2 ]; then
 	seznam="$1"
 	if [ ! -f $seznam ]; then
-		printf "[E] no such file: ${seznam}\n\n"
+		printf "[e] no such file: ${seznam}\n\n"
 		exit 1
 	fi
 	ffname=$(fname_string_adjustment "$2")
 elif [ $# -eq 3 ]; then
 	seznam="$1"
 	if [ ! -f $seznam ]; then
-		printf "[E] no such file: ${seznam}\n\n"
+		printf "[e] no such file: ${seznam}\n\n"
 		exit 1
 	fi
 	pfnm=$(fname_string_adjustment "$2")

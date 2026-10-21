@@ -6,7 +6,7 @@
 # ---
 
 if [ $# -ne 1 ]; then
-	printf "[E] bo parameter --> Naročilo ...\n"
+	printf "[e] no parameter --> Naročilo ...\n\n"
 	exit 1
 fi
 

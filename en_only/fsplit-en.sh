@@ -1,16 +1,26 @@
 #! /usr/bin/env bash
 # fname: fsplit-en.sh
-# descpt: split file into n-parts files
-# 20260929 v1
-# last: 20260929
+# descpt: split file into n-parts
+# 20261021 v1
+# last: 20261021
 # ---
 
+# === GLOBALS ===
 PARTS=2
 ARGS=("$@")
 NUMARGS="${#ARGS[*]}"
 
-case "$NUMARGS" in
+# === FUNCTIONS ===
+usage() {
+	printf "[!] usage: fsplit-en <fname> <n>\n"
+	printf "                      fname: file name\n"
+	printf "                      n:     number of parts to split fname into\n"
+	printf "                             if only <filename> supiplied: n = 2\n\n"
+}
 
+
+# === MAIN ===
+case "$NUMARGS" in
 	1)
 		fname="${ARGS[0]}"
 	;;
@@ -21,18 +31,14 @@ case "$NUMARGS" in
 	;;
 
 	*)
-		printf "[E] no filename supplied\n"
-		printf "Usage: $0 <fname> <n>\n"
-		printf "           fname: file name\n"
-		printf "           n:     number of parts to split fname into\n"
-		printf "                  if only <filename> supiplied: n = 2\n"
-		printf "\n"
+		printf "[e] no filename supplied\n"
+		usage
 		exit 1
 	;;
 esac
 
 if [ ! -f "$fname" ]; then
-	printf "[E] NO such file: '%s'\n"  "$fname"
+	printf "[e] no such file: '%s'\n\n"  "$fname"
 	exit 1
 fi
 

@@ -4,18 +4,17 @@
 # v1_20260514
 #---
 
+# === MAIN ===
 clear
 
-MSG="Usage: $0 [ , < path >, -h ]"
-
 if [ $# -eq 1 ]; then
-	LCT=$1
+	LCT="$1"
 else
 	LCT="$PWD"
 fi
 
 if [ ! -e "${LCT}" ]; then
-	printf "[E] no such path: '%s'\n\n" "${LCT}"
+	printf "[e] no such path: '%s'\n\n" "${LCT}"
 	exit 1
 fi
 	
@@ -27,9 +26,9 @@ printf "[i] serch start location is: \n\t'%s'\n" "${LCT}"
 # command:
 find ${LCT} -type f -iname "*txt" -exec ls -lgG --time-style=long-iso {} \; 2>/dev/null | cut -d' ' -f4- | sort -nr
 if [ $? -ne 0 ]; then
-	printf "[E] something went WRONG\n\n"
+	printf "[e] something went wrong\n\n"
 	exit 1
 fi
 
-printf "[i] done\n"
+printf "[i] done\n\n"
 

@@ -10,23 +10,22 @@
 # last: 20260804
 # ---
 
+# === GLOBALS ===
 set -e
 
 fjls=()
 dsts=()
 darg=false
 farg=false
+OIFS=$IFS
 
+# === FUNCTIONS ===
 usage() {
-cat <<USAGE
-
-usage: fcopy-to-multiple-dirs -f <fnm1> <fnm2> <"fnm3 with spaces"> -d <dirnm1> <dirnm2> ...
-                                   -h ... print this message
-
-USAGE
+	printf "[!] usage: fcopy-to-multiple-dirs -f <fnm1> <fnm2> <"fnm3 with spaces"> -d <dirnm1> <dirnm2> ...\n"
+	printf "                                  -h ... print this message\n\n"
 }
 
-OIFS=$IFS
+# === MAIN ===
 IFS='' # important: otherwise filenames and path strings do not get copied correctly
 while getopts "f:d:h" opt; do
 	case $opt in
@@ -58,14 +57,14 @@ while getopts "f:d:h" opt; do
 done
 
 if [ "${farg}" != "true" ]; then
-	printf "[E] no file selected\n"
+	printf "[e] no file selected\n"
 	usage
 	exit 1
 fi
 
 
 if [ "${darg}" != "true" ]; then
-	printf "[E] no directory selected\n"
+	printf "[e] no directory selected\n"
 	usage
 	exit 1
 fi
@@ -73,14 +72,14 @@ IFS=$OIFS
 
 for DDD in "${dsts[@]}"; do
 	if [ ! -d "${DDD}" ]; then
-		printf "[E] no such directory: ${DDD}\n\n"
+		printf "[e] no such directory: ${DDD}\n\n"
 		exit 1
 	fi
 done
 
 for FFF in "${fjls[@]}"; do
 	if [ ! -f "${FFF}" ]; then
-		printf "[E] no such file: ${FFF}\n\n"
+		printf "[e] no such file: ${FFF}\n\n"
 		exit 1
 	fi
 done
@@ -88,4 +87,6 @@ done
 for DST in "${dsts[@]}"; do
 	/usr/bin/cp -vi "${fjls[@]}" "${DST}"
 done
+
+printf "\n"
 

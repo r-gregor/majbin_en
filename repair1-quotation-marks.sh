@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 # fname: repair1-quotation-marks.sh
 # descpt: replace quotation and graphical characters for conversion into pdf-format
-# 20261001 v1
-# last: 20261001
+# 20261021
+# last: 20261021
 # ---
 
 
@@ -29,6 +29,7 @@
 #  version V3: 20190710: added box chars
 #
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
 	printf "[E] must suply single filename\n\n"
 	exit 1
@@ -36,8 +37,6 @@ else
 	FJL="$1"
 fi
 
-
-# command
 sed -e "s/[$(printf "\u201c")$(printf "\u201d")]/\"/g" \
     -e "s/[$(printf "\u00ab")$(printf "\u00bb")]/\"/g" \
     -e "s/[$(printf "\u2018")$(printf "\u2019")]/'/g" \

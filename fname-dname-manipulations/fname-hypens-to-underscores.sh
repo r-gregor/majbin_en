@@ -5,11 +5,13 @@
 # last: 20260331
 # ---
 
+# === GLOBALS ===
 ARG="$@"
 
+# === MAIN ===
 if [ "${ARG}" = "" ]; then
-	printf "[E] -- no filename as argument\n"
-	exit
+	printf "[e] no filename as argument\n\n"
+	exit 1
 else
 	FJLM="$ARG"
 fi

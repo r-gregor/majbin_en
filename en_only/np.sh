@@ -4,24 +4,21 @@
 # 20261001 v1
 # last: 20261001
 # ---
-
-usage () {
-cat <<USAGE
-+------------------------------------------------------------------------+
-| Usage:                                                                 |
-| Script that starts notepad++ with or without parameter (file to open): |
-| a.) np          just starts blank notepad++                            |
-| b.) np <file>   starts notepad++ with a file                           |
-+------------------------------------------------------------------------+
-USAGE
-}
-
+# === GLOBALS ===
 NPPPTH='/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/Notepad++'
 
+# === FUNCTIONS ===
+usage () {
+	printf "[!] usage: np with or without parameter (file to open)\n"
+	printf "              a.) np          just starts blank notepad++\n"
+	printf "              b.) np <file>   starts notepad++ with a file\n\n"
+}
+
+# === MAIN ===
 maxarg=1
 if [ $# -gt ${maxarg} ]; then
 	clear
-	printf "[E] too many arguments - only one or zero\n"
+	printf "[e] too many arguments - only one or zero\n"
 	usage
 	exit 1
 elif [ $# -eq 1 ]; then

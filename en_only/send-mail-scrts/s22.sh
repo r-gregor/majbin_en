@@ -5,9 +5,11 @@
 # ---
 
 if [ $# -ne 1 ]; then
-	printf "[E] usage: s22 <subject/body>\n\n"
+	printf "[e] usage: s22 <subject/body>\n\n"
 	exit 1
 fi
 
 send-2args-en "$@" "$@"
+
+printf "\n"
 

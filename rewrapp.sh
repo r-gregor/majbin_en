@@ -2,22 +2,26 @@
 #! /usr/bin/env bash
 # fname: rewrapp.sh
 # descpt: converts documnet to linux lineendins format (dos2unix)
-# 20261002 v1
-# last: 20261002
+# 20261021
+# last: 20261021
 # ---
 
-clear
+
+# === GLOBALS ===
 unset FAJL
 
+# === MAIN ===
+clear
+
 if [ ! "${1}" ]; then
-	printf "[E] usage: rewrapp <filename>\n\n"
+	printf "[e] usage: rewrapp <filename>\n\n"
 	exit 1
 fi
 
 FAJL="${1}"
 
 if [ ! -f "${FAJL}" ]; then
-	printf "[E] no such file: '%s'\n\n" "${FAJL}"
+	printf "[e] no such file: '%s'\n\n" "${FAJL}"
 	exit 1
 fi
 

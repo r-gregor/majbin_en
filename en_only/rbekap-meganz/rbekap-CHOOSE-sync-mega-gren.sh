@@ -21,7 +21,6 @@ declare -A dsts=(["BOOKMARKS"]="rbekap-BOOKMARKS-sync-mega-gren" \
 )
 
 # === FUNCTIONS ===
-
 clr_scr() {
 	# clear the screen:
 	printf "\033[H\033[2J"
@@ -33,7 +32,7 @@ FZFCMD() {
 
 get_longest() {
 	if [ ! $# -eq 1 ]; then
-		printf "[E] must supply array of sentences as parameter\n\n"
+		printf "[e] must supply array of sentences as parameter\n\n"
 		exit 1
 	fi
 

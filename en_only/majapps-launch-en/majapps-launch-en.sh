@@ -26,7 +26,7 @@ load_links_into_array() {
 
 get_longest() {
 	if [ ! $# -eq 1 ]; then
-		printf "[E1] must supply array of sentences as parameter\n\n"
+		printf "[e] must supply array of sentences as parameter\n\n"
 		exit 1
 	fi
 
@@ -53,7 +53,7 @@ selection_info() {
 
 majaps_run() {
 	if [ "${selection}" == "" ]; then
-		printf "[i] no selection\n\n"
+		printf "[!] no selection\n\n"
 		exit 0
 	fi
 
@@ -145,14 +145,14 @@ if [ $# -eq 1 ]; then
 	done
 
 	if [ "${#options[@]}" -gt 1 ]; then
-		printf "[E] multiple selections:\n"
+		printf "[e] multiple selections:\n"
 		for OPT in "${options[@]}"; do
 			printf "${OPT}\n"
 		done
 		printf "[i] redefine parameter\n\n"
 		exit 1
 	elif [ "${#options[@]}" -eq 0 ]; then
-		printf "[E] no selection\n\n"
+		printf "[e] no selection\n\n"
 		exit 1
 	else
 		selection="${options[0]}"

@@ -2,13 +2,15 @@
 # fname: pdf-reduce-size.sh
 # descpt: reduce size of scaned into pdf files
 # 20261001 v1
-# last: 20261001
-# ---
+# 20261021
+# last: 20261021
 
+# === GLOBALS ===
 unset FJL
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
-	printf "[E] there should be one and only one argumanet: <pdf-filename>\n\n"
+	printf "[e] there should be one and only one argumanet: <pdf-filename>\n\n"
 	exit 1
 else
 	FJL="$1"

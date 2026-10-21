@@ -8,13 +8,13 @@
 ARG="$@"
 
 if [ "${ARG}" = "" ]; then
-	printf "[E] -- no string as argument\n"
-	exit
+	printf "[e] no string as argument\n\n"
+	exit 1
 else
 	FNAME="$ARG"
 fi
 
 printf "i[i] converting 4 spaces to tabs for file '${FNAME}' ... "
 sed -i 's/ \{4\}/\t/g' "${FNAME}"
-printf "[i] OK\n"
+printf "[?] ok?\n"
 

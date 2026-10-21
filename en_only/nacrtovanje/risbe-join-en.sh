@@ -12,7 +12,7 @@ else
 fi
 
 if [ -f "${OUTPUT}" ]; then
-	printf "[E] ${OUTPUT} already exists. Supply another filename as argumet\n"
+	printf "[e] ${OUTPUT} already exists -- supply another filename as argumet\n"
 	exit
 fi
 

@@ -21,7 +21,7 @@ printf "[?] proceed (y/n)?  "
 read dans1
 
 if [ "$dans1" != y ] && [ "$dans1" != Y ]; then
-	printf "[E] answer is NOT 'y' or 'Y'\n"
+	printf "[e] answer is NOT 'y' or 'Y'\n"
 	printf "[i] done\n\n"
 	exit 1
 fi
@@ -55,7 +55,7 @@ if [ "${st}" -ne 0 ]; then
 			printf "[i] done\n\n"
 			
 		else
-			printf "[E] answer is NOT 'y' or 'Y'\n"
+			printf "[e] answer is NOT 'y' or 'Y'\n"
 			read -p "[?] press any key to continue or ctrl-c to quit!"
 			printf "[i] done\n\n"
 		fi

@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 # fname: softlink1-fname-to-ulb.sh
 # descpt: soft-link bash script to '~/.local/bin/'
-# 20261006 v1
-# last: 20261006
+# 20261021
+# last: 20261021
 # ---
 
 # === GLOBALS ===
@@ -15,13 +15,12 @@ ext="${fname_full##*.}"
 
 # === MAIN ===
 if [ ! $# -eq 1 ]; then
-	printf "[E] usage:\n"
-	printf "\tsoftlink1-fname-to-ulb <scriptname>\n\n"
+	printf "[e] usage: softlink1-fname-to-ulb <scriptname>\n\n"
 	exit 1
 fi
 
 if [ ! -e "${source_path}/${fname_full}" ]; then
-	printf "[E] no such file: '%s'\n\n" "${fname_full}"
+	printf "[e] no such file: '%s'\n\n" "${fname_full}"
 	exit 1
 fi
 

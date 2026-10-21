@@ -15,7 +15,7 @@ if [ $# -eq 1 ]; then
 elif  [ $# -eq 0 ]; then
     cygstart "${FF}"
 else
-    printf "[E] To many parameters!\n"
+    printf "[e] to many parameters\n\n"
     exit
 fi
 

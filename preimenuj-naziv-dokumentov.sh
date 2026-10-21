@@ -2,9 +2,11 @@
 # fname: preimenuj-naziv-dokumentov.sh
 # descpt: rename part of filename with pattern for ALL '*.doc*', '*.xls*' and "*.txt' files in currdir
 # 20261001 v1
-# last: 20261001
-# ---
+# 20261021
+# last: 20261021
 
+
+# === MAIN ===
 if [ $# -ne 2 ]; then
 	printf "[i] rename ALL '*.doc*', '*.xls*' or '*.txt' files -- switch patterns\n"
 	printf "[i] Usage: preimenuj-naziv-dokumentov [old-file-name-pattern] [new-file-name-pattern]\n"
@@ -34,7 +36,7 @@ if [[ "$ANS" == "yes" || "$ANS" == "YES" ]]; then
 		mv -v "${oldF}" "${newF}"
 	done
 else
-	printf "[E] no confirmation -- leaving\n\n"
+	printf "[e] no confirmation -- leaving\n\n"
 	exit 1
 fi
 

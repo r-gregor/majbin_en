@@ -5,11 +5,13 @@
 # last: 20261001
 # ---
 
+# === GLOBALS ===
 unset unixpath
 unset rest
 
+# === MAIN ===
 if [ $# -lt 1 ];
-	printf "[E] must supply unixpath and/or options\n"
+	printf "[e] must supply unixpath and/or options\n\n"
 	exit 1
 else
 	unixpath="$1"
@@ -18,4 +20,6 @@ else
 fi
 
 java -jar $(cygpath -w $(realpath "${unixpath}")) "${rest}"
+
+printf "\n"
 

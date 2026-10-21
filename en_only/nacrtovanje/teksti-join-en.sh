@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 # fname: teksti-join-en.sh
 # descpt: pdfjoin tekste into _TEKSTI
-pdf
 # 20261001 v1
 # last: 20261001
 # ---
@@ -13,7 +12,7 @@ else
 fi
 
 if [ -f "${OUTPUT}" ]; then
-	printf "[E] ${OUTPUT} already exists. Supply another filename as argumet\n"
+	printf "[e] ${OUTPUT} already exists -- supply another filename as argumet\n"
 	exit 1
 fi
 

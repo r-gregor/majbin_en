@@ -2,13 +2,15 @@
 # fname: pagesnum.sh
 # descpt: get number of pages in fname (approx: chars per line: 80)
 # 20261001 v1
-# last: 20261001
-# ---
+# 20261021
+# last: 20261021
 
+# === GLOBALS ===
 unset FJL
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
-    printf "[E] usage: pagesnum + <filename>\n\n"
+    printf "[e] usage: pagesnum + <filename>\n\n"
     exit 1
 else
 	FJL="$1"

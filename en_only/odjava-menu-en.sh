@@ -28,8 +28,10 @@ case "${choice}" in
 	;;
 
 	*)
-		printf "[E] not in the list\n"
+		printf "[e] not in the list\n\n"
 		exit 1
 	;;
 esac
+
+printf "\n"
 

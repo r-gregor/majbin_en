@@ -2,59 +2,54 @@
 # fname: geslo-spremeni-en.sh
 # descpt: change psswd-num in config files for sending mail cli
 # 20230523: conf data in ~/.SCRTS file
-# last: 20230523
+## 20261021
+# last: 20261021
 # ---
 
-# === globals ===
-gScrts="$HOME/.SCRTS_en"
-gTempd="$HOME/.tmp"
+printf "\n"
 
-if [[ ! -d "$gTempd" ]]; then
-	printf "[E] no such directory '%s'\n" "${gTempd}"
-	exit 1
-fi
+# === GLOBALS ===
+scrts_pth="$HOME/.SCRTS_en"
+tmpf_pth="$HOME/.tmp"
 
-# timestamp
-function gTms() {
-    printf "[ $(date +%Y%m%d_%H%M%S) ] "
-}
-
-gTms; printf "[i] starting $0"
-
-# creating backup files
-gTms; printf "[i] creating backupfiles ... "
-
-cp "${gScrts}" "${gTempd}/${gScrts}.bckp" 2> /dev/null
-
-printf "[i] done\n"
-
-gTms; printf "[i] checking for 'number' in password ...\n"
-
-getNum() {
-	num=$(grep 'PSSWD_SCRTS' "${gScrts}" | grep -oE "[[:digit:]]{3}")
+# === FUNCTIONS ===
+get_old_psswd_num() {
+	num=$(grep 'PSSWD_SCRTS' "${scrts_pth}" | grep -oE "[[:digit:]]{3}")
 	echo "$num"
 }
 
-gOldn=$(getNum "conf")
-NUM_O=$(getNum "py")
-printf "[i] old passwd number: %s\n\n" "$NUM_O"
-
-gTms; read -r -p "[?] enter NEW passwd num: " gNewn
-
-gTms; printf "[i] old passwd num is: '%s'\n" "${gOldn}"
-gTms; printf "[i] NEW passwd num is: '%s'\n" "${gNewn}"
-
-if [ -f "${gScrts}" ]; then
-    gTms; printf "[W] files exist. OK to continue ...\n"
-else
-    gTms; printf "[E] NO config files\n"
-    exit 1
+# === MAIN ===
+if [[ ! -d "$tmpf_pth" ]]; then
+	printf "[e] no such directory '%s'\n" "${tmpf_pth}"
+	exit 1
 fi
 
-gTms; read -r -p "[?] continue?"
+printf "[i] creating backupfiles ... \n"
+cp "${scrts_pth}" "${tmpf_pth}/${scrts_pth}.bckp" 2> /dev/null
+printf "[i] done\n"
 
-# ACTION
-gTms; printf "[i] teplacing old psswd in send_config_en.*: \n"
-sed -i "s/${gOldn}/${gNewn}/g" "${gScrts}"
-grep "${gNewn}" "${gScrts}"
+printf "[i] checking for 'number' in password ...\n"
+
+
+old_psswd_num=$(get_old_psswd_num "conf")
+NUM_O=$(get_old_psswd_num "py")
+printf "[i] old passwd number: %s\n\n" "$NUM_O"
+
+read -r -p "[?] enter NEW passwd num: " new_psswd_num
+
+printf "[i] old passwd num is: '%s'\n" "${old_psswd_num}"
+printf "[i] NEW passwd num is: '%s'\n" "${new_psswd_num}"
+
+if [ -f "${scrts_pth}" ]; then
+	printf "[!] files exist. OK to continue ...\n"
+else
+	printf "[e] no config files\n\n"
+	exit 1
+fi
+
+read -r -p "[?] continue?"
+
+printf "[i] replacing old psswd in send_config_en.*: \n"
+sed -i "s/${old_psswd_num}/${new_psswd_num}/g" "${scrts_pth}"
+grep "${new_psswd_num}" "${scrts_pth}"
 

@@ -2,12 +2,14 @@
 # fname: path-display.sh
 # descpt: displays full WINDOWS path of file as parameter
 # 20261001 v1
-# last: 20261001
-# ---
+# 20261021
+# last: 20261021
 
+# === GLOBALS ===
 unset fjlnm
 hmsg="usage: path-display <filename>"
 
+# === MAIN ===
 if [ $# -ne 1 ]; then
     printf "[E] ${hmsg}\n\n"
     exit 1
@@ -25,3 +27,4 @@ else
     exit 1
 fi
 
+printf "\n"

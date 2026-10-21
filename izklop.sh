@@ -5,27 +5,26 @@
 # last: 20261001
 # ---
 
-clear
-
-menu() {
-	cat <<PRINT-on-SCREEN
----------------------------------------
-1 - logout $USERNAME
-2 - reboot
-3 - shutdown
-N - back to 'zze'
----------------------------------------
-0 - exit
----------------------------------------
-PRINT-on-SCREEN
-}
-
+# === GLOBALS ===
 mznst=""
 
+
+# === FUNCTIONS ===
+menu() {
+	printf "---------------------------------------\n"
+	printf "1 - logout $USERNAME\n"
+	printf "2 - reboot\n"
+	printf "3 - shutdown\n"
+	printf "N - back to 'zze'\n"
+	printf "---------------------------------------\n"
+	printf "0 - exit\n"
+	printf "---------------------------------------\n"
+}
+
+
+# === MAIN ===
+clear
 while true; do
-
-	printf "\n"
-
 	menu
 	printf "[?] insert choice number/char: "
 	read -r mznst
@@ -51,7 +50,7 @@ while true; do
 			exit 0
 			;;
 		* )
-			printf "[E] choice not in the list\n"
+			printf "[e] choice not in the list\n"
 			read -r -p "[?] press any key to exit"
 			clear
 			exit 1

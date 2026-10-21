@@ -10,9 +10,10 @@
 # last: 20260917
 # ---
 
+
+# === GLOBALS ===
 unset fjls_lst
 unset selections
-
 declare -a fjls_lst
 declare -a selections
 
@@ -21,14 +22,11 @@ currdtstmp=$(date +"%Y%m%d")
 DEST="${HOME}/majstaf/majbin"
 VIM_CMD="/usr/bin/vim -M"
 
+# === FUNCTIONS ===
 usage() {
-cat << "EOF"
-
-	Usage: lvview-scripts-by-last-timestamp <datestamp>
-		<datestamp> format: YYYYmmdd ("20260520")
-                            at least YYYYmm
-
-EOF
+	printf "[!] usage: lvview-scripts-by-last-timestamp <datestamp>\n"
+	printf "           <datestamp> format: YYYYmmdd ("20260520")\n"
+    printf "                      at least YYYYmm\n\n"
 }
 
 FZFCMD_EN() {
@@ -50,7 +48,7 @@ load_files_into_list() {
 	done
 
 	if [ "${#fjls_lst[@]}" -eq 0 ]; then
-		printf "[E] no file with datestamp: '%s' found\n\n" "${dtstmp}"
+		printf "[e] no file with datestamp: '%s' found\n\n" "${dtstmp}"
 		exit 1
 	fi
 
@@ -78,14 +76,14 @@ main() {
 	done) | FZFCMD_EN)
 
 	if [ "${#selections[@]}" -eq 0 ]; then
-		printf "[E] nothing selected\n\n"
-		exit 1
+		printf "[!] nothing selected\n\n"
+		exit 0
 	fi
 
 	for selection1 in "${selections[@]}"; do
 		if [[ "${selection1}" == "Quit" ]]; then
-			printf "[E] nothing selected\n\n"
-			exit 1
+			printf "[!] nothing selected\n\n"
+			exit 0
 		fi
 	done
 
@@ -104,6 +102,8 @@ main() {
 }
 
 
-#MAIN
+# === MAIN ===
 main "$@"
+
+printf "\n"
 

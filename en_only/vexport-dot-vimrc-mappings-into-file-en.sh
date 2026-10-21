@@ -13,7 +13,7 @@ else
 fi
 
 if [ ! -d "${PREFIX}" ]; then
-	printf "[E] no such directory/dest: '%s'\n\n" "${PREFIX}"
+	printf "[e] no such directory/dest: '%s'\n\n" "${PREFIX}"
 	exit 1
 fi
 

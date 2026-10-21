@@ -2,16 +2,20 @@
 #! /usr/bin/env bash
 # fname: rewrapp-n.sh
 # descpt: converts documnet to linux lineendins format (dos2unix) and rewraps paragraphs to n-ciahrs width
-# 20261002 v1
-# last: 20261002
+# 20261021
+# last: 20261021
 # ---
+
+
+# === GLOBALS ===
 unset FAJL
 
+# === MAIN ===
 clear
 
 if [ $# -ne 2 ]; then
 	printf "\n"
-	printf "[E] usage: rewrapp-n <filename> [n]\n"
+	printf "[e] usage: rewrapp-n <filename> [n]\n"
 	printf "           filename ... file to rewrap\n"
 	printf "           n .......... number of chars per line\n"
 	printf "\n\n"
@@ -22,7 +26,7 @@ FAJL="${1}"
 CHRSPLINE="${2}"
 
 if [ ! -f "${FAJL}" ]; then
-	printf "[E] no such file: '%s'\n\n" "${FAJL}"
+	printf "[e] no such file: '%s'\n\n" "${FAJL}"
 	exit 1
 fi
 

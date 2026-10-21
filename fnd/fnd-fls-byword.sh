@@ -5,10 +5,12 @@
 # v2_20160819: added test if search pattern suplied as parameter to scritp, else ask for it ...
 # v3_20160819: change grep expression from "\b${WRD}\b" to "${WRD}\w*"
 #              (it searches fort the part of the word too)
+# 20261021
+# last: 20261021
 #---
 
+# === MAIN ===
 clear
-printf "[i] %s: find files containing the word\n" $(basename $0)
 
 if [ $# -eq 1 ]; then
 	WRD=$1
@@ -23,7 +25,9 @@ find -iname "*${WRD}*" 2>/dev/null | grep --color "\b${WRD}"
 if [ $? -eq 0 ]; then
 	printf "\n[i] done\n"
 else
-	printf "[E] something went wrong, or search pattern was not found ...\n"
+	printf "[e] something went wrong, or search pattern was not found ...\n\n"
 	exit 1
 fi
+
+printf "\n"
 
