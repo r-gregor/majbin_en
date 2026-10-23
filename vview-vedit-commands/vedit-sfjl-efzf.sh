@@ -31,3 +31,5 @@ for selection in "${selections[@]}"; do
 	printf "${HOME}/${selection} "
 done | xargs -ro ${vcmd}
 
+printf "\n"
+
