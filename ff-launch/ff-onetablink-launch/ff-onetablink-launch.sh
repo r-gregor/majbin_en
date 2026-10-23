@@ -26,7 +26,7 @@ ff_onetablink_launch() {
 
 	#v4
 	if [ "${selection}" == "" ]; then
-		printf "[i] nothing selected\n"
+		printf "[!] nothing selected\n\n"
 		exit 0
 	fi
 
@@ -36,7 +36,7 @@ ff_onetablink_launch() {
 
 	if [ "${selection}" == "Quit" ]; then
 		if [ "${num_selected}" -eq 0 ]; then
-			printf "[i] nothing selected\n"
+			printf "[!] nothing selected\n\n"
 		fi
 		printf "\n"
 		exit 0
