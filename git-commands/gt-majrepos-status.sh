@@ -49,7 +49,7 @@ printf "========================================\n"
 printf "[i] running gt-status ...\n"
 printf "========================================\n"
 cd ~/majstaf/${HST}git/
-for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
+for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}.git"); do
 	cd "$DDD" &> /dev/null
 
 	get_status "/usr/bin/git"
@@ -57,8 +57,8 @@ for DDD in $(find * -maxdepth 0 -type d | grep -v "vlpprs_${HST}"); do
 done
 
 # volpejpers
-DDD="vlpprs_${HST}"
-VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}"
+DDD="vlpprs_${HST}.git"
+VOLGITDIR="${HOME}/majstaf/${HST}git/vlpprs_${HST}.git"
 VOLWORKTREE="${HOME}/majstaf/majvolpejpers"
 get_status "/usr/bin/git --git-dir=${VOLGITDIR} --work-tree=${VOLWORKTREE}"
 
