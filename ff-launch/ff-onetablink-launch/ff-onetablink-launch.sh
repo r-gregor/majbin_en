@@ -47,7 +47,8 @@ ff_onetablink_launch() {
 	for URL in "${!llist[@]}"; do
 		if [[ "${llist["${URL}"]}" =~ "${selection}" ]]; then #v8
 			printf "[i] selected: %s\n" "${selection}" #v4
-			(nohup ${FFCMD} -- "${URL}" &) > /dev/null 2>&1
+			cygstart "${FFCMD}" "${URL}"
+			# (nohup ${FFCMD} -- "${URL}" &) > /dev/null 2>&1
 			((num_selected++))
 		fi
 	done
