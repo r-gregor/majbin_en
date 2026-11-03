@@ -17,14 +17,14 @@ CURRDIR="$PWD"
 
 unset msg
 unset report
-unset output
+# unset output
 report=()
 > $TESTING_STATUS_REPORTS
 
 get_status() {
 	cmd="$1"
 	output=()
-	readarray -t -O "${#output[@]}" output < <("${cmd}" status)
+	readarray -t -O "${#output[@]}" output < <(${cmd} status)
 	echo "${output[@]}" | grep -i "git push\|untracked\|modified\|deleted" > /dev/null
 
 	if [[ $? -ne 0 ]]; then
@@ -34,12 +34,13 @@ get_status() {
 		printf -- "---\n"
 		printf "${COLOR_SET}"
 		msg=$(printf "[!] checking git status in ${DDD} ... NEED TO ADD and/or COMMIT\n")
-		printf "$msg"
+		printf "$msg\n"
 		printf "${COLOR_RESET}"
+
 		readarray -t -O "${#report[@]}" report < <(echo -e "$msg")
 
 		for (( i=0; i<${#output[@]}; i++ )); do
-			printf ">\t${output[$i]}"
+			echo -e ">\t${output[$i]}"
 		done
 
 		printf -- "---\n"
