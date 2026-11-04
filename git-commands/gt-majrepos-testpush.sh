@@ -35,14 +35,14 @@ for DDD in $(find * -maxdepth 0 -type d); do
 	printf "${COLOR_RESET}"
 	cd "$DDD" &>/dev/null
 	readarray -t output < <(~/.local/bin/gt-all-remotes-testpush )
-	for (( i=0; i<${#output[@]}; i++)); do
-		if [[ "${output[$i]}" =~ "PULL" ]]; then
+	for LINE in "${output[@]}"; do
+		if [[ "${LINE}" =~ "PULL" ]]; then
 			msg="$(printf "[!] git testpush in: ${DDD} ... NEED TO PULL FROM REMOTE\n")"
-			readarray -t -O "${#report[@]}" report < <(echo -e "$msg")
-			printf "${output[$i]}\n"
+			readarray -t report < <(echo -e "$msg")
+			printf "${LINE}\n"
 			break
 		else
-			printf "${output[$i]}\n"
+			printf "${LINE}\n"
 		fi
 	done
 	cd ..

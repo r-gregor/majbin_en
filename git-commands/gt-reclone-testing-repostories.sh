@@ -116,7 +116,7 @@ if ((C + G + J + N + P + R + Z  > 1)); then
 	exit 1
 fi
 
-[[ $A == 1 ]] && git_reclone c c
+[[ $C == 1 ]] && git_reclone c c
 [[ $G == 1 ]] && git_reclone go g
 [[ $J == 1 ]] && git_reclone java j
 [[ $N == 1 ]] && git_reclone ncurses n

@@ -11,8 +11,7 @@ rmts=( $(git remote) )
 COLOR_RED="\e[1;92m"
 COLOR_RESET="\e[0m"
 
-for rmt in "${rmts[@]}"
-do
+for rmt in "${rmts[@]}"; do
 	printf "[i] git testpush in: $(git remote get-url ${rmt}) ..."
 	output=$(/usr/bin/git push --dry-run "${rmt}" main 2>&1)
 	echo "$output" | grep 'reject\|pull' &> /dev/null
