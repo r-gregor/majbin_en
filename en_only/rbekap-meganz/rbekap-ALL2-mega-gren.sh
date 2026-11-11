@@ -20,7 +20,7 @@ declare -a DESTS=("/c/Users/gregor.redelonghi/${CURRYR}/_${CURRYR}_1_PROJEKTI" \
 # === MAIN ===
 printf "[i] running ALL backup/sync to 'MEGA.nz (mega_gren)'\n"
 rbekap-BOOKMARKS-sync-mega-gren -y; echo "---" && \
-rbekap-DOWNLOADS-copy-mega-gren -y; echo "---" && \
+rbekap-DOWNLOADS-sync-mega-gren -y; echo "---" && \
 rbekap-H-PODLOGE-sync-mega-gren -y; echo "---" && \
 rbekap-PROJEKTI-sync-mega-gren -y; echo "---" && \
 rbekap-SCRIPTS-sync-mega-gren -y; echo "---" && \
