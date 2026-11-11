@@ -18,7 +18,8 @@ declare -A fb_files=()
 
 # === FUNCTIONS ===
 FZFCMD() {
-	fzf -e --reverse
+	# fzf -e --reverse
+	fzf -e --reverse --height=50% --border=rounded
 }
 
 fb_files_list_update() {

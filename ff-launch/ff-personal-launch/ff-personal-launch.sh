@@ -23,7 +23,8 @@ declare -A URLS
 
 # === FUNCTIONS ===
 FZFCMD() {
-	fzf -e --reverse
+	# fzf -e --reverse
+	fzf -e --reverse --height=50% --border=rounded
 }
 
 load_links_into_array() {

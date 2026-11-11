@@ -19,7 +19,8 @@ usage() {
 }
 
 FZFCMD() {
-	fzf -e --reverse
+	# fzf -e --reverse
+	fzf -e --reverse --height=50% --border=rounded
 }
 
 ff_onetablink_launch() {

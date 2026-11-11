@@ -18,7 +18,7 @@ declare -A checkout_files
 
 # === FUNCTIONS ===
 FZFCMD() {
-	fzf -e --reverse
+	fzf -e --reverse --height=50% --border=rounded
 }
 
 ff_checkout_launch() {

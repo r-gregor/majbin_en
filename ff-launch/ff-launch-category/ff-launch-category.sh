@@ -15,7 +15,8 @@ num_selected=0
 
 # === FUNCTIONS ===
 FZFCMD() {
-	fzf -e --reverse
+	# fzf -e --reverse
+	fzf -e --reverse --height=50% --border=rounded
 }
 
 ff_launch() {
