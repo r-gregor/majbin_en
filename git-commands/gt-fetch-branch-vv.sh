@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# fname: gt-fbv.sh
+# fname: gt-fetch-branch-vv.sh
 # descpt: 'git fetch' and 'git branch -v -v' command to se if HEAD behind/ahead the remote
 # 20261109 v1
 # last: 20261109
