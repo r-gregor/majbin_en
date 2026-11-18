@@ -1,16 +1,15 @@
 #! /usr/bin/env bash
-# fname: capitalize-string.sh
+# fname: capitalize-and-sort-string.sh
 # descpt: much faster capitalize_string() function
 #         no need for external call to 'tr' for each string
-# 20261106 v1
-# last: 20261106
+# 20261118 v2
+# last: 20261118
 # ---
 
 
 # === GLOBALS ===
 dsvm_mvs_pth="${HOME}/majstaf/${HST}git/prenos/seivom/_DSVM.txt"
 chk_mvs_pth="${HOME}/majstaf/majmedia/MOVIES_CHECKOUT.txt"
-LINE2="TADEJA MALI REDELONGHI"
 unset movies_list
 declare -a movies_list
 
@@ -35,7 +34,7 @@ capitalize_string() {
 }
 
 # === MAIN ===
-while read LINE3; do
+while read -r LINE3; do
 	capitalize_string "$LINE3"
 done < <(cat "${chk_mvs_pth}" | tr '[:upper:]' '[:lower:]' | sed 's/ ([0-9]\{4\})//' | sort | uniq);
 
