@@ -22,11 +22,11 @@ fi
 
 printf "[i] selected:\n"
 for selection in "${selections[@]}"; do
-	printf "%s\n" "${HOME}/${selection}"
+	printf "%s\n" "${HOME}/${selection//\\/\/}"
 done
 
 for selection in "${selections[@]}"; do
-	printf "${HOME}/${selection} "
+	printf "${HOME}/${selection//\\/\/} "
 done | xargs -ro ${vcmd}
 
 printf "\n"

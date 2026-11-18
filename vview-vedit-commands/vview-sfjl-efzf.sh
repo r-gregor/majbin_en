@@ -27,7 +27,7 @@ for selection in "${selections[@]}"; do
 done
 
 for selection in "${selections[@]}"; do
-	printf "${HOME}/${selection} "
+	printf "${HOME}/${selection//\\/\/} "
 done | xargs -ro ${vcmd}
 
 printf "\n"
