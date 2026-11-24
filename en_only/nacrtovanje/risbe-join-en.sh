@@ -17,4 +17,4 @@ if [ -f "${OUTPUT}" ]; then
 fi
 
 FJLS=$(ls -1 0*.pdf)
-
+java -jar $(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/pdftk-all.jar") $(echo "${FJLS}" |tr '\n' ' ') cat output "${OUTPUT}"

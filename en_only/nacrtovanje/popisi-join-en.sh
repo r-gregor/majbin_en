@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+# fname: popisi-join-en.sh
+# descpt: pdfjoin popisi into _POPISI
+# 20261001 v1
+# last: 20261001
+# ---
+
+if [ $# -eq 1 ]; then
+	OUTPUT="$1"
+else
+	OUTPUT="_POPISI.pdf"
+fi
+
+if [ -f "${OUTPUT}" ]; then
+	printf "[e] ${OUTPUT} already exists -- supply another filename as argumet\n"
+	exit 1
+fi
+
+FJLS=$(ls -1 0*.pdf)
+java -jar $(cygpath -w "/c/Users/gregor.redelonghi/majstaf_en/majprogs_en/pdftk-all.jar") $(echo "${FJLS}" |tr '\n' ' ') cat output "${OUTPUT}"
+
